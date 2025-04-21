@@ -1,0 +1,63 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+\begin{UseCase}{CU-12}{Consultar alumno mediante código QR de la credencial}{
+		Este caso de uso permite al personal de seguridad consultar la información de un alumno mediante el escaneo del código QR de su credencial.
+	}
+	\UCitem{Versión}{\color{Gray}1.0}
+	\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
+	\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín}
+	\UCitem{Actor}{\hyperlink{Personal de Seguridad}{Personal de Seguridad}}
+	\UCitem{Propósito}{Permitir al personal de seguridad acceder a la información del alumno mediante el escaneo del código QR de su credencial.}
+	\UCitem{Entradas}{Código QR de la credencial del alumno.}
+	\UCitem{Origen}{Cámara de escaneo de QR}
+	\UCitem{Salidas}{Información del alumno}
+	\UCitem{Destino}{\IUref{IU11}{Pantalla Credencial del alumno}}
+	\UCitem{Precondiciones}{El sistema debe tener conectividad con la base de datos y el personal de seguridad debe estar autenticado en el sistema.}
+	\UCitem{Postcondiciones}{El personal de seguridad ha consultado la información del alumno mediante el código QR de su credencial.}
+	\UCitem{Errores}{
+			E1: El código QR es ilegible y se muestra el mensaje {\bf MSG-19}{``Código QR ilegible. Intente nuevamente.''}
+			
+			E2: El sistema no puede recuperar la información del alumno y se muestra el mensaje {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+			
+			E3: No existe un alumno registrado con el código QR escaneado y se muestra el mensaje  {\bf MSG-20}{``Alumno no registrado. Verifique el código QR o intente nuevamente.''}
+			}
+	\UCitem{Tipo}{Se entiende del CU01 Iniciar sesión de personal escolar móvil }
+	\UCitem{Observaciones}{Este caso de uso es esencial para validar la identidad de los alumnos al acceder a las instalaciones.}
+\end{UseCase}
+
+%--------------------------------------
+\begin{UCtrayectoria}
+	\UCpaso[\UCactor] El personal de seguridad accede a la \IUref{IUE02}{Pantalla de saludo del personal de seguridad} después de haber iniciado sesión.
+	\UCpaso[\UCactor] El personal de seguridad selecciona la opción \IUbutton{Escanear credencial}.
+	\UCpaso El sistema ctiva la cámara para capturar el código QR de la credencial \IUref{IU10}{Pantalla Código QR}.
+	\UCpaso El sistema verifica el código QR y busca en la base de datos la información del alumno. \Trayref{A}.
+	\UCpaso Despliega la información del alumno en la \IUref{IU11}{Pantalla Credencial del alumno}.
+\end{UCtrayectoria}
+%--------------------------------------        
+\begin{UCtrayectoriaA}{A}{Alumno no registrado}
+	\UCpaso El sistema muestra un mensaje: {\bf MSG-20}{``Alumno no registrado. Verifique el código QR o intente nuevamente.''}
+	\UCpaso[\UCactor] El personal de seguridad presiona el botón \IUbutton{Regresar} para intentar un nuevo escaneo o regresar a la pantalla anterior.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%--------------------------------------        
+\begin{UCtrayectoriaA}{B}{Código QR ilegible}
+	\UCpaso El sistema muestra un mensaje: {\bf MSG-19}{``Código QR ilegible. Intente nuevamente.''}
+	\UCpaso[\UCactor] El personal de seguridad presiona el botón \IUbutton{Aceptar} para cerrar el mensaje y puede intentar escanear nuevamente el QR de la credencial.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%--------------------------------------        
+\begin{UCtrayectoriaA}{C}{Error de conexión con la base de datos}
+	\UCpaso El sistema muestra un mensaje de error: {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+	\UCpaso[\UCactor] El personal de seguridad presiona el botón \IUbutton{Aceptar} para cerrar el mensaje y puede intentar la consulta nuevamente.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%-------------------------------------- TERMINA descripción del caso de uso.

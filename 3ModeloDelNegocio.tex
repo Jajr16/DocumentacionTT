@@ -1,0 +1,351 @@
+\section{Modelo del Negocio}	
+\label{cap:reqSist}
+
+	En está sección se modela la {\em Arquitectura del negocio} la cual está conformada por la Ontología del negocio ({\em Términos} y {\em Hechos del negocio}), Arquitectura de procesos y las {\em Reglas del negocio}. Primero se especifica brevemente el {\em Contexto} en el que los términos tienen significado.
+		
+	En las sección \ref{sec:terminosDeNegocio} se presentan los Términos del negocio a manera de Glosario y por último se presentan los Hechos del negocio a manera de relaciones entre términos del negocio.
+
+
+%----------------------------------------------------------
+\subsection{Contexto}
+
+	El presente documento se desarrolla en el ámbito escolar dentro de una \hyperlink{tUnidadAcademica}{unidad académica}, en este caso, ESCOM (Escuela Superior de Cómputo). Dentro de esta \hyperlink{tUnidadAcademica}{unidad académica}, existen diferentes actores, como lo son, el \hyperlink{tPersonalSeguridad}{personal de seguridad}, el \hyperlink{tAlumno}{alumnado} y el \hyperlink{tPersonalAcademico}{personal académico}. Juntos desempeñan diferentes tareas que tienen que ver con el ámbito escolar, en este contexto, nos vamos a enfocar al proceso de ingreso del \hyperlink{tAlumno}{alumnado} a la \hyperlink{tUnidadAcademica}{unidad académica} durante el periodo de \hyperlink{tETS}{ETS}.
+	
+	El proceso que se lleva hasta ahora para poder realizar un \hyperlink{tETS}{ETS} es a través de la página escolar (\hyperlink{tSAES}{SAES}) de la \hyperlink{tUnidadAcademica}{unidad académica} a la que el \hyperlink{tAlumno}{alumno} pertenece. Una vez hecho esto, el \hyperlink{tAlumno}{alumno} debe de esperar al día de aplicación del \hyperlink{tETS}{ETS}, para poder presentarse a realizar el mismo.
+	
+	Actualmente, el \hyperlink{tAlumno}{alumnado} puede entrar a la \hyperlink{tUnidadAcademica}{unidad académica} mayormente sin alguna prueba de que van a realizar un \hyperlink{tETS}{ETS}, y ya en el salón de aplicación del \hyperlink{tETS}{ETS} les piden la credencial para saber si son quien dicen ser. Sin embargo, este proceso depende de cada docente, por lo que puede llegar a fallar y también, es muy propenso al fallo humano.
+	
+	Por esto, se propone un sistema que ayude a realizar el proceso de ingreso a la \hyperlink{tUnidadAcademica}{unidad académica}, por medio de un  \hyperlink{tControlAcceso}{control de acceso} que se apoye con un \hyperlink{tSistemaVerificacion}{Sistema de verificación de identidad}, o bien por medio del escanéo del \hyperlink{tCodigoQR}{código QR} que tiene la \hyperlink{tCredencialEscolar}{credencial escolar} en la parte trasera de la misma. 
+	
+%---------------------------------------------------------
+\subsection{Términos del Negocio}
+\label{sec:terminosDeNegocio}
+
+\begin{description}
+	% Ejemplo de un término literal.
+	 \item[\hypertarget{tUnidadAcademica}{Unidad académica:}] Se refiere a la institución educativa en donde los usuarios se desenvuelven diariamente.
+	
+	\item[\hypertarget{tUnidadAprendizaje}{Unidad de aprendizaje:}] Son los elementos que componen un plan de estudios de alguna de las carreras ofertadas en la \hyperlink{tUnidadAcademica}{unidad académica}. Es necesario que los alumnos acrediten todas sus materias para continuar con su formación académica.
+	
+	\item[\hypertarget{tETS}{Exámen a Título de Suficiencia (ETS):}] Prueba final que permite a los alumnos acreditar una materia reprobada, y para la cual se requiere verificación de identidad.
+	
+	\item[\hypertarget{tAlumno}{Alumno:}] (es un tipo de Usuario) Se refiere a las personas inscritas dentro de algún plan de estudios ofertado en la \hyperlink{tUnidadAcademica}{unidad académica}.
+	
+	\item[\hypertarget{tPersonalAcademico}{Personal Académico:}] (es un tipo de Usuario) Se refiere a las personas registradas como trabajadores dentro de una unidad académica. Estos elaboran diferentes tipos de tareas dependiendo del rol o del cargo que tengan.
+	
+	\item[\hypertarget{tPersonalSeguridad}{Personal de seguridad:}] (es un tipo de Usuario) Se refiere a las personas registradas como trabajadores y que permiten o no el acceso a la \hyperlink{tUnidadAcademica}{unidad académica}.
+	
+	\item[\hypertarget{tCodigoQR}{Código QR:}] Código único generado por el sistema que permite resolver tareas de control de acceso a las instalaciones y a servicios de autenticación.
+	
+	\item[\hypertarget{tSistemaVerificacion}{Sistema de verificación de la identidad:}] Conjunto de procesos que permiten validar la identidad de los alumnos que buscan aplicar un ETS.
+	
+	\item[\hypertarget{tCredencialEscolar}{Credencial escolar:}] Documento con datos de identificación que pueden usarse junto a los registros de inscripción a ETS para permitir o no el acceso a la \hyperlink{tUnidadAcademica}{unidad académica}.
+	
+	\item[\hypertarget{tControlAcceso}{Control de acceso:}] Sistema implementado para verificar y autorizar el acceso a la \hyperlink{tUnidadAcademica}{unidad académica}.
+	
+	\item[\hypertarget{tRegistroAcceso}{Registro de acceso:}] Historial digital que documenta los accesos permitidos y denegados, incluyendo datos de cada intento de entrada para consulta posterior.
+	
+	\item[\hypertarget{tSAES}{SAES:}] Herramienta informática que utiliza el Instituto Politécnico Nacional (IPN) para pode controlar toda la información académica de cada estudiante.
+	
+%	\brTermSensor{tVelocimetro}{Velocímetro:}{Velocidad de un Vehículo.}{Kilometros/hora.}{Constantemente siempre que el \cdtRef{tVehiculo}{vehículo} esté encendido.}
+\end{description}
+%---------------------------------------------------------
+
+
+\subsection{Modelo del dominio del problema}
+\label{sec:modeloDeDominioP}
+
+El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDominio}, a continuación se describen cada una de las entidades.
+
+\newpage
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[angle=90,width=.80\textwidth]{images/DER}
+		\caption{Modelo del dominio del problema}
+		\label{fig:modeloDeDominio}
+	\end{center}
+\end{figure}
+
+%---------------------------------------------------------
+\begin{cdtEntidad}{Unidad academica}{Unidad academica}
+	\brAttr{Id\_escuela}{Id\_escuela}{integer}{Número de registro usado para identificar a la escuela.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar}
+	{Nombre de la escuela}{Sí}
+%	\brAttr{ubicacion}{Ubicación}{Frase}
+%	{Ubicación en la que se encuentra la escuela.}{Sí}
+%	\brAttr{telefono}{Teléfono}{Teléfono}
+%	{Teléfono para contactar a la escuela.}{Si}
+%- - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+	% \brRelComposition \brRelAgregation
+%	\cdtEntityRelSection
+%	\brRel{}{Programa\_académico}{ \hyperlink{Unidad academica}{Unidad académica} está compuesto por un \hyperlink{PA}{Programa académico}}	
+%	\brRel{}{Persona}{Una \hyperlink{Persona}{Persona} pertenece a \hyperlink{Unidad academica}{Unidad academica}}	
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{EscuelaPrograma}{Escuela\_Programa}
+	\brAttr{Id\_Escuela}{Id\_Escuela}{integer}{Número de registro usado para identificar a la escuela.}{Sí}
+	\brAttr{Id\_PA}{Id\_PA}{varchar}
+	{Identificación del programa académico que imparte la Unidad académica.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{PA}{Programa\_academico}
+	\brAttr{Id\_PA}{Id\_PA}{varchar}{Número de registro usado para identificar al programa académico.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar}
+	{Nombre del programa académico}{Sí}
+	\brAttr{descripcion}{Descripción}{varchar}
+	{Descripción que habla sobre el programa académico.}{Sí}
+%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%	\cdtEntityRelSection
+%	\brRel{}{Unidad\_aprendizaje}{Un \hyperlink{PA}{Programa academico} está compuesto por una \hyperlink{UA}{Unidad de aprendizaje}}	
+%	\brRel{}{Unidad academica}{Una \hyperlink{Unidad academica}{Unidad academica} está compuesta por un \hyperlink{PA}{Programa académico}}	
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{Persona}{Persona}
+	\brAttr{CURP}{CURP}{Id}{Código usado para identificar a las personas.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar}
+	{Nombre(s) de la persona.}{Sí}
+	\brAttr{ApellidoP}{Apellido\_P}{varchar}
+	{Apellido paterno de la persona.}{Sí}
+	\brAttr{ApellidoM}{Apellido\_M}{varchar}
+	{Apellido materno de la persona.}{Sí}
+	\brAttr{sexo}{Sexo}{integer}
+	{Letra que servirá para identificar el sexo de un alumno ('M' para masculino, 'F' para femenino).}{Sí}
+	\brAttr{Id\_escuela}{Id\_escuela}{integer}
+	{Id de la escuela a la que pertenece la persona.}{Si}
+	%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%	\cdtEntityRelSection
+%	\brRel{}{Unidad academica}{Una \hyperlink{Persona}{Persona} pertenece a una \hyperlink{Unidad academica}{Unidad academica}}	
+%	\brRel{}{Docente}{Una \hyperlink{Persona}{Persona} es un \hyperlink{Docente}{Docente}}	
+%	\brRel{}{Personal\_Seguridad}{Una \hyperlink{Persona}{Persona} es un \hyperlink{PS}{Personal de seguridad}}
+%	\brRel{}{Alumno}{Una \hyperlink{Persona}{Persona} es un  \hyperlink{Alumno}{Alumno}}
+%	\brRel{}{Usuario}{Una \hyperlink{Persona}{Persona} cuenta con un \hyperlink{Usuario}{Usuario}}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{PersonalAcademico}{Personal académico}
+	\brAttr{CURP}{CURP}{varchar}{Código usado para identificar a las personas.}{Sí}
+	\brAttr{RFC}{RFC}{varchar}
+	{RFC que identifica al personal académico.}{Sí}
+	\brAttr{CorreoI}{CorreoI}{varchar}
+	{Correo institucional del personal académico.}{Sí}
+	\brAttr{TipoPA}{TipoPA}{integer}{Número que identifica que tipo de personal académico es, ya sea, por ejemplo, un docente o personal de gestión escolar.}{Sí}
+	%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%	\cdtEntityRelSection
+%	\brRel{}{CargoDocente}{Un \hyperlink{PersonalAcademico}{personal académico} puede ser un \hyperlink{CargoDocente}{Docente}}
+%	\brRel{}{ETS}{Un \hyperlink{PersonalAcademico}{Docente} \hyperlink{Aplica}{Aplica} un \hyperlink{ETS}{ETS}}
+%	\brRel{}{Persona}{Un \hyperlink{PersonalAcademico}{personal académico} es una \hyperlink{Persona}{Persona}}
+%	\brRel{}{tipoPersonal}{Un \hyperlink{PersonalAcademico}{personal académico} tiene asignado un \hyperlink{Cargo}{Cargo}}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{tipoPA}{tipoPersonal}
+	\brAttr{TipoPA}{TipoPA}{integer}
+	{Número que identifica que tipo de personal académico es la persona.}{Sí}
+	\brAttr{Cargo}{Cargo}{varchar}{Nombre del tipo de personal académico que tendrá la persona.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{CargoDocente}{CargoDocente}
+	\brAttr{RFC}{RFC}{varchar}
+	{RFC que identifica al Docente.}{Sí}
+	\brAttr{IdCargo}{IdCargo}{integer}{Código usado para identificar un cargo dentro de la escuela.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{Cargo}{Cargo}
+	\brAttr{IdCargo}{IdCargo}{integer}{Código usado para identificar un cargo dentro de la escuela.}{Sí}
+	\brAttr{Cargo}{Cargo}{varchar}
+	{Nombre del cargo existente dentro de la institución escolar.}{Sí}
+	%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%	\cdtEntityRelSection
+%	\brRel{}{CargoDocente}{Un \hyperlink{Cargo}{Cargo} es asignado a un \hyperlink{PersonalAcademico}{Docente}}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{PS}{Personal\_Seguridad}
+	\brAttr{CURP}{CURP}{varchar}{Código usado para identificar a las personas.}{Sí}
+	\brAttr{Turno}{Turno}{integer}
+	{Letra usada identificar el turno en el que se aplica el ETS ('M' para matutino, 'V' para vespertino).}{Sí}
+	\brAttr{Cargo}{Cargo}{integer}
+	{Nombre del cargo del personal de seguridad.}{Sí}
+	%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	\cdtEntityRelSection
+	\brRel{}{Persona}{Un \hyperlink{PS}{Personal de seguridad} es una \hyperlink{Persona}{Persona}}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{CargoPS}{CargoPS}
+	\brAttr{Id\_Cargo}{Id\_Cargo}{integer}{Código usado para identificar el cargo que tiene el personal de seguridad.}{Sí}
+	\brAttr{Cargo}{Cargo}{varchar}
+	{Nombre del cargo del personal de seguridad.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{Alumno}{Alumno}
+	\brAttr{Boleta}{Boleta}{varchar}
+	{Código usado para identificar al alumnado de la institución}{Sí}
+	\brAttr{CURP}{CURP}{varchar}{Código usado para identificar a las personas.}{Sí}
+	\brAttr{CorreoI}{CorreoI}{varchar}
+	{Correo institucional del alumno.}{Sí}
+	\brAttr{Id\_PA}{Id\_PA}{varchar}
+	{Identificación del programa académico al que pertenece el alumno.}{Sí}
+	\brAttr{ImagenCredencial}{ImagenCredencial}{varchar}
+	{Ruta de donde está guardada la imagen de la credencial del alumno.}{Sí}
+	%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%	\cdtEntityRelSection
+%	\brRel{}{Persona}{Un \hyperlink{Alumno}{Alumno} es una \hyperlink{Persona}{Persona}}
+%	\brRel{}{ETS}{Un \hyperlink{Alumno}{Alumno} tiene una \hyperlink{InscripcionETS}{inscripción} a un \hyperlink{ETS}{ETS}}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{Usuario}{Usuario}
+	\brAttr{Usuario}{Usuario}{varchar}{Nombre de usuario asignado a una persona dentro del sistema.}{Sí}
+	\brAttr{Password}{Password}{varchar}
+	{Contraseña ligada al usuario de una persona registrada dentro del sistema.}{Sí}
+	\brAttr{TipoU}{TipoU}{integer}
+	{Número que identificará a los tipos de usuario registrados dentro del sistema.}{Sí}
+	\brAttr{CURP}{CURP}{varchar}
+	{Código usado para identificar a las personas.}{Sí}
+	%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%	\cdtEntityRelSection
+%	\brRel{}{Persona}{Un \hyperlink{Usuario}{Usuario} es asignado a una \hyperlink{Persona}{Persona}}
+%	\brRel{}{Tipo\_Usuario}{Un \hyperlink{Usuario}{Usuario} tiene un \hyperlink{TU}{Tipo de usuario}}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{TU}{Tipo\_Usuario}
+	\brAttr{Id\_TU}{Id\_TU}{integer}
+	{RFC que identifica al personal académico.}{Sí}
+	\brAttr{Tipo}{Tipo}{varchar}{Frase que definirá el tipo de usuario que tienen las personas.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{ETS}{ETS}
+	\brAttr{Id\_ETS}{Id\_ETS}{integer}{Número usado para identificar los diferentes ETS registrados.}{Sí}
+	\brAttr{Id\_periodo}{Id\_periodo}{integer}
+	{Número usado para identificar el periodo en el que se realiza el ETS.}{Sí}
+	\brAttr{Turno}{Turno}{integer}
+	{Letra usada identificar el turno en el que se aplica el ETS ('M' para matutino, 'V' para vespertino).}{Sí}
+	\brAttr{Fecha}{Fecha}{datetime}
+	{Fecha y hora en la que se realizará el ETS.}{Sí}
+	\brAttr{Cupo}{Cupo}{integer}
+	{Número de personas permitidas a realizar el ETS.}{Sí}
+	\brAttr{Id\_UA}{Id\_UA}{varchar}
+	{Identificación de la Unidad de aprendizaje del ETS.}{Sí}
+	\brAttr{Duracion}{Duracion}{integer}
+	{Duración en horas del ETS.}{Sí}
+	%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%	\cdtEntityRelSection
+%	\brRel{}{periodo\_ETS}{Un \hyperlink{ETS}{ETS} se realiza un en \hyperlink{PETS}{periodo}}
+%	\brRel{}{Alumno}{En un \hyperlink{ETS}{ETS} está \hyperlink{InscripcionETS}{inscrito} un \hyperlink{Alumno}{Alumno}}
+%	\brRel{}{Personal academico}{Un \hyperlink{ETS}{ETS} es \hyperlink{Aplica}{aplicado} por un \hyperlink{PersonalAcademico}{Docente}}
+%	\brRel{}{Salon}{A un \hyperlink{ETS}{ETS} le \hyperlink{SalonETS}{corresponde} un \hyperlink{Salon}{Salón}}
+%	\brRel{}{Unidad\_Aprendizaje}{Un \hyperlink{ETS}{ETS} \hyperlink{ETSUA}{es de} una \hyperlink{UA}{Unidad de Aprendizaje}.}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{PETS}{periodo\_ETS}
+	\brAttr{Id\_periodo}{Id\_periodo}{integer}{Número usado para identificar el periodo en el que se realizarán los ETS registrados.}{Sí}
+	\brAttr{Periodo}{Periodo}{varchar}
+	{Periodo registrado en el que se realizarán los ETS.}{Sí}
+	\brAttr{Tipo}{Tipo}{varchar}
+	{Letra usada identificar el tipo de los ETS que se aplicarán ('O' para ordinario, 'E' para especial).}{Sí}
+	\brAttr{Fecha\_Inicio}{Fecha\_Inicio}{date}
+	{Fecha en la que iniciará el periodo de los ETS.}{Sí}
+	\brAttr{Fecha\_Fin}{Fecha\_Fin}{date}
+	{Fecha en la que terminará el periodo de los ETS.}{Sí}
+	%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%	\cdtEntityRelSection
+%	\brRel{}{ETS}{En un \hyperlink{PETS}{periodo de ETS} se realizan los \hyperlink{ETS}{ETS}.}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{Aplica}{Aplica}
+	\brAttr{Id\_ETS}{Id\_ETS}{integer}{Número usado para identificar los diferentes ETS registrados.}{Sí}
+	\brAttr{DocenteRFC}{DocenteRFC}{varchar}
+	{RFC que identifica al Docente.}{Sí}
+	\brAttr{Titular}{Titular}{tinyint}
+	{Booleano que identificará si el profesor que aplicará el ETS es el titular o es un ayudante.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{InscripcionETS}{InscripcionETS}
+	\brAttr{Boleta}{Boleta}{varchar}
+	{Código usado para identificar al alumnado de la institución}{Sí}
+	\brAttr{Id\_ETS}{Id\_ETS}{integer}{Número usado para identificar los diferentes ETS registrados.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{SalonETS}{SalonETS}
+	\brAttr{Num\_Salon}{Num\_Salon}{integer}
+	{Número usado para identificar al salón en el que se aplicará un ETS.}{Sí}
+	\brAttr{Id\_ETS}{Id\_ETS}{integer}{Número usado para identificar los diferentes ETS registrados.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{Salon}{Salon}
+	\brAttr{Num\_Salon}{Num\_Salon}{integer}
+	{Número usado para identificar el salón en el que se aplicará un ETS.}{Sí}
+	\brAttr{Edificio}{Edificio}{integer}
+	{Número usado para identificar el edificio en el que se realizará el ETS.}{Sí}
+	\brAttr{Piso}{Piso}{integer}
+	{Número usado para identificar el piso del edificio en el que se realizará el ETS.}{Sí}
+	\brAttr{TipoSalon}{integer}{Id}
+	{Identificación del tipo de salón en el que se va a aplicar el ETS.}{Sí}
+	%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%	\cdtEntityRelSection
+%	\brRel{}{ETS}{Un \hyperlink{Salon}{Salon} es \hyperlink{SalonETS}{ocupado} para llevar a cabo un \hyperlink{ETS}{ETS}.}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{TipoSalon}{TipoSalon}
+	\brAttr{Num\_Salon}{Num\_Salon}{integer}
+	{Número usado para identificar el salón en el que se aplicará un ETS.}{Sí}
+	\brAttr{Tipo}{Tipo}{varchar}
+	{Frase indicando el tipo de salón en el que se aplicará el ETS.}{Sí}
+	%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	%	\cdtEntityRelSection
+	%	\brRel{}{ETS}{Un \hyperlink{Salon}{Salon} es \hyperlink{SalonETS}{ocupado} para llevar a cabo un \hyperlink{ETS}{ETS}.}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{UA}{Unidad\_aprendizaje}
+	\brAttr{Id\_UA}{Id\_UA}{varchar}
+	{Identificación de la Unidad de Aprendizaje.}{Sí}
+	\brAttr{Nombre}{Nombre}{varchar}
+	{Nombre de la unidad de aprendizaje.}{Sí}
+	\brAttr{Descripcion}{Descripcion}{varchar}
+	{Descripción pequeña de lo que trata la unidad de aprendizaje.}{Sí}
+	\brAttr{Id\_PA}{Id\_PA}{varchar}
+	{Identificación del programa académico al que pertenece la unidad de aprendizaje.}{Sí}
+	%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%	\cdtEntityRelSection
+%	\brRel{}{ETS}{A una \hyperlink{UA}{Unidad de aprendizaje} le \hyperlink{ETSUA}{corresponde} una serie de \hyperlink{ETS}{ETS}.}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{Turno}{Turno}
+	\brAttr{IdTurno}{IdTurno}{integer}
+	{Identificación del turno.}{Sí}
+	\brAttr{Nombre}{Nombre}{varchar}
+	{Nombre del turno. Este puede variar entre 'Matutino' y 'Vespertino'.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{Sexo}{Sexo}
+	\brAttr{IdSexo}{IdSexo}{integer}
+	{Identificación del sexo.}{Sí}
+	\brAttr{Nombre}{Nombre}{varchar}
+	{Nombre del sexo. Este puede variar entre 'Masculino' y 'Femenino'.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{AsistenciaInscripcion}{AsistenciaInscripcion}
+	\brAttr{Asistio}{Asistio}{tinyint}
+	{Booleano que ayuda a identificar si el alumno sí asistió al ETS o no.}{Sí}
+	\brAttr{FechaAsistencia}{FechaAsistencia}{datetime}
+	{Fecha y hora de la asistencia del alumno al ETS.}{Sí}
+	\brAttr{ResultadoRN}{ResultadoRN}{tinyint}
+	{Booleano que dice si la red identificó al alumno o no.}{Sí}
+	\brAttr{Aceptado}{Aceptado}{tinyint}
+	{Booleano que identifica si el profesor le aceptó la entrada al alumno.}{Sí}
+	\brAttr{AplicaDocenteRFC}{AplicaDocenteRFC}{varchar}
+	{RFC del docente que está aplicando el ETS.}{Sí}
+	\brAttr{InscripcionETSBoleta}{InscripcionETSBoleta}{varchar}
+	{Boleta del alumno que está inscrito al ETS.}{Sí}
+	\brAttr{InscripcionETSId\_ETS}{InscripcionETSId\_ETS}{integer}
+	{Identificación del ETS que se está aplicando.}{Sí}
+	\brAttr{ImagenAlumno}{ImagenAlumno}{varchar}
+	{Ruta de donde está guardada la imagen que se tomó para el reconocimiento facial del alumno.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\subsection{Modelado de Reglas de negocio}
+
+\input{3-1-reglas}
+
+\input{metodologia}
+
+\input{3-2-factibilidad}
+
+

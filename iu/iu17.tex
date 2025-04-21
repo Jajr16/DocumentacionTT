@@ -1,0 +1,34 @@
+%--------------------------------------
+\subsection{IU16 Pantalla Información de ETS}
+
+\subsubsection{Objetivo}
+Permitir al alumno visualizar la información detallada cada ETS que tiene inscrito.
+
+\subsubsection{Diseño}
+Esta pantalla \IUref{IU16}{Pantalla de Información de ETS del alumno} (ver figura~\ref{IU16}) aparece luego de seleccionar un ETS inscrito. 
+
+\IUfig[.35]{cu18}{IU16}{Pantalla de Información de ETS del alumno}
+
+\subsubsection{Salidas}
+
+Información detallada del ETS seleccionado. 
+
+\subsubsection{Entradas}
+Ninguna
+
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+\end{itemize}
+
+\subsubsection{Mensajes}
+
+\begin{Citemize}
+	\item {\bf MSG-13}{``Información no disponible para el ETS seleccinado''}
+	\item {\bf MSG-11}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+\end{Citemize}
+
+

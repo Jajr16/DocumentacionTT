@@ -1,0 +1,53 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+\begin{UseCase}{CU-16}{Consultar periodos de ETS inscritos del alumno}{
+		Este caso de uso permite al alumno consultar los periodos de ETS. 
+	}
+	\UCitem{Versión}{\color{Gray}1.0}
+	\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
+	\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín}
+	\UCitem{Actor}{\hyperlink{Alumno}{Alumno}}
+	\UCitem{Propósito}{Permitir al alumno consultar los periodos de ETS.}
+	\UCitem{Entradas}{Ninguna}
+	\UCitem{Origen}{Pantalla táctil}
+	\UCitem{Salidas}{Lista de periodos de ETS.}
+	\UCitem{Destino}{\IUref{IU14}{Pantalla Periodo de ETS alumno}}
+	\UCitem{Precondiciones}{El alumno debe estar autenticado en el sistema.}
+	\UCitem{Postcondiciones}{El alumno ha consultado los periodos de ETS.}
+	\UCitem{Errores}{
+			E1: El sistema no puede recuperar la información de los periodos y muestra el mensaje {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde''}.
+			
+			E2:  No hay periodos de ETS y muestra el mensaje  {\bf MSG-25}{``No hay periodos de ETS''}. 
+	}
+	\UCitem{Tipo}{Se extiende del CU-01 Iniciar sesión del sistema móvil}
+	\UCitem{Observaciones}{Ninguna}
+\end{UseCase}
+%--------------------------------------
+\begin{UCtrayectoria}
+	\UCpaso[\UCactor] El alumno accede a la \IUref{IUE03}{Pantalla Menú del alumno} después de haber iniciado sesión.
+	\UCpaso[\UCactor] El alumno selecciona la opción \IUbutton{Consultar periodo de ETS}.
+	\UCpaso El sistema verifica que el alumno cuente con periodos de ETS. \Trayref{A}.
+	\UCpaso El sistema busca en la base de datos los periodos de ETS asignados al alumno.
+	\UCpaso El sistema despliega la lista de periodos de ETS asignados al alumno en la \IUref{IU14}{Pantalla Periodo de ETS alumno}.
+\end{UCtrayectoria}
+%--------------------------------------        
+\begin{UCtrayectoriaA}{A}{No hay periodos}
+	\UCpaso El sistema verifica y no encuentra registros de periodos de ETS.
+	\UCpaso El sistema muestra un mensaje: {\bf MSG-25}{``No hay periodos de ETS''}
+	\UCpaso[\UCactor] El alumno presiona el botón \IUbutton{Regresar} para volver a la pantalla anterior.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%--------------------------------------        
+\begin{UCtrayectoriaA}{B}{Error en la conexión con la base de datos}
+	\UCpaso El sistema muestra un mensaje de error: {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+	\UCpaso[\UCactor] El alumno presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
+	\UCpaso[\UCactor] El alumno puede intentar la consulta nuevamente o presionar el botón \IUbutton{Regresar} para volver a la pantalla anterior.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%-------------------------------------- TERMINA descripción del caso de uso.

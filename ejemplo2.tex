@@ -1,0 +1,70 @@
+\documentclass[11pt]{book}
+
+\usepackage{cdtUsecases}
+\usepackage{txfonts}
+\usepackage{mathptmx}         % Cambia la fuente a Times New Roman o equivalente
+\usepackage[utf8]{inputenc}   % Permite caracteres especiales
+\usepackage[T1]{fontenc}      % Mejora el manejo de caracteres (como acentos)
+\usepackage{setspace}  
+\usepackage{xcolor}
+\usepackage{hyperref}  
+\usepackage{caption}     % Controla el espaciado (opcional)
+\bibliographystyle{ieeetr} % Estilo ieeetr
+
+
+\captionsetup{font=small}
+
+\hypersetup{
+    colorlinks=true,    % Activa los enlaces coloreados
+    citecolor=blue,     % Citas en azul
+    linkcolor=blue,     % Enlaces internos (índices, TOC) en azul
+    urlcolor=blue       % URLs en azul
+}
+
+\title{Entregable C2-EP2\bigskip\\Nombre del Proyecto}
+\subtitle{Componente 2 Iteración 2 Especificación del proyecto}
+\author{Nombre del equipo o consultoría}
+\organization{Escuela Superior de Cómputo, IPN}
+\showInstrucciones
+\date{\color{red}Borrador del 21 de febrero del 2017\\(para revisión)}
+%\date{\color{green}Version 1.0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%\ThisLRCornerWallPaper{1}{theme/bannerAzul} 
+\maketitle
+\thispagestyle{empty}
+
+
+\frontmatter
+\tableofcontents
+\listoffigures 
+\listoftables
+
+% \include{projectCharter}
+
+\mainmatter 
+%\LRCornerWallPaper{1}{theme/plecaAyD} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%=========================================================
+    %\include{1introduccion}
+
+\include{Introduccion}
+
+\include{Estado}
+
+\include{MarcoTeorico}
+
+\include{Analisis}
+
+%=========================================================
+\include{Diseño}
+
+\include{TrabajoF}
+
+\bibliography{ref}
+
+\end{document}

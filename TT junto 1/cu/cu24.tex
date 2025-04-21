@@ -1,0 +1,37 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-24}{Consultar lista de periodo de ETS }{
+
+    Permitir al Personal de gestión escolar consultar la lista de los periodos de ETS.
+}
+    \UCitem{Versión}{\color{Gray}1}
+    \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+    \UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra.}
+    \UCitem{Actor}{\hyperlink{Personal de gestión escolar}{Personal de gestión escolar}}
+    \UCitem{Propósito}{Mostrar todos los periodos de ETS dados de alta y su información específica al personal de gestión escolar.}
+    \UCitem{Entradas}{Ninguna}
+    \UCitem{Origen}{Teclado}
+    \UCitem{Salidas}{Ninguna}
+    \UCitem{Destino}{Pantalla \IUref{IU25}{Dar de alta de periodo de ETS }}
+    \UCitem{Precondiciones}{ El Personal de gestión escolar debe de haber iniciado sesión}
+    \UCitem{Postcondiciones}{Ninguna.}
+    \UCitem{Errores}{
+        E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}  ``El proceso no se pudo realizar por un falló de red.''
+
+        E2: Cuando no hay ningún periodo de ETS dado de alta se muestra el mensaje {\bf MSG-31}  ``Ningún periodo de ETS ha sido dado de alta.''
+    }
+    \UCitem{Tipo}{ Extiende de CU42 Iniciar sesión de personal escolar web}
+    \UCitem{Observaciones}{Ninguna}
+
+\end{UseCase}
+%-------------------------------------- 
+
+\begin{UCtrayectoria}
+    \UCpaso[\UCactor] El Personal de gestión escolar accede a la pantalla \IUref{IU24}{Consultar lista de periodo de ETS}\label{CU24.introduceDatos} desde la pantalla \IUref{IUE05}{Pantalla de saludo del personal de gestión escolar} apretando el botón \IUbutton{Consultar lista de periodo de ETS}.
+    \UCpaso El sistema muestra la información de todos los periodos de ETS.
+    \UCpaso[\UCactor] El Personal de gestión escolar revisa los periodos de ETS.
+    \UCpaso[\UCactor] El Personal de gestión escolar decide que quiere agregar otro periodo de ETS.
+    \UCpaso[\UCactor] El Personal de gestión escolar selecciona el botón \IUbutton{Dar de alta periodo de ETS }.
+    \UCpaso[\UCactor] El Personal de gestión escolar es redirigido a la pantalla \IUref{IU25}{ Dar de alta de periodo de ETS }.
+\end{UCtrayectoria}

@@ -1,0 +1,29 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\subsection{IU30 Consultar lista de docentes}
+\subsubsection{Objetivo}
+   Permite al personal de gestión escolar consultar una lista con todos los docentes dados de alta.
+\subsubsection{Diseño}
+    Esta pantalla \IUref{IU30}{Consultar lista de docentes} (ver figura~\ref{IU30}) puede ser accedida desde la pantalla \IUref{IUE05}{de saludo de personal de gestión escolar } apretando el botón \IUbutton{Consultar lista de docentes}.
+\IUfig[1]{UI-CU36}{IU30}{Consultar lista de docentes.}
+
+\subsubsection{Salidas}
+Ninguna
+\subsubsection{Entradas}
+Ninguna
+\subsubsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Dar de alta docente} Redirige a la pantalla \IUref{UI31}{Dar de alta docente}.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+    
+\end{itemize}
+
+\subsubsection{Mensajes}
+
+\begin{Citemize}
+    \item {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
+    \item {\bf MSG-39}  ``No hay docentes dados de alta.''
+\end{Citemize}
+
+

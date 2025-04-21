@@ -1,0 +1,31 @@
+%--------------------------------------
+\subsection{IU13 Pantalla consultar lista de alumnos inscritos a un ETS}
+
+\subsubsection{Objetivo}
+Permitir al docente visualizar la lista de los alumnos inscritos a un ETS asignado.
+
+\subsubsection{Diseño}
+Esta pantalla aparece luego de seleccionar un ETS en la \IUref{IU13}{Pantalla Informacion de ETS} (ver figura~\ref{IU06} y muestra la boleta, el nombre completo y la foto de los alumnos inscritos al ETS)
+
+\IUfig[.35]{cu07}{IU13}{Consultar lista de alumnos inscritos a un ETS}
+
+\subsubsection{Salidas}
+Lista de los alumnos inscritos al ETS.
+
+\subsubsection{Entradas}
+Ninguna
+
+\subsubsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+	\item \IUbutton{Tomar asistencia} redirige a la pantalla \IUref{IU08}{Lista de asistencia de ETS}.
+\end{itemize}
+
+\subsubsection{Mensajes}
+
+\begin{Citemize}
+	\item {\bf MSG-14}{``No hay alumnos inscritos en este ETS.''}
+	\item {\bf MSG9-}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}. 
+\end{Citemize}

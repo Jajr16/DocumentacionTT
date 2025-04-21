@@ -1,0 +1,33 @@
+%--------------------------------------
+\subsection{IU14 Pantalla Periodo de ETS del alumno}
+
+\subsubsection{Objetivo}
+	Permitir al alumno consultar los periodos de ETS que le han sido asignados. 
+
+\subsubsection{Diseño}
+	Esta pantalla \IUref{IU14}{Pantalla Periodo de ETS del alumno} (ver figura~\ref{IU14}) aparece luego de seleccionar la opción de Consultar Periodos.
+
+\IUfig[.35]{cu16}{IU14}{Pantalla Periodo de ETS del alumno.}
+
+\subsubsection{Salidas}
+	Lista de periodos de ETS. 
+
+\subsubsection{Entradas}
+Ninguna
+
+\subsubsection{Comandos}
+
+\begin{itemize}
+	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+	\item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+	\item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+	\item \IUbutton{Periodo de ETS} Selecciona un periodo de ETS y lo redirige a la pantalla \IUref{UI15}{consultar ETS del alumno}.
+\end{itemize}
+
+\subsubsection{Mensajes}
+
+\begin{Citemize}
+	\item {\bf MSG-25}{``No hay periodos de ETS''}
+	\item {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+\end{Citemize}
+

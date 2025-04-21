@@ -1,0 +1,33 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\section{IU27} {Dar de alta ETS}
+\subsection{Objetivo}
+    Permite al personal de gestión escolar dar de alta un ETS.
+\subsection{Diseño}
+    Esta pantalla \IUref{IU27}{Dar de alta ETS} (ver figura~\ref{IU27}) puede ser accedida desde la pantalla \IUref{IU26}{Consultar lista de ETS} apretando el botón \IUbutton{Dar de alta un ETS}
+\IUfig[1]{UI-CU29}{IU27}{Dar de alta ETS.}
+
+\subsection{Salidas}
+Muestra mensaje {\bf MSG-35} ``ETS  dado de alta con éxito''.
+\subsection{Entradas}
+\hyperlink{ETS.ETS }{ETS},  \hyperlink{ETS.Periodo-de-ETS }{ Periodo-de-ETS},  \hyperlink{ETS.Fecha}{Fecha},  \hyperlink{ETS.Turno}{Turno},  \hyperlink{ETS.Cupo} {Cupo} ,  \hyperlink{ETS.Unidad-de-aprendizaje }{Unidad-de-aprendizaje},  \hyperlink{ETS.Salon}{Salon} y \hyperlink{ETS.Docente}{Docente} .
+\subsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Dar de alta ETS} Da de alta el nuevo ETS y redirige a la pantalla \IUref{UI26}{Consultar lista de ETS}.
+    \item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+    
+\end{itemize}
+
+\subsection{Mensajes}
+
+\begin{Citemize}
+    \item {\bf MSG-35} ``ETS  dado de alta con éxito''.
+    \item {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
+    \item {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+    \item {\bf MSG-36}{`` ETS o salón  ya han sido asociadas a un ETS de ETS.''}
+    
+\end{Citemize}
+

@@ -1,0 +1,28 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\subsection{IU26 Consultar lista de ETS}
+\subsubsection{Objetivo}
+    Permite al personal de gestión escolar consultar una lista con todos ETS.
+\subsubsection{Diseño}
+    Esta pantalla \IUref{IU26}{Consultar lista de ETS} (ver figura~\ref{IU26}) puede ser accedida desde la pantalla \IUref{IUE05}{ de saludo de gestión escolar } apretando el botón \IUbutton{Consultar lista de ETS}
+\IUfig[]{UI-CU28}{IU26}{Consultar lista ETS.}
+
+\subsubsection{Salidas}
+Ninguna
+\subsubsection{Entradas}
+Ninguna
+\subsubsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Dar de alta un ETS} Redirige a la pantalla \IUref{UI27}{ Dar de alta ETS}.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+    
+\end{itemize}
+
+\subsubsection{Mensajes}
+
+\begin{Citemize}
+    \item {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
+    \item {\bf MSG-34}  ``Ningún ETS ha sido dado da alta.''
+\end{Citemize}
+

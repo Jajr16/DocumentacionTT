@@ -1,0 +1,41 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+\begin{UseCase}{CU-07}{Solicitar remplazo }{
+	Este caso de uso permite a un docente solicitar la asignación de un docente de remplzao para aplicar el ETS en su lugar en caso de no poder asistir.
+}
+\UCitem{Versión}{\color{Gray}1.0}
+\UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+\UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra}
+\UCitem{Actor}{\hyperlink{Docente}{Docente}}
+\UCitem{Propósito}{Permitir al docente asignado para un ETS solicitar ayuda de otro docente para realizar la aplicación en su lugar, mediante una notificación al jefe de departamento y/o al presidente de academia.}
+\UCitem{Entradas}{Identificador del ETS y razón por la que se pide el remplazo.}
+\UCitem{Origen}{Pantalla táctil}
+\UCitem{Salidas}{Confirmación de envió de solicitud de remplazo del docente Y y se muestra {\bf MSG-13}{``La notificación ha sido mandada al jefe de departamento y/o al presidente de academia.''}.}
+\UCitem{Destino}{\IUref{IU06}{Pantalla Información de ETS}}
+\UCitem{Precondiciones}{El docente debe estar autenticado en el sistema y tener un ETS asignado.}
+\UCitem{Postcondiciones}{La notificación ha sido mandada al jefe de departamento y/o al presidente de academia.}
+\UCitem{Errores}{
+	E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-4}  ``El proceso no se pudo realizar por un fallo de red.''
+}
+\UCitem{Tipo}{Se entiende del CU-06 Mostrar información de los ETS asignados}
+\UCitem{Observaciones}{Ninguna}
+\end{UseCase}
+%--------------------------------------
+\begin{UCtrayectoria}
+\UCpaso[\UCactor] El docente accede a la \IUref{IU06}{Pantalla Información de ETS}.
+\UCpaso[\UCactor] El docente selecciona la opción \IUbutton{Solicitar docente ayudante} para el ETS asignado.
+\UCpaso El sistema redirige al docente a la pantalla \IUref{IU07}{ Solicitar remplazo }.
+\UCpaso El sistema ingresa el ETS.
+\UCpaso[\UCactor] El docente ingresa su razón para pedir el remplazo.
+UCpaso[\UCactor] El docente selecciona el botón \IUbutton{Enviar}.
+\UCpaso El sistema envía la notificación de solicitud de remplazo al jefe de departamento y/o al presidente de academia.
+\end{UCtrayectoria}
+%--------------------------------------        
+
+%-------------------------------------- TERMINA descripción del caso de uso.

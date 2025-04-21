@@ -1,0 +1,33 @@
+%--------------------------------------
+\section{IU05}{Pantalla Consultar ETS}
+
+\subsection{Objetivo}
+	Permitir al docente consultar los ETS que tiene asignados. 
+
+\subsection{Diseño}
+	Esta pantalla \IUref{IU05}{Pantalla Consultar ETS} (ver figura~\ref{IU05}) aparece luego de seleccionar un periodo de ETS. 
+
+\IUfig[.35]{cu05}{IU05}{Pantalla Consultar ETS.}
+
+\subsection{Salidas}
+	Lista de ETS asignados. 
+
+\subsection{Entradas}
+	Ninguna
+	
+\subsection{Comandos}
+\begin{Citemize}
+
+	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+	\item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+	\item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+	\item \IUbutton{ETS} Selecciona un ETS y lo redirige a la \IUref{IU06}{pantalla Información de ETS}.
+\end{Citemize}
+
+\subsection{Mensajes}
+
+\begin{Citemize}
+	\item {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''.}
+	\item {\bf MSG-11}{``No hay ETS asignados actualmente.''}
+\end{Citemize}
+

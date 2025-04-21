@@ -1,0 +1,35 @@
+%--------------------------------------
+\section{IU12} {Pantalla Buscar alumno}
+
+\subsection{Objetivo}
+    Permitir al personal de seguridad buscar la información de un alumno utilizando su número de boleta o su nombre. 
+
+\subsection{Diseño}
+    Esta pantalla \IUref{IU12}{Pantalla Buscar alumno} (ver figura~\ref{IU12}) aparece luego de seleccionar la opción Consultar alumno. 
+
+\IUfig[.35]{cu13}{IU12}{Pantalla Buscar alumno por boleta.}
+
+\subsection{Salidas}
+    Información del alumno.
+
+\subsection{Entradas}
+    Número de boleta del alumno o su nombre. 
+
+\subsection{Comandos}
+\begin{itemize}
+    \item Buscador por boleta: Permite al personal de seguridad buscar al alumno ingresando su número de boleta.
+    \item Buscador por boleta: Permite al personal de seguridad buscar al alumno ingresando su nombre.
+    \item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+\end{itemize}
+
+\subsection{Mensajes}
+
+\begin{Citemize}
+    \item {\bf MSG-21}{``número de boleta ingresado no corresponde a ningún alumno registrado''}
+    \item {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+    \item {\bf MSG-22}{``Alumno no registrado''}
+\end{Citemize}
+
+

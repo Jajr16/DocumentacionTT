@@ -1,0 +1,72 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ejemplo2.aux
+Reallocating 'name_of_file' (item size: 1) to 7 items.
+The style file: ieeetr.bst
+Reallocating 'name_of_file' (item size: 1) to 17 items.
+A level-1 auxiliary file: Introduccion.aux
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+A level-1 auxiliary file: Estado.aux
+Reallocating 'name_of_file' (item size: 1) to 17 items.
+A level-1 auxiliary file: MarcoTeorico.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: Analisis.aux
+Reallocating 'name_of_file' (item size: 1) to 12 items.
+A level-1 auxiliary file: Diseño.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: TrabajoF.aux
+Reallocating 'name_of_file' (item size: 1) to 17 items.
+A level-1 auxiliary file: Bibliografia.aux
+Reallocating 'name_of_file' (item size: 1) to 4 items.
+Database file #1: ref.bib
+Warning--entry type for "D1" isn't style-file defined
+--line 907 of file ref.bib
+Warning--entry type for "CALF" isn't style-file defined
+--line 1213 of file ref.bib
+Warning--entry type for "UNAMSE" isn't style-file defined
+--line 1229 of file ref.bib
+Warning--I'm ignoring FacialF's extra "pages" field
+--line 1283 of file ref.bib
+Warning--I didn't find a database entry for "."
+You've used 64 entries,
+            1876 wiz_defined-function locations,
+            849 strings with 13540 characters,
+and the built_in function-call counts, 9399 in all, are:
+= -- 950
+> -- 299
+< -- 0
++ -- 141
+- -- 77
+* -- 400
+:= -- 1391
+add.period$ -- 121
+call.type$ -- 64
+change.case$ -- 61
+chr.to.int$ -- 0
+cite$ -- 64
+duplicate$ -- 316
+empty$ -- 1177
+format.name$ -- 77
+if$ -- 2389
+int.to.chr$ -- 0
+int.to.str$ -- 64
+missing$ -- 4
+newline$ -- 252
+num.names$ -- 64
+pop$ -- 367
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 230
+stack$ -- 0
+substring$ -- 88
+swap$ -- 35
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 71
+width$ -- 66
+write$ -- 630
+(There were 5 warnings)

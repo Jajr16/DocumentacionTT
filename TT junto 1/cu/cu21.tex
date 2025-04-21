@@ -1,0 +1,43 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-21}{Dar de alta un alumno}{
+
+    Permitir al personal de la DAE dar de alta un alumno.
+}
+    \UCitem{Versión}{\color{Gray}1}
+    \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+    \UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra.}
+    \UCitem{Actor}{\hyperlink{Personal de la DAE}{Personal de la DAE}}
+    \UCitem{Propósito}{ Permitir al personal de la DAE dar de alta un alumno para posteriormente tramitar su credencial.}
+    \UCitem{Entradas}{ \hyperlink{Alumno.Boleta}{Boleta}, \hyperlink{Alumno.Nombre}{Nombre}, \hyperlink{Alumno.CURP}{CURP}, \hyperlink{Alumno.Sexo}{Sexo} y \hyperlink{Alumno.Correo institucional}{Correo institucional}}
+    \UCitem{Origen}{Teclado}
+    \UCitem{Salidas}{Muestra mensaje {\bf MSG-31} ``Alumno dado de alta con éxito''.}
+    \UCitem{Destino}{Pantalla \IUref{IU22}{ Crear credencial } }
+    \UCitem{Precondiciones}{El Personal de la DAE debe de haber iniciado sesión.}
+    \UCitem{Postcondiciones}{El alumno es dado de alta por el Personal de la DAE está esperando por su credencial escolar.}
+    \UCitem{Errores}{ 
+
+        E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}  ``El proceso no se pudo realizar por un falló de red.''
+
+        E2: Cuando falte algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+
+        E3: Cuando la CURP o la boleta del alumno ya estén registradas en el sistema muestra el mensaje {\bf MSG-30}{``La CURP o la boleta ya han sido asociadas a este alumno con anterioridad u otro alumno.''}
+
+    }
+    \UCitem{Tipo}{ Extiende de CU41 Iniciar sesión de personal escolar web}
+    \UCitem{Observaciones}{Ninguna}
+
+\end{UseCase}
+%-------------------------------------- 
+
+\begin{UCtrayectoria}
+
+    \UCpaso[\UCactor] El Personal de la DAE accede a la pantalla \IUref{IU21}{ Dar de alta un alumno }\label{CU21.introduceDatos} desde la pantalla \IUref{IUE04}{Pantalla de saludo del personal de la DAE} presionando el botón \IUbutton{Dar de alta estudiantes} e introduce los datos de alumno ( \hyperlink{Alumno.Boleta}{Boleta}, \hyperlink{Alumno.Nombre}{Nombre}, \hyperlink{Alumno.CURP}{CURP}, \hyperlink{Alumno.Sexo}{Sexo} y \hyperlink{Alumno.Correo institucional}{Correo institucional}) .
+    \UCpaso[\UCactor] El Personal de la DAE oprime el botón \IUbutton{Dar de alta alumno }.
+    \UCpaso El sistema revisa que los datos del alumno sean válidos.
+    \UCpaso El sistema verifica que la CURP o la boleta no hayan sido registrados con anterioridad.
+    \UCpaso El sistema mantiene los datos para usarlos en el proceso de crear credencial.
+    \UCpaso[\UCactor] El Personal de la DAE es redirigido a la pantalla \IUref{IU22}{ Crear credencial }.
+
+\end{UCtrayectoria}

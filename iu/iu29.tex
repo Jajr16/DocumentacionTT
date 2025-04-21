@@ -1,0 +1,31 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\subsection{IU27 Dar de alta ETS}
+\subsubsection{Objetivo}
+    Permite al personal de gestión escolar dar de alta un ETS.
+\subsubsection{Diseño}
+    Esta pantalla \IUref{IU27}{Dar de alta ETS} (ver figura~\ref{IU27}) puede ser accedida desde la pantalla \IUref{IU26}{Consultar lista de ETS} apretando el botón \IUbutton{Dar de alta un ETS}
+\IUfig[1]{UI-CU29}{IU27}{Dar de alta ETS.}
+
+\subsubsection{Salidas}
+Muestra mensaje {\bf MSG-35} ``ETS  dado de alta con éxito''.
+\subsubsection{Entradas}
+ETS, Periodo-de-ETS, Fecha, Turno, Cupo , Unidad-de-aprendizaje,  Salon y Docente.
+\subsubsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Dar de alta ETS} Da de alta el nuevo ETS y redirige a la pantalla \IUref{UI26}{Consultar lista de ETS}.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+    
+\end{itemize}
+
+\subsubsection{Mensajes}
+
+\begin{Citemize}
+    \item {\bf MSG-35} ``ETS  dado de alta con éxito''.
+    \item {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
+    \item {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+    \item {\bf MSG-36}{`` ETS o salón  ya han sido asociadas a un ETS de ETS.''}
+    
+\end{Citemize}
+

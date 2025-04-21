@@ -1,0 +1,33 @@
+%--------------------------------------
+\subsection{IU11 Pantalla Credencial del alumno}
+
+\subsubsection{Objetivo}
+	Permitir al personal de seguridad consultar la información del alumno mediante el escaneo del código QR de su credencial.
+
+\subsubsection{Diseño}
+Esta pantalla aparece luego de que se escanea el código QR de la credencial del alumno \IUref{IU11}{Pantalla Credencial del alumno} (ver figura~\ref{IU11}).
+	
+
+\IUfig[.35]{cu14}{IU11}{Pantalla Credencial del alumno}
+
+\subsubsection{Salidas}
+	Información del alumno
+
+\subsubsection{Entradas}
+Ninguna
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Registrar asistencia}: Permite registrar la asistencia del alumno.
+	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+\end{itemize}
+
+\subsubsection{Mensajes}
+
+\begin{Citemize}
+	\item {\bf MSG-20}{``Alumno no registrado''}
+	\item {\bf MSG-11}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+\end{Citemize}
+

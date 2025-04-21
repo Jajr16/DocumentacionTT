@@ -1,0 +1,42 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-37}{ Dar de alta docente}{
+
+    Permitir al personal de gestión escolar dar de alta a un docente.
+}
+    \UCitem{Versión}{\color{Gray}1}
+    \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+    \UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra.}
+    \UCitem{Actor}{\hyperlink{Personal de gestión}{Personal de gestión escolar}}
+    \UCitem{Propósito}{ Permitir al personal de gestión escolar dar de alta a un docente.}
+    \UCitem{Entradas}{ \hyperlink{Docente.CURP }{CURP}, \hyperlink{Docente.RFC }{RFC }, \hyperlink{Docente.Correo-institucional}{ Correo-institucional }, \hyperlink{Docente.Sexo}{Sexo}, \hyperlink{ Docente.Nombre}{Nombre} y \hyperlink{Docente.Cargo}{Cargo}}
+    \UCitem{Origen}{Teclado}
+    \UCitem{Salidas}{Muestra mensaje {\bf MSG-41} ``Docente dado de alta con éxito''.}
+    \UCitem{Destino}{Pantalla \IUref{IU31}{Consultar lista de docentes}}
+    \UCitem{Precondiciones}{El Personal de gestión escolar debe de haber iniciado sesión.}
+    \UCitem{Postcondiciones}{El Docente es dado de alta y sus datos se guardan en la base de datos.}
+    \UCitem{Errores}{
+
+        E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
+
+        E2: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+
+        E3: Cuando el CURP o el RFC del docente ya está registrado en el sistema muestra el mensaje {\bf MSG-40}{``El CURP o el RFC ya ha sido asociado a este docente con anterioridad u otro docente.''}
+
+    }
+    \UCitem{Tipo}{ Extiende de CU-36 Consultar lista de docentes}
+    \UCitem{Observaciones}{Ninguna}
+
+\end{UseCase}
+%-------------------------------------- 
+
+\begin{UCtrayectoria}
+
+    \UCpaso[\UCactor] El Personal de gestión escolar accede a la pantalla \IUref{IU31}{Dar de alta docente}\label{CU37.introduceDatos} desde la pantalla \IUref{IU30}{Consultar lista de docentes} apretando el botón \IUbutton{Dar de alta docente} e introduce los datos del docente (\hyperlink{Docente.CURP }{CURP}, \hyperlink{Docente.RFC }{RFC }, \hyperlink{Docente.Correo-institucional}{ Correo-institucional }, \hyperlink{Docente.Sexo}{Sexo}, \hyperlink{ Docente.Nombre}{Nombre} y \hyperlink{Docente.Cargo}{Cargo}.)
+    \UCpaso[\UCactor] El Personal de gestión escolar oprime el botón \IUbutton{dar de alta docente}.
+    \UCpaso El sistema revisa que los datos del personal de seguridad sean válidos.
+    \UCpaso El sistema verifica que la CURP y el RFC no hayan sido registrados con anterioridad.
+    \UCpaso[\UCactor] El Personal de gestión escolar es redirigido a la pantalla \IUref{IU30}{Consultar lista de docentes}.
+
+\end{UCtrayectoria}

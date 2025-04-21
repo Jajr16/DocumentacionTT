@@ -1,0 +1,33 @@
+%--------------------------------------
+\section{IU10}{Pantalla Código QR}
+
+\subsection{Objetivo}
+Permitir al personal de seguridad escanear el código QR de la credencial del alumno.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU10}{Pantalla Código QR} (ver figura~\ref{IU10}) aparece una vez que el personal de seguridad active la función de escanear credencial del menú. 
+
+\IUfig[.35]{cu12}{IU10}{Pantalla Código QR}
+
+\subsection{Salidas}
+Información del alumno
+
+\subsection{Entradas}
+Ninguna
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Escanear}: Permite escanear el código QR de la credencial del alumno.
+	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+\end{itemize}
+
+\subsection{Mensajes}
+
+\begin{Citemize}
+	\item {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+	\item {\bf MSG-20}{``Alumno no registrado. Verifique el código QR o intente nuevamente.''}
+	\item {\bf MSG-19}{``Código QR ilegible. Intente nuevamente.''}
+\end{Citemize}
+

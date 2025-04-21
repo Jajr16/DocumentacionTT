@@ -1,0 +1,40 @@
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+\begin{UseCase}{CU-20}{Revisar información de acceso a los ETS}{
+		Este caso de uso permite al alumno visualizar la información detallada del proceso para la presentación de los ETS.
+	}
+	\UCitem{Versión}{\color{Gray}1.0}
+	\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
+	\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín}
+	\UCitem{Actor}{\hyperlink{Alumno}{Alumno}}
+	\UCitem{Propósito}{Permitir al alumno consultar los detalles del proceso para presentar su ETS.}
+	\UCitem{Entradas}{Ninguna}
+	\UCitem{Origen}{Teclado}
+	\UCitem{Salidas}{Detalles del proceso para la presentación de ETS}
+	\UCitem{Destino}{\IUref{IU18}{Pantalla Detalles del Proceso de ETS}.}
+	\UCitem{Precondiciones}{El alumno debe estar autenticado en el sistema y tener ETS asignados.}
+	\UCitem{Postcondiciones}{El alumno ha visualizado la información detallada del proceso para presentar su ETS.}
+	\UCitem{Errores}{
+
+			E1: Error al recuperar información del proceso debido a fallos en la conexión con la base de datos y muestra el mensaje.
+
+	}
+	\UCitem{Tipo}{Extiende de CU-16 Consultar periodos de ETS inscritos del alumno}
+	\UCitem{Observaciones}{}
+\end{UseCase}
+%--------------------------------------
+\begin{UCtrayectoria}
+	\UCpaso[\UCactor] El alumno selecciona la opción "Información del Proceso para Presentar ETS" desde la \IUref{IUE03}{Pantalla saludo del alumno}.
+	\UCpaso El sistema Verifica que exista información disponible sobre el proceso para presentar ETS. \Trayref{A}
+	\UCpaso El sistema muestra la información detallada del proceso para presentar su ETS.
+	\UCpaso[\UCsist] El alumno muestra la información en la \IUref{IU18}{Pantalla Detalles del Proceso de ETS}.
+\end{UCtrayectoria}
+%--------------------------------------        
+\begin{UCtrayectoriaA}{B}{Error al querer mostrar la información}
+	\UCpaso El alumno muestra un mensaje de error: {\bf MSG-9}{``Error al querer mostrar la información. Por favor, intente nuevamente.''}
+	\UCpaso[\UCactor] El sistema presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
+	\UCpaso[\UCactor] El sistema decide si intenta acceder a la información nuevamente o presiona el botón \IUbutton{Regresar} para volver a la pantalla principal.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+

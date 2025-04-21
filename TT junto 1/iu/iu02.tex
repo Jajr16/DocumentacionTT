@@ -1,0 +1,38 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\section{IU02} {Pantalla Consultar calendario escolar}
+
+\subsection{Objetivo}
+Permitir que los usuarios puedan ver el calendario escolar y pedir que se les recuerde cuantos días faltan para que el periodo de ETS comience.
+\subsection{Diseño}
+    Esta pantalla \IUref{IU02}{Pantalla Consultar calendario escolar} (ver figura~\ref{IU02}) puede ser accedida desde cualquier otra pantalla que no sea el inicio de sesión mediante el botón con forma de calendario.
+
+\IUfig[.30]{UI-CU02}{IU02}{Pantalla Consultar calendario escolar.}
+
+\newpage
+
+\IUfig[.8]{UI-CU02_2}{IU02-2}{Pantalla Consultar calendario escolar.}
+
+\subsection{Salidas}
+
+    Menciona cuantos días faltan para el periodo de ETS o si menciona que ya es periodo de ETS.
+
+\subsection{Entradas}
+   Ninguna.
+
+\subsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Calcular cuantos días faltan para el periodo de ETS} toma el día actual y el día de inicio del periodo de ETS más cercano y calcula cuantos días faltan.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones}.
+    \item \IUbutton{Home} Redirige a la pantalla de menú correspondiente al tipo de usuario.
+\end{itemize}
+
+\subsection{Mensajes}
+     
+\begin{Citemize}
+    \item {\bf MSG-6}{``Actualmente es periodo de ETS.''}
+
+    \item {\bf MSG-7}{``Actualmente el periodo de ETS no ha sido establecido.''}
+\end{Citemize}
+

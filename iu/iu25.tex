@@ -1,0 +1,30 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\subsection{IU25 Dar de alta de periodo de ETS}
+\subsubsection{Objetivo}
+    Permite al personal de gestión escolar dar de alta un periodo de ETS.
+\subsubsection{Diseño}
+    Esta pantalla \IUref{IU25}{Dar de alta de periodo de ETS } (ver figura~\ref{IU25}) puede ser accedida desde la pantalla \IUref{IU24}{Consultar lista de periodo de ETS} apretando el botón \IUbutton{Dar de alta un periodo de ETS}
+\IUfig[1]{UI-CU25}{IU25}{Dar de alta de periodo de ETS.}
+
+\subsubsection{Salidas}
+Muestra mensaje {\bf MSG-33} ``Periodo de ETS  dado de alta con éxito''.
+\subsubsection{Entradas}
+Periodo, Tipo, Fecha-de-inicio y Fecha-de-fin
+\subsubsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Dar de alta periodo de ETS} Da de alta el nuevo periodo de ETS y redirige a la pantalla \IUref{UI24}{ Consultar lista de periodo de ETS}.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+    
+\end{itemize}
+
+\subsubsection{Mensajes}
+
+\begin{Citemize}
+    \item {\bf MSG-33} ``Periodo de ETS  dado de alta con éxito''.
+    \item {\bf MSG4-28}  ``El proceso no se pudo realizar por un fallo de red.''
+    \item {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+    \item {\bf MSG16-32}{`` Periodo, Fecha-de-inicio o Fecha-de-fin ya han sido asociadas a un periodo de ETS.''}
+\end{Citemize}
+

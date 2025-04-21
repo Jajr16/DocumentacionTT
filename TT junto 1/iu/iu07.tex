@@ -1,0 +1,32 @@
+%--------------------------------------
+\section{IU07}{Pantalla de Solicitar remplazo}
+
+\subsection{Objetivo}
+Permitir al docente pedir que otro docente lo remplaze en la aplicacion de un ETS.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU07}{Pantalla de Solicitar remplazo} (ver figura~\ref{IU07}) aparece luego de que el docente presione el boton \IUbutton{Solicitar docente ayudante} en la pantalla \IUref{IU06}{Pantalla Información de ETS}.
+
+\IUfig[.35]{UI-CU43}{IU07}{Pantalla de Solicitar remplazo}
+
+\subsection{Salidas}
+Confirmación de envio de solicitud de remplazo del docente Y y se muestra {\bf MSG-13}{``La notificación ha sido mandada al jefe de departamento y/o al presidente de academia.''}
+
+\subsection{Entradas}
+Identificador del ETS y Razon por la que se pide el remplazo.
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Enviar}: Permite enviar la notificación al jefe de departamento y/o al presidente de academia para pedir el remplazo.
+	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+\end{itemize}
+
+\subsection{Mensajes}
+
+\begin{Citemize}
+	\item {\bf MSG-4}{``El proceso no se pudo realizar por un fallo de red.''}
+	\item {\bf MSG-13}{``La notificación ha sido mandada al jefe de departamento y/o al presidente de academia.''}
+\end{Citemize}
+

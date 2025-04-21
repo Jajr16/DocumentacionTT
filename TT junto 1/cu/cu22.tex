@@ -1,0 +1,53 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-22}{Crear credencial}{
+
+    Permitir al personal de la DAE previsualizar la credencial del alumno que acaba de dar de alta y si se da el caso corregir los datos.
+}
+    \UCitem{Versión}{\color{Gray}1}
+    \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+    \UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra.}
+    \UCitem{Actor}{\hyperlink{Personal de la DAE}{Personal de la DAE}}
+    \UCitem{Propósito}{ Permitir al personal de la DAE previsualizar la credencial del alumno que acaba de dar de alta y si se da el caso corregir los datos..}
+    \UCitem{Entradas}{ \hyperlink{Alumno.Boleta}{Boleta}, \hyperlink{Alumno.Nombre}{Nombre}, \hyperlink{Alumno.CURP}{CURP}, \hyperlink{Alumno.Sexo}{Sexo} y \hyperlink{Alumno.Correo institucional}{Correo institucional}}
+    \UCitem{Origen}{Teclado}
+    \UCitem{Salidas}{Ninguna}
+    \UCitem{Destino}{Pantalla \IUref{IU23}{ Capturar fotografía estudiantil} }
+    \UCitem{Precondiciones}{El Personal de la DAE debe de haber iniciado sesión y este debe de haber dado de alta un alumno con anterioridad}
+    \UCitem{Postcondiciones}{El alumno es dado de alta por el Personal de la DAE y está esperando por su credencial escolar.}
+    \UCitem{Errores}{
+
+        E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}  ``El proceso no se pudo realizar por un falló de red.''
+
+        E2: Cuando falte algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29-}{``Los campos no están correctamente llenados.''}
+
+        E3: Cuando la CURP o la boleta del alumno ya estén registrados el sistema muestra el mensaje {\bf MSG-30-}{``La CURP o la boleta ya han sido asociadas a este alumno con anterioridad u otro alumno.''}
+    }
+    \UCitem{Tipo}{ Extiende de CU21 Dar de alta a alumno}
+    \UCitem{Observaciones}{Ninguna}
+
+\end{UseCase}
+%-------------------------------------- 
+
+\begin{UCtrayectoria}
+    \UCpaso[\UCactor] El Personal de la DAE accede a la pantalla \IUref{IU22}{Crear credencial }\label{CU22.introduceDatos} apretando el botón \IUbutton{Dar de alta alumno } desde la pantalla \IUref{IU21}{ Dar de alta a alumno }
+    \UCpaso El sistema muestra cómo se vería la credencial del alumno que el personal de la DAE dio de alta 
+    \UCpaso[\UCactor] El Personal de la DAE revisa que los datos sean correctos \Trayref{A}.
+    \UCpaso[\UCactor] El Personal de la DAE selecciona el botón \IUbutton{Subir foto }.
+    \UCpaso El sistema revisa que los datos del alumno sean válidos.
+    \UCpaso El sistema verifica que el CURP o la boleta no hayan sido registrados con anterioridad.
+    \UCpaso El sistema mantiene los datos para usarlos en el proceso de crear credencial.
+\UCpaso[\UCactor] El Personal de la DAE es redirigido a la pantalla \IUref{IU23}{ Capturar fotografía estudiantil }.
+\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{El personal de la DAE se da cuenta que se equivocó en un dato al momento de dar de alta un alumno }
+    \UCpaso[\UCactor] El Personal de la DAE modifica alguno de los siguientes datos del alumno: ( \hyperlink{Alumno.Boleta}{Boleta}, \hyperlink{Alumno.Nombre}{Nombre}, \hyperlink{Alumno.CURP}{CURP}, \hyperlink{Alumno.Sexo}{Sexo} o \hyperlink{Alumno.Correo institucional}{Correo institucional}) .
+    \UCpaso[\UCactor] El Personal de la DAE selecciona el botón \IUbutton{Subir foto }.
+    \UCpaso El sistema revisa que los datos del alumno sean válidos.
+    \UCpaso El sistema verifica que el CURP o la boleta no hayan sido registrados con anterioridad.
+    \UCpaso El sistema mantiene los datos para usarlos en el proceso de crear credencial.
+    \UCpaso[\UCactor] El Personal de la DAE es redirigido a la pantalla \IUref{IU23}{ Capturar fotografía estudiantil }.
+\end{UCtrayectoriaA}
+
+

@@ -1,0 +1,52 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+\begin{UseCase}{CU-08}{Consultar lista de alumnos inscritos a un ETS}{
+		Este caso de uso permite al docente consultar la lista de los alumnos inscritos a un ETS asignado.
+	}
+	\UCitem{Versión}{\color{Gray}1.0}
+	\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
+	\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín}
+	\UCitem{Actor}{\hyperlink{Docente}{Docente}}
+	\UCitem{Propósito}{Permitir al docente visualizar la lista de alumnos inscritos en un ETS para verificar su asistencia.}
+	\UCitem{Entradas}{Ninguna}
+	\UCitem{Origen}{Pantalla táctil}
+	\UCitem{Salidas}{Lista de los alumnos inscritos al ETS.}
+	\UCitem{Destino}{\IUref{IU13}{Pantalla consultar lista de alumnos inscritos a un ETS}.}
+	\UCitem{Precondiciones}{El docente debe estar autenticado y tener asignado el ETS correspondiente.}
+	\UCitem{Postcondiciones}{El docente ha visualizado la lista de asistencia de los alumnos inscritos al ETS.}
+	\UCitem{Errores}{
+			E1: El ETS seleccionado no tiene alumnos inscritos y se muestra el mensaje {\bf MSG-14}{``No hay alumnos inscritos en este ETS.''}.
+			
+			E2: El sistema pierde la conexión al intentar recuperar la lista de asistencia y se muestra el mensaje {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+	}
+	\UCitem{Tipo}{Se entiende del CU06 Mostrar información de los ETS asignados}
+	\UCitem{Observaciones}{Ninguna}
+\end{UseCase}
+%--------------------------------------
+\begin{UCtrayectoria}
+	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Ver alumnos} desde la pantalla \IUref{IU06}{Pantalla de Información de ETS}.
+	\UCpaso El sistema verifica la existencia del ETS y que tenga alumnos inscritos. \Trayref{A}.
+	\UCpaso El sistema recupera la lista de alumnos inscritos en el ETS. \Trayref{B}
+	\UCpaso El sistema muestra la lista de alumnos inscritos en la \IUref{IU13}{Pantalla consultar lista de alumnos inscritos a un ETS}.
+\end{UCtrayectoria}
+
+%--------------------------------------        
+\begin{UCtrayectoriaA}{A}{El ETS no tiene alumnos inscritos}
+	\UCpaso El sistema muestra un mensaje: {\bf MSG-14}{``No hay alumnos inscritos en este ETS.''}
+	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Regresar} para volver a la pantalla anterior donde se muestra la información detallada del ETS.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%--------------------------------------        
+\begin{UCtrayectoriaA}{B}{Error en la conexión con la base de datos}
+	\UCpaso El sistema muestra un mensaje de error: {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
+	\UCpaso[\UCactor] El docente puede intentar la consulta nuevamente.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%-------------------------------------- TERMINA descripción del caso de uso.

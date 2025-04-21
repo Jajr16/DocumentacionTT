@@ -1,0 +1,36 @@
+%--------------------------------------
+\section{IU33}{Pantalla Iniciar sesión de personal escolar web}
+
+\subsection{Objetivo}
+	Controlar el acceso al sistema mediante una contraseña a fin de que cada usuario acceda solo a las operaciones permitidas para su perfil.
+
+\subsection{Diseño}
+	Esta pantalla \IUref{IU33}{Pantalla iniciar sesión de personal escolar web} (ver figura~\ref{IU33}) aparece al iniciar el sistema para los empleados. Para ingresar al mismo se debe escribir el RFC del empleado y la contraseña. 
+
+\IUfig[1]{UI-CU41}{IU33}{Pantalla Iniciar sesión de personal escolar web.}
+
+\subsection{Salidas}
+
+	Ninguna.
+
+\subsection{Entradas}
+	RFC y contraseña del empleado.
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Entrar}: Verifica que el empleado se encuentre registrado y la contraseña sea la correcta. Si la verificación es correcta, se verifica que tipo de empleado y se muestra la pantalla \IUref{IUE04}{Pantalla de saludo de personal de la DAE} si es personal de la DAE Y \IUref{IUE05}{Pantalla de saludo de personal de gestión escolar} si es personal de gestión escolar.
+	
+	\item \IUbutton{Presiona aquí para pedir su activación}: Redirige a la pantalla \IUref{UI32}{Pantalla de Solicitar desbloqueo de cuenta}
+	
+\end{itemize}
+
+\subsection{Mensajes}
+
+\begin{Citemize}
+	\item MSG-1 Los campos no están correctamente llenados. 
+	\item MSG-2 Su cuenta esta bloqueada. 
+	\item MSG-3 El RFC o la contraseña no corresponden con ningún empleado. 
+	\item MSG-4 El proceso no se pudo realizar por un fallo de red. 
+	\item MSG-5 Su cuenta ha sido bloqueada por la gran cantidad de intentos de inicio sesión fallidos.
+\end{Citemize}
+

@@ -1,0 +1,45 @@
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+\begin{UseCase}{CU-19}{Probar reconocimiento facial}{
+		Este caso de uso permite al alumno registrar su asistencia al ETS.
+	}
+	\UCitem{Versión}{\color{Gray}1.0}
+	\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
+	\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín}
+	\UCitem{Actor}{\hyperlink{Alumno}{Alumno}}
+	\UCitem{Propósito}{Facilitar el registro de asistencia de los alumnos.}
+	\UCitem{Entradas}{Pantalla táctil}
+	\UCitem{Origen}{Cámara del dispositivo}
+	\UCitem{Salidas}{Confirmación de asistencia registrada.}
+	\UCitem{Destino}{Mensaje de confirmación de asistencia.}
+	\UCitem{Precondiciones}{El alumno debe estar frente a la cámara del dispositivo.}
+	\UCitem{Postcondiciones}{El alumno asegura que el reconocimiento facial lo reconosca.}
+	\UCitem{Errores}{
+			
+			E1: Falló en la activación de la cámara y muestra el mensaje {\bf MSG-17}{``No se pudo activar la cámara o reconocer la identidad. Intente nuevamente.''}.
+
+	}
+	\UCitem{Tipo}{Extiende de CU18 Mostrar información de los ETS inscritos}
+	\UCitem{Observaciones}{}
+\end{UseCase}
+%--------------------------------------
+\begin{UCtrayectoria}
+	\UCpaso[\UCactor] Selecciona el botón \IUbutton{Probar reconocimiento facial } desde la pantalla \IUref{IUE03}{Pantalla de saludo del alumno}.
+	\UCpaso Activa la cámara del dispositivo para iniciar el reconocimiento facial \IUref{IU19}{Pantalla Reconocimiento facial alumno}. \Trayref{A}
+	\UCpaso Realiza el reconocimiento facial y verifica la identidad del alumno.
+	\UCpaso El sistema analiza la imagen del alumno y muestra un indicador:
+	\begin{itemize}
+		\item Verde: El sistema está casi seguro de que la persona es quien dice ser y muestra las características coincidentes.
+		\item Rojo: El sistema está casi seguro de que la persona no es quien dice ser y muestra las características que no coinciden. \Trayref{F}
+		\item Amarillo: El sistema no está seguro y necesita la ayuda del docente para confirmar la identidad, mostrando tanto las características coincidentes como las que no coinciden. \Trayref{G}
+	\end{itemize}
+	\UCpaso[\UCactor] El alumno revisa los resultados.
+\end{UCtrayectoria}
+%--------------------------------------        
+\begin{UCtrayectoriaA}{A}{Error al activar la cámara o fallo en el reconocimiento facial}
+	\UCpaso El sistema muestra un mensaje de error: {\bf MSG-17}{``No se pudo activar la cámara o reconocer la identidad. Intente nuevamente.''}
+	\UCpaso[\UCactor] El alumno puede intentar probar el reconocimiento nuevamente o contactar al responsable técnico.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%-------------------------------------- TERMINA descripción del caso de uso.
+

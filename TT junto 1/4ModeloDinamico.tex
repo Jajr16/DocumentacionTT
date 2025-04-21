@@ -1,0 +1,292 @@
+%=========================================================
+\chapter{Modelo dinámico}	
+\label{cap:modDinamico}
+
+El presente capítulo describe el modelo dinámico de nuestro sistema propuesto. En este se explican y representan las interacciones entre los actores y las funcionalidades del sistema estructurando la información necesaria para comprender su funcionamiento y diseño para asegurar una implementación coherente y funcional.
+
+En primer lugar, se describe la notación empleada para los diagramas de casos de uso, seguida de una pequeña explicación de porque decidimos establecer ciertos casos como necesarios y otros como no necesarios. Posteriormente, se introduce el diagrama de estructura de usuarios, que organiza a los actores según sus roles, después se describirán los actores que participaran en el sistema y se establecen sus responsabilidades y procesos. A partir de esto, se presentan los diagramas de casos de uso para los sistemas móvil y web, destacando las funcionalidades específicas de cada sistema. Finalmente, se proporciona una descripción exhaustiva de los casos de uso seleccionados como necesarios.
+
+\section{Notación}
+
+%\newpage
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\fbox{\includegraphics[width=.35\textwidth]{images/Notacion}}
+		\caption{Análisis de viabilidad de los casos de uso.}
+		\label{fig:Notacion}
+	\end{center}
+\end{figure}
+
+Ahora comenzaremos con la explicación de la notación usada para el diagrama de casos de uso. En la figura \ref{fig:Notacion} se puede ver la notación usada para el diagrama de casos de uso, en este se puede observar que se usaron 2 colores para clasificarlos; los casos de uso de color azul fueron analizados y determinados como prioritarios y los casos de uso de color rojo fueron analizados y determinados como no prioritarios.
+
+Decidimos determinar como casos de uso prioritarios a todos los casos del sistema móvil porque son los casos que son propios de nuestro sistema y son la parte principal de nuestro trabajo terminal y la más representativa ya que posee el mayor enfoque de inteligencia artificial, por otro lado, decidimos tomar los casos de uso del personal de la DAE como necesarios porque con ellos se justificaría la obtención de la credencial mediante el uso del proceso de la credencialización, también decidimos usar la parte de consultas y altas de los CRUD de: periodo de ETS, ETS, alumnos, docentes y personal de seguridad. Esto para representar los procesos que se realizan en el SAES y la DAE para mejorar el entendimiento, sin embargo, usar el resto del CRUD y los demás procesos de la DAE y el SAES quedan fuera del alcance del proyecto ya que se separan de la idea principal del trabajo terminal, además de que consumirán bastante tiempo y no están enfocados a la inteligencia artificial.
+
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\fbox{\includegraphics[width=.8\textwidth]{images/EstructuraU}}
+		\caption{Estructura de los usuarios.}
+		\label{fig:EstructuraU}
+	\end{center}
+\end{figure} 
+
+En la figura \ref{fig:EstructuraU} se muestra la estructura de los usuarios y los tipos de usuario que están presentes en el sistema, en este se puede observar como todos los usuarios se derivan de un usuario general llamado usuario, posteriormente se divide en tipos; empleado y alumno. Después el empleado se subdivide dejando al personal de seguridad y al docente como empleados generales y creando un sub-usuario llamado personal administrativo el cual contiene al personal de gestión escolar, al presidente de academia, jefe de academia y al personal de la DAE. 
+
+A continuación, se describirán las responsabilidades y los procesos de cada uno de los usuarios específicos (es decir los: los alumnos, personal de seguridad, docente, personal de gestión escolar, presidente de academia, jefe de departamento y personal de la DAE).
+
+%\newpage
+
+
+
+%\newpage
+
+%\newpage
+
+
+
+%---------------------------------------------------------
+\section{Descripción de actores}
+
+%---------------------------------------------------------
+\begin{Usuario}{\hypertarget{tAlumno}{\subsection{Alumno}}}{
+		Se refiere a las personas inscritas dentro de algún plan de estudios ofertado en la unidad académica.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Asistir puntualmente a las clases, prácticas y evaluaciones.
+		\item Respetar a docentes, compañeros y personal administrativo.
+		\item Cumplir con los requisitos y actividades de las asignaturas inscritas, incluyendo tareas, proyectos y exámenes.
+		\item Realizar oportunamente los trámites escolares como inscripciones, reinscripciones, solicitudes de documentos oficiales, etc.
+		\item Portar credencial institucional en todo momento.
+	\end{itemize}
+	
+
+\end{Usuario}
+
+\begin{Usuario}{\hypertarget{tPersonalSeguridad}{\subsection{Personal de seguridad}}}{
+		Se refiere a las personas registradas como empleados y que permiten o no el acceso a la unidad académica.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Supervisar el acceso y la salida de alumnos, personal docente y visitantes, asegurándose de que cumplan con los protocolos establecidos.
+		\item Verificar la identificación de las personas que ingresan a las instalaciones.
+		\item Responder de manera oportuna a incidentes o emergencias dentro de las instalaciones.
+		\item Brindar apoyo al personal, docentes o alumnos en caso de accidentes o situaciones de riesgo.
+	\end{itemize}
+	
+
+\end{Usuario}
+
+\begin{Usuario}{\hypertarget{tDocenteAplicador}{\subsection{Docente}}}{
+		Se refiere a las personas registradas como empleados que dan clases a los alumnos y supervisan los ETS asignados.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Impartir las clases de manera clara, puntual y completa, cumpliendo con los objetivos de aprendizaje.
+		\item Diseñar y aplicar instrumentos de evaluación justos, objetivos y alineados con los contenidos del curso.
+		\item Orientar a los alumnos en el desarrollo de competencias y habilidades.
+		\item Resolver dudas o problemáticas académicas dentro y fuera del aula, cuando sea necesario.
+		\item Registrar la asistencia de los alumnos y reportar incidencias graves.
+		\item Cumplir con la entrega de calificaciones y reportes en tiempo y forma.
+
+	\end{itemize}
+	
+
+\end{Usuario}
+
+\begin{Usuario}{\hypertarget{tPersonalGestion}{\subsection{Personal de gestión escolar}}}{
+		Se refiere a las personas registradas como empleados y personal administrativo que realiza los procesos administrativos dentro de la ESCOM.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+
+		\item Gestionar el proceso de inscripción y reinscripción de los alumnos, verificando que cumplan con los requisitos establecidos.
+		\item Mantener y actualizar el historial académico de los alumnos en los sistemas institucionales.
+		\item Revisar y validar actas de nacimiento, certificados y otros documentos oficiales requeridos para el registro de los alumnos.
+		\item Atender solicitudes y problemáticas relacionadas con registros, certificados, bajas temporales y procesos extraordinarios.
+		\item Brindar orientación a alumnos y docentes sobre trámites escolares, fechas importantes y normatividad académica.
+	\end{itemize}
+
+
+\end{Usuario}
+
+\begin{Usuario}{\hypertarget{tPersonalDAE}{\subsection{Personal de la DAE}}}{
+		Se refiere a las personas registradas como empleados y personal administrativo que realiza los procesos administrativos dentro de la DAE.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+
+		\item Fomentar y coordinar actividades extracurriculares que complementen la formación académica, como talleres, conferencias, eventos culturales y deportivos.
+		\item Supervisar programas de apoyo académico, como tutorías, orientación educativa y psicológica.
+		\item Difundir información sobre programas de movilidad académica, intercambios, convenios nacionales e internacionales y programas de servicio social.
+		\item Gestionar y emitir las credenciales oficiales del IPN para los alumnos.
+		\item Verificar que los documentos requeridos para la emisión de la credencial estén completos y sean válidos.
+		\item Coordinar el proceso de inscripción de los alumnos.
+		\item Actualizar y mantener los registros académicos y administrativos de los alumnos. 
+	\end{itemize}
+
+
+\end{Usuario}
+
+\begin{Usuario}{\hypertarget{tPresidente}{\subsection{Presidente de academia}}}{
+	Se refiere a las personas registradas como empleados y personal administrativo que lidera la academia de una unidad académica o área de conocimiento dentro de la ESCOM.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+
+		\item Convocar y presidir las reuniones de academia, donde se toman decisiones sobre planes y programas de estudio.
+		\item Coordinar la creación o actualización de planes y programas de estudio conforme a las necesidades del mercado laboral y las directrices institucionales.
+		\item Verificar que los contenidos impartidos por los docentes sean consistentes con los objetivos de los programas.
+		\item Detectar necesidades de capacitación entre los docentes y promover cursos o talleres. 
+	\end{itemize}
+
+\end{Usuario}
+
+\begin{Usuario}{\hypertarget{tJefe}{\subsection{Jefe de departamento}}}{
+	Se refiere a las personas registradas como empleados y personal administrativo que supervisa las actividades de una o más unidades académicas dentro de ESCOM.
+}
+\item[Responsabilidades:] \cdtEmpty
+\begin{itemize}
+
+	\item Administrar los recursos humanos y materiales asignados al departamento.
+	\item Supervisar la implementación de los programas de estudio y el cumplimiento de los objetivos educativos.
+	\item Promover y coordinar proyectos de investigación, desarrollo tecnológico o vinculación relacionados con el departamento.
+	\item Atender quejas, sugerencias o problemas que surjan en el departamento, ya sea entre docentes o alumnos.
+\end{itemize}
+
+\end{Usuario}
+
+A continuación se muestran los diagramas de casos de uso:
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\fbox{\includegraphics[width=.6\textwidth]{images/casosDeUso1}}
+		\caption{Diagrama de casos de uso del sistema movil.}
+		\label{fig:casosDeUso1}
+	\end{center}
+\end{figure}
+En la figura \ref{fig:casosDeUso1} se muestra el diagrama de casos de uso del sistema móvil el cual es el sistema principal del trabajo terminal. En este diagrama se detalla la estructura del sistema, los casos de uso del docente, del alumno, del personal de seguridad, del presidente de academia y el jefe de departamento.
+%\newpage
+\begin{figure}[htbp!]
+	\begin{center}
+		\fbox{\includegraphics[width=.6\textwidth]{images/casosDeUso2}}
+		\caption{Diagrama de casos de uso del sistema web.}
+		\label{fig:casosDeUso2}
+	\end{center}
+\end{figure}
+
+En la figura \ref{fig:casosDeUso2} se muestra el diagrama de casos de uso del sistema web el cual es el sistema secundario (la simulación de una parte del SAES y de la DAE) del trabajo terminal. En este diagrama se detalla la estructura del sistema, los casos de uso personal de la DAE y el personal de gestión escolar.
+
+A continuación se detallan los casos de uso.
+
+%---------------------------------------------------------
+% CASOS DE USO
+
+\input{cu/cu1.tex}
+\newpage
+
+\input{cu/cu2.tex}
+\newpage
+
+\input{cu/cu3.tex}
+\newpage
+
+\input{cu/cu4}
+\newpage
+
+\input{cu/cu5}
+\newpage
+
+\input{cu/cu6}
+\newpage
+
+\input{cu/cu7}
+\newpage
+
+\input{cu/cu8}
+\newpage
+
+\input{cu/cu9}
+\newpage
+
+\input{cu/cu10}
+\newpage
+
+\input{cu/cu11.tex}
+\newpage
+
+\input{cu/cu12}
+\newpage
+
+\input{cu/cu13}
+\newpage
+
+\input{cu/cu14}
+\newpage
+
+\input{cu/cu15}
+\newpage
+
+%\input{cu/cu16.tex}
+\newpage
+
+\input{cu/cu16-2}
+\newpage
+
+\input{cu/cu17}
+\newpage
+
+\input{cu/cu18}
+\newpage
+
+\input{cu/cu19}
+\newpage
+
+\input{cu/cu20}
+\newpage
+
+\input{cu/cu21.tex}
+\newpage
+
+\input{cu/cu22.tex}
+\newpage
+
+\input{cu/cu23.tex}
+\newpage
+
+\input{cu/cu24.tex}
+\newpage
+
+\input{cu/cu25.tex}
+\newpage
+
+\input{cu/cu28.tex}
+\newpage
+
+\input{cu/cu29.tex}
+\newpage
+
+\input{cu/cu32.tex}
+\newpage
+
+\input{cu/cu33.tex}
+\newpage
+
+\input{cu/cu36.tex}
+\newpage
+
+\input{cu/cu37.tex}
+\newpage
+
+\input{cu/cu40.tex}
+\newpage
+
+\input{cu/cu41.tex}
+\newpage
+
+\input{cu/cu43.tex}
+
+
+
+

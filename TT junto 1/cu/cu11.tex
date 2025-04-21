@@ -1,0 +1,37 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-11}{Mostrar la foto e información del alumno}{
+
+    Permitir que los docentes puedan revisar la información de un alumno especifico que ellos hayan escogido.
+}
+    \UCitem{Versión}{\color{Gray}1}
+    \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+    \UCitem{Supervisa}{\color{Gray}De la cruz De la cruz alejandra.}
+    \UCitem{Actor}{\hyperlink{Docente }{Docente }}
+    \UCitem{Propósito}{Permitir a los docentes revisar que alumnos se presentaran al ETS especifico.}
+    \UCitem{Entradas}{Ninguna}
+    \UCitem{Origen}{Pantalla táctil}
+    \UCitem{Salidas}{Muestra la información del alumno y su foto.}
+    \UCitem{Destino}{Ninguno}
+    \UCitem{Precondiciones}{El docente debe de haber iniciado sesión.}
+    \UCitem{Postcondiciones}{El docente revisa la información del alumno que seleccionó.}
+    \UCitem{Errores}{
+        E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-4}  ``El proceso no se pudo realizar por un falló de red.''
+    }
+    \UCitem{Tipo}{ Se entiende del CU08 Consultar lista de alumnos inscritos a un ETS }
+    \UCitem{Observaciones}{Ninguna}
+
+
+\end{UseCase}
+%-------------------------------------- 
+
+\begin{UCtrayectoria}
+
+    \UCpaso[\UCactor] El docente accede a la pantalla \IUref{IU20}{Pantalla mostrar la foto e información  del alumno}\label{CU11.introduceDatos} desde la pantalla \IUref{IU13}{consultar lista de alumnos inscritos a un ETS}.
+    \UCpaso[\UCactor] El docente revisa los datos del alumno.
+    \UCpaso[\UCactor] El docente decide que quiere expandir la foto del alumno para verla mejor presionando el \IUbutton{Ampliar fotografía }.
+    \UCpaso El sistema muestra la foto ampliada.
+\end{UCtrayectoria}
+
+

@@ -1,0 +1,32 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\section{IU28} {Consultar lista de personal de seguridad}
+\subsection{Objetivo}
+   Permite al personal de gestión escolar consultar una lista con todo el personal de seguridad.
+\subsection{Diseño}
+    Esta pantalla \IUref{IU28}{Consultar lista de personal de seguridad} (ver figura~\ref{IU28}) puede ser accedida desde la pantalla \IUref{IUE05}{de saludo de personal de gestión escolar } apretando el botón \IUbutton{Consultar lista de personal de seguridad}.
+\IUfig[1]{UI-CU32}{IU28}{Consultar lista de personal de seguridad}
+
+\subsection{Salidas}
+Ninguna
+\subsection{Entradas}
+Ninguna
+\subsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Dar de alta personal de seguridad} Redirige a la pantalla \IUref{UI29}{Dar de alta personal de seguridad}.
+    \item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+    
+\end{itemize}
+
+\subsection{Mensajes}
+
+\begin{Citemize}
+    \item {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
+    \item {\bf MSG-29}  ``No hay personal de seguridad dado de alta.''
+    
+\end{Citemize}
+
+

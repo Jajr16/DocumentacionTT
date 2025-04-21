@@ -1,0 +1,37 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-23}{Capturar fotografía estudiantil}{
+
+    Permitir al personal de la DAE Capturar 5 fotos del alumno donde todas serán guardadas en la base de datos para alimentar el modelo de reconocimiento facial y la primera será usada para la credencial.
+}
+    \UCitem{Versión}{\color{Gray}1}
+    \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+    \UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra.}
+    \UCitem{Actor}{\hyperlink{Personal de la DAE}{Personal de la DAE}}
+    \UCitem{Propósito}{Obtener una foto para la credencial y obtener fotos para el modelo de reconocimiento facial.}
+    \UCitem{Entradas}{Ninguna}
+    \UCitem{Origen}{Teclado}
+    \UCitem{Salidas}{Ninguna}
+    \UCitem{Destino}{Pantalla \IUref{IUE04}{saludo de personal de la DAE}}
+    \UCitem{Precondiciones}{El Personal de la DAE debe de haber iniciado sesión y este debe de haber dado de alta un alumno con anterioridad}
+    \UCitem{Postcondiciones}{El alumno es dado de alta por el Personal de la DAE y está esperando por su credencial escolar.}
+    \UCitem{Errores}{
+
+        E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
+    }
+    \UCitem{Tipo}{ Extiende de CU22 Crear credencial}
+    \UCitem{Observaciones}{Ninguna}
+
+\end{UseCase}
+%-------------------------------------- 
+
+\begin{UCtrayectoria}
+    \UCpaso[\UCactor] El Personal de la DAE accede a la pantalla \IUref{IU23}{Capturar fotografía estudiantil}\label{CU23.introduceDatos} apretando el botón \IUbutton{Subir foto} desde la pantalla \IUref{IU22}{Crear credencial}
+    \UCpaso[\UCactor] El Personal de la DAE apunta la cámara hacia el alumno y usa el botón \IUbutton{Cámara}.
+    \UCpaso El sistema toma 5 fotos cuando el alumno este mirando de frente
+    \UCpaso El sistema da de alta al alumno y su credencial.
+    \UCpaso El sistema guarda las fotos en la base de datos.
+\UCpaso[\UCactor] El Personal de la DAE es redirigido a la pantalla \IUref{IUE04}{ Menú de personal de la DAE}.
+\end{UCtrayectoria}
+

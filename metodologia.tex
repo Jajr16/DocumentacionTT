@@ -1,0 +1,110 @@
+%=========================================================
+\section{Metodología}
+\label{cap:Meto}
+
+	La metodología utilizada para el desarrollo de nuestro proyecto es el modelo en espiral. Este enfoque combina características del modelo en cascada, pero con la flexibilidad de incorporar múltiples iteraciones. Su objetivo es ajustar el tiempo de desarrollo total, logrando resultados funcionales en etapas tempranas. \\ 
+	
+	Una de sus ventajas clave es la reducción del riesgo de retrasos, ya que facilita la identificación temprana de conflictos y proporciona mecanismos para corregirlos a tiempo. Esto elimina la necesidad de contar con una definición completa de los requisitos del software antes de iniciar el desarrollo. \\
+	
+	El proceso comienza con la identificación de los objetivos funcionales. A continuación, se analizan las posibles estrategias para alcanzarlos, identificando los riesgos. En cada iteración, el equipo aborda y resuelve estos riesgos, mientras se avanza en las actividades. Finalmente, se planifica el siguiente ciclo de la espiral, como se ilustra en la figura (ver figura~\ref{espiral})
+
+\IUfig[.70]{espiral}{espiral}{\cite{IM2}.}
+
+	Las etapas que comprende nuestro sistema se muestran a continuación:
+	
+	\begin{itemize}
+		\item \textbf{Iteración 1}: 1 semana (26 de agosto - 30 de agosto)
+		\begin{itemize}
+			\item Estado del arte 
+		\end{itemize}
+		
+		\item \textbf{Iteración 2}: 1 semana (2 de septiembre - 6 de noviembre)
+		\begin{itemize}
+			\item Marco teórico 
+		\end{itemize}
+		
+		\item \textbf{Iteración 3}: 2 semanas (9 de septiembre - 20 de septiembre)
+		\begin{itemize}
+			\item Modelo del alcance:
+			\begin{itemize}
+				\item Modelado de usuarios
+				\item Requerimientos de usuario
+				\item Especificación de plataforma
+				\item Arquitectura del sistema
+			\end{itemize}
+			\item Prototipo de la aplicación móvil.
+		\end{itemize}
+		
+		\item \textbf{Iteración 4}: 3 semanas (23 de septiembre - 11 de octubre)
+		\begin{itemize}
+			\item Modelo del negocio:
+			\begin{itemize}
+				\item Términos del negocio
+				\item Modelo del dominio del problema
+				\item Modelado de las reglas del negocio
+			\end{itemize}
+			\item Prototipo de la simulación del SAES.
+		\end{itemize}
+		
+		\item \textbf{Iteración 5}: 4 semanas (14 de octubre -  08 de noviembre)
+		\begin{itemize}
+			\item Modelo dinámico:
+			\begin{itemize}
+				\item Descripción de actores
+				\item Casos de uso
+			\end{itemize}
+			\item Modelo de interacción:
+			\begin{itemize}
+				\item Modelo de navegación
+			\end{itemize}
+
+			\item Prototipos:
+			\begin{itemize}
+				\item Preprocesamiento de imágenes y generación de datasets(detección de rostros, conjuntos de entrenamiento y prueba)
+				\item Prototipo de reconocimiento facial 1 (Red neuronal para la obtención de vectores de características de rostros - embeddings)
+			\end{itemize}
+
+		\end{itemize}
+		
+		\item \textbf{Iteración 6}: 5 semanas (11 de noviembre -  20 de diciembre)
+		\begin{itemize}
+			\item Prototipos:
+			\begin{itemize}
+				\item Prototipo de reconocimiento facial 2 (Verificación de rostros en tiempo real)
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+	
+	A continuación, se presentan los riesgos potenciales que podrían surgir durante el desarrollo del proyecto, los cuales se detallan en la Tabla \ref{tabla:tabla_riesgos}.
+
+	\begin{longtable}{|c|p{2cm}|p{3cm}|c|p{2cm}|p{2cm}|p{3cm}|}
+		\hline
+		\textbf{No.} & \textbf{Proceso} & \textbf{Descripción} & \textbf{Probabilidad} & \textbf{Impacto} & \textbf{Riesgo Inherente} & \textbf{Control} \\ \hline
+		\endfirsthead
+		\hline
+		\textbf{No.} & \textbf{Proceso} & \textbf{Descripción} & \textbf{Probabilidad} & \textbf{Impacto} & \textbf{Riesgo Inherente} & \textbf{Control} \\ \hline
+		\endhead
+		\hline
+		\endfoot
+		\endlastfoot
+		1 & Análisis & Si el alcance no se delimita a tiempo puede provocar que se retrase el proceso de desarrollo. & Probable & Catastrófico & Extremo & Establecer reuniones urgentes de definición de alcance con miras a delimitar el alcance. \\ \hline
+		2 & Análisis & Si el alcance cambia constantemente puede generar varias horas de retrabajo y no se alcance la meta deseada en número de funcionalidades. & Posible & Menor & Moderado & Establecer el siguiente procedimiento: Cada vez que se requiera modificar un requerimiento, se debe solicitar formalmente y requerir la aprobación de sinodales y directores. \\ \hline
+		3 & Todos & Si el trabajo a distancia se ve afectado por una mala conexión podría generar retrasos en las actividades o una mala calidad en el trabajo realizado. & Probable & Moderado & Alto & Tomar notas en reuniones y compartir la información con el equipo, asegurando que todos estén al tanto de los cambios. \\ \hline
+		4 & Programación & Si los requerimientos no son claros para el equipo de desarrollo, podrían surgir discrepancias entre el software construido y el requerido, provocando retrabajo. & Posible & Menor & Moderado & Revisar requerimientos con el director y documentar las observaciones o cambios. \\ \hline
+		5 & Programación & Si la curva de aprendizaje de las nuevas tecnologías de desarrollo es demasiado larga, podrían entregarse componentes fuera de tiempo o de baja calidad. & Posible & Menor & Moderado & Tomar cursos formales que incluyan casos de estudio para comenzar a programar los primeros módulos del proyecto. \\ \hline
+		6 & Programación & Si cada programador programa siguiendo sus propias prácticas, podría obtenerse un código difícil de comprender y mantener, afectando el tiempo de depuración. & Posible & Menor & Moderado & Establecer un estándar de codificación y estilos uniformes de programación a seguir por todo el equipo. \\ \hline
+		7 & Pruebas & Si el análisis no está completo o está desactualizado respecto a los módulos construidos, el equipo podría tardar mucho en determinar todos los aspectos que debe probar. & Posible & Moderado & Alto & Documentar todos los cambios realizados y notificar a directores y sinodales. \\ \hline
+		8 & Pruebas & Si el sistema requiere demasiados casos de pruebas para garantizar una calidad aceptable, podría requerirse más tiempo del planeado. & Improbable & Moderado & Moderado & Reportar el número de casos de prueba para detectar un crecimiento inusual y ajustar la estrategia de pruebas. \\ \hline
+		9 & Pruebas & Si el sistema presenta un número inesperado de defectos, podría retrasar la entrega. & Improbable & Moderado & Moderado & Llevar un registro detallado de los módulos desarrollados para identificar defectos y diseñar estrategias correctivas. \\ \hline
+		10 & Programación & Si algún miembro del equipo tiene dificultades para implementar el software, podrían ocasionarse retrasos o una calidad deficiente. & Posible & Menor & Moderado & Asegurar la capacitación del equipo y realizar revisiones frecuentes del progreso. \\ \hline
+		11 & Todos & Si los equipos de cómputo de los participantes no tienen las características adecuadas para la realización de su trabajo, podría verse afectada su calidad y desempeño. & Posible & Moderado & Alto & Revisar inicialmente los equipos de los participantes y buscar alternativas para adaptarse a los recursos disponibles, asegurando que todos puedan trabajar eficientemente. \\ \hline
+		12 & Pruebas & Si el plan de pruebas no se elabora con suficiente cuidado, podría derivar en que el proceso no sea efectivo. & Posible & Moderado & Alto & Determinar un plan de pruebas detallado que incluya los objetivos y aspectos clave del sistema que deben evaluarse. \\ \hline
+		13 & Requerimientos & Si la información proporcionada por el personal administrativo de ESCOM es insuficiente, el diseño del sistema podría resultar poco confiable. & Posible & Catastrófico & Extremo & Realizar visitas con el personal administrativo para aclarar dudas y profundizar en los requerimientos. \\ \hline
+		14 & Programación & El sistema de reconocimiento facial será desarrollado en Python. Es necesario instalar componentes adecuados para cada computadora, pero en ocasiones, los componentes no permiten una instalación correcta, lo que podría retrasar las actividades. & Posible & Menor & Moderado & Revisar las especificaciones técnicas necesarias para los equipos y realizar pruebas para verificar el funcionamiento del sistema. \\ \hline
+		15 & Pruebas & La verificación de identidad de los alumnos, realizada a través de una aplicación móvil, requiere que los dispositivos sean rápidos para procesar la verificación en tiempo real. Si esto no se cumple, la dinámica establecida podría no llevarse a cabo eficientemente. & Posible & Moderado & Alto & Realizar pruebas continuas para ajustar el rendimiento del sistema y asegurar su eficiencia. \\ \hline
+	\caption{Riesgos potenciales que podrían surgir durante el desarrollo del proyecto. Elaboración propia.}
+	\label{tabla:tabla_riesgos}
+	\end{longtable}
+
+
+

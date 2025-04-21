@@ -1,0 +1,78 @@
+\begin{UseCase}{CU-15}{Registrar asistencia}{
+	Este caso de uso permite al personal de seguridad registrar la entrada de los alumnos mediante el escaneo de credenciales y la búsqueda por nombre o boleta.
+}
+\UCitem{Versión}{1.0}
+\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
+\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín}
+\UCitem{Actor}{\hyperlink{PersonalSeguridad}{Personal de Seguridad}}
+\UCitem{Propósito}{Facilitar el registro de entrada de los alumnos a las instalaciones.}
+\UCitem{Entradas}{
+	\begin{itemize}
+		\item \hyperlink{Alumno.Nombre}{Nombre del alumno} Nombre del alumno o número de boleta.
+		\item Escaneo de la credencial del alumno.
+	\end{itemize}
+}
+\UCitem{Origen}{Pantalla táctil y Cámara con lector de códigos QR}
+\UCitem{Salidas}{Confirmación de entrada registrada.}
+\UCitem{Destino}{Pantalla del sistema.}
+\UCitem{Precondiciones}{
+		El sistema debe tener acceso a la base de datos de alumnos.
+		
+		El personal de seguridad debe estar autenticado en el sistema.
+
+}
+\UCitem{Postcondiciones}{
+		Se registra la entrada del alumno en el sistema.
+}
+\UCitem{Errores}{
+		E1: No se encuentra la información del alumno Y se muestra  {\bf MSG-22}{``Alumno no registrado''}.
+
+		E2: Error de conexión con la base de datos y se muestra {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+
+}
+\UCitem{Tipo}{Se entiende del CU-12 Consultar alumno mediante código QR de la credencial, CU-13 Buscar alumno por boleta y del CU-14 Buscar alumno por nombre }
+\UCitem{Observaciones}{Ninguno}
+\end{UseCase}
+%--------------------------------------
+\begin{UCtrayectoria}
+\UCpaso[\UCactor] El personal de seguridad presiona el botón \IUbutton{Registrar asistencia} desde la \IUref{IU12}{Pantalla Buscar alumno} o escanea la codigo QR de la credencial del alumno desde la \IUref{IU10}{Pantalla Código QR}.
+\UCpaso El sistema verifica la información y busca en la base de datos la correspondencia. \Trayref{A} \Trayref{B}
+\UCpaso El sistema despliega los datos del alumno y solicita confirmación al personal de seguridad para registrar la entrada.
+\UCpaso El sistema le muestra una imagen del alumno al personal de seguridad.
+\UCpaso[\UCactor] El personal de seguridad no está seguro de la identidad del alumno, por lo que decide usar el reconocimiento facial. \Trayref{C} \Trayref{D}
+\UCpaso El sistema activa la cámara y comienza el proceso de reconocimiento facial del alumno presente \IUref{IU17}{Pantalla Reconocimiento facial}. 
+\UCpaso El sistema analiza la imagen del alumno y muestra un indicador:
+\begin{itemize}
+	\item Verde: El sistema está casi seguro de que la persona es quien dice ser y muestra las características coincidentes.
+	\item Rojo: El sistema está casi seguro de que la persona no es quien dice ser y muestra las características que no coinciden. 
+	\item Amarillo: El sistema no está seguro y necesita la ayuda del docente para confirmar la identidad, mostrando tanto las características coincidentes como las que no coinciden. 
+\end{itemize}
+\UCpaso[\UCactor] El personal de seguridad decide si confirmar o no el registro de entrada.
+\UCpaso El sistema guarda el registro y muestra un mensaje de confirmación: {\bf MSG-23}{``Entrada registrada exitosamente.''} o {\bf MSG-24}{``Entrada no registrada .''} respectivamente.
+\end{UCtrayectoria}
+%--------------------------------------
+\begin{UCtrayectoriaA}{A}{Alumno no registrado o no encontrado}
+\UCpaso El sistema muestra un mensaje: {\bf MSG-22}{``Alumno no registrado''}
+\UCpaso[\UCactor] El personal de seguridad puede intentar nuevamente el escaneo.
+\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%--------------------------------------
+\begin{UCtrayectoriaA}{B}{Error de conexión con la base de datos}
+
+\UCpaso EL sistema muestra un mensaje de error: {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+\UCpaso[\UCactor] El personal de seguridad presiona el botón \IUbutton{Aceptar} para cerrar el mensaje y puede intentar la consulta nuevamente.
+\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%--------------------------------------        
+\begin{UCtrayectoriaA}{}{El personal de seguridad está seguro de la identidad del alumno sin la necesidad de usar el reconocimiento facial y decide que le registrara asistencia sin la necesidad del reconocimiento facial}
+\UCpaso[\UCactor] El personal de seguridad presiona el botón \IUbutton{Registrar asistencia}.
+\UCpaso El sistema actualiza la asistencia.
+\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%--------------------------------------        
+\begin{UCtrayectoriaA}{B}{El personal de seguridad está seguro de la identidad del alumno sin la necesidad de usar el reconocimiento facial y decide que no le registrara asistencia}
+\UCpaso[\UCactor] El personal de seguridad presiona el botón \IUbutton{No registrar asistencia}.
+\UCpaso El sistema no actualiza la asistencia.
+\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}  
+

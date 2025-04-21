@@ -1,0 +1,30 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\subsection{IU29 Dar de alta personal de seguridad}
+\subsubsection{Objetivo}
+    Permite al personal de gestión escolar dar de alta a personal de seguridad.
+\subsubsection{Diseño}
+    Esta pantalla \IUref{IU29}{Dar de alta personal de seguridad} (ver figura~\ref{IU29}) puede ser accedida desde la pantalla \IUref{IU28}{Consultar lista de personal de seguridad} apretando el botón \IUbutton{Dar de alta personal de seguridad}.
+\IUfig[1]{UI-CU33}{IU29}{Dar de alta personal de seguridad.}
+
+\subsubsection{Salidas}
+Muestra mensaje {\bf MSG-37} ``Personal de seguridad dado de alta con éxito''.
+\subsubsection{Entradas}
+CURP, Turno , Cargo, Sexo y Nombre
+\subsubsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Dar de alta personal de seguridad} Da de alta el nuevo personal de seguridad y redirige a la pantalla \IUref{UI28}{Consultar lista de personal de seguridad}.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+    
+\end{itemize}
+
+\subsubsection{Mensajes}
+
+\begin{Citemize}
+    \item {\bf MSG-37} ``Personal de seguridad dado de alta con éxito''.
+    \item {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
+    \item {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+    \item {\bf MSG-38}{``El CURP ya ha sido asociado a este personal de seguridad con anterioridad u otro personal de seguridad.''}
+    
+\end{Citemize}

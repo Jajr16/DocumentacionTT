@@ -1,0 +1,53 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+\begin{UseCase}{CU-18}{Mostrar información de los ETS inscritos}{
+		Este caso de uso permite al alumno visualizar la información detallada de los ETS que tiene inscritos.
+	}
+	\UCitem{Versión}{\color{Gray}1.0}
+	\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
+	\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín}
+	\UCitem{Actor}{\hyperlink{Alumno}{Alumno}}
+	\UCitem{Propósito}{Permite al alumno visualizar la información detallada de cada ETS que tiene inscrito.}
+	\UCitem{Entradas}{Pantalla táctil}
+	\UCitem{Origen}{Seleccionar un ETS inscrito}
+	\UCitem{Salidas}{Detalle de la información de los ETS inscritos}
+	\UCitem{Destino}{\IUref{IU16}{Pantalla Información de ETS del alumno}}
+	\UCitem{Precondiciones}{El alumno debe estar autenticado y tener ETS inscritos en el sistema.}
+	\UCitem{Postcondiciones}{El alumno ha visualizado la información detallada de sus ETS inscritos.}
+	\UCitem{Errores}{
+			E1: El sistema no puede recuperar la información detallada de los ETS y se muestra {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+			
+			E2: No hay ETS inscritos y se muestra el mensaje {\bf MSG-27}{``Información no disponible para el ETS seleccinado''}.
+
+	}
+	\UCitem{Tipo}{Extiende de CU-17 Consultar periodos de ETS inscritos del alumno}
+	\UCitem{Observaciones}{Ninguna}
+\end{UseCase}
+%--------------------------------------
+\begin{UCtrayectoria}
+	\UCpaso[\UCactor] El alumno selecciona el ETS que desea visualizar desde la \IUref{IU15}{Pantalla Consultar ETS del alumno}.
+	\UCpaso[\UCsist] El alumno verifica si existen detalles disponibles para el ETS seleccionado. \Trayref{A}
+	\UCpaso El sistema despliega la información detallada de cada ETS asignado en la \IUref{IU16}{Pantalla Información de ETS del alumno}.
+\end{UCtrayectoria}
+%--------------------------------------        
+\begin{UCtrayectoriaA}{A}{No hay detalles disponibles para el ETS seleccionado}
+	\UCpaso El sistema muestra un mensaje: {\bf MSG-27}{``Información no disponible para el ETS seleccinado''}
+	\UCpaso[\UCactor] El alumno presiona el botón \IUbutton{Regresar} para volver a la lista de ETS.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%--------------------------------------        
+\begin{UCtrayectoriaA}{B}{Error en la conexión con la base de datos}
+	\UCpaso El sistema muestra un mensaje de error {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+	\UCpaso[\UCactor] El alumno presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
+	\UCpaso[\UCactor] El alumno puede intentar la consulta nuevamente o presionar el botón \IUbutton{Regresar} para volver a la pantalla anterior.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%-------------------------------------- TERMINA descripción del caso de uso.

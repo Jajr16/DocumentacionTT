@@ -1,0 +1,32 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\section{IU22} {Crear credencial}
+
+\subsection{Objetivo}
+   Permite al personal de gestión escolar revisar una previsualización de la credencial del alumno y revisar los datos.
+\subsection{Diseño}
+    Esta pantalla \IUref{IU22}{ Crear credencial } (ver figura~\ref{IU22}) puede ser accedida desde la pantalla \IUref{IU21}{ Dar de alta a alumno} apretando el botón \IUbutton{Dar de alta alumno }.
+
+\IUfig[1]{UI-CU22}{IU22}{ Crear credencial.}
+
+\subsection{Salidas}
+Ninguna
+\subsection{Entradas}
+    \hyperlink{Alumno.Boleta}{Boleta}, \hyperlink{Alumno.Nombre}{Nombre}, \hyperlink{Alumno.CURP}{CURP}, \hyperlink{Alumno.Sexo}{Sexo} y \hyperlink{Alumno.Correo institucional}{Correo institucional}
+\subsection{Comandos}
+\begin{itemize}
+\item \IUbutton{Subir foto} Guarda la información y redirige a la pantalla \IUref{UI23}{ Capturar fotografía estudiantil }.
+    \item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+    
+\end{itemize}
+
+\subsection{Mensajes}
+
+\begin{Citemize}
+    \item {\bf MSG-28}  ``El proceso no se pudo realizar por un falló de red.''
+    \item {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+    \item {\bf MSG-30}{``El CURP o la boleta ya han sido asociadas a este alumno con anterioridad u otro alumno.''}
+\end{Citemize}

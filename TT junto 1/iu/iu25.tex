@@ -1,0 +1,32 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\section{IU25} {Dar de alta de periodo de ETS}
+\subsection{Objetivo}
+    Permite al personal de gestión escolar dar de alta un periodo de ETS.
+\subsection{Diseño}
+    Esta pantalla \IUref{IU25}{Dar de alta de periodo de ETS } (ver figura~\ref{IU25}) puede ser accedida desde la pantalla \IUref{IU24}{Consultar lista de periodo de ETS} apretando el botón \IUbutton{Dar de alta un periodo de ETS}
+\IUfig[1]{UI-CU25}{IU25}{Dar de alta de periodo de ETS.}
+
+\subsection{Salidas}
+Muestra mensaje {\bf MSG-33} ``Periodo de ETS  dado de alta con éxito''.
+\subsection{Entradas}
+\hyperlink{Periodo de ETS.Periodo}{Periodo}, \hyperlink{Periodo-de-ETS.Tipo}{Tipo}, \hyperlink{Periodo-de-ETS.Fecha-de-inicio}{Fecha-de-inicio} y \hyperlink{Periodo-de-ETS.Fecha-de-fin}{Fecha-de-fin}
+\subsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Dar de alta periodo de ETS} Da de alta el nuevo periodo de ETS y redirige a la pantalla \IUref{UI24}{ Consultar lista de periodo de ETS}.
+    \item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+    
+\end{itemize}
+
+\subsection{Mensajes}
+
+\begin{Citemize}
+    \item {\bf MSG-33} ``Periodo de ETS  dado de alta con éxito''.
+    \item {\bf MSG4-28}  ``El proceso no se pudo realizar por un fallo de red.''
+    \item {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+    \item {\bf MSG16-32}{`` Periodo, Fecha-de-inicio o Fecha-de-fin ya han sido asociadas a un periodo de ETS.''}
+\end{Citemize}
+

@@ -1,0 +1,512 @@
+\begin{BussinesRule}{RN1}{Acceso al sistema.}
+	\BRitem[Tipo:] Acceso. 
+	\BRitem[Clase:] Condicional. 
+	\BRitem[Nivel:] Estricto.
+	\BRitem[Descripción:] El acceso a nuestro sistema será permitido solo para los Empleados y estudiantes de la ESCOM.
+	\BRitem[Motivación:] Evitar el acceso no autorizado a otras personas que no sean de la ESCOM..
+
+	\BRitem[Referenciado por:] \hyperlink{CU-01}{CU-01} y \hyperlink{CU41}{CU-41}.
+\end{BussinesRule}
+
+\begin{BussinesRule}{RN2}{ Acceso a las funcionalidades del docente.}
+    \BRitem[Tipo:] Acceso. 
+    \BRitem[Clase:] Condicional. 
+    \BRitem[Nivel:] Estricto.
+    \BRitem[Descripción:] Los docentes solo podrán acceder y revisar la información de los ETS que tengan asignados.
+    \BRitem[Motivación:] Para evitar que los docentes se confundan, accedan a información que no les corresponde o modifiquen información que no les corresponde.
+
+    \BRitem[Referenciado por:] \hyperlink{CU-01}{CU-01} y \hyperlink{CU-04}{CU-04}.
+\end{BussinesRule}
+
+\begin{BussinesRule}{RN3}{ Acceso a las funcionalidades del personal de seguridad.}
+    \BRitem[Tipo:] Acceso. 
+    \BRitem[Clase:] Condicional. 
+    \BRitem[Nivel:] Estricto.
+    \BRitem[Descripción:] El personal de seguridad solo podrán acceder y revisar la información relacionada con el acceso de los alumnos a la ESCOM de los días en los que se presenten ETS.
+    \BRitem[Motivación:] Para evitar que el personal de seguridad se confunda, accedan a información que no les corresponde o modifiquen información que no les corresponde.
+
+    \BRitem[Referenciado por:] \hyperlink{CU-01}{CU-01} y \hyperlink{CU-12}{CU-12}, \hyperlink{CU-13}{CU-13}, \hyperlink{CU-14}{CU-14} y \hyperlink{CU-15}{CU-15}.
+\end{BussinesRule}
+
+\begin{BussinesRule}{RN4}{ Acceso a las funcionalidades web}
+	\BRitem[Tipo:] Habilitación.
+	\BRitem[Clase:] Condicional.
+	\BRitem[Nivel:] Estricta.
+	\BRitem[Descripción:] El sistema permitirá únicamente a el personal de gestión escolar y al personal la DAE acceder al sistema web.
+	\BRitem[Motivación:] Se necesita separar las funcionalidades de los empleados para que el sistema tenga cohesión y para que el sistema web no referencie al sistema movil.
+	\BRitem[Referenciado por:] \hyperlink{CU-41}{CU-41}.
+	\end{BussinesRule}
+
+\begin{BussinesRule}{RN5} {Consultar periodos del docente}
+	\BRitem[Tipo:] Habilitación.
+	\BRitem[Clase:] Condicional.
+	\BRitem[Nivel:] Estricta.
+	\BRitem[Descripción:] El sistema permitirá únicamente a los docentes autenticados consultar los períodos de ETS que tiene asignados.
+	\BRitem[Motivación:] Garantizar que solo usuarios autorizados consulten información sensible.			
+	\BRitem[Referenciado por:] \hyperlink{CU-04}{CU-04}.
+	\end{BussinesRule}
+
+\begin{BussinesRule}{RN6} {Visualizar lista de alumnos inscritos}
+	\BRitem[Tipo:] Acceso.
+	\BRitem[Clase:] Condicional.
+	\BRitem[Nivel:] Estricta.
+	\BRitem[Descripción:] El sistema permitirá al docente consultar únicamente la lista de los alumnos inscritos a los ETS que le han sido asignados.
+	\BRitem[Motivación:] Permitir que los docentes puedan visualizar la información de los estudiantes inscritos a los ETS que tenga asignados.
+	\BRitem[Referenciado por:] \hyperlink{CU-09}{CU-09}.
+	\end{BussinesRule}
+
+\begin{BussinesRule}{RN7} {Acceso al asignar remplazo}
+    \BRitem[Tipo:] Acceso.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema permitirá solo al presidente de academia  y al jefe de departamento consultar la lista de solicitudes de remplazo y posteriormente asignar un remplazo.
+    \BRitem[Motivación:] Hacer que solo el personal capacitado y responsable asigne los remplazos a los ETS.
+    \BRitem[Referenciado por:] \hyperlink{CU-42}{CU-42}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN8} {Cantidad de pruebas de reconocimiento facial}
+    \BRitem[Tipo:]Habilitación.
+    \BRitem[Clase:]Cronometrada.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El alumno solo puede realizar un máximo de 3 pruebas de reconocimiento facial dentro de la aplicación.
+    \BRitem[Motivación:] Evitar que el alumno le pida a alguien más que  pruebe constantemente el reconocimiento facial hasta que se parezca a el/ella.
+    \BRitem[Referenciado por:] \hyperlink{CU-19}{CU-19}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN9} {Cantidad de intentos fallidos de inicio de sesión}
+    \BRitem[Tipo:]Habilitación.
+    \BRitem[Clase:] Cronometrada.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema permitirá solo a todos los usuarios un máximo de 5 intentos de inicio de sesión fallidos antes de bloquear la cuenta del usuario.
+    \BRitem[Motivación:] Asegurar la seguridad de los usuarios y evitar que personas no autorizadas entren al sistema.
+    \BRitem[Referenciado por:] \hyperlink{CU-01}{CU-01}, y \hyperlink{CU-41}{CU-41}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN10} {Acceso a solo la información de los ETS }
+    \BRitem[Tipo:]Habilitadora.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema permitirá que los alumnos puedan ingresar solo a la información de sus ETS inscritos y solo consultar a la información (no podrán modificarla).
+    \BRitem[Motivación:] Evitar que los alumnos cambien la información de los ETS y evitar que los alumnos sepan de otros alumnos que presentaran el mismo ETS (esto para no fomentar la formación de acuerdos entre los alumnos).
+    \BRitem[Referenciado por:] \hyperlink{CU-19}{CU-19}.
+    \end{BussinesRule}
+
+% Alfredo
+
+\begin{BussinesRule}{BR11}{Registro de usuarios válidos.} 
+    \BRitem[Tipo:] Habilitadora
+    \BRitem[Clase:] Integridad
+    \BRitem[Nivel:] Estricta
+    \BRitem[Descripción:] Todos los usuarios registrados dentro del sistema deberán de estar registrados dentro de la tabla “Persona”. 
+    \BRitem[Motivación:] Asegurar que solo la comunidad de la institución pueda acceder a la escuela. 
+    \BRitem[Referenciado por:] \hyperlink{Usuario}{Usuario} 
+    \end{BussinesRule}
+
+\begin{BussinesRule}{BR12}{Registro de personal académico.} 
+    \BRitem[Tipo:] Habilitadora
+    \BRitem[Clase:] Condición.
+    \BRitem[Nivel:] Estricta
+    \BRitem[Descripción:] Para registrar al personal académico se deberá de dar de alta un RFC, un correo institucional válido y especificar el cargo que tiene dentro de la institución. Este puede variar entre un docente o personal administrativo, como lo es el personal de gestión escolar. En caso de ser un docente se debe especificar su cargo dentro de la escuela, como lo es el jefe de academia, presidente de academia, director o subdirector. 
+    \BRitem[Motivación:] Moderar los diferentes permisos de los usuarios dependiendo del cargo que tengan dentro de la escuela. 
+    \BRitem[Referenciado por:] \hyperlink{PersonalAcademico}{Personal Académico} 
+    \end{BussinesRule}
+
+\begin{BussinesRule}{BR13}{Límite de alumnos en un ETS.} 
+    \BRitem[Tipo:] Cronometrada. 
+    \BRitem[Clase:] Condición.
+    \BRitem[Nivel:] Estricta
+    \BRitem[Descripción:] Un alumno se podrá inscribir a un ETS únicamente si la cantidad de alumnos aún no excede el cupo límite de un ETS.
+    \BRitem[Motivación:] Evitar el sobrecupo de un salón el día del ETS.
+    \BRitem[Referenciado por:] \hyperlink{ETS}{ETS} 
+    \end{BussinesRule}
+    
+\begin{BussinesRule}{BR14}{Fecha de aplicación de los ETS.} 
+    \BRitem[Tipo:] Cronometrada. 
+    \BRitem[Clase:] Condición.
+    \BRitem[Nivel:] Estricta
+    \BRitem[Descripción:] Las fechas de los ETS deben de estar dentro del periodo especificado del mismo, en caso contrario no se podrá dar de alta. 
+    \BRitem[Motivación:] Tener un control sobre las fechas en las que se aplican los ETS. 
+    \BRitem[Referenciado por:] \hyperlink{ETS}{ETS} 
+    \end{BussinesRule}
+
+\begin{BussinesRule}{BR15}{Registro de un ETS} 
+    \BRitem[Tipo:] Habilitadora. 
+    \BRitem[Clase:] Condición.
+    \BRitem[Nivel:] Estricta
+    \BRitem[Descripción:] Los ETS deberán de especificar siempre el turno en el ques e van a aplicar, especificar el periodo en el que se aplican y el cupo que se tendrá para ese ETS.
+    \BRitem[Motivación:] Tener un mejor control sobre la información de los ETS.
+    \BRitem[Referenciado por:] \hyperlink{ETS}{ETS} 
+    \end{BussinesRule}
+
+\begin{BussinesRule}{BR16}{Asignación de salón para un ETS} 
+    \BRitem[Tipo:] Habilitadora. 
+    \BRitem[Clase:] Condición	.
+    \BRitem[Nivel:] Estricta
+    \BRitem[Descripción:] Un salón solo puede ser asignado a un ETS si no ha sido asignado para otro ETS.
+    \BRitem[Motivación:] Evitar la sobreasignación de salones.
+    \BRitem[Referenciado por:] \hyperlink{SalonETS}{Salón del ETS} 
+    \end{BussinesRule}
+
+\begin{BussinesRule}{BR17}{Permisos del usuario de los docentes.} 
+    \BRitem[Tipo:] Ejecutiva.
+    \BRitem[Clase:] Autorización.
+    \BRitem[Nivel:] Estricta
+    \BRitem[Descripción:] Si un docente tiene asignado más de un cargo dentro de la institución, el sistema le mostrará las interfaces correspondientes a cada uno de los cargos. El acceso a las interfaces dependerá de las funcionalidades permitidas por cada cargo.
+    \BRitem[Motivación:] Asegurar que los docentes tengan acceso a todas las funciones dependiendo del cargo que tengan.
+    \BRitem[Referenciado por:] \hyperlink{CargoDocente}{Cargo del docente} 
+    \end{BussinesRule}
+
+\begin{BussinesRule}{BR18}{Número de docentes aplicadores de un ETS.} 
+    \BRitem[Tipo:] Habilitadora. 
+    \BRitem[Clase:] Condición.
+    \BRitem[Nivel:] Estricta
+    \BRitem[Descripción:] Un mismo ETS puede ser aplicado por múltiples docentes en diferentes salones.
+    \BRitem[Motivación:] Asegurar que todos los ETS tengan por lo menos un aplicador, ya sea en uno o más salones.
+    \BRitem[Referenciado por:] \hyperlink{Aplica}{Tabla Aplica} 
+    \end{BussinesRule}
+
+\begin{BussinesRule}{BR19}{Inscripción de un ETS.} 
+    \BRitem[Tipo:] Habilitadora. 
+    \BRitem[Clase:] Autorización.
+    \BRitem[Nivel:] Estricta
+    \BRitem[Descripción:] Un alumno no puede estar inscrito en dos ETS que se lleven a cabo en el mismo horario.
+    \BRitem[Motivación:] Evitar el solapamiento de dos o más ETS.
+    \BRitem[Referenciado por:] \hyperlink{InscripcionETS}{Inscripción de un ETS} 
+    \end{BussinesRule}
+
+\begin{BussinesRule}{BR20}{Aplicador titular de un ETS.} 
+    \BRitem[Tipo:] Integridad
+    \BRitem[Clase:] Cronometrada.
+    \BRitem[Nivel:] Estricta
+    \BRitem[Descripción:] Los ETS deberán contar siempre con un docente titular que es el docente principal que va a aplicar el ETS. En caso de sustitución del docente o apoyo a este, también se especificará que estos son ayudantes y no titulares.
+    \BRitem[Motivación:] Garantizar la asignación de roles dentro del sistema.
+    \BRitem[Referenciado por:] \hyperlink{Aplica}{Tabla Aplica} 
+    \end{BussinesRule}
+    
+
+%
+\begin{BussinesRule}{RN21} {Acceso a información sobre el acceso a los ETS}
+    \BRitem[Tipo:] Acceso.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema permitirá que solo los alumnos puedan acceder a la información sobre los ETS en una pantalla.
+    \BRitem[Motivación:] Permitir que los alumnos conozcan el proceso de acceso a los ETS y evitar confusiones y malentendidos.
+    \BRitem[Referenciado por:] \hyperlink{CU-20}{CU-20}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN22} {Estructura de la CURP}
+    \BRitem[Tipo:]Integridad.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] La CURP debe de tener exactamente 18 caracteres y debe de poseer solo letras y números.
+    \BRitem[Motivación:] Para mantener la estructura correcta de la CURP y evitar que se Introduzca datos inválidos.
+    \BRitem[Referenciado por:] \hyperlink{CU-21}{CU-21}, \hyperlink{CU-22}{CU-22}, \hyperlink{CU-33}{CU-33} y \hyperlink{CU-37}{CU-37}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN23} {Estructura de la Boleta}
+    \BRitem[Tipo:]Integridad.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] La Boleta debe de tener exactamente 10 caracteres y debe de poseer solo números.
+    \BRitem[Motivación:] Para mantener la estructura correcta de la Boleta y evitar que se Introduzca datos inválidos.
+    \BRitem[Referenciado por:] \hyperlink{CU-21}{CU-21}, \hyperlink{CU-22}{CU-22}, \hyperlink{CU-33}{CU-33} y \hyperlink{CU-37}{CU-37}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN24} {Estructura del correo institucional del alumno}
+    \BRitem[Tipo:]Integridad.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El correo institucional del alumno debe de seguir la estructura [texto][@][alumno.ipn.mx]
+    \BRitem[Motivación:] Para mantener la estructura correcta del correo institucional y evitar que se Introduzca datos inválidos.
+    \BRitem[Referenciado por:] \hyperlink{CU-21}{CU-21} y \hyperlink{CU-22}{CU-22}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN25} {Cantidad de alumnos por salud}
+    \BRitem[Tipo:] Habilitación.
+    \BRitem[Clase:] Cronometrada.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] Los salones tienen un cupo máximo de 30 alumnos.
+    \BRitem[Motivación:] Para evitar aglomeraciones de alumnos durante un ETS.
+    \BRitem[Referenciado por:] \hyperlink{CU-21}{CU-21} y \hyperlink{CU-22}{CU-22}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN26} {Asignación de salones}
+    \BRitem[Tipo:] Habilitación.
+    \BRitem[Clase:] Cronometrada.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] Los salones solo pueden ser asignados a un ETS durante un periodo de ETS concreto.
+    \BRitem[Motivación:] Para evitar que los salones sean asignados a 2 o más ETS distintos a la vez.
+    \BRitem[Referenciado por:] \hyperlink{CU-25}{CU-25}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN27} {Estructura del dato salón}
+    \BRitem[Tipo:] Integridad.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El dato salón está conformado por 4 números de los cuales el primer indica el edificio, el segundo el piso y los otros dos el número del salón .
+    \BRitem[Motivación:] Para mantener la estructura correcta del dato salón y evitar que se Introduzca datos inválidos.
+    \BRitem[Referenciado por:] \hyperlink{CU-29}{CU-29}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN28} {Valores del turno }
+    \BRitem[Tipo:]Integridad.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El turno solo puede ser matutino o vespertino.
+    \BRitem[Motivación:] Para establecer que los ETS no se pueden hacer en periodos de tiempo irregulares.
+    \BRitem[Referenciado por:] \hyperlink{CU-29}{CU-29} y \hyperlink{CU-33}{CU-33}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN29} {Fecha del ETS}
+    \BRitem[Tipo:]Integridad.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] La fecha del del ETS solo puede ser un día que este dentro del periodo del ETS asignado.
+    \BRitem[Motivación:] Para establecer que los ETS no pueden estar fuera de la fecha del periodo de ETS asignado.
+    \BRitem[Referenciado por:] \hyperlink{CU-29}{CU-29}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN30} {Selección de periodo de ETS para el ETS actual}
+    \BRitem[Tipo:]Integridad.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] Para dar de alta un ETS solo se puede poner el periodo de ETS actual o el más próximo si no hay actual.
+    \BRitem[Motivación:] Para no asignar ETS en fechas imposibles.
+    \BRitem[Referenciado por:] \hyperlink{CU-29}{CU-29}.
+    \end{BussinesRule}
+
+
+\begin{BussinesRule}{RN31} {Valores del tipo de periodo de ETS}
+    \BRitem[Tipo:]Integridad.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El tipo del ETS solo puede ser ordinario o extraordinario.
+    \BRitem[Motivación:] Para establecer correctamente los 2 tipos de ETS.
+    \BRitem[Referenciado por:] \hyperlink{CU-25}{CU-25}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN32} {Asignación de fechas al periodo de ETS}
+    \BRitem[Tipo:]Integridad.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] Las fechas de inicio y de fin deben de ser validas.
+    \BRitem[Motivación:] Para evitar asignar fechas de ETS imposibles.
+    \BRitem[Referenciado por:] \hyperlink{CU-25}{CU-25}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN33} {Asignación de unidad de aprendizaje}
+    \BRitem[Tipo:]Integridad.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] La unidad de aprendizaje debe de estar registrada en el sistema.
+    \BRitem[Motivación:] Para evitar asignar unidad de aprendizaje falsas.
+    \BRitem[Referenciado por:] \hyperlink{CU-29}{CU-29}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN34} {Asignar sexo }
+    \BRitem[Tipo:]Integridad.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sexo de los usuarios se refiero al sexo biológico y no al género por lo que solo puede tomar el valor de masculino o femenino.
+    \BRitem[Motivación:] Evitar confusiones y simplificar los daros guardados en la base de datos.
+    \BRitem[Referenciado por:] \hyperlink{CU-21}{CU-21}, \hyperlink{CU-22}{CU-22}, \hyperlink{CU-33}{CU-33} y \hyperlink{CU-37}{CU-37}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN35} {Cantidad de fotos tomadas en la credencialización }
+    \BRitem[Tipo:]Integridad.
+    \BRitem[Clase:]Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] Para la credencialización se tomaran 5 fotos.
+    \BRitem[Motivación:] Para obtener datos para el entrenamiento de la red neuronal.
+    \BRitem[Referenciado por:] \hyperlink{CU-22}{CU-22} y \hyperlink{CU-23}{CU-23}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN36} {Visualización del calendario escolar.}
+    \BRitem[Tipo:] Acceso.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema permitirá a los usuarios visualizar el calendario escolar completo, incluyendo las fechas programadas para los periodos de ETS.
+    \BRitem[Motivación:] Permitir que los usuarios tengan acceso a la información actualizada del calendario escolar.
+    \BRitem[Referenciado por:] \hyperlink{CU-02}{CU-02}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN37}{Actualizar del calendario escolar.}
+    \BRitem[Tipo:] Habilitación.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El calendario escolar debe ser actualizado para reflejar cambios administrativos, y el sistema debe sincronizar esta información de manera automática.
+    \BRitem[Motivación:] Asegurar que los usuarios tengan acceso a la información actualizada.
+    \BRitem[Referenciado por:] \hyperlink{CU-02}{CU-02}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN38}{Visualizar de notificaciones.}
+    \BRitem[Tipo:] Acceso.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema permitirá a los usuarios revisar sus notificaciones.
+    \BRitem[Motivación:] Permitir que los usuarios puedan visualizar las notificaciones de manera fácil.
+    \BRitem[Referenciado por:] \hyperlink{CU-03}{CU-03}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN39}{Marcar de notificaciones como leídas.}
+    \BRitem[Tipo:] Habilitación.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema permitirá a los usuarios marcar una notificación como leída una vez que la hayan revisado.
+    \BRitem[Motivación:] Facilitar la organización de las notificaciones.
+    \BRitem[Referenciado por:] \hyperlink{CU-03}{CU-03}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN40}{Ordenar notificaciones.}
+    \BRitem[Tipo:] Habilitación.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] Las notificaciones deberán mostrarse ordenadas por fecha, de la más reciente a la más antigua.
+    \BRitem[Motivación:] Mejorar la experiencia del usuario al priorizar las notificaciones más relevantes.
+    \BRitem[Referenciado por:] \hyperlink{CU-03}{CU-03}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN41}{Consultar información de los ETS asignados.}
+    \BRitem[Tipo:] Acceso.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema debe permitir al docente visualizar la información de los ETS que le han sido asignados.
+    \BRitem[Motivación:] Permitir que los docentes tengan acceso a la información de sus ETS asignados. 
+    \BRitem[Referenciado por:] \hyperlink{CU-06}{CU-06}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN42}{Mostrar la información actualizada de los ETS.}
+    \BRitem[Tipo:] Acceso.
+    \BRitem[Clase:] Ejecutiva.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] La información mostrada debe estar actualizada y reflejar cualquier cambio administrativo relacionado con los ETS asignados.
+    \BRitem[Motivación:] Evitar inconsistencias en la información presentada al docente.
+    \BRitem[Referenciado por:] \hyperlink{CU-06}{CU-06}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN43}{Filtrar los ETS por docente.}
+    \BRitem[Tipo:] Acceso.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] La información de los ETS asignados debe estar filtrada para que cada docente solo pueda visualizar los ETS que le correspondan.
+    \BRitem[Motivación:] Proteger la privacidad de la información de otros docentes.
+    \BRitem[Referenciado por:] \hyperlink{CU-06}{CU-06}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN44}{Visualizar la lista de alumnos inscritos.}
+    \BRitem[Tipo:] Acceso.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema permitirá al docente consultar la lista completa de los alumnos inscritos a un ETS asignado.
+    \BRitem[Motivación:] Permitir al docente consultar la lista de alumnos inscritos que van a presentar un ETS que tenga asignado.
+    \BRitem[Referenciado por:] \hyperlink{CU-08}{CU-08}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN45}{Mostrar información de alumnos.}
+    \BRitem[Tipo:] Acceso.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] La lista debe incluir información de los alumnos como Boleta, nombre completo y fotografía.
+    \BRitem[Motivación:] Facilitar al docente la identificación de los alumnos durante el ETS.
+    \BRitem[Referenciado por:] \hyperlink{CU-08}{CU-08}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN46}{Tomar asistencia de los alumnos inscritos a ETS.}
+    \BRitem[Tipo:] Acceso.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema permitirá al docente registrar la asistencia de los alumnos inscritos al ETS asignado.
+    \BRitem[Motivación:] Garantizar que la asistencia solo sea tomada para los alumnos que están inscritos en el ETS.
+    \BRitem[Referenciado por:] \hyperlink{CU-09}{CU-09}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN47}{Analizar la identidad del alumno.}
+    \BRitem[Tipo:] Acceso.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema deberá analizar el rostro de cada alumno y proporcionar un indicador comparando las características registradas y las detectadas por el reconocimiento facial.
+    \BRitem[Motivación:] Facilitar el proceso pase de lista al docente. 
+    \BRitem[Referenciado por:] \hyperlink{CU-09}{CU-09}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN48}{Mostrar la lista de asistencia de los alumnos.}
+    \BRitem[Tipo:] Acceso.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema permitirá al docente visualizar el estatus del pase de lista.
+    \BRitem[Motivación:] Consultar los datos registrados previamente en el pase de lista.
+    \BRitem[Referenciado por:] \hyperlink{CU-10}{CU-10}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN49}{Acceso autorizado para visualizar la información del alumno}
+    \BRitem[Tipo:] Acceso.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema permitirá a los docentes visualizar la información y foto de un alumno únicamente si tienen permisos autorizados.
+    \BRitem[Motivación:] Garantizar que solo los docentes con autorización puedan consultar datos de los alumnos.
+    \BRitem[Referenciado por:] \hyperlink{CU-11}{CU-11}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN50}{Privacidad de los datos de los alumnos.}
+    \BRitem[Tipo:] .
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] La información y foto del alumno no podrán ser compartidas ni divulgadas sin el consentimiento del alumno.
+    \BRitem[Motivación:] Proteger la privacidad y confidencialidad de los datos personales de los alumnos.
+    \BRitem[Referenciado por:] \hyperlink{CU-11}{CU-11}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN51}{Validación de la credencial escolar.}
+    \BRitem[Tipo:] Acceso, habilitacion o integridad
+    \BRitem[Clase:] Condicional, Cronometrada o ejecutiva 
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema permitirá al personal de seguridad consultar la información de un alumno únicamente si se escanea correctamente el código QR de su credencial.
+    \BRitem[Motivación:] Permitir que la información del alumno solo sea accesible por persona autorizado.
+    \BRitem[Referenciado por:] \hyperlink{CU-12}{CU-12}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN52}{Consultar información por boleta}
+    \BRitem[Tipo:] Habilitación.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema requerirá el ingreso del número de boleta válido para buscar la información del alumno.
+    \BRitem[Motivación:] Permitir que el personal de seguridad pueda consultar un alumno ingresando su boleta. 
+    \BRitem[Referenciado por:] \hyperlink{CU-13}{CU-13}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN53}{Notificación de boleta no registrada.}
+    \BRitem[Tipo:] Habilitación.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Evitable.
+    \BRitem[Descripción:] Si el número de boleta ingresado por el personal de seguridad no existe en la base de datos, el sistema notificará que el alumno no está registrado.
+    \BRitem[Motivación:] Permitir que las búsquedas se limiten a registros existentes en la base de datos.
+    \BRitem[Referenciado por:] \hyperlink{CU-13}{CU-13}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN54}{Consultar información por nombre}
+    \BRitem[Tipo:] Habilitación.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Estricta.
+    \BRitem[Descripción:] El sistema requerirá el ingreso del nombre para buscar la información del alumno.
+    \BRitem[Motivación:] Permitir que el personal de seguridad pueda consultar un alumno ingresando su nombre. 
+    \BRitem[Referenciado por:] \hyperlink{CU-14}{CU-14}.
+    \end{BussinesRule}
+
+\begin{BussinesRule}{RN55}{Notificación de nombre no registrada.}
+    \BRitem[Tipo:] Habilitación.
+    \BRitem[Clase:] Condicional.
+    \BRitem[Nivel:] Evitable.
+    \BRitem[Descripción:] Si el nombre ingresado por el personal de seguridad no existe en la base de datos, el sistema notificará que el alumno no está registrado.
+    \BRitem[Motivación:] Permitir que las búsquedas se limiten a registros existentes en la base de datos.
+    \BRitem[Referenciado por:] \hyperlink{CU-14}{CU-14}.
+    \end{BussinesRule}
+
+
+
+
+
+	
+
+
+
+

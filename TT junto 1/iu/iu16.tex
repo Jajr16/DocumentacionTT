@@ -1,0 +1,31 @@
+%--------------------------------------
+\section{IU15} {Pantalla Consultar ETS del alumno}
+
+\subsection{Objetivo}
+Permitir al alumno consultar los ETS que tiene inscritos. 
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU15}{Pantalla Consultar ETS del alumno} (ver figura~\ref{IU15}) aparece luego de seleccionar un periodo de ETS. 
+
+\IUfig[.35]{cu17}{IU15}{Pantalla Consultar ETS del alumno.}
+
+\subsection{Salidas}
+Lista de ETS asignados. 
+
+\subsection{Entradas}
+Ninguna
+
+
+\subsection{Comandos}
+
+\begin{itemize}
+	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+	\item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+	\item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+\end{itemize}
+\subsection{Mensajes}
+
+\begin{Citemize}
+	\item {\bf MSG-26}{``No hay ETS inscritos actualmente.''}
+	\item {\bf MSG-09}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+\end{Citemize}

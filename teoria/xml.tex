@@ -1,0 +1,45 @@
+% !TeX root = ../ejemplo.tex
+
+
+\subsection{XML}
+Para este proyecto utilizaremos XML debido a la múltiples ventajas que ofrece en el desarrollo de interfaces de usuario en aplicaciones web y Android\cite{CitaA03} .  
+
+\subsection*{¿Por que XML?}
+
+XML son siglas de \textit{Extensible Markup Language}, es un lenguaje de marcado que proporciona reglas para definir cualquier dato.
+
+Por ejemplo, imaginemos un documento de texto con comentarios. Los comentarios pueden ofrecer sugerencias como las siguientes:
+\begin{itemize}
+	\item Ponga el título en negrita.
+	\item Esta oración es un encabezado.
+	\item Esta palabra es del autor.
+\end{itemize}
+
+Estos comentarios mejoran la usabilidad del documento sin repercutir en su contenido. Del mismo modo, XML utiliza símbolos de marcado para proporcionar más información sobre los datos.
+
+\subsection*{Etiquetas XML}
+
+Los s\'{\i}mbolos de marcado, denominados \textbf{etiquetas} en XML, se utilizan para definir los datos. Por ejemplo, para representar los datos de una librer\'{\i}a, se pueden crear etiquetas como:
+
+\texttt{\textless libro\textgreater}, \texttt{\textless t\'{\i}tulo\textgreater} y \texttt{\textless autor\textgreater}
+
+El documento XML de un solo libro tendr\'{\i}a el siguiente contenido:
+
+\begin{lstlisting}
+	<libro>
+	<titulo>Introduccion a Amazon Web Services</titulo>
+	<autor>Mark Wilkins</autor>
+	</libro>
+\end{lstlisting}
+
+
+Las etiquetas ofrecen una sofisticada codificaci\'{o}n de datos para integrar los flujos de informaci\'{o}n en diferentes sistemas \cite{CitaA04}.
+
+\subsection*{Ventajas de XML}
+
+\begin{itemize}
+	\item \textbf{Flexibilidad:} El formato XML es un lenguaje de marcas que se puede personalizar para diferentes prop\'{o}sitos.
+	\item \textbf{Interoperabilidad:} El formato XML es compatible con una amplia gama de sistemas y aplicaciones, lo que significa que los datos se pueden intercambiar f\'{a}cilmente entre diferentes sistemas.
+	\item \textbf{Legibilidad:} El formato XML es f\'{a}cil de leer y entender, lo que facilita la creaci\'{o}n y el mantenimiento de archivos XML.
+	\item \textbf{Reutilizaci\'{o}n:} Los elementos y atributos de un archivo XML se pueden reutilizar en diferentes partes del archivo, lo que ahorra tiempo y reduce errores.
+\end{itemize}

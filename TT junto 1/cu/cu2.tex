@@ -1,0 +1,42 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-02}{Consultar calendario escolar}{
+    Permitir que los usuarios vean el calendario escolar y puedan solicitar al sistema que les mencioné cuantos días faltan para que inicie el próximo periodo de ETS.
+}
+    \UCitem{Versión}{\color{Gray}1}
+    \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+    \UCitem{Supervisa}{\color{Gray}De la Cruz de la Cruz Alejandra.}
+    \UCitem{Actor}{\hyperlink{Usuario}{Usuario}}
+    \UCitem{Propósito}{Que el usuario consulte cuantos días faltan para el próximo periodo de ETS.}
+    \UCitem{Entradas}{Ninguna}
+    \UCitem{Origen}{Pantalla táctil}
+    \UCitem{Salidas}{Menciona cuantos días faltan para el periodo de ETS o si menciona que ya es periodo de ETS.}
+    \UCitem{Destino}{Ninguno}
+    \UCitem{Precondiciones}{El usuario debe de haber iniciado sesión.}
+    \UCitem{Postcondiciones}{El usuario recibe información sobre la fecha del periodo de ETS actual.}
+    \UCitem{Errores}{
+        E1: Cuando es periodo de ETS el sistema muestra el mensaje {\bf MSG-6}{``Actualmente es periodo de ETS.''}
+
+        E2: Cuando no se ha establecido un periodo de ETS actual, el sistema muestra el mensaje {\bf MSG-7}{``Actualmente el periodo de ETS no ha sido establecido.''}
+    
+    }
+    \UCitem{Tipo}{Caso de uso primario}
+    \UCitem{Observaciones}{Ninguna}
+\end{UseCase}
+%-------------------------------------- 
+
+\begin{UCtrayectoria}
+    \UCpaso[\UCactor] El usuario accede a la pantalla \IUref{IU02}{Pantalla Consultar calendario escolar}\label{CU02.introduceDatos} para la app móvil y \IUref{IU02-2}{Pantalla Consultar calendario escolar} para el sistema web mediante el botón con forma de calendario en cualquier pantalla excepto el inicio de sesión.
+    \UCpaso[\UCactor] El usuario decide consultar cuantos días faltan para que el periodo de ETS inicie oprimiendo el botón\IUbutton{Calcular cuantos días faltan para el periodo de ETS}.
+    \UCpaso El sistema calcula cuantos días faltan tomando el día actual y el día de inicio del periodo de ETS.
+    \UCpaso El sistema regresa cuantos días faltan para que el periodo de ETS inicie.
+    \UCpaso [\UCactor] El usuario verifica cuantos días faltan para que inicie el periodo de ETS.
+\end{UCtrayectoria}
+
+
+
+
+
+
+

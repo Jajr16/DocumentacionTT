@@ -1,0 +1,44 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-29}{Dar de alta ETS }{
+    Permitir al personal de gestión escolar dar de alta un nuevo ETS.
+    
+     }
+         \UCitem{Versión}{\color{Gray}1}
+         \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+         \UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra.}
+         \UCitem{Actor}{\hyperlink{Personal de gestión escolar}{Personal de gestión escolar}}
+         \UCitem{Propósito}{Permitir que el personal de gestión escolar dar de alta un nuevo ETS relacionado con el periodo de ETS actual.}
+         \UCitem{Entradas}{ \hyperlink{ETS.ETS }{ETS},  \hyperlink{ETS.Periodo -de-ETS }{ Periodo -de-ETS},  \hyperlink{ETS.Fecha}{Fecha},  \hyperlink{ETS.Turno}{Turno},  \hyperlink{ETS.Cupo} {Cupo} ,  \hyperlink{ETS.Unidad-de-aprendizaje }{Unidad-de-aprendizaje},  \hyperlink{ETS.Salon}{Salon} y \hyperlink{ETS.Docente}{Docente} .}
+         \UCitem{Origen}{Teclado}
+         \UCitem{Salidas}{Muestra mensaje {\bf MSG-35} ``ETS  dado de alta con éxito''.}
+         \UCitem{Destino}{Pantalla \IUref{IU26}{Consultar lista de ETS} }
+         \UCitem{Precondiciones}{El Personal de gestión escolar debe de haber iniciado sesión.}
+         \UCitem{Postcondiciones}{El ETS es dado de alta y guardado en la base de datos}
+         \UCitem{Errores}{
+     
+            E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
+     
+            E2: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+    
+            E3: Cuando el dato ETS o salón ya están registradas en el sistema, el proceso no se realiza y se muestra el mensaje {\bf MSG-36}{`` ETS o salón  ya han sido asociadas a un ETS de ETS.''}
+         }
+         \UCitem{Tipo}{ Extiende de CU28 Consultar lista de ETS}
+         \UCitem{Observaciones}{Ninguna}
+     
+     \end{UseCase}
+     %-------------------------------------- 
+     
+     \begin{UCtrayectoria}
+     
+         \UCpaso[\UCactor] El Personal de gestión escolar accede a la pantalla \IUref{IU27}{ Dar de alta ETS }\label{CU29.introduceDatos} desde la pantalla \IUref{IU26}{Consultar lista de ETS} apretando el botón \IUbutton{Dar de alta un ETS} e introduce los datos del ETS {\hyperlink{ETS.ETS }{ETS},  \hyperlink{ETS.Periodo -de-ETS }{ Periodo -de-ETS},  \hyperlink{ETS.Fecha}{Fecha},  \hyperlink{ETS.Turno}{Turno},  \hyperlink{ETS.Cupo} {Cupo} ,  \hyperlink{ETS.Unidad-de-aprendizaje }{Unidad-de-aprendizaje},  \hyperlink{ETS.Salon}{Salon} y \hyperlink{ETS.Docente}{Docente} .
+         \UCpaso[\UCactor] El Personal de gestión escolar oprime el botón \IUbutton{Dar de alta ETS }.
+         \UCpaso El sistema revisa que los datos del ETS sean válidos.
+         \UCpaso El sistema verifica que ETS o salón no hayan sido registrados con anterioridad.
+         \UCpaso EL ETS es dado de alta y guardado en la base de datos.
+         \UCpaso[\UCactor] El Personal de gestión escolar es redirigido a la pantalla \IUref{IU26} Consultar lista de ETS}.
+     
+     \end{UCtrayectoria}
+     
+    

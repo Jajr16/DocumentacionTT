@@ -1,0 +1,30 @@
+%--------------------------------------
+\section{IU09}{Asignar docente de remplazo}
+
+\subsection{Objetivo}
+Permitir al jefe de departamento y/o al presidente de academia responder a las solicitudes de remplazo y asignar un docente de remplazo para el ETS especifico.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU09}{Asignar docente de remplazo} (ver figura~\ref{IU09}) aparece luego de que el jefe de departamento y/o al presidente de academia revisen sus notificaciones y seleccione una solicitud de remplazo.
+
+\IUfig[.35]{UI-CU44}{IU09}{Pantalla de Asignar docente de remplazo}
+
+\subsection{Salidas}
+Confirmación de asignación del nuevo docente y se muestra el mensaje \bf MSG-42{``docente de remplazo asignado con exito.''}.
+
+\subsection{Entradas}
+Identificador del ETS y nombre del nuevo docente asignado.
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Asignar}: Permite enviar la notificación docente de que su remplzado ha sido asignado y ademas asigna el remplazo como docente aplicador en el sistema.
+\end{itemize}
+
+\subsection{Mensajes}
+
+\begin{Citemize}
+	\item {\bf MSG-28} {``El proceso no se pudo realizar por un fallo de red''.}
+	\item {\bf MSG-42}{``docente de remplazo asignado con exito'.'}
+\end{Citemize}
+
+

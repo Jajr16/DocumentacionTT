@@ -1,0 +1,40 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\section{IU32} {Iniciar Solicitar desbloqueo de cuenta}
+
+\subsection{Objetivo}
+    Mandar una petición de desbloqueo de cuenta mediante correo electrónico.
+
+\subsection{Diseño}
+	Esta pantalla \IUref{IU32}{Pantalla Solicitar desbloqueo de cuenta} (ver figura~\ref{IU32}) puede ser accedida desde cualquier desde cualquier inicio de sesion.
+
+\IUfig[.35]{UI-CU40}{IU32}{Pantalla Solicitar desbloqueo de cuenta.}
+
+\IUfig[1]{UI-CU40_2}{IU32-2}{Pantalla Solicitar desbloqueo de cuenta.}
+
+\subsection{Salidas}
+
+    Manda un correo electrónico con una cuenta default con los datos requeridos para solicitar la reactivación de su cuenta.
+
+\subsection{Entradas}
+    Una justificación de la causa del bloqueo, para el alumno \hyperlink{Alumno.Boleta}{Boleta} y para el resto de usuarios \hyperlink{Empleado.RFC}{RFC}.
+
+
+\subsection{Comandos}
+\begin{itemize}
+
+    \item \IUbutton{Enviar} Envía un correo electrónico con una cuenta default con los datos requeridos para solicitar la reactivación de su cuenta
+    \item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+    \item \IUbutton{Home} Redirige a la pantalla de menú correspondiente al tipo de usuario.
+	
+\end{itemize}
+
+\subsection{Mensajes}
+
+\begin{Citemize}
+	\item {\bf MSG1-}{``Los campos no están correctamente llenados.''}
+	\item {\bf MSG4-}  ``El proceso no se pudo realizar por un fallo de red.''
+	\item {\bf MSG10-}  ``Los datos no coinciden con ningún usuario''.
+\end{Citemize}

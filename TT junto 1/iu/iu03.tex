@@ -1,0 +1,32 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\section{IU03} {Pantalla Consultar notificaciones}
+
+\subsection{Objetivo}
+Permitir que los usuarios puedan gestionar sus notificaciones y marcarlas como leidas.
+\subsection{Diseño}
+    Esta pantalla \IUref{IU03}{Pantalla Consultar notificaciones } (ver figura~\ref{IU03}) puede ser accedida desde cualquier otra pantalla que no sea el inicio de sesión mediante el botón con forma de campana.
+\IUfig[.35]{UI-CU03}{IU03}{Pantalla Consultar notificaciones.}
+
+\IUfig[.8]{UI-CU03_2}{IU03-2}{Pantalla Consultar notificaciones.}
+\subsection{Salidas}
+Menciona que la notificación seleccionada ha sido establecida como leída.
+\subsection{Entradas}
+   Ninguna.
+
+\subsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Botón con palomita} toma la notificación seleccionada y la marca como leída.
+    \item \IUbutton{Buscador} En este buscador se puede buscar las notificaciones por fecha.
+    \item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+\end{itemize}
+
+\subsection{Mensajes}
+     
+\begin{Citemize}
+    \item {\bf MSG-8}{``Actualmente no hay notificaciones.}
+\end{Citemize}
+
+

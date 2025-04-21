@@ -1,0 +1,10 @@
+*.lck
+*.back*
+*.aux
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.gz

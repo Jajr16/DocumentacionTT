@@ -1,0 +1,32 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\section{IU29} {Dar de alta personal de seguridad}
+\subsection{Objetivo}
+    Permite al personal de gestión escolar dar de alta a personal de seguridad.
+\subsection{Diseño}
+    Esta pantalla \IUref{IU29}{Dar de alta personal de seguridad} (ver figura~\ref{IU29}) puede ser accedida desde la pantalla \IUref{IU28}{Consultar lista de personal de seguridad} apretando el botón \IUbutton{Dar de alta personal de seguridad}.
+\IUfig[1]{UI-CU33}{IU29}{Dar de alta personal de seguridad.}
+
+\subsection{Salidas}
+Muestra mensaje {\bf MSG-37} ``Personal de seguridad dado de alta con éxito''.
+\subsection{Entradas}
+\hyperlink{Personal-de-seguridad.CURP }{CURP}, \hyperlink{personal-de-seguridad.Turno }{Turno }, \hyperlink{ Personal-de-seguridad.Cargo }{Cargo}, \hyperlink{ Personal-de-seguridad.Sexo}{Sexo} y \hyperlink{ Personal-de-seguridad.Nombre}{Nombre} 
+\subsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Dar de alta personal de seguridad} Da de alta el nuevo personal de seguridad y redirige a la pantalla \IUref{UI28}{Consultar lista de personal de seguridad}.
+    \item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+    
+\end{itemize}
+
+\subsection{Mensajes}
+
+\begin{Citemize}
+    \item {\bf MSG-37} ``Personal de seguridad dado de alta con éxito''.
+    \item {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
+    \item {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+    \item {\bf MSG-38}{``El CURP ya ha sido asociado a este personal de seguridad con anterioridad u otro personal de seguridad.''}
+    
+\end{Citemize}

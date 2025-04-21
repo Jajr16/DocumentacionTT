@@ -1,0 +1,52 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-xx}{Iniciar sesión de alumnos}{
+		Permitir que alumno pueda acceder al sistema, además de separar completamente las funciones de el alumno y el personal escolar.
+	}
+	\UCitem{Versión}{\color{Gray}1}
+	\UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+	\UCitem{Supervisa}{\color{Gray}Ulises Vélez Saldaña.}
+	\UCitem{Actor}{\hyperlink{Alumno}{Alumno}}
+	\UCitem{Propósito}{Que el alumno pueda acceder al sistema móvil y sus funciones específicas. }
+	\UCitem{Entradas}{\hyperlink{Alumno.Boleta}{Boleta}, \hyperlink{Alumno.Contraseña}{Contraseña}}
+	\UCitem{Origen}{Teclado}
+	\UCitem{Salidas}{Saludo del sistema, mención de su nombre.}
+	\UCitem{Destino}{Pantalla \IUref{IUE03}{Pantalla de Menú de alumnos}}
+	\UCitem{Precondiciones}{El alumno debe estar registrado en la ESCOM.}
+	\UCitem{Postcondiciones}{El alumno accede al sistema y podrá realizar las acciones pertinentes a su cargo.}
+	\UCitem{Errores}{
+		E1: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf MSG1-}{``Los campos no están correctamente llenados.''}
+		
+		E2: Cuando la cuenta esta bloqueada el sistema no deja entrar al alumno y muestra el mensaje {\bf MSG2-}``Su cuenta esta bloqueada.''
+		
+		E3: Cuando la contraseña no corresponde a la boleta ingresado el sistema no permite el acceso al alumno y se muestra el mensaje {\bf MSG6-} ``La boleta o la contraseña no corresponden con ningún alumno.''
+		
+		E4: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG4-}  ``El proceso no se pudo realizar por un fallo de red.''
+		
+		E5: Cuando se intenta iniciar varias veces sesión sin éxito la cuenta es bloqueada por seguridad y se muestra el mensaje {\bf MSG5-}  ``Su cuenta ha sido bloqueada por la gran cantidad de intentos de inicio sesión fallidos''.
+	}
+	\UCitem{Tipo}{Caso de uso primario}
+	\UCitem{Observaciones}{}
+\end{UseCase}
+%--------------------------------------
+
+\begin{UCtrayectoria}
+	\UCpaso[\UCactor] Introduce su boleta y contraseña en el sistema vía la  \IUref{IU13}{Pantalla de Iniciar sesión de alumno escolar móvil}\label{CU16.introduceDatos}.
+	\UCpaso[\UCactor] Confirma la operación presionando el botón \IUbutton{Entrar}.
+	\UCpaso Verifica que todos los datos requeridos hayan sido capturados.
+	\UCpaso Verifica que el alumno este registrado en el sistema.
+	\UCpaso Verifica que la cuenta del alumno no este bloqueada.
+	\UCpaso Verifica que la contraseña corresponda a la boleta.
+	\UCpaso Verifica que tipo acceso tiene este alumno.
+	\UCpaso La sesión es iniciada con éxito.
+	\UCpaso El alumno es redirigido a la pantalla \IUref{IUE03}{Pantalla de Menú de alumnos}.
+	
+\end{UCtrayectoria}
+
+
+
+
+
+
+

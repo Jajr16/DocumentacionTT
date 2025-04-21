@@ -1,0 +1,42 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-03}{Consultar notificaciones}{
+    Permitir a los usuarios revisar sus notificaciones con más detenimiento y establecerlas como leídas.
+}
+    \UCitem{Versión}{\color{Gray}1}
+    \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+    \UCitem{Supervisa}{\color{Gray}De la Cruz de la Cruz Alejandra.}
+    \UCitem{Actor}{\hyperlink{Usuario}{Usuario}}
+    \UCitem{Propósito}{Que el usuario revise sus notificaciones con detenimiento y las establezca como leídas.}
+    \UCitem{Entradas}{Ninguna}
+    \UCitem{Origen}{Pantalla táctil}
+    \UCitem{Salidas}{Menciona que la notificación seleccionada ha sido establecida como leída.}
+    \UCitem{Destino}{Ninguno}
+    \UCitem{Precondiciones}{El usuario debe de haber iniciado sesión.}
+    \UCitem{Postcondiciones}{El usuario revisó sus notificaciones.}
+    \UCitem{Errores}{
+        E1: Cuando el usuario no tiene notificaciones el sistema muestra el mensaje {\bf MSG-8}{``Actualmente no hay notificaciones.''}    
+    }
+    \UCitem{Tipo}{Caso de uso primario}
+    \UCitem{Observaciones}{}
+
+\end{UseCase}
+%-------------------------------------- 
+
+\begin{UCtrayectoria}
+    \UCpaso[\UCactor] El usuario accede a la pantalla \IUref{IU03}{Pantalla Consultar notificaciones}\label{CU03.introduceDatos} para la app móvil y \IUref{IU03-2}{Pantalla Consultar notificaciones} para el sistema web mediante el botón con forma de campana en cualquier pantalla excepto los inicios de sesión.
+    \UCpaso[\UCactor] El usuario decide consultar sus notificaciones más actuales \Trayref{A}.
+    \UCpaso[\UCactor] El usuario marco como leídas las notificaciones que acaba de leer mediante el botón con forma de palomita especifico de cada notificación.
+    \UCpaso El sistema marca como leídas las notificaciones.
+
+\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{El usuario quiere consultar las notificaciones de una fecha específica}
+	\UCpaso[\UCactor] El usuario usa el buscador de la parte superior para buscar notificaciones según su fecha.
+	\UCpaso[\UCactor] El usuario marco como leídas las notificaciones que acaba de leer mediante el botón con forma de palomita especifico de cada notificación.
+	\UCpaso El sistema marca como leídas las notificaciones.
+
+\end{UCtrayectoriaA}
+
+

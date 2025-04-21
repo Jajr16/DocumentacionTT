@@ -1,0 +1,30 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\subsection{IU31 Dar de alta docente}
+\subsubsection{Objetivo}
+    Permite al personal de gestión escolar dar de alta nuevos docentes.
+\subsubsection{Diseño}
+    Esta pantalla \IUref{IU31}{Dar de alta docente} (ver figura~\ref{IU31}) puede ser accedida desde la pantalla \IUref{IU30}{Consultar lista de docentes} apretando el botón \IUbutton{Dar de alta docente}.
+\IUfig[1]{UI-CU37}{IU31}{Dar de alta docente}
+
+\subsubsection{Salidas}
+Muestra mensaje {\bf MSG-41} ``Docente dado de alta con éxito''.
+\subsubsection{Entradas}
+CURP, RFC, Correo-institucional, Sexo, Nombre y Cargo
+\subsubsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Dar de alta docente} Da de alta al nuevo docente y redirige a la pantalla \IUref{UI30}{Consultar lista de docentes}.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+    
+\end{itemize}
+
+\subsubsection{Mensajes}
+
+\begin{Citemize}
+    \item {\bf MSG-41} ``Docente dado de alta con éxito''.
+    \item {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
+    \item {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+    \item {\bf MSG-40}{``El CURP o el RFC ya ha sido asociado a este docente con anterioridad u otro docente.''}
+\end{Citemize}
+

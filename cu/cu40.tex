@@ -1,0 +1,41 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-40}{Solicitar desbloqueo de cuenta}{
+    Permitir que el usuario haga una solicitud de reactivación de cuenta.
+}
+    \UCitem{Versión}{\color{Gray}1}
+    \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+    \UCitem{Supervisa}{\color{Gray}De la Cruz de la Cruz Alejandra.}
+    \UCitem{Actor}{\hyperlink{Usuario}{Usuario}}
+    \UCitem{Propósito}{Que el usuario haga una solicitud de reactivación de cuenta.}
+    \UCitem{Entradas}{ Una justificación de la causa del bloqueo, para el alumno \hyperlink{Alumno.Boleta}{Boleta} y para el resto de usuarios \hyperlink{Empleado.RFC}{RFC}.}
+    \UCitem{Origen}{Teclado}
+    \UCitem{Salidas}{Manda un correo electrónico con una cuenta default con los datos requeridos para solicitar la reactivación de su cuenta.}
+    \UCitem{Destino}{Ninguno}
+    \UCitem{Precondiciones}{El usuario debe de haber iniciado sesión.}
+    \UCitem{Postcondiciones}{Se envía el correo con la petición.}
+    \UCitem{Errores}{
+        E1: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+
+        E2: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}``El proceso no se pudo realizar por un fallo de red.''
+
+        E3: Cuando los datos no corresponden con algún registro en la base de datos se muestra el mensaje {\bf MSG-43}  ``Los datos no coinciden con ningún usuario''.
+    }
+    \UCitem{Tipo}{Caso de uso primario}
+    \UCitem{Observaciones}{Ninguna}
+
+\end{UseCase}
+%-------------------------------------- 
+
+\begin{UCtrayectoria}
+
+    \UCpaso[\UCactor] El usuario introduce su Boleta y contraseña si es alumno y si es Empleado su RFC y contraseña en el sistema vía la \IUref{IU32}{Pantalla Solicitar desbloqueo de cuenta}\label{CU40.introduceDatos} para la app móvil y \IUref{IU32-2}{Pantalla Solicitar desbloqueo de cuenta} para el sistema web.
+    \UCpaso[\UCactor] El usuario confirma la operación presionando el botón \IUbutton{Enviar}.
+    \UCpaso El sistema verifica que todos los datos requeridos hayan sido capturados.
+    \UCpaso El sistema verifica que el usuario este registrado en el sistema.
+    \UCpaso El sistema manda correo con la solicitud de desbloqueo de cuenta.   
+
+\end{UCtrayectoria}
+
+

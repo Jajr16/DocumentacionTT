@@ -1,0 +1,184 @@
+\chapter{Estado del arte}
+
+En las últimas décadas, el avance tecnológico ha sido el catalizador para la creación de nuevas áreas de estudio enfocadas en la gestión de la información. Esta evolución abarca desde el almacenamiento hasta el procesamiento y la transmisión de datos. Ante el volumen creciente de información generada globalmente cada día, es natural anticipar la emergencia de especializaciones dentro de la informática. Una de las más destacadas ha sido la Inteligencia Artificial (IA), que representa un campo interesante y en constante expansión.
+
+Dentro de la IA, existen múltiples disciplinas que abordan diversos desafíos y aplicaciones. Para los fines de este análisis, nos concentraremos en tres áreas fundamentales: Aprendizaje Automático (Machine Learning), Aprendizaje Profundo (Deep Learning) y Visión por Computadora. Esta última adquiere una relevancia particular debido a su papel crucial en el desarrollo de soluciones completas que abordan problemas complejos. Entre las áreas de estudio más prominentes en Visión por Computadora se encuentran el reconocimiento facial, la detección de objetos en tiempo real y el análisis de comportamiento humano a través de patrones de actividad.
+
+Actualmente, la Visión por Computadora se ha convertido en un punto de interés en materia de seguridad, ofreciendo herramientas avanzadas para la vigilancia y la prevención de delitos. Al explorar el estado de las tecnologías que fundamentan la Visión por Computadora, nos encontramos ante un panorama de innovaciones que transforman activamente la forma en que abordamos la seguridad y la interpretación de datos visuales. 
+
+
+En esta ocasión solo nos centraremos en la seguridad perimetral y la seguridad interna puesto que ambas están fuertemente relacionadas entre sí y suponen una pieza clave en la problemática por venir, la suplantación de la identidad.
+
+Por un lado la seguridad perimetral hace referencia al conjunto de mecanismos y sistemas relativos al control del acceso físico de personas a las instalaciones así como la detección y la prevención de intrusiones, por otra parte, la seguridad interna hace referencia a los protocolos de seguridad establecidos por cada institución en materia de prevención y gestión de situaciones de riesgo que podrían llegar a presentarse dentro de los planteles ~\cite{UNAMSE}, en algunas ocasiones una falla en la seguridad perimetral puede suponer una brecha en la seguridad interna. Es por esta razón que las escuelas destinan grandes presupuestos para garantizar una seguridad perimetral robusta a fin de evitar situaciones de riesgo dentro de las instalaciones.
+
+La suplantación de la identidad es en pocas palabras, el delito de hacerse pasar por una persona diferente para obtener algún tipo de beneficio, esta puede darse de varias maneras y afecta a distintos sectores de la sociedad.
+
+
+Una buena práctica que hoy en día se realiza en casi cualquier espacio público y privado que permite atacar de forma directa a la suplantación de identidad y en consecuencia restringe el acceso de personas ajenas a las instalaciones son los denominados sistemas de control de acceso. Estos sistemas no son nuevos y pueden variar mucho dependiendo de los recursos disponibles y del contexto sobre el que se ejecuten, sin embargo, en los últimos años el desarrollo de la tecnología ha permitido el surgimiento de sistemas de control de acceso basado en la biometría ~\cite{CALF}.
+
+La biometría podemos definirla como la toma de medidas estandarizadas de los seres vivos para identificarlos, de aquí se desprende la autenticación biométrica ~\cite{CALF}, un campo de las tecnologías de la información que consiste en verificar la identidad de una persona haciendo uso de técnicas matemáticas y estadísticas para analizar sus rasgos físicos y de conducta. Algunos de los métodos más comunes de autenticación biométrica son los siguientes:
+
+\begin{itemize}
+    \item Huella dactilar
+    \item Reconocimiento de iris
+    \item Reconocimiento facial
+    \item Reconocimiento de voz
+\end{itemize}
+
+La ventaja que este tipo de sistemas de control ofrece frente a los tradicionales basados completamente en el uso de contraseñas o credenciales es que los rasgos biométricos de una persona resultan irreemplazables ~\cite{CALF}, por lo general se toma una nueva muestra de los datos biométricos del individuo y son comparados con los patrones ya registrados lo que posibilita la escalabilidad del sistema y permite restringir el acceso de individuos no autorizados.
+
+Dentro de los métodos empleados para la autenticación biométrica resalta el potencial del uso del reconocimiento facial en la implementación de sistemas de control de acceso inteligentes para instituciones públicas y, en especial para escuelas; esto se debe en gran medida al hecho de que en la actualidad la gran mayoría de estos espacios cuenta con algún tipo de Circuito Cerrado de Televisión (CCTV) ~\cite{FacialR}, este comprende la instalación de equipos conectados que generan un circuito de imágenes que solo puede ser visto por un grupo determinado de personas, por lo que evita el acceso de intrusos mientras que resultan un apoyo fundamental en la prevención y control de pérdida y riesgos.
+
+Para entender un poco mejor las ventajas de la implementación de tecnologías de reconocimiento facial en los sistemas tradicionales de control de acceso y CCTV vale la pena echar un vistazo al estado actual y avances realizados en el área.
+
+
+Entre los estudios que se han aproximado de manera más crítica al tema sobre detección de rostros, se destaca el trabajo realizado por ~\cite{D3}, quien propone un método para el reconocimiento de rostros y expresiones faciales. El método propuesto se encuentra dividido en dos etapas: la primera consiste en la extracción de características faciales por medio de la Transformada Wavelet Discreta (DWT), y la segunda, en la clasificación de patrones mediante la red neuronal Perceptrón Multicapa (MLP) a partir de los vectores característicos extraídos.
+
+Otro método empleado en el reconocimiento de rostros es el basado en el Reconocimiento de Componentes Principales (PCA), técnica que permite reducir la dimensionalidad de un conjunto de datos ~\cite{D4}. El uso de esta técnica facilita la caracterización adecuada de la información contenida en la imagen de un rostro. Sin embargo, se ha comprobado que, debido a esta caracterización, PCA es sensible a factores de ruido como la iluminación y cambios en la escala. A pesar de ello, los resultados muestran que PCA tiene un alto desempeño frente a cambios en la expresión facial y cambios no radicales en la orientación del rostro. No obstante, ante factores de ruido como la iluminación, enfoque y escala, PCA muestra un bajo desempeño en eficiencia. 
+
+Paul Ekman plantea en tu teoría la existencia de seis expresiones faciales universales que trascienden el idioma y las diferencias regionales, culturales y étnicas; a las que relaciona con seis emociones basales: enojo, asco, felicidad, miedo, tristeza y sorpresa. De acuerdo con el Sistema de codificación facial ~\cite{Website} desarrollado por Paul Ekman se realiza un set de imágenes tomadas desde cinco ángulos distintos [0°, 45°, 90°, 135° y 180°] y las imágenes frontales (90°) tomadas con el sujeto dirigiendo la mirada hacia 3 direcciones diferentes (izquierda, al frente y hacia la derecha]. Este set considera las 6 expresiones faciales universales definidas anteriormente y adiciona una séptima expresión catalogada como "neutral", el siguiente paso fue desarrollar un rutina que posibilite la extracción de las características necesarias de cada imagen del set. 
+Posteriormente, etiquetar la emoción asociada al mismo Con base en esta se asoció un código numérico que consistió en un valor entre 1 y 8. De esta manera, se representó de forma univoca cada emoción. 
+
+Como resultados obtenidos, podemos concluir que el sistema construido presentó un desempeño correcto tanto en las pruebas como imágenes del set de entrenamiento como con imágenes externas al mismo. Se podría mejorar el algoritmo con un número mayor de imágenes con modelos con mayor diversidad de características, o modificando el proceso de extracción de características, obteniendo por ejemplo, el grado de apertura de los ojos, boca, etc. 
+Para futuras líneas el proyecto JS propuesto evaluará el rendimiento de otras técnicas de aprendizaje supervisado (tales como redes neuronales o máquina de soporte de vectores) en la tarea de detección de emociones. 
+
+El algoritmo de Eigenfaces es un método usado en el reconocimiento de rostros. Los eigenfaces son un conjunto de vectores usados en el reconocimiento de rostros humanos a través de la visión por computadora. Específicamente, los eigenfaces son el componente principal de una distribución de rostros o equivalencias.
+
+Los eigenfaces son normalmente empleados para:
+
+\begin{itemize}
+\item Extraer la información facial relevante, que puede o no estar directamente relacionada con la intuición humana de rasgos faciales como ojos, nariz y labios. Una manera de hacerlo es capturar la variación estadística entre imágenes de rostros.
+\item Representar imágenes de rostros de manera eficiente. Para reducir la complejidad del cálculo y del espacio, cada imagen de rostro se puede representar utilizando una pequeña cantidad de dimensiones.
+\end{itemize}
+
+En este artículo ~\cite{tesis}, se resuelven los problemas de dimensionalidad para el reconocimiento facial. El enfoque que utiliza Eigenfaces y PCA es bastante sólido en el tratamiento de imágenes faciales con expresiones faciales variadas, así como en las distintas orientaciones. Sin embargo, este enfoque es sensible a imágenes con condiciones de iluminación no controladas.
+
+Para la implementación del estudio, se utilizaron las caras propias para representar los vectores de características de los rostros humanos. Las características se extraen de la imagen original para representar una identidad única que se utiliza como entrada a la red neuronal para medir la similitud en la clasificación y el reconocimiento. Como resultado, se obtuvo que las caras propias han demostrado su capacidad para proporcionar características importantes y reducir el tamaño de entrada para la red neuronal, lo que, por lo tanto, aumenta la velocidad de la red para el reconocimiento.
+
+Franklin Pazmiño en su tesis sobre reconocimiento facial~\cite{PUCE}, expone la problemática del secuestro infantil en Latinoamérica. 
+En Perú, por ejemplo, se registraron 2551 denuncias de menores de edad desaparecidos por secuestro en 2016.
+Para abordar esta problemática, se propone un sistema de reconocimiento facial para la escuela Ulpiano Navarro. Este sistema permitirá un mejor control de las personas que entran y salen de la institución, con el objetivo de prevenir posibles secuestros infantiles. 
+
+Ellos usaron tecnologías web para el desarrollo de este sistema, usando entornos de trabajo como \textit{Lavarel} el cual es muy usado en aplicaciones web que utiliza el diseño de MVC (Modelo-Vista-Controlador). 
+Así mismo, utiliza otro entorno de trabajo llamado \textit{Vue} el cual se basa en el lenguaje de programación \textit{JavaScript} el que nos servirá para desarrollar toda la parte de la interfaz y la interacción con el usuario dentro de la página web.
+
+Para la parte del reconocimiento facial ellos usaron \textit{faceapi} el cual es una librería de JavaScript. A su vez, las técnicas para el procesamiento de las imágenes y detección de rostros que ello usaron, fueron las redes neuronales convolucionales, dividiendo el funcionamiento del proyecto en 3 fases, la primera en la que se presentará la detección del rostro de las personas, la segunda en donde se trazan los puntos de referencia de la cara a través de las redes convolucionales y por última, la tercera parte encargada del reconocimiento facial en donde también se hace uso de la distancia euclidiana para establecer un umbral de comparación sobre las distancias de cada parte crucial del rostro (como la distancia de nariz a boca, ojos a nariz, entre otros).
+
+Por otra parte, para poder almacenar toda la información generada por el sistema ellos optaron por usar la base de datos MySQL. Esta base de datos se usa más que nada para guardar la información del personal administrativo que se encargará de manipular el sistema.\newline
+
+% ¿Qué metodos se han ocupado para reconocimiento facial?
+
+De acuerdo con el artículo escrito por Adrián Sáez de la Pascua ~\cite{D1}, el reconocimiento facial y reconocimiento de emociones también puede ser implementado mediante uso de técnicas de machine learning y deep learning, específicamente mediante el uso de redes neuronales convolucionales. 
+
+
+Dado el estado actual de las tecnologías de reconocimiento facial y los últimos avances desarrollados en el área es posible analizar los beneficios de su implementación como medida preventiva en materia de seguridad perimetral para las instituciones educativas a fin de evitar el acceso de intrusos e identificar posibles casos de suplantación de la identidad.
+
+En primer lugar y como ya se estableció con anterioridad, los sistemas de reconocimiento facial se encuentran fundamentados en la autenticación biométrica, una técnica superior que puede ayudar a reducir los delitos de suplantación de identidad y en consecuencia el acceso no autorizado a los planteles educativos, aunado a esto tenemos la presencia de sistemas de videovigilancia, lo que sugiere una sencilla implementación al no suponer grandes cambios en la infraestructura de los planteles ~\cite{FacialR}. Finalmente podemos destacar la naturaleza no invasiva de los sistemas de control de acceso basados en reconocimiento facial, en ocasiones los individuos pueden llegar a ser identificados sin la necesidad de que estos presten completa atención a ello, además, se evita cualquier tipo de contacto físico algo que no sucede por ejemplo en sistemas biométricos basados en huellas dactilares.
+
+
+Hasta este momento se han explorado los avances en las tecnologías de reconocimiento facial y las ventajas de su implementación en el contexto de la seguridad escolar y perimetral para el control de acceso en planteles educativos, habiendo dicho esto resulta más que necesario explorar la situación actual de este tipo de soluciones en escuelas de todo el mundo a fin de encontrar posibles ventanas de mejora y las implicaciones que trae consigo la implementación de este tipo de tecnologías dentro de las escuelas.
+
+A pesar de la presencia de sistemas de vigilancia por vídeo en espacios públicos son contados los casos por no decir nulos en los que se han implementado algún tipo de tecnología de reconocimiento facial, según establece ~\cite{FacialR} algunos de los países que han implementado este tipo de tecnologías especialmente en escuelas son Estados Unidos, Reino Unido y Australia.
+
+Por otro lado, tenemos el caso de los Estados Unidos, quienes utilizan este tipo de tecnologías para reforzar la seguridad dentro de los campus escolares. Incidentes como los tiroteos escolares han orillado a las autoridades a gastar aproximadamente 2.7 billones de dolares anuales en productos y servicios de seguridad entre los cuales destacan los sistemas basados en reconocimiento facial para la detección y seguimiento de intrusos. La capacidad de conocer la ubicación de los alumnos y la comunidad escolar permite a las autoridades centrar su atención a posibles amenazas dentro de las instalaciones.
+
+Por otra parte, las aplicaciones de este tipo de tecnologías en países como Reino Unido y Australia donde los tiroteos escolares y accesos no autorizados a las instalaciones no suponen un foco de atención a tener en cuenta, se centran en el monitoreo de asistencia del alumnado, gracias a esto es posible evitarlos errores humanos cometidos por los profesores al momento de llevar un control de asistencia al mismo tiempo que permite ahorrar tiempos, por ejemplo y como mencionan ~\cite{FacialR} en su documento el sistema Australiano de control automático de asistencia "Loop Learn" ha permitido ahorrar hasta 2.5 horas por semana a los profesores.
+
+Finalmente se explora la utilidad del reconocimiento facial para atacar problemas como la asistencia fraudulenta y suplantación de identidad en países donde dichas prácticas son comunes como la India.
+
+Dicho esto, podemos darnos cuenta de que aunque el problema de suplantación de identidad no es abordado de forma directa, este representa una gran amenaza para los espacios públicos como las escuelas ya que como se ha mencionado a lo largo del documento este puede desembocar en problemas de inseguridad dentro de los planteles.
+
+Siguiendo el esquema de utilizar los últimos avances en este tipo de tecnologías es que se presentan los resultados obtenidos por ~\cite{RecFacPython} quienes utilizaron el reconocimiento facial para plantear un sistema de control de acceso a una empresa utilizando las bibliotecas OpenFace y OpenCV, aunado a esto fue necesario tomar imágenes de rostros a partir de una cámara de vídeo.
+
+También se utilizó la biblioteca "Dlib" de Machine Learning con la que se entreno un modelo para predecir si los rostros de las fotografías coincidían con algún registro dentro de la base de datos. Finalmente, se hizo uso del concepto de distancia euclidiana para medir la similitud de los rostros a evaluar y los registrados por parte de la empresa para conceder o no el acceso al individuo en cuestión.
+
+% Por otro lado, las otras técnicas biométricas no son menos importantes, incluso pueden resultar más eficientes en ciertos casos, y dependerá de nosotros en qué casos vamos a aplicar cada uno de estos tipos de datos biométricos.
+
+% Existe un sistema presentado por ~\cite{PUCPSB} en donde el sistema que nos plantean es igualmente un sistema de control de acceso para la Pontifica Universidad Católica del Perú. En este caso usan también datos biométricos, específicamente el reconocimiento de huellas digitales.
+
+% Este sistema constó de 3 pasos fundamentales, el primero fue la etapa del registro, en donde se presentaron documentos de identificación por parte de los individuos pertenecientes a esta institución con la finalidad de comprobar su identidad. Posteriormente a esto la persona realizaba el biométrico al dispositivo de lector de huellas digitales.
+
+% La segunda etapa fue la de verificación. En esta etapa se verificó que los datos biométricos registrados anteriormente dieran resultados correctos al compararlos con los datos de las personas correspondientes a cada dato biométrico para ver si se trataba de la persona correcta, es decir, que los datos de las huellas digitales concordaran con las huellas digitales originales de la persona en cuestión. 
+
+% Por último la etapa de identificación. En esta etapa, se daba el resultado en donde el sistema arrojaba el resultado en el que identificaba a la persona o no. Si el sistema arrojaba un resultado positivo, significa que la persona se logró identificar. En caso contrario, si la persona no fue identificada, quiere decir que esta persona no está registrada en la base de datos, lo que podría ser un motivo de alerta dentro de la institución.
+
+% Aunque puede que este método pudiese resultar más efectivo, hay que considerar el presupuesto de cada elemento que se utilizará. En el caso de este proyecto, en su momento estaba en 780 pesos, sin embargo actualmente el precio subió a 1,600 pesos, siendo este el sistema de lector de huella digital más sencillo en el mercado.
+
+% Para la implementación de este sistema se utilizó el lenguaje de programación Matlab para poder tratar y procesar todas las imágenes resultantes de este proceso.
+
+% En cuanto al lector de huellas, se optó por el MorphoAccess MA 20, ya que sus características son las más eficientes para el entorno en el que se va a implementar el sistema. 
+
+% Las características que llevaron a la selección de este modelo es que su sistema biométrico era el más rápido y preciso del mundo en ese momento, no requiere de códigos o tarjetas, únicamente identifica al trabajador y registra su hora de marcación, registra la fecha, hora y datos del trabajador para cada marcación, soporta los dedos en malas condiciones (ya sea que esté reseco, húmedo, tenga cicatricez, etc.), es tolerante a la mala posición del dedo en el lector, es fácil de integrar, puede diferenciar entre eventos de asistencia (entrada, salida, entrada intermedia y salida intermedia) y si identifica al usuario es capaz de concederle el acceso abriendo la puerta automáticamente.
+
+Finalmente, para concluir vale la pena discutir sobre el valor de los sistemas biométricos basados en reconocimiento facial frente a otras técnicas biométricas, en primer lugar, tenemos el hecho de que es una tecnología no invasiva que permite identificar a varias personas a la vez, por otra parte tenemos el constante desarrollo tecnológico encaminado a desarrollar mejores sistemas de vídeo optimizando los recursos disponibles y la presencia de sistemas de vídeo vigilancia en la gran mayoría de instituciones públicas, por otra parte, gracias a un estudio comparativo realizado por ~\cite{FacialF} se puede concluir que a día de hoy esta técnica biométrica ofrece resultados muy similares en términos de precisión frente a otras técnicas como el uso de huellas dactilares o de iris.
+
+A continuación, se presenta la siguiente tabla en la que se resumen los trabajos abordados en este capítulo a modo de comparación destacando la problemática que guío el desarrollo de cada uno de los proyectos, la metodología seguida y las tecnologías utilizadas.
+
+
+% Tabla comparativa
+
+\begin{longtable}{|m{3cm}|m{2.5cm}|m{2.5cm}|m{8.5cm}|}
+\hline
+Proyecto & Problema & Metodología & Tecnología \\
+\hline
+\endfirsthead
+\hline
+\endhead
+\hline
+\endfoot
+Sistema Web de Reconocimiento Facial para la Escuela "Unidad Educativa Ulpiano Navarro" & Control de acceso a la escuela para evitar posibles actos delictivos o secuestro de niños & Metodología ágil de programación extrema la cuál se centra en la velocidad y la simplicidad con ciclos de desarrollo cortos. & 
+\begin{itemize} 
+     \item \textbf{Lavarel:} Basado en PHP el cual ayuda al desarrollo de sistemas web. 
+     \item \textbf{Vue:} Lenguaje basado en JavaScript el cual sirve como soporte para el desarrollo de la vista del cliente y ciertas funciones para el mismo fin. 
+     \item \textbf{faceapi:} Servirá para el procesamiento de imágenes y reconocimiento de objetos, en este específico caso servirá de apoyo para el reconocimiento facial. 
+     \item \textbf{Redes Neuronales Convolucionales:} Servirá específicamente para el procesamiento de imágenes y el reconocimiento de rostros, en el que con la distancia euclidiana se hará la clasificación de las imágenes para determinar si la cara corresponde a la de un individuo en específico.  
+\end{itemize} \\
+\hline
+Deep learning para el reconocimiento facial de emociones básicas &  Es un trabajo de investigación por lo que no tiene un problema per se sino que tiene un propósito el cual es la investigación de técnicas de aprendizaje profundo para el reconocimiento de emociones en imágenes faciales. & Metodología del aprendizaje automático (Machine learning) el cual es un enfoque sistemático para desarrollar modelos predictivos o descriptivos basados en datos. &
+
+\begin{itemize}
+
+\item \textbf{Machine Learning:}  Es un campo de la inteligencia artificial que se centra en el desarrollo de algoritmos y técnicas que permiten a las computadoras aprender patrones y tomar decisiones basadas en datos sin ser explícitamente programadas.
+
+\item \textbf{Deep Learning:}  Es una subrama del aprendizaje automático que se basa en redes neuronales artificiales con múltiples capas intermedias entre la entrada y la salida.
+
+\item \textbf{Redes Neuronales:}  Son modelos computacionales inspirados en la estructura y el funcionamiento del cerebro humano. Consisten en nodos interconectados, llamados neuronas artificiales, que procesan información y transmiten señales a lo largo de conexiones ponderadas. 
+
+\item \textbf{Redes Neuronales Convolucionales:} Redes Neuronales Convolucionales: Son un tipo especializado de redes neuronales diseñadas específicamente para el procesamiento de datos de tipo malla, como imágenes o secuencias temporales.
+
+\end{itemize} \\
+
+\hline
+Sistema de Reconocimiento de Rostros Utilizando Redes Neuronales Artificiales &  Alto grado de inseguridad en el control de acceso a las instalaciones, asi como, un inadecuado registro de asistencia debido a que el personal checa sus entradas y salidas sin que se tenga la certeza de que el empleado sea quien realizo dicha operación. & Redes Neuronales Artificiales específicamente la Red Perceptrón Multicapa.  &
+
+\begin{itemize}
+
+\item \textbf{Redes Neuronales Artificiales:} Son un subconjunto de Machine Learning y están en el eje de los algoritmos de Deep Learning, estan inspirados en el cerebro humano, imitando la forma en que las neuronas biológicas se transmiten entre sí.
+
+\item \textbf{Perceptrón Multicapa:}  Es una red hacia adelante con aprendizaje supervisado, puede formar fronteras complejas de decisión arbitrariamente y representar cualquier funcion booleana. 
+\end{itemize} \\
+
+
+\hline
+Tutorial: PCA en el Estudio de la Coordinación y la Variabilidad &  El objetivo es explicar el uso de análisis de componentes principales (PCA) en la detección de rostros. & Análisis de Componentes Principales  &
+
+\begin{itemize}
+
+\item \textbf{PCA:}  Técnica que permite reducir la dimensionalidad de un conjunto de datos, el uso de esta técnica permite caracterizar de manera adecuada la información contenida en la imagen de un rostro. Sin embargo, es sensible a factores de ruido como la iluminación y cambios en la escala.
+\end{itemize} \\
+
+\hline Reconocimiento de Rostros Usando Eigenfaces &  El objetivo es conocer el desarrollo de sistema que pueda reconocer imágenes estáticas a través de los eigenfaces y modificarlo para trabajar con imágenes dinámicas. & Eigenfaces &
+
+\begin{itemize}
+
+\item \textbf{Eigenfaces:}  Es un conjunto de vectores propios cuando se utiliza en el problema de visión artificial del reconocimiento de rostros humanos.
+
+\item \textbf{PCA:} Es una de las técnicas de aprendizaje no supervisado, las cuales suelen aplicarse como parte del análisis exploratorio de los datos. 
+
+\end{itemize} \\
+
+\hline
+\end{longtable}
+
+
+\newpage

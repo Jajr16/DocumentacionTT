@@ -1,0 +1,42 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-33}{Dar de alta personal de seguridad}{
+
+    Permitir al personal de gestión escolar dar de alta un personal de seguridad.
+}
+    \UCitem{Versión}{\color{Gray}1}
+    \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+    \UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra.}
+    \UCitem{Actor}{\hyperlink{Personal de gestión}{Personal de gestión escolar}}
+    \UCitem{Propósito}{ Permitir al personal de gestión escolar dar de alta a un personal de seguridad.}
+    \UCitem{Entradas}{ \hyperlink{Personal-de-seguridad.CURP }{CURP}, \hyperlink{personal-de-seguridad.Turno }{Turno }, \hyperlink{ Personal-de-seguridad.Cargo }{Cargo}, \hyperlink{ Personal-de-seguridad.Sexo}{Sexo} y \hyperlink{ Personal-de-seguridad.Nombre}{Nombre} }
+    \UCitem{Origen}{Teclado}
+    \UCitem{Salidas}{Muestra mensaje {\bf MSG-37} ``Personal de seguridad dado de alta con éxito''.}
+    \UCitem{Destino}{Pantalla \IUref{IU28}{Consultar lista de personal de seguridad}}
+    \UCitem{Precondiciones}{El Personal de gestión escolar debe de haber iniciado sesión.}
+    \UCitem{Postcondiciones}{El personal de seguridad es dado de alta y sus datos se guardan en la base de datos.}
+    \UCitem{Errores}{
+
+        E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
+
+        E2: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+
+        E3: Cuando el CURP del personal de seguridad ya está registrado en el sistema muestra el mensaje {\bf MSG-38}{``El CURP ya ha sido asociado a este personal de seguridad con anterioridad u otro personal de seguridad.''}
+
+    }
+    \UCitem{Tipo}{ Extiende de CU-32 Consultar lista de personal de seguridad}
+    \UCitem{Observaciones}{Ninguna}
+
+\end{UseCase}
+%-------------------------------------- 
+
+\begin{UCtrayectoria}
+
+    \UCpaso[\UCactor] El Personal de gestión escolar accede a la pantalla \IUref{IU29}{ Dar de alta personal de seguridad}\label{CU33.introduceDatos} desde la pantalla \IUref{IU28}{Consultar lista de personal de seguridad} apretando el botón \IUbutton{Dar de alta personal de seguridad} e introduce los datos del personal de seguridad (\hyperlink{Personal-de-seguridad.CURP }{CURP}, \hyperlink{personal-de-seguridad.Turno }{Turno }, \hyperlink{ Personal-de-seguridad.Cargo }{Cargo}, \hyperlink{ Personal-de-seguridad.Sexo}{Sexo} y \hyperlink{ Personal-de-seguridad.Nombre}{Nombre}).
+    \UCpaso[\UCactor] El Personal de gestión escolar oprime el botón \IUbutton{Dar de alta personal de seguridad}.
+    \UCpaso El sistema revisa que los datos del personal de seguridad sean válidos.
+    \UCpaso El sistema verifica que el CURP no haya sido registrado con anterioridad.
+    \UCpaso[\UCactor] El Personal de gestión escolar es redirigido a la pantalla \IUref{IU28}{Consultar lista de personal de seguridad }.
+
+\end{UCtrayectoria}

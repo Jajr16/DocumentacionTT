@@ -1,0 +1,39 @@
+%--------------------------------------
+\subsection{IU17 Pantalla de Reconocimiento facial}
+
+\subsubsection{Objetivo}
+Permitir al docente registrar la asistencia al ETS de los alumnos y al personal de seguridad le permite registrar la entrada a las instalaciones.
+
+\subsubsection{Diseño}
+Esta pantalla \IUref{IU17}{Pantalla de Reconocimiento facial} (ver figura~\ref{IU17}) aparece luego de seleccionar el botón \IUbutton{Registrar asistencia} desde la pantalla \IUref{IU08}{Lista de asistencia de ETS}..
+
+
+\IUfig[.30]{cu19}{IU17}{Pantalla de Reconocimiento facial}
+
+\subsubsection{Salidas}
+Confirmación de asistencia registrada
+
+\subsubsection{Entradas}
+Ninguna
+
+\subsubsection{Comandos}
+\begin{itemize}
+    \item \IUbutton{Cancelar}: Permite al alumno cancelar la operación de Reconocimeinto facial.
+    \item \IUbutton{Comenzar}: Activa la cámara para el Reconocimiento facil. 
+    \item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
+    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
+    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+    \item \IUbutton{Registrar asistencia} Si el usuario que presiona el botón es un docente, marca la asistencia del alumno al ETS, por otro lado si el usuario que presiona es un botón personal de seguridad, marca la entrada del alumno a las instalaciones.
+    \item \IUbutton{No registrar asistencia} No marca la asistencia ni la entrada (El alumno no es quien dice ser).
+\end{itemize}
+
+\subsubsection{Mensajes}
+
+\begin{Citemize}
+    \item {\bf MSG-17}{``No se pudo activar la cámara o reconocer la identidad. Intente nuevamente.''}
+    \item {\bf MSG-16}{``No hay alumnos inscritos en este ETS.''}
+    \item {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+    \item {\bf MSG-15}{``Asistencia registrada exitosamente.''}
+    \item {\bf MSG-23}{``Entrada registrada exitosamente.''}
+    \item {\bf MSG-24}{``Entrada no registrada .''}
+\end{Citemize}

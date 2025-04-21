@@ -1,0 +1,39 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-32}{Consultar lista de personal de seguridad}{
+
+    Permitir al Personal de gestión escolar consultar la lista con la información de las personas que esta registradas como personal de seguridad.
+}
+    \UCitem{Versión}{\color{Gray}1}
+    \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+    \UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra.}
+    \UCitem{Actor}{\hyperlink{Personal de gestión escolar}{Personal de gestión escolar}}
+    \UCitem{Propósito}{Mostrar una lista con la información de las personas que esta registradas como personal de seguridad.}
+    \UCitem{Entradas}{Ninguna}
+    \UCitem{Origen}{Teclado}
+    \UCitem{Salidas}{Ninguna}
+    \UCitem{Destino}{Pantalla \IUref{IU28}{Consultar lista de personal de seguridad}}
+    \UCitem{Precondiciones}{ El Personal de gestión escolar debe de haber iniciado sesión}
+    \UCitem{Postcondiciones}{Ninguna.}
+    \UCitem{Errores}{
+        E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
+
+        E2: Cuando no hay ningún usuario personal de seguridad dado de alta se muestra el mensaje {\bf MSG-29}  ``No hay personal de seguridad dado de alta.''
+    }
+    \UCitem{Tipo}{ Extiende de CU42 Iniciar sesión de personal escolar web}
+    \UCitem{Observaciones}{Ninguna}
+
+\end{UseCase}
+%-------------------------------------- 
+
+\begin{UCtrayectoria}
+\UCpaso[\UCactor] El Personal de gestión escolar accede a la pantalla \IUref{IU28}{ Consultar lista de personal de seguridad }\label{CU32.introduceDatos} desde la pantalla \IUref{IUE05}{de saludo de personal de gestión escolar } apretando el botón \IUbutton{Consultar lista de personal de seguridad}.
+\UCpaso El sistema muestra la información de todo el personal de seguridad.
+\UCpaso[\UCactor] El Personal de gestión escolar revisa la información del personal de seguridad dado de alta.
+\UCpaso[\UCactor] El Personal de gestión escolar decide que quiere dar de alta a un usuario como personal de seguridad.
+\UCpaso[\UCactor] El Personal de gestión escolar selecciona el botón \IUbutton{Dar de alta personal de seguridad }.
+\UCpaso[\UCactor] El Personal de gestión escolar es redirigido a la pantalla \IUref{IU29}{Dar de alta personal de seguridad}.
+\end{UCtrayectoria}
+
+
