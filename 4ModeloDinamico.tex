@@ -2,9 +2,21 @@
 \section{Modelo dinámico}	
 \label{cap:modDinamico}
 
-En está sección se describe el modelo dinámico de nuestro sistema propuesto. En este se explican y representan las interacciones entre los actores y las funcionalidades del sistema estructurando la información necesaria para comprender su funcionamiento y diseño para asegurar una implementación coherente y funcional.
+En la presente sección, se aborda en detalle el modelo dinámico del sistema propuesto, el cual constituye un pilar fundamental para la comprensión exhaustiva de su comportamiento y diseño, también, en este se explican las interacciones esenciales entre los actores que intervienen en el sistema y las funcionalidades que este ofrece.
 
-En primer lugar, se describe la notación empleada para los diagramas de casos de uso, seguida de una pequeña explicación de porque decidimos establecer ciertos casos como necesarios y otros como no necesarios. Posteriormente, se introduce el diagrama de estructura de usuarios, que organiza a los actores según sus roles, después se describirán los actores que participaran en el sistema y se establecen sus responsabilidades y procesos. A partir de esto, se presentan los diagramas de casos de uso para los sistemas móvil y web, destacando las funcionalidades específicas de cada sistema. Finalmente, se proporciona una descripción exhaustiva de los casos de uso seleccionados como necesarios.
+
+Para facilitar la interpretación de las interacciones funcionales, en primer lugar, se describe la notación visual empleada en los diagramas de casos de uso. Esta notación, basada en la codificación por colores (detallada en la Figura \ref{fig:Notacion}), permite identificar de manera inmediata la prioridad y el estado de implementación de cada funcionalidad del sistema, proporcionando una visión clara de su relevancia y avance dentro del ciclo de desarrollo.
+
+
+Seguidamente, se presenta el diagrama de estructura de usuarios (ilustrado en la Figura \ref{fig:EstructuraU}), el cual organiza jerárquicamente a los actores del sistema según sus roles y especializaciones. Esta representación visual facilita la comprensión de las diferentes categorías de usuarios, sus relaciones y los niveles de acceso que ostentan dentro del sistema, estableciendo un marco claro para entender sus interacciones posteriores.
+
+
+Después, se procederá a la descripción individualizada de cada uno de los actores identificados que participan en el sistema. Para cada actor, se definirán de manera precisa sus responsabilidades específicas dentro del contexto del sistema y se detallarán los procesos clave en los que se involucran, sentando las bases para comprender su rol y su interacción con las funcionalidades del sistema.
+
+
+A partir de esta comprensión de los actores y sus roles, se presentarán los diagramas de casos de uso para los sistemas móvil \ref{fig:casosDeUso1}  y web \ref{fig:casosDeUso2}. Estos diagramas ilustrarán gráficamente las funcionalidades específicas que ofrece cada plataforma, resaltando las particularidades y adaptaciones diseñadas para cada entorno de usuario.
+Finalmente, se proporcionará una descripción exhaustiva de cada uno de los casos de uso seleccionados como necesarios. Para cada caso de uso, se detallarán sus precondiciones, el flujo principal de eventos, los posibles flujos alternativos y las postcondiciones, ofreciendo una visión completa de la funcionalidad esencial del sistema y su comportamiento ante diversas situaciones.
+
 
 \subsection{Notación}
 
@@ -18,9 +30,20 @@ En primer lugar, se describe la notación empleada para los diagramas de casos d
 	\end{center}
 \end{figure}
 
-Ahora comenzaremos con la explicación de la notación usada para el diagrama de casos de uso. En la figura \ref{fig:Notacion} se puede ver la notación usada para el diagrama de casos de uso, en este se puede observar que se usaron 2 colores para clasificarlos; los casos de uso de color azul fueron analizados y determinados como prioritarios y los casos de uso de color rojo fueron analizados y determinados como no prioritarios.
+A continuación, se detalla la notación empleada para la representación de los diagramas de casos de uso, la cual es fundamental para comprender la prioridad y el estado de implementación de cada funcionalidad del sistema. En la Figura \ref{fig:Notacion} se presenta la leyenda completa de esta notación, donde se utilizan cuatro colores distintos para clasificar los casos de uso según su análisis y desarrollo.
 
-Decidimos determinar como casos de uso prioritarios a todos los casos del sistema móvil porque son los casos que son propios de nuestro sistema y son la parte principal de nuestro trabajo terminal y la más representativa ya que posee el mayor enfoque de inteligencia artificial, por otro lado, decidimos tomar los casos de uso del personal de la DAE como necesarios porque con ellos se justificaría la obtención de la credencial mediante el uso del proceso de la credencialización, también decidimos usar la parte de consultas y altas de los CRUD de: periodo de ETS, ETS, alumnos, docentes y personal de seguridad. Esto para representar los procesos que se realizan en el SAES y la DAE para mejorar el entendimiento, sin embargo, usar el resto del CRUD y los demás procesos de la DAE y el SAES quedan fuera del alcance del proyecto ya que se separan de la idea principal del trabajo terminal, además de que consumirán bastante tiempo y no están enfocados a la inteligencia artificial.
+
+Los casos de uso representados en color verde fueron aquellos que, tras un análisis exhaustivo, se determinaron como prioritarios para la consecución de los objetivos principales del sistema y que, a la fecha, han sido completamente realizados o implementados. Esta categoría engloba las funcionalidades esenciales que sustentan la propuesta de valor de nuestro trabajo terminal.
+
+
+Por otro lado, los casos de uso identificados con el color rojo fueron aquellos que, durante la etapa de análisis, se consideraron como no prioritarios para el alcance inicial del proyecto. En consecuencia, estas funcionalidades no fueron desarrolladas en la implementación del sistema.
+
+
+Adicionalmente, se presenta una categoría de casos de uso en color amarillo. Estos casos fueron inicialmente considerados como prioritarios durante la fase de análisis; sin embargo, debido a diversos factores surgidos durante el desarrollo, se tomó la decisión de reconsiderar su prioridad y finalmente catalogarlos como no prioritarios, quedando fuera del alcance de la implementación actual.
+
+
+Finalmente, los casos de uso representados en color gris son aquellos que, tras un análisis más detallado durante la etapa de desarrollo, se identificaron como componentes integrales de otros casos de uso adyacentes.
+
 
 \subsection{Estructura de usuarios }
 
@@ -32,9 +55,15 @@ Decidimos determinar como casos de uso prioritarios a todos los casos del sistem
 	\end{center}
 \end{figure} 
 
-En la figura \ref{fig:EstructuraU} se muestra la estructura de los usuarios y los tipos de usuario que están presentes en el sistema, en este se puede observar como todos los usuarios se derivan de un usuario general llamado usuario, posteriormente se divide en tipos; empleado y alumno. Después el empleado se subdivide dejando al personal de seguridad y al docente como empleados generales y creando un sub-usuario llamado personal administrativo el cual contiene al personal de gestión escolar, al presidente de academia, jefe de academia y al personal de la DAE. 
+En la Figura \ref{fig:EstructuraU} se ilustra la estructura jerárquica de los usuarios que interactúan con el sistema propuesto, detallando los diferentes tipos de roles y sus niveles de acceso. En el Nivel General, se encuentra el actor Usuario, que representa la abstracción más alta de cualquier entidad que interactúa con el sistema.
 
-A continuación, se describirán las responsabilidades y los procesos de cada uno de los usuarios específicos (es decir los: los alumnos, personal de seguridad, docente, personal de gestión escolar, presidente de academia, jefe de departamento y personal de la DAE).
+Del Usuario se derivan los Niveles Primarios: Empleado y Alumno. El Empleado engloba a todo el personal que labora en la institución, mientras que el Alumno representa a la población estudiantil.
+
+Dentro del Nivel Primario de Empleado, encontramos los Subniveles de Empleado: Personal de seguridad y Docente. Estos roles poseen responsabilidades y permisos específicos dentro del sistema, diferenciándose de otros tipos de empleados.
+
+También derivado del Empleado, se encuentra el Nivel Administrativo, representado por el actor Personal administrativo. Este nivel agrupa a roles con funciones de gestión y administración dentro del sistema, y se especializa en: Personal de gestión escolar, Presidente de academia, Jefe de departamento y Personal de la DAE (Dirección de administración Escolar). Cada uno de estos roles dentro del Nivel Administrativo tendrá permisos y accesos adaptados a sus responsabilidades específicas.
+
+A continuación, se procederá a describir en detalle las responsabilidades y los procesos específicos de cada uno de los actores presentes en esta jerarquía.
 
 %\newpage
 
@@ -50,112 +79,131 @@ A continuación, se describirán las responsabilidades y los procesos de cada un
 \subsection{Descripción de actores}
 
 %---------------------------------------------------------
-\begin{Usuario}{\hypertarget{tAlumno}{\subsubsection{Alumno}}}{
-		Se refiere a las personas inscritas dentro de algún plan de estudios ofertado en la unidad académica.
-	}
-	\item[Responsabilidades:] \cdtEmpty
-	\begin{itemize}
-		\item Asistir puntualmente a las clases, prácticas y evaluaciones.
-		\item Respetar a docentes, compañeros y personal administrativo.
-		\item Cumplir con los requisitos y actividades de las asignaturas inscritas, incluyendo tareas, proyectos y exámenes.
-		\item Realizar oportunamente los trámites escolares como inscripciones, reinscripciones, solicitudes de documentos oficiales, etc.
-		\item Portar credencial institucional en todo momento.
-	\end{itemize}
-	
-
+\begin{Usuario}{\hypertarget{tAlumno}{\subsubsection{Alumno}}}{(Nivel Primario)}{
+        Se refiere a las personas inscritas dentro de algún plan de estudios ofertado en la unidad académica.
+    }
+    \item[Responsabilidades:] \cdtEmpty
+    \begin{itemize}
+        \item Asistir puntualmente a las clases, prácticas y evaluaciones.
+        \item Respetar a docentes, compañeros y personal administrativo.
+        \item Cumplir con los requisitos y actividades de las asignaturas inscritas, incluyendo tareas, proyectos y exámenes.
+        \item Realizar oportunamente los trámites escolares como inscripciones, reinscripciones, solicitudes de documentos oficiales, etc.
+        \item Portar credencial institucional en todo momento.
+    \end{itemize}
+    \item[Procesos clave:] \cdtEmpty
+    \begin{itemize}
+         \item Inscribirse a asignaturas.
+         \item Consultar calificaciones.
+         \item Realizar pagos.
+    \end{itemize}
 \end{Usuario}
 
-\begin{Usuario}{\hypertarget{tPersonalSeguridad}{\subsubsection{Personal de seguridad}}}{
-		Se refiere a las personas registradas como empleados y que permiten o no el acceso a la unidad académica.
-	}
-	\item[Responsabilidades:] \cdtEmpty
-	\begin{itemize}
-		\item Supervisar el acceso y la salida de alumnos, personal docente y visitantes, asegurándose de que cumplan con los protocolos establecidos.
-		\item Verificar la identificación de las personas que ingresan a las instalaciones.
-		\item Responder de manera oportuna a incidentes o emergencias dentro de las instalaciones.
-		\item Brindar apoyo al personal, docentes o alumnos en caso de accidentes o situaciones de riesgo.
-	\end{itemize}
-	
-
+\begin{Usuario}{\hypertarget{tPersonalSeguridad}{\subsubsection{Personal de seguridad}}}{(Subnivel de Empleado)}{
+        Se refiere a las personas registradas como empleados y que permiten o no el acceso a la unidad académica.
+    }
+    \item[Responsabilidades:] \cdtEmpty
+    \begin{itemize}
+        \item Supervisar el acceso y la salida de alumnos, personal docente y visitantes, asegurándose de que cumplan con los protocolos establecidos.
+        \item Verificar la identificación de las personas que ingresan a las instalaciones.
+        \item Responder de manera oportuna a incidentes o emergencias dentro de las instalaciones.
+        \item Brindar apoyo al personal, docentes o alumnos en caso de accidentes o situaciones de riesgo.
+    \end{itemize}
+    \item[Procesos clave:] \cdtEmpty
+    \begin{itemize}
+         \item Registrar acceso del alumnado.
+         \item Reportar incidentes de seguridad.
+    \end{itemize}
 \end{Usuario}
 
-\begin{Usuario}{\hypertarget{tDocenteAplicador}{\subsubsection{Docente}}}{
-		Se refiere a las personas registradas como empleados que dan clases a los alumnos y supervisan los ETS asignados.
-	}
-	\item[Responsabilidades:] \cdtEmpty
-	\begin{itemize}
-		\item Impartir las clases de manera clara, puntual y completa, cumpliendo con los objetivos de aprendizaje.
-		\item Diseñar y aplicar instrumentos de evaluación justos, objetivos y alineados con los contenidos del curso.
-		\item Orientar a los alumnos en el desarrollo de competencias y habilidades.
-		\item Resolver dudas o problemáticas académicas dentro y fuera del aula, cuando sea necesario.
-		\item Registrar la asistencia de los alumnos y reportar incidencias graves.
-		\item Cumplir con la entrega de calificaciones y reportes en tiempo y forma.
-
-	\end{itemize}
-	
-
+\begin{Usuario}{\hypertarget{tDocenteAplicador}{\subsubsection{Docente}}}{(Subnivel de Empleado)}{
+        Se refiere a las personas registradas como empleados que dan clases a los alumnos y supervisan los ETS asignados.
+    }
+    \item[Responsabilidades:] \cdtEmpty
+    \begin{itemize}
+        \item Impartir las clases de manera clara, puntual y completa, cumpliendo con los objetivos de aprendizaje.
+        \item Diseñar y aplicar instrumentos de evaluación justos, objetivos y alineados con los contenidos del curso.
+        \item Orientar a los alumnos en el desarrollo de competencias y habilidades.
+        \item Resolver dudas o problemáticas académicas dentro y fuera del aula, cuando sea necesario.
+        \item Registrar la asistencia de los alumnos y reportar incidencias graves.
+        \item Cumplir con la entrega de calificaciones y reportes en tiempo y forma.
+    \end{itemize}
+    \item[Procesos clave:] \cdtEmpty
+    \begin{itemize}
+         \item Registrar calificaciones del alumnado.
+         \item Pasar lista de asistencia.
+    \end{itemize}
 \end{Usuario}
 
-\begin{Usuario}{\hypertarget{tPersonalGestion}{\subsubsection{Personal de gestión escolar}}}{
-		Se refiere a las personas registradas como empleados y personal administrativo que realiza los procesos administrativos dentro de la ESCOM.
-	}
-	\item[Responsabilidades:] \cdtEmpty
-	\begin{itemize}
-
-		\item Gestionar el proceso de inscripción y reinscripción de los alumnos, verificando que cumplan con los requisitos establecidos.
-		\item Mantener y actualizar el historial académico de los alumnos en los sistemas institucionales.
-		\item Revisar y validar actas de nacimiento, certificados y otros documentos oficiales requeridos para el registro de los alumnos.
-		\item Atender solicitudes y problemáticas relacionadas con registros, certificados, bajas temporales y procesos extraordinarios.
-		\item Brindar orientación a alumnos y docentes sobre trámites escolares, fechas importantes y normatividad académica.
-	\end{itemize}
-
-
+\begin{Usuario}{\hypertarget{tPersonalGestion}{\subsubsection{Personal de gestión escolar}}}{(Nivel Administrativo)}{
+        Se refiere a las personas registradas como empleados y personal administrativo que realiza los procesos administrativos dentro de la ESCOM.
+    }
+    \item[Responsabilidades:] \cdtEmpty
+    \begin{itemize}
+        \item Gestionar el proceso de inscripción y reinscripción de los alumnos, verificando que cumplan con los requisitos establecidos.
+        \item Mantener y actualizar el historial académico de los alumnos en los sistemas institucionales.
+        \item Revisar y validar actas de nacimiento, certificados y otros documentos oficiales requeridos para el registro de los alumnos.
+        \item Atender solicitudes y problemáticas relacionadas con registros, certificados, bajas temporales y procesos extraordinarios.
+        \item Brindar orientación a alumnos y docentes sobre trámites escolares, fechas importantes y normatividad académica.
+    \end{itemize}
+    \item[Procesos clave:] \cdtEmpty
+    \begin{itemize}
+         \item Registrar inscripciones.
+         \item Actualizar historiales académicos.
+    \end{itemize}
 \end{Usuario}
 
-\begin{Usuario}{\hypertarget{tPersonalDAE}{\subsubsection{Personal de la DAE}}}{
-		Se refiere a las personas registradas como empleados y personal administrativo que realiza los procesos administrativos dentro de la DAE.
-	}
-	\item[Responsabilidades:] \cdtEmpty
-	\begin{itemize}
-
-		\item Fomentar y coordinar actividades extracurriculares que complementen la formación académica, como talleres, conferencias, eventos culturales y deportivos.
-		\item Supervisar programas de apoyo académico, como tutorías, orientación educativa y psicológica.
-		\item Difundir información sobre programas de movilidad académica, intercambios, convenios nacionales e internacionales y programas de servicio social.
-		\item Gestionar y emitir las credenciales oficiales del IPN para los alumnos.
-		\item Verificar que los documentos requeridos para la emisión de la credencial estén completos y sean válidos.
-		\item Coordinar el proceso de inscripción de los alumnos.
-		\item Actualizar y mantener los registros académicos y administrativos de los alumnos. 
-	\end{itemize}
-
-
+\begin{Usuario}{\hypertarget{tPersonalDAE}{\subsubsection{Personal de la DAE}}}{(Nivel Administrativo)}{
+        Se refiere a las personas registradas como empleados y personal administrativo que realiza los procesos administrativos dentro de la DAE.
+    }
+    \item[Responsabilidades:] \cdtEmpty
+    \begin{itemize}
+        \item Fomentar y coordinar actividades extracurriculares que complementen la formación académica, como talleres, conferencias, eventos culturales y deportivos.
+        \item Supervisar programas de apoyo académico, como tutorías, orientación educativa y psicológica.
+        \item Difundir información sobre programas de movilidad académica, intercambios, convenios nacionales e internacionales y programas de servicio social.
+        \item Gestionar y emitir las credenciales oficiales del IPN para los alumnos.
+        \item Verificar que los documentos requeridos para la emisión de la credencial estén completos y sean válidos.
+        \item Coordinar el proceso de inscripción de los alumnos.
+        \item Actualizar y mantener los registros académicos y administrativos de los alumnos.
+    \end{itemize}
+    \item[Procesos clave:] \cdtEmpty
+    \begin{itemize}
+         \item Emitir credenciales.
+         \item Gestionar actividades extracurriculares.
+    \end{itemize}
 \end{Usuario}
 
-\begin{Usuario}{\hypertarget{tPresidente}{\subsubsection{Presidente de academia}}}{
-	Se refiere a las personas registradas como empleados y personal administrativo que lidera la academia de una unidad académica o área de conocimiento dentro de la ESCOM.
-	}
-	\item[Responsabilidades:] \cdtEmpty
-	\begin{itemize}
-
-		\item Convocar y presidir las reuniones de academia, donde se toman decisiones sobre planes y programas de estudio.
-		\item Coordinar la creación o actualización de planes y programas de estudio conforme a las necesidades del mercado laboral y las directrices institucionales.
-		\item Verificar que los contenidos impartidos por los docentes sean consistentes con los objetivos de los programas.
-		\item Detectar necesidades de capacitación entre los docentes y promover cursos o talleres. 
-	\end{itemize}
-
+\begin{Usuario}{\hypertarget{tPresidente}{\subsubsection{Presidente de academia}}}{(Nivel Administrativo)}{
+    Se refiere a las personas registradas como empleados y personal administrativo que lidera la academia de una unidad académica o área de conocimiento dentro de la ESCOM.
+    }
+    \item[Responsabilidades:] \cdtEmpty
+    \begin{itemize}
+        \item Convocar y presidir las reuniones de academia, donde se toman decisiones sobre planes y programas de estudio.
+        \item Coordinar la creación o actualización de planes y programas de estudio conforme a las necesidades del mercado laboral y las directrices institucionales.
+        \item Verificar que los contenidos impartidos por los docentes sean consistentes con los objetivos de los programas.
+        \item Detectar necesidades de capacitación entre los docentes y promover cursos o talleres.
+    \end{itemize}
+    \item[Procesos clave:] \cdtEmpty
+    \begin{itemize}
+         \item Coordinar reuniones de academia.
+         \item Revisar planes de estudio.
+    \end{itemize}
 \end{Usuario}
 
-\begin{Usuario}{\hypertarget{tJefe}{\subsubsection{Jefe de departamento}}}{
-	Se refiere a las personas registradas como empleados y personal administrativo que supervisa las actividades de una o más unidades académicas dentro de ESCOM.
+\begin{Usuario}{\hypertarget{tJefe}{\subsubsection{Jefe de departamento}}}{(Nivel Administrativo)}{
+    Se refiere a las personas registradas como empleados y personal administrativo que supervisa las actividades de una o más unidades académicas dentro de ESCOM.
 }
 \item[Responsabilidades:] \cdtEmpty
 \begin{itemize}
-
-	\item Administrar los recursos humanos y materiales asignados al departamento.
-	\item Supervisar la implementación de los programas de estudio y el cumplimiento de los objetivos educativos.
-	\item Promover y coordinar proyectos de investigación, desarrollo tecnológico o vinculación relacionados con el departamento.
-	\item Atender quejas, sugerencias o problemas que surjan en el departamento, ya sea entre docentes o alumnos.
+        \item Administrar los recursos humanos y materiales asignados al departamento.
+        \item Supervisar la implementación de los programas de estudio y el cumplimiento de los objetivos educativos.
+        \item Promover y coordinar proyectos de investigación, desarrollo tecnológico o vinculación relacionados con el departamento.
+        \item Atender quejas, sugerencias o problemas que surjan en el departamento, ya sea entre docentes o alumnos.
 \end{itemize}
-
+    \item[Procesos clave:] \cdtEmpty
+    \begin{itemize}
+         \item Administrar recursos del departamento.
+         \item Supervisar programas de estudio.
+    \end{itemize}
 \end{Usuario}
 
 \newpage
@@ -172,7 +220,25 @@ A continuación se muestran los diagramas de casos de uso:
 		\label{fig:casosDeUso1}
 	\end{center}
 \end{figure}
-En la figura \ref{fig:casosDeUso1} se muestra el diagrama de casos de uso del sistema móvil el cual es el sistema principal del trabajo terminal. En este diagrama se detalla la estructura del sistema, los casos de uso del docente, del alumno, del personal de seguridad, del presidente de academia y el jefe de departamento.
+
+En la Figura \ref{fig:casosDeUso1} se presenta el diagrama de casos de uso del sistema móvil, el cual constituye el núcleo central del presente trabajo terminal. Este diagrama detalla la estructura funcional del sistema, así como las interacciones específicas de los siguientes actores: Alumno, Docente, Personal de seguridad, Presidente de academia y Jefe de departamento. La notación de colores empleada en este diagrama (detallada en la Figura \ref{fig:Notacion}) permite identificar la prioridad y el estado de cada caso de uso.
+Como se observa, la mayoría de los casos de uso se presentan en color verde, indicando su prioridad y realización dentro del proyecto. Sin embargo, existen algunas excepciones que merecen una explicación detallada:
+
+
+El caso de uso CU-03 (Consultar notificaciones) se presenta en color amarillo. Esta decisión se tomó durante la fase de desarrollo, al identificar que su implementación completa a lo largo del ciclo de vida del proyecto presentaba una complejidad significativa. Adicionalmente, se consideró que el valor añadido de esta funcionalidad a la experiencia general del usuario no justificaba el esfuerzo requerido para su desarrollo en el alcance actual del proyecto.
+
+
+Los casos de uso CU-04 (Consultar periodos de ETS asignados al docente) y CU-16 (Consultar periodos de ETS inscritos del alumno) también se identifican con el color amarillo. La determinación de no priorizar la separación de la consulta de ETS por periodos se basó en la evaluación de su impacto en la funcionalidad principal del sistema. Se concluyó que esta distinción no aportaba un valor significativo a la experiencia del usuario y que la revisión especifica de ETS por periodo carecía de relevancia práctica dentro del contexto del sistema propuesto.
+
+
+El caso de uso CU-40 (Solicitar desbloqueo de cuenta) se presenta en color amarillo debido a una limitación técnica inherente a la arquitectura supuesta del sistema. Al considerar que el sistema móvil opera en conexión directa con los registros del SAES (Sistema de Administración Escolar), la funcionalidad de bloquear o cambiar contraseñas desde la aplicación móvil se consideró inviable y fuera del alcance, ya que estas operaciones se gestionarían directamente a través de la plataforma del SAES.
+
+
+Finalmente, el caso de uso CU-10 (Consultar lista de asistencia de alumnos inscritos al ETS) se presenta en color gris y se encuentra enlazado mediante una relación de inclusión al caso de uso CU-08 (Consultar lista de alumnos inscritos a un ETS). Esta decisión de diseño se tomó con el objetivo de optimizar la experiencia del usuario, integrando la visualización de ambas listas, es decir se muestra la lista de los alumnos inscritos al ETS y el estado de asistencia (si se presentó o no al ETS).
+
+
+Los demás casos de uso presentados en color verde representan las funcionalidades prioritarias y ya implementadas del sistema móvil, las cuales serán explicadas en la sección de detalles de los casos de uso.
+
 
 \newpage
 
@@ -186,9 +252,13 @@ En la figura \ref{fig:casosDeUso1} se muestra el diagrama de casos de uso del si
 \end{figure}
 
 
-En la figura \ref{fig:casosDeUso2} se muestra el diagrama de casos de uso del sistema web el cual es el sistema secundario (la simulación de una parte del SAES y de la DAE) del trabajo terminal. En este diagrama se detalla la estructura del sistema, los casos de uso personal de la DAE y el personal de gestión escolar.
+En la Figura \ref{fig:casosDeUso2} se presenta el diagrama de casos de uso correspondiente al sistema web. Este diagrama ilustra las funcionalidades a las que tienen acceso principalmente el Personal de la DAE y el Personal de gestión escolar, complementando las funcionalidades ofrecidas por el sistema móvil. Al igual que en el diagrama del sistema móvil, se utiliza la notación de colores previamente definida para indicar la prioridad y el estado de implementación de cada caso de uso.
 
-A continuación se detallan los casos de uso.
+La mayoría de los casos de uso en este diagrama se presentan en color verde, lo que indica que fueron considerados prioritarios y han sido realizados. Estos casos de uso abarcan la gestión de información y procesos administrativos relevantes para los roles del Personal de la DAE y el Personal de gestión escolar.
+
+Sin embargo, es importante destacar la relación existente entre los casos de uso CU-21 (Dar de alta a alumno), CU-22 (Crear credencial) y CU-23 (Capturar fotografía estudiantil). Inicialmente concebidos como funcionalidades separadas, durante la fase de desarrollo se tomó la decisión de unificarlos dentro del caso de uso CU-21. Esta integración se realizó con el objetivo de optimizar la experiencia del usuario, permitiendo que el Personal de la DAE realice el alta del alumno, la captura de su fotografía y la creación de la credencial en una única pantalla o flujo de proceso. 
+
+\subsection{Detalle de los casos de uso}
 
 %---------------------------------------------------------
 % CASOS DE USO
