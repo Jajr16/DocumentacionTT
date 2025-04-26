@@ -159,14 +159,15 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 \end{cdtEntidad}
 %---------------------------------------------------------
 \begin{cdtEntidad}{PS}{Personal\_Seguridad}
-	\brAttr{CURP}{CURP}{varchar}{Código usado para identificar a las personas.}{Sí}
+	\brAttr{rfc}{RFC}{varchar}{Código usado para identificar a un personal de seguridad}{Sí.}
+	\brAttr{CURP}{CURP}{varchar}{CURP de la persona.}{Sí}
 	\brAttr{Turno}{Turno}{integer}
 	{Letra usada identificar el turno en el que se aplica el ETS ('M' para matutino, 'V' para vespertino).}{Sí}
 	\brAttr{Cargo}{Cargo}{integer}
 	{Nombre del cargo del personal de seguridad.}{Sí}
 	%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	\cdtEntityRelSection
-	\brRel{}{Persona}{Un \hyperlink{PS}{Personal de seguridad} es una \hyperlink{Persona}{Persona}}
+%	\cdtEntityRelSection
+%	\brRel{}{Persona}{Un \hyperlink{PS}{Personal de seguridad} es una \hyperlink{Persona}{Persona}}
 \end{cdtEntidad}
 %---------------------------------------------------------
 \begin{cdtEntidad}{CargoPS}{CargoPS}
@@ -225,6 +226,8 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 	{Identificación de la Unidad de aprendizaje del ETS.}{Sí}
 	\brAttr{Duracion}{Duracion}{integer}
 	{Duración en horas del ETS.}{Sí}
+	\brAttr{Hora}{Hora}{time}
+	{Duración en horas del ETS.}{Sí}
 	%- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 %	\cdtEntityRelSection
 %	\brRel{}{periodo\_ETS}{Un \hyperlink{ETS}{ETS} se realiza un en \hyperlink{PETS}{periodo}}
@@ -253,7 +256,7 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 	\brAttr{Id\_ETS}{Id\_ETS}{integer}{Número usado para identificar los diferentes ETS registrados.}{Sí}
 	\brAttr{DocenteRFC}{DocenteRFC}{varchar}
 	{RFC que identifica al Docente.}{Sí}
-	\brAttr{Titular}{Titular}{tinyint}
+	\brAttr{Titular}{Coordinador}{tinyint}
 	{Booleano que identificará si el profesor que aplicará el ETS es el titular o es un ayudante.}{Sí}
 \end{cdtEntidad}
 %---------------------------------------------------------
@@ -321,23 +324,87 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 	{Nombre del sexo. Este puede variar entre 'Masculino' y 'Femenino'.}{Sí}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{AsistenciaInscripcion}{AsistenciaInscripcion}
-	\brAttr{Asistio}{Asistio}{tinyint}
-	{Booleano que ayuda a identificar si el alumno sí asistió al ETS o no.}{Sí}
-	\brAttr{FechaAsistencia}{FechaAsistencia}{datetime}
-	{Fecha y hora de la asistencia del alumno al ETS.}{Sí}
-	\brAttr{ResultadoRN}{ResultadoRN}{tinyint}
-	{Booleano que dice si la red identificó al alumno o no.}{Sí}
-	\brAttr{Aceptado}{Aceptado}{tinyint}
-	{Booleano que identifica si el profesor le aceptó la entrada al alumno.}{Sí}
-	\brAttr{AplicaDocenteRFC}{AplicaDocenteRFC}{varchar}
-	{RFC del docente que está aplicando el ETS.}{Sí}
-	\brAttr{InscripcionETSBoleta}{InscripcionETSBoleta}{varchar}
-	{Boleta del alumno que está inscrito al ETS.}{Sí}
-	\brAttr{InscripcionETSId\_ETS}{InscripcionETSId\_ETS}{integer}
-	{Identificación del ETS que se está aplicando.}{Sí}
-	\brAttr{ImagenAlumno}{ImagenAlumno}{varchar}
-	{Ruta de donde está guardada la imagen que se tomó para el reconocimiento facial del alumno.}{Sí}
+\begin{cdtEntidad}{IngresoInstalacion}{ingreso\_instalacion}
+	\brAttr{boleta}{Boleta}{varchar}
+	{Código usado para identificar al alumnado de la institución una vez que entre a las instalaciones de la escuela.}{Sí}
+	\brAttr{idets}{Id\_ETS}{integer}
+	{ETS que el alumno realizará.}{Sí}
+	\brAttr{fecha}{fecha}{date}
+	{Fecha en la que el alumno se presenta a las instalaciones.}{Sí}
+	\brAttr{hora}{hora}{time}
+	{Hora en la que el alumno ingresa a las instalaciones.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{tipoEstado}{tipo\_estado}
+	\brAttr{idtipo}{idtipo}{integer}
+	{Número que identifica los distintos tipos de estatus de la asistencia del alumno.}{Sí}
+	\brAttr{tipo}{tipo}{varchar}
+	{Estatus que define el resultado de la operación del registro de asistencia del alumno a su ETS.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{ingresoSalon}{ingreso\_salon}
+	\brAttr{boleta}{Boleta}{varchar}
+	{Código usado para identificar al alumnado de la institución una vez que ingrese al salón en donde se aplicará su ETS.}{Sí}
+	\brAttr{idets}{idets}{integer}
+	{ETS al que el alumno se presenta.}{Sí}
+	\brAttr{fecha}{fecha}{date}
+	{Fecha en la que el alumno se presenta a realizar su ETS.}{Sí}
+	\brAttr{hora}{hora}{time}
+	{Hora en la que el alumno ingresa al salón en el que realizará el ETS.}{Sí}
+	\brAttr{docente}{docente}{varchar}
+	{Docente que realiza el pase de asistencia del alumno.}{Sí}
+	\brAttr{estado}{estado}{integer}
+	{Registro que indica si al alumno le permitieron o no realizar el ETS.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{motivorechazo}{motivo\_rechazo}
+	\brAttr{boleta}{Boleta}{varchar}
+	{Código usado para identificar al alumnado.}{Sí}
+	\brAttr{idets}{idets}{integer}
+	{ETS al que el alumno se presenta a realizar.}{Sí}
+	\brAttr{motivo}{motivo}{varchar}
+	{Motivo por el cual al alumno no se le permitió realizar su ETS.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{resultadorn}{resultadorn}
+	\brAttr{boleta}{Boleta}{varchar}
+	{Código usado para identificar al alumnado.}{Sí}
+	\brAttr{idets}{idets}{integer}
+	{ETS al que el alumno se presenta a realizar.}{Sí}
+	\brAttr{precision}{precision}{varchar}
+	{Precisión que obtuvo el modelo de reconocimiento facial con la imagen que se le tomó al alumno.}{Sí}
+	\brAttr{imagenAlumno}{imagen\_alumno}{varchar}
+	{Ruta donde está guardada la imagen que se le tomó al alumno al momento de realizar el reconocimiento facial.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{tokenNotificacion}{token\_notificacion}
+	\brAttr{id}{id}{integer}
+	{Número con el que se identifica el token de un usuario al ingresar en la app.}{Sí}
+	\brAttr{usuario}{usuario}{varchar}
+	{Usuario de alguna de las personas registradas en la app.}{Sí}
+	\brAttr{token}{token}{varchar}
+	{Token usado para identificar a un usuario.}{Sí}
+	\brAttr{imagenAlumno}{imagen\_alumno}{varchar}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{chat}{chat}
+	\brAttr{id}{id}{integer}
+	{Número con el que se identifica el chat entre dos usuarios.}{Sí}
+	\brAttr{remitente}{remitente}{varchar}
+	{Usuario que inició el chat.}{Sí}
+	\brAttr{destinatario}{destinatario}{varchar}
+	{Segundo usuario que participa en el chat.}{Sí}
+\end{cdtEntidad}
+%---------------------------------------------------------
+\begin{cdtEntidad}{mensaje}{mensaje}
+	\brAttr{chat}{chat}{integer}
+	{Número con el que se identifica el chat entre dos usuarios.}{Sí}
+	\brAttr{fecha}{fecha}{datetime}
+	{Fecha y hora en la que un mensaje se envió.}{Sí}
+	\brAttr{remitente}{remitente}{varchar}
+	{Usuario que envía el mensaje.}{Sí}
+	\brAttr{mensaje}{mensaje}{varchar}
+	{Mensaje que envía un usuario.}{Sí}
 \end{cdtEntidad}
 %---------------------------------------------------------
 \subsection{Modelado de Reglas de negocio}
