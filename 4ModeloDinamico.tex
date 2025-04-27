@@ -79,132 +79,112 @@ A continuación, se procederá a describir en detalle las responsabilidades y lo
 \subsection{Descripción de actores}
 
 %---------------------------------------------------------
-\begin{Usuario}{\hypertarget{tAlumno}{\subsubsection{Alumno}}}{(Nivel Primario)}{
-        Se refiere a las personas inscritas dentro de algún plan de estudios ofertado en la unidad académica.
-    }
-    \item[Responsabilidades:] \cdtEmpty
-    \begin{itemize}
-        \item Asistir puntualmente a las clases, prácticas y evaluaciones.
-        \item Respetar a docentes, compañeros y personal administrativo.
-        \item Cumplir con los requisitos y actividades de las asignaturas inscritas, incluyendo tareas, proyectos y exámenes.
-        \item Realizar oportunamente los trámites escolares como inscripciones, reinscripciones, solicitudes de documentos oficiales, etc.
-        \item Portar credencial institucional en todo momento.
-    \end{itemize}
-    \item[Procesos clave:] \cdtEmpty
-    \begin{itemize}
-         \item Inscribirse a asignaturas.
-         \item Consultar calificaciones.
-         \item Realizar pagos.
-    \end{itemize}
+\begin{Usuario}{\hypertarget{tAlumno}{\subsubsection{Alumno}}}{
+    Se refiere a las personas inscritas dentro de algún plan de estudios ofertado en la unidad académica.
+}
+
+\item[Responsabilidades:] \cdtEmpty
+\begin{itemize}
+    \item Asistir puntualmente a las clases, prácticas y evaluaciones.
+    \item Respetar a docentes, compañeros y personal administrativo.
+    \item Cumplir con los requisitos y actividades de las asignaturas inscritas, incluyendo tareas, proyectos y exámenes.
+    \item Realizar oportunamente los trámites escolares como inscripciones, reinscripciones, solicitudes de documentos oficiales, etc.
+    \item Portar credencial institucional en todo momento.
+\end{itemize}
+\textbf{Procesos clave:} \cdtEmpty
+\begin{itemize}
+    \item Inscribirse a asignaturas.
+    \item Consultar calificaciones.
+    \item Realizar pagos.
+\end{itemize}
 \end{Usuario}
 
-\begin{Usuario}{\hypertarget{tPersonalSeguridad}{\subsubsection{Personal de seguridad}}}{(Subnivel de Empleado)}{
-        Se refiere a las personas registradas como empleados y que permiten o no el acceso a la unidad académica.
-    }
-    \item[Responsabilidades:] \cdtEmpty
-    \begin{itemize}
-        \item Supervisar el acceso y la salida de alumnos, personal docente y visitantes, asegurándose de que cumplan con los protocolos establecidos.
-        \item Verificar la identificación de las personas que ingresan a las instalaciones.
-        \item Responder de manera oportuna a incidentes o emergencias dentro de las instalaciones.
-        \item Brindar apoyo al personal, docentes o alumnos en caso de accidentes o situaciones de riesgo.
-    \end{itemize}
-    \item[Procesos clave:] \cdtEmpty
-    \begin{itemize}
-         \item Registrar acceso del alumnado.
-         \item Reportar incidentes de seguridad.
-    \end{itemize}
+\begin{Usuario}{\hypertarget{tPersonalSeguridad}{\subsubsection{Personal de seguridad}}}{
+    Se refiere a las personas registradas como empleados y que permiten o no el acceso a la unidad académica.
+}
+
+
+\item[Responsabilidades:] \cdtEmpty
+\begin{itemize}
+    \item Supervisar el acceso y la salida de alumnos, personal docente y visitantes, asegurándose de que cumplan con los protocolos establecidos.
+    \item Verificar la identificación de las personas que ingresan a las instalaciones.
+    \item Responder de manera oportuna a incidentes o emergencias dentro de las instalaciones.
+    \item Brindar apoyo al personal, docentes o alumnos en caso de accidentes o situaciones de riesgo.
+\end{itemize}
 \end{Usuario}
 
-\begin{Usuario}{\hypertarget{tDocenteAplicador}{\subsubsection{Docente}}}{(Subnivel de Empleado)}{
-        Se refiere a las personas registradas como empleados que dan clases a los alumnos y supervisan los ETS asignados.
-    }
-    \item[Responsabilidades:] \cdtEmpty
-    \begin{itemize}
-        \item Impartir las clases de manera clara, puntual y completa, cumpliendo con los objetivos de aprendizaje.
-        \item Diseñar y aplicar instrumentos de evaluación justos, objetivos y alineados con los contenidos del curso.
-        \item Orientar a los alumnos en el desarrollo de competencias y habilidades.
-        \item Resolver dudas o problemáticas académicas dentro y fuera del aula, cuando sea necesario.
-        \item Registrar la asistencia de los alumnos y reportar incidencias graves.
-        \item Cumplir con la entrega de calificaciones y reportes en tiempo y forma.
-    \end{itemize}
-    \item[Procesos clave:] \cdtEmpty
-    \begin{itemize}
-         \item Registrar calificaciones del alumnado.
-         \item Pasar lista de asistencia.
-    \end{itemize}
+\begin{Usuario}{\hypertarget{tDocenteAplicador}{\subsubsection{Docente}}}{
+    Se refiere a las personas registradas como empleados que dan clases a los alumnos y supervisan los ETS asignados.
+}
+
+
+\item[Responsabilidades:] \cdtEmpty
+\begin{itemize}
+    \item Impartir las clases de manera clara, puntual y completa, cumpliendo con los objetivos de aprendizaje.
+    \item Diseñar y aplicar instrumentos de evaluación justos, objetivos y alineados con los contenidos del curso.
+    \item Orientar a los alumnos en el desarrollo de competencias y habilidades.
+    \item Resolver dudas o problemáticas académicas dentro y fuera del aula, cuando sea necesario.
+    \item Registrar la asistencia de los alumnos y reportar incidencias graves.
+    \item Cumplir con la entrega de calificaciones y reportes en tiempo y forma.
+\end{itemize}
 \end{Usuario}
 
-\begin{Usuario}{\hypertarget{tPersonalGestion}{\subsubsection{Personal de gestión escolar}}}{(Nivel Administrativo)}{
-        Se refiere a las personas registradas como empleados y personal administrativo que realiza los procesos administrativos dentro de la ESCOM.
-    }
-    \item[Responsabilidades:] \cdtEmpty
-    \begin{itemize}
-        \item Gestionar el proceso de inscripción y reinscripción de los alumnos, verificando que cumplan con los requisitos establecidos.
-        \item Mantener y actualizar el historial académico de los alumnos en los sistemas institucionales.
-        \item Revisar y validar actas de nacimiento, certificados y otros documentos oficiales requeridos para el registro de los alumnos.
-        \item Atender solicitudes y problemáticas relacionadas con registros, certificados, bajas temporales y procesos extraordinarios.
-        \item Brindar orientación a alumnos y docentes sobre trámites escolares, fechas importantes y normatividad académica.
-    \end{itemize}
-    \item[Procesos clave:] \cdtEmpty
-    \begin{itemize}
-         \item Registrar inscripciones.
-         \item Actualizar historiales académicos.
-    \end{itemize}
-\end{Usuario}
-
-\begin{Usuario}{\hypertarget{tPersonalDAE}{\subsubsection{Personal de la DAE}}}{(Nivel Administrativo)}{
-        Se refiere a las personas registradas como empleados y personal administrativo que realiza los procesos administrativos dentro de la DAE.
-    }
-    \item[Responsabilidades:] \cdtEmpty
-    \begin{itemize}
-        \item Fomentar y coordinar actividades extracurriculares que complementen la formación académica, como talleres, conferencias, eventos culturales y deportivos.
-        \item Supervisar programas de apoyo académico, como tutorías, orientación educativa y psicológica.
-        \item Difundir información sobre programas de movilidad académica, intercambios, convenios nacionales e internacionales y programas de servicio social.
-        \item Gestionar y emitir las credenciales oficiales del IPN para los alumnos.
-        \item Verificar que los documentos requeridos para la emisión de la credencial estén completos y sean válidos.
-        \item Coordinar el proceso de inscripción de los alumnos.
-        \item Actualizar y mantener los registros académicos y administrativos de los alumnos.
-    \end{itemize}
-    \item[Procesos clave:] \cdtEmpty
-    \begin{itemize}
-         \item Emitir credenciales.
-         \item Gestionar actividades extracurriculares.
-    \end{itemize}
-\end{Usuario}
-
-\begin{Usuario}{\hypertarget{tPresidente}{\subsubsection{Presidente de academia}}}{(Nivel Administrativo)}{
-    Se refiere a las personas registradas como empleados y personal administrativo que lidera la academia de una unidad académica o área de conocimiento dentro de la ESCOM.
-    }
-    \item[Responsabilidades:] \cdtEmpty
-    \begin{itemize}
-        \item Convocar y presidir las reuniones de academia, donde se toman decisiones sobre planes y programas de estudio.
-        \item Coordinar la creación o actualización de planes y programas de estudio conforme a las necesidades del mercado laboral y las directrices institucionales.
-        \item Verificar que los contenidos impartidos por los docentes sean consistentes con los objetivos de los programas.
-        \item Detectar necesidades de capacitación entre los docentes y promover cursos o talleres.
-    \end{itemize}
-    \item[Procesos clave:] \cdtEmpty
-    \begin{itemize}
-         \item Coordinar reuniones de academia.
-         \item Revisar planes de estudio.
-    \end{itemize}
-\end{Usuario}
-
-\begin{Usuario}{\hypertarget{tJefe}{\subsubsection{Jefe de departamento}}}{(Nivel Administrativo)}{
-    Se refiere a las personas registradas como empleados y personal administrativo que supervisa las actividades de una o más unidades académicas dentro de ESCOM.
+\begin{Usuario}{\hypertarget{tPersonalGestion}{\subsubsection{Personal de gestión escolar}}}{
+    Se refiere a las personas registradas como empleados y personal administrativo que realiza los procesos administrativos dentro de la ESCOM.
 }
 \item[Responsabilidades:] \cdtEmpty
 \begin{itemize}
-        \item Administrar los recursos humanos y materiales asignados al departamento.
-        \item Supervisar la implementación de los programas de estudio y el cumplimiento de los objetivos educativos.
-        \item Promover y coordinar proyectos de investigación, desarrollo tecnológico o vinculación relacionados con el departamento.
-        \item Atender quejas, sugerencias o problemas que surjan en el departamento, ya sea entre docentes o alumnos.
+    \item Gestionar el proceso de inscripción y reinscripción de los alumnos, verificando que cumplan con los requisitos establecidos.
+    \item Mantener y actualizar el historial académico de los alumnos en los sistemas institucionales.
+    \item Revisar y validar actas de nacimiento, certificados y otros documentos oficiales requeridos para el registro de los alumnos.
+    \item Atender solicitudes y problemáticas relacionadas con registros, certificados, bajas temporales y procesos extraordinarios.
+    \item Brindar orientación a alumnos y docentes sobre trámites escolares, fechas importantes y normatividad académica.
 \end{itemize}
-    \item[Procesos clave:] \cdtEmpty
-    \begin{itemize}
-         \item Administrar recursos del departamento.
-         \item Supervisar programas de estudio.
-    \end{itemize}
 \end{Usuario}
+
+\begin{Usuario}{\hypertarget{tPersonalDAE}{\subsubsection{Personal de la DAE}}}{
+    Se refiere a las personas registradas como empleados y personal administrativo que realiza los procesos administrativos dentro de la DAE.
+}
+
+\item[Responsabilidades:] \cdtEmpty
+\begin{itemize}
+    \item Fomentar y coordinar actividades extracurriculares que complementen la formación académica, como talleres, conferencias, eventos culturales y deportivos.
+    \item Supervisar programas de apoyo académico, como tutorías, orientación educativa y psicológica.
+    \item Difundir información sobre programas de movilidad académica, intercambios, convenios nacionales e internacionales y programas de servicio social.
+    \item Gestionar y emitir las credenciales oficiales del IPN para los alumnos.
+    \item Verificar que los documentos requeridos para la emisión de la credencial estén completos y sean válidos.
+    \item Coordinar el proceso de inscripción de los alumnos.
+    \item Actualizar y mantener los registros académicos y administrativos de los alumnos. 
+
+\end{itemize}
+\end{Usuario}
+
+
+\begin{Usuario}{\hypertarget{tPresidente}{\subsubsection{Presidente de academia}}}{
+Se refiere a las personas registradas como empleados y personal administrativo que lidera la academia de una unidad académica o área de conocimiento dentro de la ESCOM.
+}
+\item[Responsabilidades:] \cdtEmpty
+\begin{itemize}
+    \item Convocar y presidir las reuniones de academia, donde se toman decisiones sobre planes y programas de estudio.
+    \item Coordinar la creación o actualización de planes y programas de estudio conforme a las necesidades del mercado laboral y las directrices institucionales.
+    \item Verificar que los contenidos impartidos por los docentes sean consistentes con los objetivos de los programas.
+    \item Detectar necesidades de capacitación entre los docentes y promover cursos o talleres. 
+\end{itemize}
+\end{Usuario}
+
+\begin{Usuario}{\hypertarget{tJefe}{\subsubsection{Jefe de departamento}}}{
+Se refiere a las personas registradas como empleados y personal administrativo que supervisa las actividades de una o más unidades académicas dentro de ESCOM.
+}
+\item[Responsabilidades:] \cdtEmpty
+\begin{itemize}
+\item Administrar los recursos humanos y materiales asignados al departamento.
+\item Supervisar la implementación de los programas de estudio y el cumplimiento de los objetivos educativos.
+\item Promover y coordinar proyectos de investigación, desarrollo tecnológico o vinculación relacionados con el departamento.
+\item Atender quejas, sugerencias o problemas que surjan en el departamento, ya sea entre docentes o alumnos.
+\end{itemize}
+\end{Usuario}
+
+
 
 \newpage
 
@@ -366,7 +346,3 @@ Sin embargo, es importante destacar la relación existente entre los casos de us
 \newpage
 
 \input{cu/cu43.tex}
-
-
-
-
