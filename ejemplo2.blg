@@ -1,0 +1,70 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ejemplo2.aux
+Reallocating 'name_of_file' (item size: 1) to 7 items.
+The style file: ieeetr.bst
+Reallocating 'name_of_file' (item size: 1) to 17 items.
+A level-1 auxiliary file: Introduccion.aux
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+A level-1 auxiliary file: Estado.aux
+Reallocating 'name_of_file' (item size: 1) to 17 items.
+A level-1 auxiliary file: MarcoTeorico.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: Analisis.aux
+Reallocating 'name_of_file' (item size: 1) to 12 items.
+A level-1 auxiliary file: Diseño.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: TrabajoF.aux
+Reallocating 'name_of_file' (item size: 1) to 4 items.
+Database file #1: ref.bib
+Warning--entry type for "D1" isn't style-file defined
+--line 907 of file ref.bib
+Warning--entry type for "CALF" isn't style-file defined
+--line 1191 of file ref.bib
+Warning--entry type for "UNAMSE" isn't style-file defined
+--line 1207 of file ref.bib
+Warning--I'm ignoring FacialF's extra "pages" field
+--line 1261 of file ref.bib
+Warning--I didn't find a database entry for "."
+You've used 66 entries,
+            1876 wiz_defined-function locations,
+            859 strings with 13882 characters,
+and the built_in function-call counts, 9671 in all, are:
+= -- 978
+> -- 307
+< -- 0
++ -- 145
+- -- 79
+* -- 410
+:= -- 1431
+add.period$ -- 125
+call.type$ -- 66
+change.case$ -- 63
+chr.to.int$ -- 0
+cite$ -- 66
+duplicate$ -- 324
+empty$ -- 1213
+format.name$ -- 79
+if$ -- 2459
+int.to.chr$ -- 0
+int.to.str$ -- 66
+missing$ -- 4
+newline$ -- 260
+num.names$ -- 66
+pop$ -- 379
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 236
+stack$ -- 0
+substring$ -- 88
+swap$ -- 35
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 73
+width$ -- 68
+write$ -- 650
+(There were 5 warnings)

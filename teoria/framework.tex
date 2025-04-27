@@ -17,3 +17,16 @@ Jetpack compose es un framework (estructura o marco de trabajo que, bajo paráme
 	\item \textbf{Acelera el desarrollo:} Es compatible con proyectos existentes, puedes empezar a integrarlo por partes cuando quieras y donde quieras.
 	\item \textbf{Kotlin:} Está escrito 100\% en Kotlin, lo cual nos permitirá usar sus herramientas potentes y API’s intuitivas.
 \end{itemize}
+
+\subsection*{Arquitectura Jetpack}
+La arquitectura o estructura sobre la que se basa Jetpack Compose es una estructura Jetpack que se encarga principalmente de seguir ejecutando y beneficiándose de aquellos componentes de Android según la funcionalidad disponible. Por lo tanto, Jetpack Compose desarrolla herramientas denominadas «composables» a partir de elementos como botones o listados de objetos. A partir de fuentes de datos, pueden ser reutilizadas y ejecutadas en distintas fuentes sin la necesidad de programar varios códigos repetitivos.
+
+Desde un aspecto comparativo, la creación de UI con Compose se realiza de forma similar a los de React Native. Es decir, mediante componentes reutilizables evitan maximizar la cantidad de códigos necesarios y repetitivos, tal como ocurre con HTML en la forma en la que se conjugan uno con otro. Sin embargo, es importante destacar que dicha compilación de componentes que logran la disminución en cantidad de códigos se realiza gracias a los plugins de compiladores de Kotlin, ejecutando así los componentes mediante la estructura de archivos de Kotlin \cite{CitaA19}. 
+
+\subsection*{Estructura de Jetpack Compose}
+Para entender de forma más sencilla la estructura de esta herramienta, conviene tener en cuenta componentes como:
+\begin{itemize}
+	\item \textbf{Compiler:} Se encarga mediante una estructura de plugins en Gradle, donde logra la interpretación y simplificación de códigos.
+	\item \textbf{El entorno de ejecución:} Es el ámbito “depurador”, si se puede establecer de este modo, en el que se establecen y diferencian los componentes que necesitan actualización y cuáles no, así como también se crean listados de mantenimiento y composición.
+	\item \textbf{UI:} Es el componente que interpreta el lenguaje establecido en el entorno de ejecución y lo refleja en pantalla.
+\end{itemize}
