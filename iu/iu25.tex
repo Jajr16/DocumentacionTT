@@ -1,21 +1,35 @@
 % !TeX root = ../ejemplo.tex
 
 %--------------------------------------
-\subsection{IU25 Dar de alta de periodo de ETS}
+\subsection{IU25 Dar de alta periodo de ETS}
 \subsubsection{Objetivo}
     Permite al personal de gestión escolar dar de alta un periodo de ETS.
 \subsubsection{Diseño}
-    Esta pantalla \IUref{IU25}{Dar de alta de periodo de ETS } (ver figura~\ref{IU25}) puede ser accedida desde la pantalla \IUref{IU24}{Consultar lista de periodo de ETS} apretando el botón \IUbutton{Dar de alta un periodo de ETS}
-\IUfig[1]{UI-CU25}{IU25}{Dar de alta de periodo de ETS.}
+    Esta pantalla \IUref{IU25}{Dar de alta periodo de ETS } (ver figura~\ref{IU25}) puede ser accedida presionando el botón \IUbutton{Dar de alta periodo} desde el menú lateral, el cual estará disponible desde cualquier pantalla. 
+    
+\IUfig[1]{UI-CU25}{IU25}{Dar de alta un periodo de ETS.}
 
 \subsubsection{Salidas}
 Muestra mensaje {\bf MSG-33} ``Periodo de ETS  dado de alta con éxito''.
 \subsubsection{Entradas}
-Periodo, Tipo, Fecha-de-inicio y Fecha-de-fin
+Periodo, Tipo de periodo, Fecha de inicio y Fecha de fin
 \subsubsection{Comandos}
 \begin{itemize}
-    \item \IUbutton{Dar de alta periodo de ETS} Da de alta el nuevo periodo de ETS y redirige a la pantalla \IUref{UI24}{ Consultar lista de periodo de ETS}.
-    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+	\item \IUbutton{Inicio}: Redirige al personal de gestion escolar a la pantalla \IUref{IUE05}{Pantalla inicial de personal de gestión escolar}
+	
+	\item \IUbutton{Dar de alta periodo}: Redirige al personal de gestión escolar a la pantalla \IUref{IU25}{Dar de alta periodo de ETS}
+	\item \IUbutton{Consultar periodos}: Redirige al personal de gestión escolar a la pantalla \IUref{IU24}{Consultar lista de periodo de ETS}
+	
+	\item \IUbutton{Dar de alta ETS}: Redirige al personal de gestión escolar a la pantalla \IUref{IU27}{Dar de alta ETS}
+	\item \IUbutton{Consultar lista de ETS}: Redirige al personal de gestión escolar a la pantalla \IUref{IU26}{Consultar lista de ETS}
+	
+	\item \IUbutton{Dar de alta docentes}: Redirige al personal de gestión escolar a la pantalla \IUref{IU31}{Dar de alta docente}
+	\item \IUbutton{Consultar lista de docentes}: Redirige al personal de gestión escolar a la pantalla \IUref{IU30}{Consultar lista de docentes}
+	
+	\item \IUbutton{Dar de alta p. seguridad}: Redirige al personal de gestión escolar a la pantalla \IUref{IU29}{Dar de alta personal de seguridad}
+	\item \IUbutton{Consultar lista de p. seguridad}: Redirige al personal de gestión escolar a la pantalla \IUref{IU28}{Consultar lista de personal de seguridad}
+	
+    \item \IUbutton{Guardar} Da de alta el nuevo periodo de ETS.
     
 \end{itemize}
 
@@ -23,8 +37,7 @@ Periodo, Tipo, Fecha-de-inicio y Fecha-de-fin
 
 \begin{Citemize}
     \item {\bf MSG-33} ``Periodo de ETS  dado de alta con éxito''.
-    \item {\bf MSG4-28}  ``El proceso no se pudo realizar por un fallo de red.''
     \item {\bf MSG-29}{``Los campos no están correctamente llenados.''}
-    \item {\bf MSG16-32}{`` Periodo, Fecha-de-inicio o Fecha-de-fin ya han sido asociadas a un periodo de ETS.''}
+    \item {\bf MSG16-32}{`` Periodo, Fecha de inicio o Fecha de fin ya han sido asociadas a un periodo de ETS.''}
 \end{Citemize}
 
