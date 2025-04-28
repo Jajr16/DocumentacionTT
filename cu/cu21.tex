@@ -9,16 +9,14 @@
     \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
     \UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra.}
     \UCitem{Actor}{Personal de la DAE}
-    \UCitem{Propósito}{ Permitir al personal de la DAE dar de alta un alumno para posteriormente tramitar su credencial.}
-    \UCitem{Entradas}{Boleta, Nombre, CURP, Sexo y Correo institucional}
-    \UCitem{Origen}{Teclado}
+    \UCitem{Propósito}{ Permitir al personal de la DAE dar de alta un alumno.}
+    \UCitem{Entradas}{Video, CURP, boleta, nombre, apellido paterno, apellido materno, sexo, escuela asignada, correo institucional y carrera.}
+    \UCitem{Origen}{Teclado y cámara}
     \UCitem{Salidas}{Muestra mensaje {\bf MSG-31} ``Alumno dado de alta con éxito''.}
-    \UCitem{Destino}{Pantalla \IUref{IU22}{ Crear credencial } }
+    \UCitem{Destino}{-}
     \UCitem{Precondiciones}{El Personal de la DAE debe de haber iniciado sesión.}
-    \UCitem{Postcondiciones}{El alumno es dado de alta por el Personal de la DAE está esperando por su credencial escolar.}
+    \UCitem{Postcondiciones}{-}
     \UCitem{Errores}{ 
-
-        E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}  ``El proceso no se pudo realizar por un falló de red.''
 
         E2: Cuando falte algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29}{``Los campos no están correctamente llenados.''}
 
@@ -33,11 +31,13 @@
 
 \begin{UCtrayectoria}
 
-    \UCpaso[\UCactor] El Personal de la DAE accede a la pantalla \IUref{IU21}{ Dar de alta un alumno }\label{CU21.introduceDatos} desde la pantalla \IUref{IUE04}{Pantalla de saludo del personal de la DAE} presionando el botón \IUbutton{Dar de alta estudiantes} e introduce los datos de alumno (Boleta, Nombre, CURP, Sexo y Correo institucional) .
-    \UCpaso[\UCactor] El Personal de la DAE oprime el botón \IUbutton{Dar de alta alumno }.
+    \UCpaso[\UCactor] El Personal de la DAE accede a la pantalla \IUref{IU21}{ Dar de alta un alumno }\label{CU21.introduceDatos} desde cualquiera de las pantallas del personal de la DAE (\IUref{IU22}{ Consultar alumnos }, \IUref{IUE04}{ Pantalla inicial de personal de la DAE}) apretando el botón \IUbutton{Dar de alta alumnos } e introduce los datos de alumno (Video, CURP, boleta, nombre, apellido paterno, apellido materno, sexo, escuela asignada, correo institucional y carrera) .
+    
+    \UCpaso[\UCactor] El Personal de la DAE oprime el botón \IUbutton{Guardar}.
+    
     \UCpaso El sistema revisa que los datos del alumno sean válidos.
     \UCpaso El sistema verifica que la CURP o la boleta no hayan sido registrados con anterioridad.
-    \UCpaso El sistema mantiene los datos para usarlos en el proceso de crear credencial.
-    \UCpaso[\UCactor] El Personal de la DAE es redirigido a la pantalla \IUref{IU22}{ Crear credencial }.
+    \UCpaso El sistema separa el video en 15 fotos y las guarda.
+    \UCpaso El Sistema le muestra el mensaje {\bf MSG-31} {``Alumno dado de alta con éxito''}.
 
 \end{UCtrayectoria}
