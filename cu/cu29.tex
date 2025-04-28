@@ -13,18 +13,15 @@
          \UCitem{Entradas}{ETS, Periodo-de-ETS,  Fecha, Turno, Cupo , Unidad-de-aprendizaje,  Salon y Docente .}
          \UCitem{Origen}{Teclado}
          \UCitem{Salidas}{Muestra mensaje {\bf MSG-35} ``ETS  dado de alta con éxito''.}
-         \UCitem{Destino}{Pantalla \IUref{IU26}{Consultar lista de ETS} }
+         \UCitem{Destino}{ - }
          \UCitem{Precondiciones}{El Personal de gestión escolar debe de haber iniciado sesión.}
          \UCitem{Postcondiciones}{El ETS es dado de alta y guardado en la base de datos}
          \UCitem{Errores}{
-     
-            E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
-     
-            E2: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+            E1: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29}{``Los campos no están correctamente llenados.''}
     
-            E3: Cuando el dato ETS o salón ya están registradas en el sistema, el proceso no se realiza y se muestra el mensaje {\bf MSG-36}{`` ETS o salón  ya han sido asociadas a un ETS de ETS.''}
+            E2: Cuando el dato ETS o salón ya están registradas en el sistema, el proceso no se realiza y se muestra el mensaje {\bf MSG-36}{`` ETS o salón  ya han sido asociadas a un ETS de ETS.''}
          }
-         \UCitem{Tipo}{ Extiende de CU28 Consultar lista de ETS}
+         \UCitem{Tipo}{ Extiende de CU41 Iniciar sesión de personal escolar web}
          \UCitem{Observaciones}{Ninguna}
      
      \end{UseCase}
@@ -32,12 +29,12 @@
      
      \begin{UCtrayectoria}
      
-         \UCpaso[\UCactor] El Personal de gestión escolar accede a la pantalla \IUref{IU27}{ Dar de alta ETS }\label{CU29.introduceDatos} desde la pantalla \IUref{IU26}{Consultar lista de ETS} apretando el botón \IUbutton{Dar de alta un ETS} e introduce los datos del ETS: ETS,  Periodo -de-ETS,  Fecha,  Turno, Cupo , Unidad-de-aprendizaje, Salon y Docente.
-         \UCpaso[\UCactor] El Personal de gestión escolar oprime el botón \IUbutton{Dar de alta ETS }.
+         \UCpaso[\UCactor] El Personal de gestión escolar accede a la pantalla \IUref{IU27}{ Dar de alta ETS }\label{CU29.introduceDatos} apretando el botón \IUbutton{Dar de alta ETS} a través del menú lateral que tiene en todas las pantallas e introduce los datos del ETS: Periodo, Unidad-de-aprendizaje, Turno, Fecha de aplicación, Hora de aplicación, Cupo máximo, Duración del ETS, Docente a cargo y Salon de aplicación.
+         \UCpaso[\UCactor] El Personal de gestión escolar oprime el botón \IUbutton{ Guardar }.
          \UCpaso El sistema revisa que los datos del ETS sean válidos.
-         \UCpaso El sistema verifica que ETS o salón no hayan sido registrados con anterioridad.
-         \UCpaso EL ETS es dado de alta y guardado en la base de datos.
-         \UCpaso[\UCactor] El Personal de gestión escolar es redirigido a la pantalla \IUref{IU26} Consultar lista de ETS.
+         \UCpaso El sistema verifica que el ETS o el salón no hayan sido registrados con anterioridad.
+         \UCpaso El ETS es dado de alta y guardado en la base de datos.
+         \UCpaso El sistema muestra el mensaje  {\bf MSG-35} ``ETS  dado de alta con éxito''.
      
      \end{UCtrayectoria}
      
