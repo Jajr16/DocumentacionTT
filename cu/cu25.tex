@@ -10,21 +10,19 @@
      \UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra.}
      \UCitem{Actor}{Personal de gestión escolar}
      \UCitem{Propósito}{ Permitir al personal de gestión escolar dar de alta un nuevo periodo de ETS.}
-     \UCitem{Entradas}{ Periodo, Tipo, Fecha-de-inicio y Fecha-de-fin}
+     \UCitem{Entradas}{ Periodo, Tipo de periodo, Fecha de inicio y Fecha de fin. }
      \UCitem{Origen}{Teclado}
      \UCitem{Salidas}{Muestra mensaje {\bf MSG-33} ``Periodo de ETS  dado de alta con éxito''.}
-     \UCitem{Destino}{Pantalla \IUref{IU24}{Consultar lista de periodo de ETS } }
+     \UCitem{Destino}{-}
      \UCitem{Precondiciones}{El Personal de gestión escolar debe de haber iniciado sesión.}
      \UCitem{Postcondiciones}{El periodo de ETS es dado de alta y guardado en la base de datos}
      \UCitem{Errores}{
- 
-        E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}  ``El proceso no se pudo realizar por un fallo de red.''
  
         E2: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29}{``Los campos no están correctamente llenados.''}
 
         E3: Cuando el Periodo, Fecha-de-inicio o Fecha-de-fin ya están registradas en el sistema, el proceso no se realiza y se muestra el mensaje {\bf MSG-32}{`` Periodo, Fecha-de-inicio o Fecha-de-fin ya han sido asociadas a un periodo de ETS.''}
      }
-     \UCitem{Tipo}{ Extiende de CU-24 Consultar lista de periodo de ETS}
+     \UCitem{Tipo}{ Extiende de CU42 Iniciar sesión de personal escolar web. }
      \UCitem{Observaciones}{Ninguna}
  
  \end{UseCase}
@@ -32,12 +30,12 @@
  
  \begin{UCtrayectoria}
  
-     \UCpaso[\UCactor] El Personal de gestión escolar accede a la pantalla \IUref{IU25}{ Dar de alta de periodo de ETS }\label{CU25.introduceDatos} desde la pantalla \IUref{IU24}{Consultar lista de periodo de ETS} apretando el botón \IUbutton{Dar de alta periodo de ETS}e introduce los datos del periodo Periodo, Tipo, Fecha-de-inicio y Fecha-de-fin.
-     \UCpaso[\UCactor] El Personal de gestión escolar oprime el botón \IUbutton{Dar de alta periodo de ETS }.
+     \UCpaso[\UCactor] El Personal de gestión escolar accede a la pantalla \IUref{IU25}{ Dar de alta de periodo de ETS }\label{CU25.introduceDatos} presionando el botón \IUbutton{Dar de alta periodo} desde el menú lateral, (el cual estará disponible desde cualquier pantalla) e introduce los datos del periodo Periodo, Tipo, Fecha-de-inicio y Fecha-de-fin.
+     \UCpaso[\UCactor] El Personal de gestión escolar oprime el botón \IUbutton{ Guardar }.
      \UCpaso El sistema revisa que los datos del periodo sean válidos.
      \UCpaso El sistema verifica que el Periodo, Fecha-de-inicio o Fecha-de-fin no hayan sido registrados con anterioridad.
      \UCpaso El periodo de ETS es dado de alta y guardado en la base de datos.
-     \UCpaso[\UCactor] El Personal de gestión escolar es redirigido a la pantalla \IUref{IU24}{Consultar lista de periodo de ETS }.
+     \UCpaso El sistema le muestra el mensaje {\bf MSG-33} ``Periodo de ETS  dado de alta con éxito'' al personal de gestión escolar.
  
  \end{UCtrayectoria}
  

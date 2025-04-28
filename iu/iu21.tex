@@ -6,18 +6,21 @@
 \subsubsection{Objetivo}
 	Permitir al personal de la DAE dar de alta a un alumno.
 \subsubsection{Diseño}
-    Esta pantalla \IUref{IU21}{ Dar de alta a alumno } (ver figura~\ref{IU21}) puede ser accedida desde la pantalla \IUref{IUE04}{de personal de la DAE}
+    Esta pantalla \IUref{IU21}{ Dar de alta a alumno } (ver figura~\ref{IU21}) puede ser accedida desde cualquiera de las pantallas del personal de la DAE (\IUref{IU21\_2}{ Consultar alumnos}, \IUref{IUE04}{ Pantalla inicial de personal de la DAE}) apretando el botón \IUbutton{Dar de alta alumnos }.
 
 \IUfig[1]{UI-CU21}{IU21}{ Dar de alta a alumno.}
 
 \subsubsection{Salidas}
 Muestra mensaje {\bf MSG-31} ``Alumno dado de alta con éxito''.
 \subsubsection{Entradas}
-    Boleta, Nombre, CURP, Sexo y Correo institucional
+    Video, CURP, boleta, nombre, apellido paterno, apellido materno, sexo, escuela asignada, correo institucional y carrera en la que se encuentra el alumno.
 \subsubsection{Comandos}
 \begin{itemize}
-    \item \IUbutton{Dar de alta un alumno}  El sistema revisa que los datos del alumno sean válidos, verifica que el CURP o la boleta no hayan sido registrados con anterioridad, mantiene los datos para usarlos en el proceso de crear credencial. Y redirige a la pantalla \IUref{UI22}{Crear credencial}.
-    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+	\item \IUbutton{Inicio}: Redirige al personal de la DAE a la pantalla \IUref{IUE04}{Pantalla Inicial de personal de la DAE}
+	\item \IUbutton{Dar de alta alumnos}: Redirige al personal de la DAE a la pantalla \IUref{IU21}{Dar de alta a los estudiantes}
+	\item \IUbutton{Consultar alumnos}: Redirige al personal de la DAE a la pantalla \IUref{IU46}{Consultar listado de alumnos}
+	
+    \item \IUbutton{Guardar}  El sistema revisa que los datos del alumno sean válidos, verifica que el CURP o la boleta no hayan sido registrados con anterioridad y en caso de que no, se registra al alumno.
     
 \end{itemize}
 
@@ -25,7 +28,6 @@ Muestra mensaje {\bf MSG-31} ``Alumno dado de alta con éxito''.
 
 \begin{Citemize}
     \item {\bf MSG-31} ``Alumno dado de alta con éxito''.
-    \item {\bf MSG-28}  ``El proceso no se pudo realizar por un falló de red.''
     \item {\bf MSG-29}{``Los campos no están correctamente llenados.''}
     \item {\bf MSG-30}{``La CURP o la boleta ya han sido asociadas a este alumno con anterioridad u otro alumno.''}
 \end{Citemize}
