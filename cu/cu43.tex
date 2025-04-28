@@ -10,30 +10,78 @@
     Este caso de uso permite al jefe de departamento y/o al presidente de academia responder a una solicitud de remplazo y asignar un docente de remplazo para el ETS.
 }
 \UCitem{Versión}{\color{Gray}1.0}
-\UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martin}
-\UCitem{Supervisa}{\color{Gray}De la Cruz de la Cruz Alejandra.}
+\UCitem{Autor}{\color{Gray} De la cruz De la cruz Alejandra}
+\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martin}
 \UCitem{Actor}{\hyperlink{PersonalAcademico}{Presidente de academia} y \hyperlink{PersonalAcademico}{Jefe de departamento}}
 \UCitem{Propósito}{Permitir al Presidente de academia y/o al Jefe de departamento revisar las solicitudes de remplazo y asignar un docente de remplazo para el ETS}
 \UCitem{Entradas}{Identificador del ETS y nombre del nuevo docente asignado.}
 \UCitem{Origen}{Teclado}
-\UCitem{Salidas}{Confirmación de asignación del nuevo docente y se muestra el mensaje \bf MSG-42{``docente de remplazo asignado con exito''}.}
-\UCitem{Destino}{IUref{IU03}{Consultar notificaciones}}
+\UCitem{Salidas}{
+	Se muestra el mensaje \textbf{MSG-42}: ``¿Confirmar aprobación? ¿Está seguro de aprobar esta solicitud y asignar al docente como reemplazo?'', solicitando confirmación para la asignación del reemplazo.
+	
+	Se muestra el mensaje \textbf{MSG-43}: ``Motivo de rechazo. Por favor, indique el motivo del rechazo'', indicando que se requiere justificación para denegar la solicitud.}
+
+\UCitem{Destino}{\IUref{IU03}{}}
 \UCitem{Precondiciones}{El Presidente de academia y/o el Jefe de departamento debe estar autenticado en el sistema y debe de tener una solicitud de remplazo.}
-\UCitem{Postcondiciones}{El docente se de remplazo es asignado y se le manda a una notificacion al docente solicitante.}
+\UCitem{Postcondiciones}{El docente de remplazo es asignado y se actualiza el estado de la solicitud al docente solicitante.}
 \UCitem{Errores}{
-        E1: El sistema pierde la conexión al intentar registrar la asignación.
+	\begin{itemize}
+		\item \textbf{E1}: Pérdida de conexión. Muestra el mensaje \textbf{MSG-41}: ``Error de red. Verifique su conexión e intente nuevamente''.
+		\item \textbf{E2}: Datos inválidos. Muestra \textbf{MSG-42}: ``Los datos recibidos no tienen el formato esperado'' (cuando faltan campos obligatorios).
+		\item \textbf{E3}: Error en aprobación/rechazo. Muestra \textbf{MSG-43}: ``No se pudo completar la acción. Intente más tarde''.
+		\item \textbf{E4}: Docentes no disponibles. Muestra \textbf{MSG-44}: ``Error al cargar docentes''.
+	\end{itemize}
 }
 \UCitem{Tipo}{Se entiende del CU01 Iniciar sesión de personal escolar móvil }
 \UCitem{Observaciones}{Ninguna}
 \end{UseCase}
 %--------------------------------------
 \begin{UCtrayectoria}
-    \UCpaso[\UCactor] El Presidente de academia y/o el Jefe de departamento accede a la \IUref{IU01}{iniciar sesión de personal escolar móvil}.
-    \UCpaso[\UCactor] El Presidente de academia y/o el Jefe de departamento inicia sesion.
-    \UCpaso El sistema redirige al Presidente de academia y/o el Jefe de departamento a la pantalla \IUref{IU09}{Asignar docente de remplazo}.
-    \UCpaso El sistema ingresa el ETS.
-    \UCpaso[\UCactor] El Presidente de academia y/o el Jefe de departamento ingresan el nombre del nuevo docente asignado.
-    UCpaso[\UCactor] El Presidente de academia y/o el Jefe de departamento selecciona el botón \IUbutton{Asignar}.
-    \UCpaso El sistema envia la notificación al docente de que su cambio se realizo con exito y se cambia el docente asignado al ETS especificado.
-    \UCpaso El sistema redirige al Presidente de academia y/o el Jefe de departamento a la pantalla \IUref{IU03}{Consultar notificaciones}.
+	\UCpaso[\UCactor] El Presidente de academia y/o el Jefe de departamento accede a la \IUref{IU01}{Pantalla de inicio de sesión}.
+	\UCpaso[\UCactor] Ingresa sus credenciales y selecciona \IUbutton{Iniciar sesión}.
+	\UCpaso El sistema valida las credenciales y redirige a la \IUref{IU02}{Pantalla de menú principal}.
+	\UCpaso[\UCactor] Selecciona la opción \IUbutton{Solicitudes de reemplazo} en el menú.
+	\UCpaso El sistema muestra la pantalla \IUref{IU09}{Lista de solicitudes pendientes} con:
+	\begin{itemize}
+		\item Nombre del ETS
+		\item Docente solicitante
+		\item Motivo de la solicitud
+	\end{itemize} 
+	\UCpaso[\UCactor] Selecciona una solicitud específica de la lista.
+	\UCpaso[\UCactor] Se muestra la pantalla \IUref{IU09}{Lista de solicitudes pendientes} y asigna un docente de reemplazo [Trayectoria A].
+	\UCpaso[\UCactor] Selecciona \IUbutton{Aprobar} [Trayectoria B] o \IUbutton{Rechazar} [Trayectoria C].
 \end{UCtrayectoria}
+%--------------------------------------
+\begin{UCtrayectoriaA}{A}{Error en carga de docentes}
+	\UCpaso El sistema falla al cargar docentes disponibles.
+	\UCpaso Muestra \textbf{MSG-44}: ``Error al cargar docentes''.
+	\UCpaso[\UCactor] Presiona \IUbutton{Aceptar}: Redirige a \IUref{IU10}{}.
+\end{UCtrayectoriaA}
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{B}{Aprobar solicitud}
+	\UCpaso El sistema muestra la \IUref{IU11}{Seleccionar docente reemplazo} con lista de docentes disponibles.
+	\UCpaso[\UCactor] Selecciona un docente de la lista y presiona.
+	\UCpaso El sistema:
+	\begin{itemize}
+		\item Actualiza el estado de la solicitud a "APROBADO"
+		\item Asigna el docente al ETS
+	\end{itemize}
+	\UCpaso Muestra el mensaje \textbf{MSG-42}: ``¿Confirmar aprobación? ¿Está seguro de aprobar esta solicitud y asignar al docente como reemplazo?''.
+	\UCpaso[\UCactor] Oprime el \IUbutton{Aceptar}.
+	\UCpaso Redirige a \IUref{IU09}{Lista de solicitudes pendientes}
+\end{UCtrayectoriaA}
+%--------------------------------------
+\begin{UCtrayectoriaA}{C}{Rechazar solicitud}
+	\UCpaso El sistema muestra el campo \IUref{IU12}{Ingresar motivo de rechazo}.
+	\UCpaso[\UCactor] Ingresa el motivo y selecciona \IUbutton{Confirmar rechazo}.
+	\UCpaso El sistema:
+	\begin{itemize}
+		\item Actualiza el estado de la solicitud a "RECHAZADO"
+		\item Registra el motivo
+	\end{itemize}
+	\UCpaso Muestra el mensaje \textbf{MSG-43}: ``Motivo de rechazo. Por favor, indique el motivo del rechazo'', indicando que se requiere justificación para denegar la solicitud.
+	\UCpaso[\UCactor] Oprime el \IUbutton{Aceptar}.
+	\UCpaso Redirige a \IUref{IU09}{Lista de solicitudes pendientes}
+\end{UCtrayectoriaA}
+

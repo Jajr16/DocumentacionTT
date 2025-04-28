@@ -1,4 +1,4 @@
-\begin{UseCase}{CU-15}{Registrar asistencia}{
+\begin{UseCase}{CU-15}{Registrar ingreso a la instalación}{
 	Este caso de uso permite al personal de seguridad registrar la entrada de los alumnos mediante el escaneo de credenciales y la búsqueda por nombre o boleta.
 }
 \UCitem{Versión}{1.0}
@@ -20,9 +20,13 @@
 		Se registra la entrada del alumno en el sistema.
 }
 \UCitem{Errores}{
-		E1: No se encuentra la información del alumno Y se muestra  {\bf MSG-22}{``Alumno no registrado''}.
+		E1: Si la información de la credencial no coincide con la información del sistema se mostrara el mensaje  {\bf MSG-22}{``Los datos no coinciden. No se puede registrar la asistencia con datos inconsistentes''}.
 
-		E2: Error de conexión con la base de datos y se muestra {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+
+		E2: Si el alumno no tiene un ETS registrado para esa fecha o su ETS esta programada para otra fecha se mostrara el mensaje {\bf MSG-9}{``Error el alumno no cuenta con ETS inscritos ó su ETS está programada en otra fecha''}.
+		
+		
+		E2: Si ya se cuenta con un registro previamente se mostrara el mensaje {\bf MSG-10}{``El alumno ya tiene registrada su asistencia el día de hoy''}.
 
 }
 \UCitem{Tipo}{Se entiende del CU-12 Consultar alumno mediante código QR de la credencial, CU-13 Buscar alumno por boleta y del CU-14 Buscar alumno por nombre }
@@ -30,45 +34,49 @@
 \end{UseCase}
 %--------------------------------------
 \begin{UCtrayectoria}
-\UCpaso[\UCactor] El personal de seguridad selecciona al alumno desde la \IUref{IU12}{Pantalla Buscar alumno} o escanea la codigo QR de la credencial del alumno desde la \IUref{IU10}{Pantalla Código QR}.
-\UCpaso El sistema obtiene la boleta del alumno.
-\UCpaso El sistema verifica la información y busca en la base de datos por boleta. \Trayref{A} \Trayref{B}
-\UCpaso El sistema despliega los datos del alumno y solicita confirmación al personal de seguridad para registrar la entrada.
-\UCpaso El sistema le muestra una imagen del alumno al personal de seguridad.
-\UCpaso[\UCactor] El personal de seguridad no está seguro de la identidad del alumno, por lo que decide usar el reconocimiento facial. \Trayref{C} \Trayref{D}
-\UCpaso El sistema activa la cámara y comienza el proceso de reconocimiento facial del alumno presente \IUref{IU17}{Pantalla Reconocimiento facial}. 
-\UCpaso El sistema analiza la imagen del alumno y muestra un indicador:
-\begin{itemize}
-	\item Verde: El sistema está casi seguro de que la persona es quien dice ser y muestra las características coincidentes.
-	\item Rojo: El sistema está casi seguro de que la persona no es quien dice ser y muestra las características que no coinciden. 
-	\item Amarillo: El sistema no está seguro y necesita la ayuda del docente para confirmar la identidad, mostrando tanto las características coincidentes como las que no coinciden. 
-\end{itemize}
-\UCpaso[\UCactor] El personal de seguridad decide si confirmar o no el registro de entrada.
-\UCpaso El sistema guarda el registro y muestra un mensaje de confirmación: {\bf MSG-23}{``Entrada registrada exitosamente.''} o {\bf MSG-24}{``Entrada no registrada .''} respectivamente.
+	\UCpaso[\UCactor] El personal de seguridad selecciona al alumno desde la \IUref{IU12}{Pantalla Buscar alumno} o escanea la codigo QR de la credencial del alumno desde la \IUref{IU10}{Pantalla Código QR}.
+	\UCpaso[\UCactor] El personal de seguridad escanea el código QR de la credencial del alumno.
+	\UCpaso El sistema verifica la existencia del alumno en la base de datos.
+	\UCpaso El sistema compara los datos del QR con los registros almacenados en la base de datos \Trayref{A}.
+	\UCpaso El sistema verifica que el alumno tenga un ETS vigente \Trayref{B}.
+	\UCpaso El sistema comprueba que no tenga asistencia registrada previamente \Trayref{C}.
+	\UCpaso El sistema muestra:
+	\begin{itemize}
+		\item Datos del alumno 
+		\item Información del ETS inscrito
+		\item Hora actual del registro
+	\end{itemize}
+	\UCpaso[\UCactor] El personal de seguridad verifica la identidad del alumno.
+	\UCpaso El sistema muestra diálogo de confirmación:
+	\begin{itemize}
+		\item Registrar asistencia 
+	\end{itemize}
+	\UCpaso[\UCactor] El personal de seguridad selecciona \IUbutton{Registrar asistencia}.
+	\UCpaso El sistema muestra confirmación: {\bf MSG-23}{``Entrada registrada exitosamente.''}
 \end{UCtrayectoria}
 %--------------------------------------
-\begin{UCtrayectoriaA}{A}{Alumno no registrado o no encontrado}
-\UCpaso El sistema muestra un mensaje: {\bf MSG-22}{``Alumno no registrado''}
-\UCpaso[\UCactor] El personal de seguridad puede intentar nuevamente el escaneo.
-\UCpaso Fin de la trayectoria alternativa.
+\begin{UCtrayectoriaA}{A}{Datos inconsistentes}
+	\UCpaso El sistema detecta inconsistencias entre los datos del QR y el sistema.
+	\UCpaso El sistema muestra mensaje: {\bf MSG-22}{``Los datos no coinciden. No se puede registrar la asistencia con datos inconsistentes''}.
+	\UCpaso[\UCactor] El personal de seguridad informa al alumno.
 \end{UCtrayectoriaA}
 %--------------------------------------
-\begin{UCtrayectoriaA}{B}{Error de conexión con la base de datos}
-
-\UCpaso El sistema muestra un mensaje de error: {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
-\UCpaso[\UCactor] El personal de seguridad presiona el botón \IUbutton{Aceptar} para cerrar el mensaje y puede intentar la consulta nuevamente.
-\UCpaso Fin de la trayectoria alternativa.
+\begin{UCtrayectoriaA}{B}{Alumno sin ETS vigente}
+	\UCpaso El sistema detecta que el alumno no tiene ETS vigente.
+	\UCpaso El sistema muestra mensaje: {\bf MSG-9}{``Error el alumno no cuenta con ETS inscritos ó su ETS está programada en otra fecha''}.
+	\UCpaso[\UCactor] El personal de seguridad informa al alumno.
+	\UCpaso Fin del caso de uso.
 \end{UCtrayectoriaA}
 %--------------------------------------        
-\begin{UCtrayectoriaA}{C}{El personal de seguridad está seguro de la identidad del alumno sin la necesidad de usar el reconocimiento facial y decide que le registrara asistencia sin la necesidad del reconocimiento facial}
-\UCpaso[\UCactor] El personal de seguridad presiona el botón \IUbutton{Registrar asistencia}.
-\UCpaso El sistema actualiza la asistencia.
-\UCpaso Fin de la trayectoria alternativa.
+\begin{UCtrayectoriaA}{C}{Asistencia ya registrada}
+	\UCpaso El sistema detecta asistencia previa del alumno en la misma fecha.
+	\UCpaso El sistema muestra mensaje: {\bf MSG-10}{``El alumno ya tiene registrada su asistencia el día de hoy''}.
+	\UCpaso[\UCactor] El personal de seguridad verifica si es un error.
+	\UCpaso[\UCactor] El personal de seguridad puede:
+	\begin{itemize}
+		\item Registrar nuevamente (continúa al paso 7)
+		\item Cancelar el registro
+	\end{itemize}
 \end{UCtrayectoriaA}
 %--------------------------------------        
-\begin{UCtrayectoriaA}{D}{El personal de seguridad está seguro de la identidad del alumno sin la necesidad de usar el reconocimiento facial y decide que no le registrara asistencia}
-\UCpaso[\UCactor] El personal de seguridad presiona el botón \IUbutton{No registrar asistencia}.
-\UCpaso El sistema no actualiza la asistencia.
-\UCpaso Fin de la trayectoria alternativa.
-\end{UCtrayectoriaA}  
 
