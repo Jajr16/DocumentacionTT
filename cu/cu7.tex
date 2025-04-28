@@ -7,21 +7,24 @@
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
 %--------------------------------------
 \begin{UseCase}{CU-07}{Solicitar remplazo }{
-	Este caso de uso permite a un docente solicitar la asignación de un docente de remplzao para aplicar el ETS en su lugar en caso de no poder asistir.
+	Este caso de uso permite a un docente solicitar un reemplazo para que aplique el ETS cuando no pueda asistir.
 }
 \UCitem{Versión}{\color{Gray}1.0}
-\UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
-\UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra}
+\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
+\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel}
 \UCitem{Actor}{\hyperlink{PersonalAcademico}{Docente}}
-\UCitem{Propósito}{Permitir al docente asignado para un ETS solicitar ayuda de otro docente para realizar la aplicación en su lugar, mediante una notificación al jefe de departamento y/o al presidente de academia.}
+\UCitem{Propósito}{Permitir al docente responsable de un ETS solicitar apoyo de otro profesor para llevar a cabo la aplicación, notificando al jefe de departamento o al presidente de academia.}
 \UCitem{Entradas}{Identificador del ETS y razón por la que se pide el remplazo.}
 \UCitem{Origen}{Pantalla táctil}
-\UCitem{Salidas}{Confirmación de envió de solicitud de remplazo del docente Y y se muestra {\bf MSG-13}{``La notificación ha sido mandada al jefe de departamento y/o al presidente de academia.''}.}
+\UCitem{Salidas}{
+	Se muestra el mensaje \textbf{MSG-13}: ``Solicitud exitosa. La solicitud de reemplazo ha sido registrada correctamente'', indicando que la solicitud fue enviada con éxito.
+	
+	Se muestra el mensaje \textbf{MSG-14}: ``Ya existe una solicitud pendiente para este ETS'', indicando que ya se ha realizado una solicitud previa para el ETS.}
 \UCitem{Destino}{\IUref{IU06}{Pantalla Información de ETS}}
 \UCitem{Precondiciones}{El docente debe estar autenticado en el sistema y tener un ETS asignado.}
-\UCitem{Postcondiciones}{La notificación ha sido mandada al jefe de departamento y/o al presidente de academia.}
+\UCitem{Postcondiciones}{La solicitud ha sido enviada al jefe de departamento y/o al presidente de academia.}
 \UCitem{Errores}{
-	E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-4}  ``El proceso no se pudo realizar por un fallo de red.''
+	E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-4}  ``Error al enviar la solicitud''
 }
 \UCitem{Tipo}{Se entiende del CU-06 Mostrar información de los ETS asignados}
 \UCitem{Observaciones}{Ninguna}
@@ -29,13 +32,25 @@
 %--------------------------------------
 \begin{UCtrayectoria}
 \UCpaso[\UCactor] El docente accede a la \IUref{IU06}{Pantalla Información de ETS}.
-\UCpaso[\UCactor] El docente selecciona la opción \IUbutton{Solicitar docente ayudante} para el ETS asignado.
+\UCpaso[\UCactor] El docente selecciona la opción \IUbutton{Solicitar reemplazo} para el ETS asignado.
 \UCpaso El sistema redirige al docente a la pantalla \IUref{IU07}{ Solicitar remplazo }.
-\UCpaso El sistema ingresa el ETS.
-\UCpaso[\UCactor] El docente ingresa su razón para pedir el remplazo.
-\UCpaso[\UCactor] El docente selecciona el botón \IUbutton{Enviar}.
-\UCpaso El sistema envía la notificación de solicitud de remplazo al jefe de departamento y/o al presidente de academia.
+\UCpaso El sistema muestra el ETS selecciona.
+\UCpaso[\UCactor] El docente ingresa la razón para solicitar el remplazo.
+\UCpaso[\UCactor] El docente oprime el botón \IUbutton{Enviar solicitud} [Trayectoria A] [Trayectoria B] .
+\UCpaso El sistema envía la solicitud de remplazo al jefe de departamento y/o al presidente de academia.
 \end{UCtrayectoria}
 %--------------------------------------        
-
+\begin{UCtrayectoriaA}{A}{Ya existe una solicitud pendiente para el ETS}
+	\UCpaso El sistema valida que exista una solicitud previa no resuelta.
+	\UCpaso El sistema muestra el mensaje: {\bf MSG-14}{``Ya existe una solicitud pendiente para este ETS''}.
+	\UCpaso[\UCactor] El docente presiona \IUbutton{Aceptar} para regresar a \IUref{IU06}{Pantalla Información de ETS}.
+\end{UCtrayectoriaA}
 %-------------------------------------- TERMINA descripción del caso de uso.
+\begin{UCtrayectoriaA}{B}{Error al enviar la solicitud}
+	\UCpaso El sistema detecta un fallo en el servidor o conexión.
+	\UCpaso Muestra el mensaje: {\bf MSG-16}{``Error al enviar la solicitud''}.
+	\UCpaso[\UCactor] El docente selecciona:
+	\begin{itemize}
+		\item \IUbutton{Cancelar} para volver a \IUref{IU06}{Pantalla Información de ETS}.
+	\end{itemize}
+\end{UCtrayectoriaA}
