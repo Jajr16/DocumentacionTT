@@ -24,7 +24,7 @@ Finalmente, se proporcionará una descripción exhaustiva de cada uno de los cas
 
 \begin{figure}[htbp!]
 	\begin{center}
-		\fbox{\includegraphics[width=.35\textwidth]{images/Notacion}}
+		\fbox{\includegraphics[width=.55\textwidth]{images/Notacion}}
 		\caption{Análisis de viabilidad de los casos de uso.}
 		\label{fig:Notacion}
 	\end{center}
@@ -249,11 +249,11 @@ Sin embargo, es importante destacar la relación existente entre los casos de us
 \input{cu/cu2.tex}
 \newpage
 
-\input{cu/cu3.tex}
-\newpage
+%\input{cu/cu3.tex}
+%\newpage
 
-\input{cu/cu4}
-\newpage
+%\input{cu/cu4}
+%\newpage
 
 \input{cu/cu5}
 \newpage
@@ -270,8 +270,8 @@ Sin embargo, es importante destacar la relación existente entre los casos de us
 \input{cu/cu9}
 \newpage
 
-\input{cu/cu10}
-\newpage
+%\input{cu/cu10}
+%\newpage
 
 \input{cu/cu11.tex}
 \newpage
@@ -346,3 +346,84 @@ Sin embargo, es importante destacar la relación existente entre los casos de us
 \newpage
 
 \input{cu/cu43.tex}
+\newpage
+
+\section{Lista de Mensajes del Sistema}
+
+\subsection{Caso de Uso CU-01: Iniciar sesión del sistema móvil}
+\begin{itemize}
+	\item \textbf{\label{msg:CU01-E1}MSG-CU01-E1:} Por favor, completa todos los campos.
+	\item \textbf{\label{msg:CU01-E2}MSG-CU01-E2:} Datos incorrectos.
+	\item \textbf{\label{msg:CU01-E3}MSG-CU01-E3:} Conexión perdida.
+\end{itemize}
+
+\subsection{Caso de Uso CU-02: Consultar calendario escolar}
+\begin{itemize}
+	\item \textbf{\label{msg:CU02-E1}MSG-CU02-E1:} Aún no está registrado el siguiente periodo de ETS.
+	\item \textbf{\label{msg:CU02-E2}MSG-CU02-E2:} Conexión perdida.
+	\item \textbf{\label{msg:CU02-S1}MSG-CU02-S1:} Faltan (díasDeDiferencia) días para el periodo de ETS.
+	\item \textbf{\label{msg:CU02-S2}MSG-CU02-S2:} Actualmente es periodo de ETS.
+\end{itemize}
+
+\subsection{Caso de Uso CU-05: Consultar ETS asignados}
+\begin{itemize}
+	\item \textbf{\label{msg:CU05-E1}MSG-CU05-E1:} Error al consultar la base de datos. Intente nuevamente más tarde.
+	\item \textbf{\label{msg:CU05-E2}MSG-CU05-E2:} Conexión perdida.
+\end{itemize}
+
+\subsection{Caso de Uso CU-06: Mostrar información de los ETS asignados}
+\begin{itemize}
+	\item \textbf{\label{msg:CU06-E1}MSG-CU06-E1:} Ocurrió un error al desplegar los detalles del ETS.
+	\item \textbf{\label{msg:CU06-E2}MSG-CU06-E2:} Error al consultar la base de datos. Intente nuevamente más tarde.
+\end{itemize}
+
+\subsection{Caso de Uso CU-08: Consultar lista de alumnos inscritos a un ETS}
+\begin{itemize}
+	\item \textbf{\label{msg:CU08-E2}MSG-CU08-E2:} Error al consultar la base de datos. Intente nuevamente más tarde.
+	\item \textbf{\label{msg:CU08-A1}MSG-CU08-A1:} No hay alumnos inscritos al ETS.
+	\item \textbf{\label{msg:CU08-C1}MSG-CU08-C1:} El ETS seleccionado no es válido.
+	\item \textbf{\label{msg:CU08-D1}MSG-CU08-D1:} Aún no es periodo para crear los reportes. Faltan (tiempo).
+	\item \textbf{\label{msg:CU08-ET2}MSG-CU08-ET2:} El periodo para registrar los reportes ha concluido.
+	\item \textbf{\label{msg:CU08-F1}MSG-CU08-F1:} Usted no está autorizado para crear el reporte de este alumno.
+\end{itemize}
+
+\subsection{Caso de Uso CU-11: Mostrar la foto e información del alumno}
+\begin{itemize}
+	\item \textbf{\label{msg:CU11-E1}MSG-CU11-E1:} El proceso no se pudo realizar por un fallo de red.
+	\item \textbf{\label{msg:CU11-A1}MSG-CU11-A1:} No se ha creado reporte para este alumno.
+	\item \textbf{\label{msg:CU11-B1}MSG-CU11-B1:} El alumno no se presentó al ETS.
+\end{itemize}
+
+\newpage
+
+\section{Tabla de iconos de estado de asistencia}
+\label{sec:tablaIconosAsistencia}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|l|}
+		\hline
+		\textbf{Icono} & \textbf{Nombre} \\
+		\hline
+		\includegraphics[width=2cm]{images/icono1.png} & "Rechazado: Verificado con el reconocimiento facial." \\
+		\hline
+		\includegraphics[width=2cm]{images/icono2.png} & "Rechazado: Verificado con el código QR de la credencial." \\
+		\hline
+		\includegraphics[width=2cm]{images/icono3.png} & "Rechazado: Verificado por el profesor." \\
+		\hline
+		\includegraphics[width=2cm]{images/icono4.png} & "Rechazado: No se presentó." \\
+		\hline
+		\includegraphics[width=2cm]{images/icono5.png} & "Aceptado: Verificado con el reconocimiento facial." \\
+		\hline
+		\includegraphics[width=2cm]{images/icono6.png} & "Aceptado: Verificado con el código QR de la credencial." \\
+		\hline
+		\includegraphics[width=2cm]{images/icono7.png} & "Aceptado: Verificado por el profesor." \\
+		\hline
+		\includegraphics[width=2cm]{images/icono8.png} & "Pendiente." \\
+		\hline
+	\end{tabular}
+	\caption{Significado de los Iconos de Estado de Asistencia}
+	\label{tab:iconosAsistencia}
+\end{table}
+
+\newpage

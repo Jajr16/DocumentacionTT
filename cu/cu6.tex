@@ -7,46 +7,54 @@
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
 %--------------------------------------
 % !TeX root = ../ejemplo.tex
+\label{CU-06}
 \begin{UseCase}{CU-06}{Mostrar información de los ETS asignados}{
-	Este caso de uso permite al docente visualizar la información detallada de los ETS que tiene asignados.
-}
-\UCitem{Versión}{\color{Gray}1.0}
-\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
-\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín}
-\UCitem{Actor}{\hyperlink{PersonalAcademico}{Docente}}
-\UCitem{Propósito}{Permite al docente visualizar la información detallada de cada ETS que tiene asignado.}
-\UCitem{Entradas}{Ninguna}
-\UCitem{Origen}{Pantalla táctil}
-\UCitem{Salidas}{Detalle de ETS asignado.}
-\UCitem{Destino}{\IUref{IU06}{Pantalla Información de ETS}}
-\UCitem{Precondiciones}{El docente debe estar autenticado y tener ETS asignados en el sistema.}
-\UCitem{Postcondiciones}{El docente ha visualizado la información detallada de sus ETS asignados.}
-\UCitem{Errores}{
-		E1: El sistema no puede recuperar la información detallada de los ETS y muestra el mensaje {\bf MSG-12}{``Información no disponible para el ETS seleccionado''}.
-		E2: Error en la conexión con la base de datos y muestra el mensaje y muestra el mensaje {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
-}
-\UCitem{Tipo}{Se entiende del CU-05 Mostrar información de los ETS asignados}
-\UCitem{Observaciones}{Ninguna}
+		Este caso de uso permite al docente visualizar la información detallada de los ETS que tiene asignados.
+	}
+	\UCitem{Versión}{\color{Gray}2.0}
+	\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
+	\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín}
+	\UCitem{Actor}{\hyperlink{tDocente}{Docente}}
+	\UCitem{Propósito}{Permite al docente visualizar la información detallada de cada ETS que tiene asignado.}
+	\UCitem{Entradas}{Selección de un ETS.}
+	\UCitem{Origen}{\IUref{IU05}{Pantalla de Consultar ETS}}
+	\UCitem{Salidas}{Detalle de ETS asignado: Tipo de ETS, Unidad de Aprendizaje, Periodo, Fecha, Turno, Cupo, Duración, Salones (con Tipo de Salón por cada salón), Hora. O indicación de error.}
+	\UCitem{Destino}{\IUref{IU06}{Pantalla Información de ETS}}
+	\UCitem{Precondiciones}{El docente debe haber iniciado sesión (\textbf{\hyperref[CU-01]{CU-01 Iniciar sesión del sistema móvil}}) y haber consultado la lista de ETS asignados (\textbf{\hyperref[CU-05]{CU-05 Consultar ETS asignados}}).}
+	\UCitem{Postcondiciones}{El docente ha visualizado la información detallada del ETS seleccionado.}
+	\UCitem{Errores}{
+		E1: El sistema no puede recuperar la información detallada del ETS y muestra el mensaje \textbf{\hyperref[msg:CU06-E1]{MSG-CU06-E1}}{``Ocurrió un error al desplegar los detalles del ETS.''}.
+		E2: Error en la conexión con la base de datos y muestra el mensaje \textbf{\hyperref[msg:CU06-E2]{MSG-CU06-E2}}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+	}
+	\UCitem{Tipo}{Caso de uso primario}
+	\UCitem{Observaciones}{Si el docente es el aplicador del ETS, visualizará un botón llamado "Solicitar remplazo" que lo lleva a la \IUref{IU07}{Pantalla Solicitar remplazo}. También visualiza un botón llamado "Ir a la lista de alumnos" que lo lleva a la \IUref{IU08}{Pantalla Lista de alumnos inscritos a un ETS}.}
 \end{UseCase}
 %--------------------------------------
 \begin{UCtrayectoria}
-\UCpaso[\UCactor] El docente selecciona el ETS que desea visualizar desde la \IUref{IU05}{Pantalla  Consultar ETS}.
-\UCpaso[\UCsist] El sistema verifica si existen detalles disponibles para el ETS seleccionado. \Trayref{A}
-\UCpaso El sistema despliega la información detallada de cada ETS asignado en la \IUref{IU06}{Pantalla Información de ETS}
+	\UCpaso[\UCactor] El docente selecciona el ETS que desea visualizar desde la \IUref{IU05}{Pantalla de Consultar ETS}.
+	\UCpaso[\UCsist] El sistema recupera la información detallada del ETS seleccionado. \Trayref{A}, \Trayref{B}
+	\UCpaso El sistema despliega la información detallada del ETS en la \IUref{IU06}{Pantalla Información de ETS}, incluyendo: Tipo de ETS, Unidad de Aprendizaje, Periodo, Fecha, Turno, Cupo, Duración, Salones (con Tipo de Salón por cada salón) y Hora.
+	\UCpaso[\UCactor] El docente visualiza la información detallada del ETS.
+	\UCpaso Si hay alumnos inscritos en el ETS, el docente visualiza un botón \IUbutton{Ir a la lista de alumnos}.
+	\UCpaso[\UCactor] Si el docente presiona el botón \IUbutton{Ir a la lista de alumnos}, el sistema lo redirige a la \IUref{IU13}{Pantalla consultar lista de alumnos inscritos a un ETS}.
+	\UCpaso Si el docente es el aplicador del ETS, visualiza un botón \IUbutton{Solicitar remplazo}.
+	\UCpaso[\UCactor] Si el docente presiona el botón \IUbutton{Solicitar remplazo}, el sistema lo redirige a la \IUref{IU07}{Pantalla Solicitar remplazo}.
 \end{UCtrayectoria}
-%--------------------------------------        
+%--------------------------------------
 \begin{UCtrayectoriaA}{A}{No hay detalles disponibles para el ETS seleccionado}
-\UCpaso El sistema muestra un mensaje: {\bf MSG-12}{``Información no disponible para el ETS seleccinado''}
-\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Regresar} para volver a la lista de ETS.
-\UCpaso Fin de la trayectoria alternativa.
+	\UCpaso El sistema muestra el mensaje: \textbf{\hyperref[msg:CU06-E1]{MSG-CU06-E1}}{``Ocurrió un error al desplegar los detalles del ETS.''}
+	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Regresar} para volver a la lista de ETS (\IUref{IU05}{Pantalla de Consultar ETS}).
+	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 
-%--------------------------------------        
+%--------------------------------------
 \begin{UCtrayectoriaA}{B}{Error en la conexión con la base de datos}
-\UCpaso El sistema muestra un mensaje de error: {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
-\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
-\UCpaso[\UCactor] El docente puede intentar la consulta nuevamente o presionar el botón \IUbutton{Regresar} para volver a la pantalla anterior.
-\UCpaso Fin de la trayectoria alternativa.
+	\UCpaso El sistema intenta recuperar la información detallada del ETS.
+	\UCpaso Ocurre un error en la conexión con la base de datos.
+	\UCpaso El sistema muestra el mensaje de error: \textbf{\hyperref[msg:CU06-E2]{MSG-CU06-E2}}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
+	\UCpaso[\UCactor] El docente puede intentar la consulta nuevamente o presionar el botón \IUbutton{Regresar} para volver a la pantalla anterior (\IUref{IU05}{Pantalla de Consultar ETS}).
+	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 
 %-------------------------------------- TERMINA descripción del caso de uso.

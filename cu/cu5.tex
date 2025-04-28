@@ -6,44 +6,55 @@
 
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
 %--------------------------------------
+\label{CU-05}
 \begin{UseCase}{CU-05}{Consultar ETS asignados}{
 		Este caso de uso permite al docente consultar los ETS que tiene asignados.
 	}
-	\UCitem{Versión}{\color{Gray}1.0}
+	\UCitem{Versión}{\color{Gray}2.0}
 	\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
 	\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín}
-	\UCitem{Actor}{\hyperlink{PersonalAcademico}{Docente}}
+	\UCitem{Actor}{\hyperlink{tDocente}{Docente}}
 	\UCitem{Propósito}{Permitir al docente consultar los ETS que le han sido asignados.}
-	\UCitem{Entradas}{Periodo de ETS}
+	\UCitem{Entradas}{Solicitud de consulta.}
 	\UCitem{Origen}{Pantalla táctil}
-	\UCitem{Salidas}{Lista de ETS asignados.}
+	\UCitem{Salidas}{Lista de ETS asignados (Unidad de Aprendizaje, Periodo, Fecha, Turno) o indicación de que no hay ETS asignados.}
 	\UCitem{Destino}{\IUref{IU06}{Pantalla de Consultar ETS}}
-	\UCitem{Precondiciones}{El docente debe estar autenticado en el sistema.}
+	\UCitem{Precondiciones}{El docente debe haber iniciado sesión en el sistema (\textbf{\hyperref[CU-01]{CU-01 Iniciar sesión del sistema móvil}}).}
 	\UCitem{Postcondiciones}{El docente ha consultado los ETS asignados.}
 	\UCitem{Errores}{
-			E1: El sistema no puede recuperar la información de los ETS asignados y se muestra el mensaje {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''.}
-			
-			E2: No hay ETS asignados al docente y se muestra el mensaje: {\bf MSG-11}{``No hay ETS asignados actualmente.''}
+		E1: El sistema no puede recuperar la información de los ETS asignados y se muestra el mensaje \textbf{\hyperref[msg:CU05-E1]{MSG-CU05-E1}}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+		
+		E2: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje \textbf{\hyperref[msg:CU05-E2]{MSG-CU05-E2}} ``Conexión perdida.''
 	}
-	\UCitem{Tipo}{Se entiende del CU-04 Consultar periodos de ETS asignados al docente}
+	\UCitem{Tipo}{Caso de uso primario}
 	\UCitem{Observaciones}{Ninguna}
 \end{UseCase}
 %--------------------------------------
 \begin{UCtrayectoria}
-	\UCpaso[\UCactor] El docente selecciona el período académico que desea consultar desde la \IUref{IU04}{Pantalla Periodo de ETS}.
-	\UCpaso El sistema verifica que el docente tenga ETS asignados en el periodo seleccionado \Trayref{A}.
-	\UCpaso El sistema despliega la lista de ETS asignados al docente en la \IUref{IU05}{Pantalla de Consultar ETS}.
+	\UCpaso[\UCactor] El docente accede a la \IUref{IU05}{Pantalla de Consultar ETS} desde el menú principal.
+	\UCpaso El sistema recupera la lista de todos los ETS asignados al docente.
+	\UCpaso El sistema muestra la lista de ETS, incluyendo para cada uno: Unidad de Aprendizaje, Periodo, Fecha y Turno.
+	\UCpaso[\UCactor] El docente visualiza la lista de ETS asignados.
+	\UCpaso[\UCactor] El docente selecciona un ETS de la lista.
+	\UCpaso El sistema redirige al docente a la pantalla \IUref{IU06}{Pantalla Información de ETS}.
+	\UCpaso[\UCactor] Opcionalmente, el docente puede presionar el botón \IUbutton{Todos} para ver todos los ETS asignados.
+	\UCpaso[\UCactor] Opcionalmente, el docente puede presionar el botón \IUbutton{Mis ETS} para ver los ETS que tiene pendientes por aplicar o supervisar.
 \end{UCtrayectoria}
 
-%--------------------------------------        
-\begin{UCtrayectoriaA}{A}{No hay ETS asignados en el periodo seleccionado}
-	\UCpaso El sistema muestra un mensaje: {\bf MSG-11}{``No hay ETS asignados actualmente.''}
+%--------------------------------------
+\begin{UCtrayectoriaA}{A}{No hay ETS asignados}
+	\UCpaso El sistema verifica que no hay ETS asignados al docente.
+	\UCpaso El sistema muestra un mensaje indicando que no hay ETS asignados.
+	\UCpaso[\UCactor] El docente visualiza el mensaje.
 	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Regresar} para volver a la pantalla anterior.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
-%--------------------------------------        
+
+%--------------------------------------
 \begin{UCtrayectoriaA}{B}{Error en la conexión con la base de datos}
-	\UCpaso El sistema muestra un mensaje de error: {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+	\UCpaso El sistema intenta recuperar la lista de ETS asignados.
+	\UCpaso Ocurre un error en la conexión con la base de datos.
+	\UCpaso El sistema muestra el mensaje de error: \textbf{\hyperref[msg:CU05-E1]{MSG-CU05-E1}}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
 	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
 	\UCpaso[\UCactor] El docente puede intentar la consulta nuevamente o presionar el botón \IUbutton{Regresar} para volver a la pantalla anterior.
 	\UCpaso Fin de la trayectoria alternativa.

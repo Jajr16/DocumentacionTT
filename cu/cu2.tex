@@ -1,37 +1,39 @@
 % !TeX root = ../ejemplo.tex
 
 %--------------------------------------
+\label{CU-02}
 \begin{UseCase}{CU-02}{Consultar calendario escolar}{
-    Permitir que los usuarios vean el calendario escolar y puedan solicitar al sistema que les mencioné cuantos días faltan para que inicie el próximo periodo de ETS.
-}
-    \UCitem{Versión}{\color{Gray}1}
-    \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
-    \UCitem{Supervisa}{\color{Gray}De la Cruz de la Cruz Alejandra.}
-    \UCitem{Actor}{\hyperlink{Usuario}{Usuario}}
-    \UCitem{Propósito}{Que el usuario consulte cuantos días faltan para el próximo periodo de ETS.}
-    \UCitem{Entradas}{Ninguna}
-    \UCitem{Origen}{Pantalla táctil}
-    \UCitem{Salidas}{Menciona cuantos días faltan para el periodo de ETS o si menciona que ya es periodo de ETS.}
-    \UCitem{Destino}{Ninguno}
-    \UCitem{Precondiciones}{El usuario debe de haber iniciado sesión.}
-    \UCitem{Postcondiciones}{El usuario recibe información sobre la fecha del periodo de ETS actual.}
-    \UCitem{Errores}{
-        E1: Cuando es periodo de ETS el sistema muestra el mensaje {\bf MSG-6}{``Actualmente es periodo de ETS.''}
-
-        E2: Cuando no se ha establecido un periodo de ETS actual, el sistema muestra el mensaje {\bf MSG-7}{``Actualmente el periodo de ETS no ha sido establecido.''}
-    
-    }
-    \UCitem{Tipo}{Caso de uso primario}
-    \UCitem{Observaciones}{Ninguna}
+		Permitir que los usuarios vean el calendario escolar y puedan solicitar al sistema que les mencione cuántos días faltan para que inicie el próximo periodo de ETS.
+	}
+	\UCitem{Versión}{\color{Gray}1}
+	\UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+	\UCitem{Supervisa}{\color{Gray}De la Cruz de la Cruz Alejandra.}
+	\UCitem{Actor}{\hyperlink{tUsuario}{Usuario}}
+	\UCitem{Propósito}{Que el usuario consulte cuántos días faltan para el próximo periodo de ETS.}
+	\UCitem{Entradas}{Solicitud de consulta.}
+	\UCitem{Origen}{Pantalla táctil}
+	\UCitem{Salidas}{Mensaje indicando los días faltantes para el periodo de ETS o si ya es periodo de ETS.}
+	\UCitem{Destino}{Pantalla de la aplicación móvil.}
+	\UCitem{Precondiciones}{El usuario debe haber iniciado sesión.}
+	\UCitem{Postcondiciones}{El usuario recibe información sobre la fecha del próximo periodo de ETS.}
+	\UCitem{Errores}{
+		E1: Cuando no se ha registrado el siguiente periodo de ETS, el sistema muestra el mensaje \textbf{\hyperref[msg:CU02-E1]{MSG-CU02-E1}}{``Aún no está registrado el siguiente periodo de ETS.''}.
+		
+		E2: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje \textbf{\hyperref[msg:CU02-E2]{MSG-CU02-E2}} ``Conexión perdida.''
+	}
+	\UCitem{Tipo}{Caso de uso primario}
+	\UCitem{Observaciones}{Ninguna}
 \end{UseCase}
-%-------------------------------------- 
+%--------------------------------------
 
 \begin{UCtrayectoria}
-    \UCpaso[\UCactor] El usuario accede a la pantalla \IUref{IU02}{Pantalla Consultar calendario escolar}\label{CU02.introduceDatos} para la app móvil mediante el botón con forma de calendario en cualquier pantalla excepto el inicio de sesión.
-    \UCpaso[\UCactor] El usuario decide consultar cuantos días faltan para que el periodo de ETS inicie oprimiendo el botón\IUbutton{Calcular cuantos días faltan para el periodo de ETS}.
-    \UCpaso El sistema calcula cuantos días faltan tomando el día actual y el día de inicio del periodo de ETS.
-    \UCpaso El sistema regresa cuantos días faltan para que el periodo de ETS inicie.
-    \UCpaso [\UCactor] El usuario verifica cuantos días faltan para que inicie el periodo de ETS.
+	\UCpaso[\UCactor] El usuario accede a la pantalla \IUref{IU02}{Pantalla Consultar calendario escolar} para la app móvil mediante el botón con forma de calendario visible en cualquier pantalla excepto la de inicio de sesión\label{CU02.accedePantalla}.
+	\UCpaso[\UCactor] El usuario solicita conocer cuántos días faltan para que el periodo de ETS inicie, oprimiendo el botón \IUbutton{Calcular cuántos días faltan para el periodo de ETS}.
+	\UCpaso El sistema recupera la fecha de inicio del próximo periodo de ETS registrada en el sistema.
+	\UCpaso El sistema calcula la diferencia en días entre la fecha actual y la fecha de inicio del próximo periodo de ETS.
+	\UCpaso Si la fecha de inicio del periodo de ETS es posterior a la fecha actual, el sistema muestra el mensaje: \textbf{\hyperref[msg:CU02-S1]{MSG-CU02-S1}} ``Faltan (cantidad de días) días para el periodo de ETS.''
+	\UCpaso Si la fecha de inicio del periodo de ETS es igual o anterior a la fecha actual, el sistema muestra el mensaje: \textbf{\hyperref[msg:CU02-S2]{MSG-CU02-S2}} ``Actualmente es periodo de ETS.''
+	\UCpaso [\UCactor] El usuario visualiza la cantidad de días que faltan para el periodo del ETS o si ya es el periodo de ETS.
 \end{UCtrayectoria}
 
 
