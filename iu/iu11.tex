@@ -1,33 +1,54 @@
 %--------------------------------------
-\subsection{IU10 Pantalla Código QR}
+\subsection{IU10: Pantalla Código QR}
+
+\IUfig[.40]{cu12}{IU10}{Pantalla Código QR.}
+\newpage
 
 \subsubsection{Objetivo}
-Permitir al personal de seguridad escanear el código QR de la credencial del alumno.
+Permitir al docente escanear el código QR de la credencial del alumno para verificar su identidad.
 
 \subsubsection{Diseño}
-Esta pantalla \IUref{IU10}{Pantalla Código QR} (ver figura~\ref{IU10}) aparece una vez que el personal de seguridad active la función de escanear credencial del menú. 
+Esta pantalla \IUref{IU10}{Pantalla Código QR} (ver figura~\ref{IU10}) se muestra al presionar el botón "Verificar con QR" desde la \IUref{IUE07}{Pantalla Crear Reporte}. Presenta una interfaz para que el docente pueda escanear el código QR de la credencial del alumno utilizando la cámara del dispositivo.
 
-\IUfig[.35]{cu12}{IU10}{Pantalla Código QR}
+
+
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Icono de flecha hacia la izquierda:} Para regresar a la pantalla anterior (\IUref{IUE07}{Pantalla Crear Reporte}).
+		\item \textbf{Título:} (Podría ser "Escanear QR" o similar, no visible en la captura).
+	\end{itemize}
+	\item \textbf{Vista de la cámara:} Un recuadro o área donde se muestra la imagen capturada por la cámara del dispositivo, permitiendo al docente enfocar el código QR.
+	\item \textbf{Instrucciones visuales:} (Podría haber líneas o un recuadro para guiar al docente a alinear el código QR).
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+		\item \textbf{Icono de campana:} Redirección a la pantalla de notificaciones.
+		\item \textbf{Icono de calendario con marcas:} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\end{itemize}
+\end{itemize}
 
 \subsubsection{Salidas}
-Información del alumno
+Al escanear un código QR válido, el sistema recupera la información del alumno y redirige a la \IUref{IU11}{Pantalla Credencial del alumno}. En caso de error, se muestran mensajes.
 
 \subsubsection{Entradas}
-Ninguna
+La imagen del código QR capturada por la cámara del dispositivo.
 
 \subsubsection{Comandos}
 \begin{itemize}
-	\item \IUbutton{Escanear}: Permite escanear el código QR de la credencial del alumno.
-	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
-    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
-    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+	\item \textbf{Escanear (automático al detectar el QR):} Al detectar un código QR, el sistema intenta leerlo y procesarlo.
+	\item \textbf{Icono de calendario (barra de navegación inferior):} Redirige a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirige a la pantalla de notificaciones.
+	\item \textbf{Icono de casa (barra de navegación inferior):} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
 \end{itemize}
 
 \subsubsection{Mensajes}
+Los mensajes que se pueden mostrar en esta pantalla, según el caso de uso CU-09, son:
+\begin{itemize}
+	\item \textbf{\hyperref[msg:CU09-E2]{MSG-CU09-E2}} Código QR no válido.
+\end{itemize}
 
-\begin{Citemize}
-	\item {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
-	\item {\bf MSG-20}{``Alumno no registrado. Verifique el código QR o intente nuevamente.''}
-	\item {\bf MSG-19}{``Código QR ilegible. Intente nuevamente.''}
-\end{Citemize}
 

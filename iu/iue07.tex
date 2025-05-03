@@ -1,0 +1,86 @@
+% !TeX root = ../ejemplo.tex
+%--------------------------------------
+
+\subsection{IUE07: Pantalla Crear Reporte}
+
+\IUfig[.40]{IUE07}{IUE07}{Pantalla Crear Reporte.}
+\newpage
+
+\subsubsection{Objetivo}
+Permitir al docente registrar la asistencia o una incidencia para un alumno inscrito en un ETS asignado, utilizando diferentes métodos de verificación y detallando la razón en caso de incidencia.
+
+\subsubsection{Diseño}
+Esta pantalla \IUref{IUE07}{Creación del reporte} (ver figura~\ref{IUE07}) se muestra al seleccionar un alumno desde la \IUref{IU08}{Lista de asistencia de ETS}. Permite al docente verificar la identidad del alumno y registrar su asistencia o una incidencia.
+
+
+
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Icono de flecha hacia la izquierda:} Para regresar a la pantalla anterior (\IUref{IU08}{Lista de asistencia de ETS}).
+		\item \textbf{Título:} "Información del Alumno".
+		\item \textbf{Icono de tres puntos horizontales con una burbuja de diálogo:} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\end{itemize}
+	\item \textbf{Información del Alumno:} Muestra información básica del alumno seleccionado:
+	\begin{itemize}
+		\item \textbf{Fotografía simulada de la credencial:} Imagen representativa de la credencial del alumno. Si no se encuentran datos, se mostrará el mensaje \textbf{\hyperref[msg:CU09-E1]{MSG-CU09-E1}} ``No se encontraron datos.''
+		\item \textbf{Nombre del alumno:} (Ej., Ramírez Huertas Daniel Martín).
+		\item \textbf{Programa académico:} (Ej., Ingeniería en Inteligencia Artificial).
+		\item \textbf{Boleta:} (Ej., 2022630393).
+		\item \textbf{CURP:} (Ej., HURD030120HDFRMNA0).
+	\end{itemize}
+	\item \textbf{Sección "Si detecta un problema como:":} Lista de posibles incidencias predefinidas que el docente puede seleccionar (El alumno no trae credencial, El alumno no coincide con la foto de su credencial, Duda de la autenticidad de la credencial, Duda de la identidad del alumno). Al seleccionar una de estas opciones, se considerará una incidencia al registrar el reporte.
+	\item \textbf{Sección "Prueba verificar con:":} Opciones para verificar la identidad del alumno:
+	\begin{itemize}
+		\item \textbf{Botón \IUbutton{Verificar con QR}:} Redirige a la \IUref{IU10}{Pantalla Código QR} para escanear la credencial del alumno. Si el código no es válido, se muestra \textbf{\hyperref[msg:CU09-E2]{MSG-CU09-E2}} ``Código QR no válido.'' Si es válido, redirige a la \IUref{IU11}{Pantalla Credencial del alumno}.
+		\item \textbf{Botón \IUbutton{Verificar con IA}:} Redirige a la \IUref{IU17}{Pantalla de Reconocimiento facial} para realizar la verificación biométrica. Pueden ocurrir errores al capturar la foto (\textbf{\hyperref[msg:CU09-E3]{MSG-CU09-E3}}) o al realizar el reconocimiento (\textbf{\hyperref[msg:CU09-E4]{MSG-CU09-E4}}). El resultado de la precisión se mostrará al regresar a esta pantalla.
+	\end{itemize}
+	\item \textbf{Sección "Realiza los reportes con:":} Botones para registrar la asistencia o una incidencia:
+	\begin{itemize}
+		\item \textbf{Botón \IUbutton{Registrar asistencia}:} Permite registrar la asistencia del alumno. Si no se ha seleccionado un tipo de asistencia, se mostrará \textbf{\hyperref[msg:CU09-E7]{MSG-CU09-E7}} ``Debe seleccionar un tipo.'' Al registrar con éxito, se muestra \textbf{\hyperref[msg:CU09-S1]{MSG-CU09-S1}} ``Asistencia registrada con éxito.'' Pueden ocurrir errores al crear el reporte (\textbf{\hyperref[msg:CU09-E10]{MSG-CU09-E10}}).
+		\item \textbf{Botón \IUbutton{Registrar incidencia}:} Permite registrar una incidencia. Se debe seleccionar un tipo de incidencia y escribir una razón (mínimo 5 letras, \textbf{\hyperref[msg:CU09-E12]{MSG-CU09-E12}}). Si faltan campos, se muestra \textbf{\hyperref[msg:CU09-E9]{MSG-CU09-E9}} ``Debe completar todos los campos correctamente.'' Al registrar con éxito, se muestra \textbf{\hyperref[msg:CU09-S2]{MSG-CU09-S2}} ``Incidencia registrada con éxito.'' Pueden ocurrir errores al crear el reporte (\textbf{\hyperref[msg:CU09-E11]{MSG-CU09-E11}}).
+	\end{itemize}
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+		\item \textbf{Icono de campana:} Redirección a la pantalla de notificaciones.
+		\item \textbf{Icono de calendario con marcas:} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Salidas}
+Presenta la credencial simulada del alumno, opciones de verificación (QR y Reconocimiento Facial), botones para registrar asistencia o incidencia, y mensajes de éxito o error en la verificación y registro.
+
+\subsubsection{Entradas}
+Selección de un alumno desde la \IUref{IU08}{Lista de asistencia de ETS}, selección de opciones de verificación, selección de tipo de registro (asistencia o incidencia), y texto de la razón en caso de incidencia.
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Verificar con QR}: Redirige a la \IUref{IU10}{Pantalla Código QR}.
+	\item \IUbutton{Verificar con IA}: Redirige a la \IUref{IU17}{Pantalla de Reconocimiento facial}.
+	\item \IUbutton{Registrar asistencia}: Guarda el registro de asistencia.
+	\item \IUbutton{Registrar incidencia}: Guarda el registro de la incidencia con la razón.
+	\item \textbf{Icono de flecha izquierda (barra superior):} Regresa a la pantalla anterior (\IUref{IU08}{Lista de asistencia de ETS}).
+	\item \textbf{Icono de tres puntos (barra superior):} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\item \textbf{Icono de calendario (barra de navegación inferior):} Redirige a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirige a la pantalla de notificaciones.
+	\item \textbf{Icono de casa (barra de navegación inferior):} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{itemize}
+	\item \textbf{\hyperref[msg:CU09-E1]{MSG-CU09-E1}} No se encontraron datos.
+	\item \textbf{\hyperref[msg:CU09-E2]{MSG-CU09-E2}} Código QR no válido.
+	\item \textbf{\hyperref[msg:CU09-E3]{MSG-CU09-E3}} Error al capturar la fotografía.
+	\item \textbf{\hyperref[msg:CU09-E4]{MSG-CU09-E4}} Error al realizar el reconocimiento facial.
+	\item \textbf{\hyperref[msg:CU09-E7]{MSG-CU09-E7}} Debe seleccionar un tipo.
+	\item \textbf{\hyperref[msg:CU09-E9]{MSG-CU09-E9}} Debe completar todos los campos correctamente.
+	\item \textbf{\hyperref[msg:CU09-E10]{MSG-CU09-E10}} Error al crear el reporte de asistencia.
+	\item \textbf{\hyperref[msg:CU09-E11]{MSG-CU09-E11}} Error al crear el reporte de incidencia.
+	\item \textbf{\hyperref[msg:CU09-E12]{MSG-CU09-E12}} La razón debe tener al menos 5 letras.
+	\item \textbf{\hyperref[msg:CU09-S1]{MSG-CU09-S1}} Asistencia registrada con éxito.
+	\item \textbf{\hyperref[msg:CU09-S2]{MSG-CU09-S2}} Incidencia registrada con éxito.
+\end{itemize}

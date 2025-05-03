@@ -1,30 +1,75 @@
 %--------------------------------------
-\subsection{IU20 Mostrar la foto e información  del alumno}
+\subsection{IU20: Mostrar la foto e información del alumno}
+
+\IUfig[.40]{cu11}{IU20}{Mostrar la foto e información del alumno.}
+
+\newpage
 
 \subsubsection{Objetivo}
-    Mostrar la al docente la información del alumno seleccionado.
+Mostrar al docente la información detallada del alumno seleccionado y los elementos multimedia asociados a su registro de asistencia en el ETS.
 
 \subsubsection{Diseño}
-    Esta \IUref{IU20}{Pantalla mostrar la foto e información  del alumno} (ver figura~\ref{IU20}) muestra toda la información que necesita al docente para poder reconocerlo.
+Esta pantalla \IUref{IU20}{Pantalla Reporte del Alumno} (ver figura~\ref{IU20}) se muestra al seleccionar un alumno desde la \IUref{IU08}{Pantalla Lista de asistencia de ETS}. Presenta información del alumno y elementos relacionados con su asistencia.
 
-\IUfig[.35]{cu11}{IU20}{Pantalla mostrar la foto e información  del alumno.}
+
+
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Icono de flecha hacia la izquierda:} Para regresar a la pantalla anterior (\IUref{IU08}{Pantalla Lista de asistencia de ETS}).
+		\item \textbf{Título:} "Reporte".
+		\item \textbf{Icono de tres puntos horizontales con una burbuja de diálogo:} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\end{itemize}
+	\item \textbf{Información del Alumno y Reporte de Asistencia:} Muestra la siguiente información (si está disponible):
+	\begin{itemize}
+		\item \textbf{Foto de la credencial:} Imagen del documento de identificación del alumno. Si no se carga, se muestra el texto "Sin Imagen".
+		\item \textbf{Foto del reconocimiento facial:} Imagen capturada durante el proceso de reconocimiento facial, junto con la precisión del reconocimiento. Si no hubo verificación facial, esta información no se muestra.
+		\item \textbf{Boleta:} Número de boleta del alumno.
+		\item \textbf{Nombre completo:} Nombre completo del alumno.
+		\item \textbf{CURP:} Clave Única de Registro de Población del alumno.
+		\item \textbf{Carrera:} Programa académico que cursa el alumno.
+		\item \textbf{Unidad académica del ETS:} Escuela o facultad a la que pertenece el ETS.
+		\item \textbf{Periodo del ETS:} Periodo académico en el que se imparte el ETS.
+		\item \textbf{Turno del ETS:} Turno en el que se aplica el ETS.
+		\item \textbf{Materia del ETS:} Nombre de la unidad de aprendizaje del ETS.
+		\item \textbf{Tipo de ETS:} Modalidad del Examen Terminal (ej., Ordinario).
+		\item \textbf{Fecha de ingreso:} Fecha de ingreso del alumno al sistema (o al ETS, según el contexto).
+		\item \textbf{Hora de ingreso:} Hora en la que se registró la asistencia del alumno (si aplica).
+		\item \textbf{Nombre del docente aplicador:} Nombre del docente que aplicó el ETS.
+		\item \textbf{Razón del reporte:} Justificación o comentarios sobre la asistencia del alumno.
+		\item \textbf{Motivo del rechazo:} Si la asistencia fue rechazada, se muestra la razón.
+	\end{itemize}
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+		\item \textbf{Icono de campana:} Redirección a la pantalla de notificaciones.
+		\item \textbf{Icono de calendario con marcas:} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\end{itemize}
+\end{itemize}
 
 \subsubsection{Salidas}
-
-    Ninguna.
+Muestra la información detallada del alumno y su reporte de asistencia, incluyendo los elementos mencionados en el diseño (si están disponibles).
 
 \subsubsection{Entradas}
-    Ninguna.
+Ninguna directa por parte del usuario en esta pantalla, ya que la información se muestra al seleccionar un alumno en la pantalla anterior.
 
 \subsubsection{Comandos}
 \begin{itemize}
-    \item \IUbutton{Ampliar fotografía}: Muestra la fotografía del alumno ampliada. 
-    
+	\item \IUbutton{Ampliar fotografía}: Muestra la fotografía del alumno ampliada.
+	\item \textbf{Icono de flecha izquierda (barra superior):} Regresa a la pantalla anterior (\IUref{IU08}{Pantalla Lista de asistencia de ETS}).
+	\item \textbf{Icono de tres puntos (barra superior):} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\item \textbf{Icono de calendario (barra de navegación inferior):} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirección a la pantalla de notificaciones.
+	\item \textbf{Icono de casa (barra de navegación inferior):} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
 \end{itemize}
 
 \subsubsection{Mensajes}
-
-\begin{Citemize}
-    \item {\bf MSG4-} ``El proceso no se pudo realizar por un falló de red.''
-\end{Citemize}
-
+Los mensajes que se pueden mostrar en esta pantalla, según el caso de uso CU-11, son:
+\begin{itemize}
+	\item \textbf{\hyperref[msg:CU11-E1]{MSG-CU11-E1}} El proceso no se pudo realizar por un fallo de red.
+	\item \textbf{\hyperref[msg:CU11-A1]{MSG-CU11-A1}} No se ha creado reporte para este alumno.
+	\item \textbf{\hyperref[msg:CU11-B1]{MSG-CU11-B1}} El alumno no se presentó al ETS.
+\end{itemize}

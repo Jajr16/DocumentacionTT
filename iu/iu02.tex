@@ -1,34 +1,69 @@
 % !TeX root = ../ejemplo.tex
 
 %--------------------------------------
-\subsection{IU02 Pantalla Consultar calendario escolar}
+\subsection{IU02: Pantalla Consultar calendario escolar}
+
+\IUfig[.40]{UI-CU02}{IU02}{Pantalla Consultar calendario escolar.}
+
+\newpage
 
 \subsubsection{Objetivo}
-Permitir que los usuarios puedan ver el calendario escolar y pedir que se les recuerde cuantos días faltan para que el periodo de ETS comience.
-\subsubsection{Diseño}
-    Esta pantalla \IUref{IU02}{Pantalla Consultar calendario escolar} (ver figura~\ref{IU02}) puede ser accedida desde cualquier otra pantalla que no sea el inicio de sesión mediante el botón con forma de calendario.
+Permitir a los usuarios visualizar el calendario escolar y obtener información sobre el tiempo restante para el inicio del próximo periodo de ETS.
 
-\IUfig[.30]{UI-CU02}{IU02}{Pantalla Consultar calendario escolar.}
+\subsubsection{Diseño}
+Esta pantalla \IUref{IU02}{Pantalla Consultar calendario escolar} (ver figura~\ref{IU02}) muestra el calendario escolar actual. Se puede acceder a ella mediante el botón con forma de calendario que está visible en la barra de navegación inferior, presente en la mayoría de las pantallas de la aplicación (excepto la de inicio de sesión).
+
+
+
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Icono de flecha hacia la izquierda:} Para regresar a la pantalla anterior.
+		\item \textbf{Título:} "Calendario Escolar".
+		\item \textbf{Icono de tres puntos horizontales con una burbuja de diálogo:} Accede a la funcionalidad de mensajes dentro de la aplicación
+	\end{itemize}
+	\item \textbf{Imagen del Calendario Escolar:} Visualización del calendario académico actual.
+	\item \textbf{Botón \IUbutton{Calcular cuántos días faltan para el periodo de ETS}:} Al presionarlo, el sistema calcula y muestra el tiempo restante para el próximo periodo de ETS.
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a la pantalla de saludo correspondiente al usuario.
+		\item \textbf{Icono de campana:} Redirección a la pantalla de notificaciones.
+		\item \textbf{Icono de calendario con marcas:} Indica la pantalla actual del calendario.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Función de cerrar sesión.
+	\end{itemize}
+\end{itemize}
 
 \subsubsection{Salidas}
-
-    Menciona cuantos días faltan para el periodo de ETS o si menciona que ya es periodo de ETS.
+Muestra un mensaje indicando cuántos días faltan para el periodo de ETS o si actualmente es periodo de ETS, en respuesta a la acción del botón \IUbutton{Calcular cuántos días faltan para el periodo de ETS}.
 
 \subsubsection{Entradas}
-   Ninguna.
+Ninguna directa por parte del usuario en esta pantalla, más allá de la interacción con los botones.
 
 \subsubsection{Comandos}
 \begin{itemize}
-    \item \IUbutton{Calcular cuantos días faltan para el periodo de ETS} toma el día actual y el día de inicio del periodo de ETS más cercano y calcula cuantos días faltan.
-    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones}.
-    \item \IUbutton{Home} Redirige a la pantalla de menú correspondiente al tipo de usuario.
+	\item \IUbutton{Calcular cuántos días faltan para el periodo de ETS}:
+	\begin{enumerate}
+		\item Recupera la fecha de inicio del próximo periodo de ETS registrada en el sistema.
+		\item Calcula la diferencia en días entre la fecha actual y la fecha de inicio del próximo periodo de ETS.
+		\item Si la fecha de inicio es posterior a la actual, muestra el mensaje \textbf{\hyperref[msg:CU02-S1]{MSG-CU02-S1}} ``Faltan (cantidad de días) días para el periodo de ETS.''
+		\item Si la fecha de inicio es igual o anterior a la actual, muestra el mensaje \textbf{\hyperref[msg:CU02-S2]{MSG-CU02-S2}} ``Actualmente es periodo de ETS.''
+		\item En caso de que no se haya registrado el siguiente periodo de ETS, muestra el mensaje \textbf{\hyperref[msg:CU02-E1]{MSG-CU02-E1}} ``Aún no está registrado el siguiente periodo de ETS.''
+		\item En caso de pérdida de conexión, muestra el mensaje \textbf{\hyperref[msg:CU02-E2]{MSG-CU02-E2}} ``Conexión perdida.''
+	\end{enumerate}
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones}.
+	\item \textbf{Icono de casa (barra de navegación inferior):} Redirige a la pantalla de menú correspondiente al tipo de usuario.
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Función de cerrar sesión.
+	\item \textbf{Icono de flecha izquierda (barra superior):} Regresa a la pantalla anterior.
+	\item \textbf{Icono de tres puntos horizontales con una burbuja de diálogo:} Accede a la funcionalidad de mensajes dentro de la aplicación.
 \end{itemize}
 
 \subsubsection{Mensajes}
-     
-\begin{Citemize}
-    \item {\bf MSG-6}{``Actualmente es periodo de ETS.''}
-
-    \item {\bf MSG-7}{``Actualmente el periodo de ETS no ha sido establecido.''}
-\end{Citemize}
+Los mensajes que se pueden mostrar en esta pantalla, según el caso de uso CU-02, son:
+\begin{itemize}
+	\item \textbf{\hyperref[msg:CU02-S1]{MSG-CU02-S1}} Faltan (cantidad de días) días para el periodo de ETS.
+	\item \textbf{\hyperref[msg:CU02-S2]{MSG-CU02-S2}} Actualmente es periodo de ETS.
+	\item \textbf{\hyperref[msg:CU02-E1]{MSG-CU02-E1}} Aún no está registrado el siguiente periodo de ETS.
+	\item \textbf{\hyperref[msg:CU02-E2]{MSG-CU02-E2}} Conexión perdida.
+\end{itemize}
 

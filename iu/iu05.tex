@@ -1,33 +1,71 @@
 %--------------------------------------
-\subsection{IU05 Pantalla Consultar ETS}
+\subsection{IU05: Pantalla Consultar ETS}
+
+\IUfig[.40]{cu05}{IU05}{Pantalla Consultar ETS.}
+
+\newpage
 
 \subsubsection{Objetivo}
-	Permitir al docente consultar los ETS que tiene asignados. 
+Permitir al docente visualizar la lista de los ETS que le han sido asignados.
 
 \subsubsection{Diseño}
-	Esta pantalla \IUref{IU05}{Pantalla Consultar ETS} (ver figura~\ref{IU05}) aparece luego de seleccionar un periodo de ETS. 
+Esta pantalla \IUref{IU05}{Pantalla Consultar ETS} (ver figura~\ref{IU05}) muestra la lista de ETS asignados al docente. Se accede a ella desde el menú principal una vez que el docente ha iniciado sesión.
 
-\IUfig[.35]{cu05}{IU05}{Pantalla Consultar ETS.}
+
+
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Icono de flecha hacia la izquierda:} Para regresar a la pantalla anterior.
+		\item \textbf{Título:} "Lista de ETS".
+		\item \textbf{Icono de tres puntos horizontales con una burbuja de diálogo:} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\end{itemize}
+	\item \textbf{Barra de selección:} Permite filtrar la lista de ETS.
+	\begin{itemize}
+		\item \textbf{Botón \IUbutton{Todos}:} Muestra todos los ETS al docente.
+		\item \textbf{Botón \IUbutton{Mis ETS}:} Muestra todos los ETS asignados al docente.
+	\end{itemize}
+	\item \textbf{Lista de ETS:} Muestra los ETS asignados en forma de tarjetas o recuadros. Para cada ETS se muestra la siguiente información:
+	\begin{itemize}
+		\item Unidad de Aprendizaje.
+		\item Periodo.
+		\item Fecha.
+		\item Turno.
+	\end{itemize}
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+		\item \textbf{Icono de campana:} Redirección a la pantalla de notificaciones.
+		\item \textbf{Icono de calendario con marcas:} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\end{itemize}
+\end{itemize}
 
 \subsubsection{Salidas}
-	Lista de ETS asignados. 
+Muestra una lista de los ETS asignados al docente, con detalles de la Unidad de Aprendizaje, Periodo, Fecha y Turno. En caso de no haber ETS asignados, se mostrará un mensaje.
 
 \subsubsection{Entradas}
-	Ninguna
-	
-\subsubsection{Comandos}
-\begin{Citemize}
+Ninguna directa por parte del usuario en esta pantalla, más allá de la selección de un ETS de la lista o la interacción con los botones de la barra de selección.
 
-	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
-	\item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
-	\item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
-	\item \IUbutton{ETS} Selecciona un ETS y lo redirige a la \IUref{IU06}{pantalla Información de ETS}.
-\end{Citemize}
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \textbf{Selección de un ETS de la lista (tocar el recuadro del ETS):} Redirige a la \IUref{IU06}{Pantalla Información de ETS} para mostrar los detalles del ETS seleccionado.
+	\item \IUbutton{Todos}: Muestra la lista completa de ETS al docente.
+	\item \IUbutton{Mis ETS}:  Muestra la lista completa de ETS asignados al docente.
+	\item \textbf{Icono de calendario (barra de navegación inferior):} Redirige a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirige a la pantalla de notificaciones.
+	\item \textbf{Icono de casa (barra de navegación inferior):} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\item \textbf{Icono de flecha izquierda (barra superior):} Regresa a la pantalla anterior.
+	\item \textbf{Icono de tres puntos (barra superior):} Accede a la funcionalidad de mensajes dentro de la aplicación.
+\end{itemize}
 
 \subsubsection{Mensajes}
-
-\begin{Citemize}
-	\item {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''.}
-	\item {\bf MSG-11}{``No hay ETS asignados actualmente.''}
-\end{Citemize}
+Los mensajes que se pueden mostrar en esta pantalla, según el caso de uso CU-05, son:
+\begin{itemize}
+	\item \textbf{\hyperref[msg:CU05-E1]{MSG-CU05-E1}} Error al consultar la base de datos. Intente nuevamente más tarde.
+	\item \textbf{\hyperref[msg:CU05-E2]{MSG-CU05-E2}} Conexión perdida.
+	\item \textbf{\hyperref[msg:CU05-E3]{MSG-CU05-E3}} No hay ETS creados. (Este mensaje se menciona en la trayectoria alternativa A del CU-05).
+\end{itemize}
 

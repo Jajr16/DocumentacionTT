@@ -7,87 +7,161 @@
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
 %--------------------------------------
 \begin{UseCase}{CU-09}{Tomar asistencias a los ETS}{
-		Este caso de uso permite al docente registrar la asistencia de los alumnos inscritos a un ETS asignado.
+		Este caso de uso permite al docente registrar la asistencia o una incidencia para los alumnos inscritos a un ETS asignado, utilizando diferentes métodos de verificación y detallando la razón en caso de incidencia.
 	}
-	\UCitem{Versión}{\color{Gray}1.0}
+	\UCitem{Versión}{\color{Gray}2.0}
 	\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
 	\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín}
-	\UCitem{Actor}{\hyperlink{PersonalAcademico}{Docente}}
-	\UCitem{Propósito}{Permitir al docente registrar la asistencia de los alumnos que estén inscritos a un ETS.}
-	\UCitem{Entradas}{-}
-	\UCitem{Origen}{Pantalla táctil}
-	\UCitem{Salidas}{Confirmación del registro de asistencia de los alumnos.}
-	\UCitem{Destino}{\IUref{IU08}{Lista de asistencia de ETS.}}
-	\UCitem{Precondiciones}{El docente debe estar autenticado y asignado al ETS correspondiente.}
-	\UCitem{Postcondiciones}{La asistencia de los alumnos ha sido registrada en el sistema para el ETS.}
+	\UCitem{Actor}{\hyperlink{tDocente}{Docente}}
+	\UCitem{Propósito}{Permitir al docente registrar la asistencia (aceptado) o una incidencia (rechazado) de los alumnos inscritos a un ETS, utilizando verificación por credencial QR, reconocimiento facial o confirmación manual, con la opción de detallar la razón de la incidencia.}
+	\UCitem{Entradas}{Selección de un alumno desde la \IUref{IU08}{Lista de asistencia de ETS.}}
+	\UCitem{Origen}{\IUref{IU08}{Lista de asistencia de ETS}}
+	\UCitem{Salidas}{Presentación de la credencial simulada del alumno, opciones de verificación (QR y Reconocimiento Facial), botones para registrar asistencia o incidencia, mensajes de éxito o error en la verificación y registro.}
+	\UCitem{Destino}{\IUref{IUE07}{Creación del reporte}}
+	\UCitem{Precondiciones}{El docente debe haber iniciado sesión (\textbf{\hyperref[CU-01]{CU-01 Iniciar sesión del sistema móvil}}) y haber consultado la lista de alumnos inscritos al ETS (\textbf{\hyperref[CU-08]{CU-08 Consultar lista de alumnos inscritos a un ETS}}).}
+	\UCitem{Postcondiciones}{La asistencia o incidencia del alumno ha sido registrada en el sistema para el ETS. En caso de eliminación de un reporte existente, la pantalla se recarga.}
 	\UCitem{Errores}{
 		\begin{itemize}
-			\item El ETS seleccionado no tiene alumnos inscritos y se muestra el mensaje {\bf MSG-16}{``No hay alumnos inscritos en este ETS.''}
-			\item El sistema pierde la conexión al intentar registrar la asistencia y se muestra el mensaje {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
-			\item El sistema no logro activar la camara y se muestra el mensaje {\bf MSG-17}{``No se pudo activar la cámara o reconocer la identidad. Intente nuevamente.''}
+			\item \textbf{\hyperref[msg:CU09-E1]{MSG-CU09-E1}} No se encontraron datos.
+			\item \textbf{\hyperref[msg:CU09-E2]{MSG-CU09-E2}} Código QR no válido.
+			\item \textbf{\hyperref[msg:CU09-E3]{MSG-CU09-E3}} Error al capturar la fotografía.
+			\item \textbf{\hyperref[msg:CU09-E4]{MSG-CU09-E4}} Error al realizar el reconocimiento facial.
+			\item \textbf{\hyperref[msg:CU09-E5]{MSG-CU09-E5}} Error de conexión.
+			\item \textbf{\hyperref[msg:CU09-E6]{MSG-CU09-E6}} Ocurrió un fallo en el proceso.
+			\item \textbf{\hyperref[msg:CU09-E7]{MSG-CU09-E7}} Debe seleccionar un tipo.
+			\item \textbf{\hyperref[msg:CU09-E8]{MSG-CU09-E8}} Para hacer un reporte de reconocimiento facial necesita haber hecho el proceso de verificar con IA.
+			\item \textbf{\hyperref[msg:CU09-E9]{MSG-CU09-E9}} Debe completar todos los campos correctamente.
+			\item \textbf{\hyperref[msg:CU09-E10]{MSG-CU09-E10}} Error al crear el reporte de asistencia.
+			\item \textbf{\hyperref[msg:CU09-E11]{MSG-CU09-E11}} Error al crear el reporte de incidencia.
+			\item \textbf{\hyperref[msg:CU09-E12]{MSG-CU09-E12}} La razón debe tener al menos 5 letras.
 		\end{itemize}
 	}
-	\UCitem{Tipo}{Se entiende del CU-10 Consultar lista de asistencia de alumnos inscritos a los ETS}
-	\UCitem{Observaciones}{}
+	\UCitem{Tipo}{Caso de uso primario}
+	\UCitem{Observaciones}{Si ya existe un reporte para el alumno, se pregunta al docente si desea eliminarlo. La precisión y la foto del reconocimiento facial se muestran al final de la pantalla si el proceso fue exitoso.}
 \end{UseCase}
 %--------------------------------------
 \begin{UCtrayectoria}
-	\UCpaso[\UCactor] El docente presiona el recuadro con la información del alumno que desee desde la pantalla \IUref{IU08}{Lista de asistencia de ETS}.
-	\UCpaso El sistema le muestra una imagen del alumno al docente.
-	\UCpaso[\UCactor] El docente no esta seguro de la identidad del alumno, por lo que decide usar el reconocimiento facial, accediendo a la pantalla \IUref{IU17}{Pantalla Reconocimiento facial} presionando el texto de \IUbutton{Estatus}. \Trayref{A} \Trayref{B}
-	\UCpaso El sistema activa la cámara y comienza el proceso de reconocimiento facial de los alumnos presentes \IUref{IU17}{Pantalla Reconocimiento facial}. \Trayref{C} \Trayref{D}
-	\UCpaso El sistema analiza la imagen de cada alumno y muestra un indicador:
+	\UCpaso[\UCactor] El docente selecciona un alumno de la lista en la \IUref{IU08}{Lista de asistencia de ETS}.
+	\UCpaso El sistema muestra la \IUref{IUE07}{Creación del reporte} con la simulación de la credencial del alumno. \Trayref{A}
+	\UCpaso[\UCactor] El docente puede optar por:
 	\begin{itemize}
-		\item Verde: El sistema está casi seguro de que la persona es quien dice ser y muestra las características coincidentes.
-		\item Amarillo: El sistema no está seguro y necesita la ayuda del docente para confirmar la identidad, mostrando tanto las características coincidentes como las que no coinciden. \Trayref{E}
-		\item Rojo: El sistema está casi seguro de que la persona no es quien dice ser y muestra las características que no coinciden. \Trayref{F}
+		\item Verificar con Código QR: Presiona \IUbutton{Verificar con QR} \Trayref{B}.
+		\item Verificar con IA (Reconocimiento Facial): Presiona \IUbutton{Verificar con IA} \Trayref{C}.
+		\item Registrar asistencia o incidencia directamente (si está seguro de la identidad) \Trayref{D}, \Trayref{E}.
 	\end{itemize}
-	\UCpaso[\UCactor] El docente revisa las características del alumno y decide si confirma la identidad del alumno cuando el indicador marque el color Amarillo. 
-	\UCpaso El sistema marca la asistencia de cada alumno.
-	\UCpaso[\UCactor] El docente confirma el registro de asistencia.
-	\UCpaso El sistema guarda la asistencia y muestra un mensaje de confirmación: {\bf MSG-15}{``Asistencia registrada exitosamente.''}
-	\UCpaso El sistema muestra la lista de asistencia de los alumnos en la \IUref{IU08}{Pantalla Lista de asistencia de ETS.}
+	\UCpaso[\UCactor] El docente selecciona un tipo de registro (Aceptado o Rechazado) y, si es rechazado, escribe una razón. \Trayref{F}
+	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Registrar asistencia} o \IUbutton{Registrar incidencia}. \Trayref{G}, \Trayref{H}, \Trayref{I}
+	\UCpaso El sistema guarda el reporte y muestra el mensaje de éxito correspondiente (\textbf{\hyperref[msg:CU09-S1]{MSG-CU09-S1}} o \textbf{\hyperref[msg:CU09-S2]{MSG-CU09-S2}}). \Trayref{J}, \Trayref{K}
+	\UCpaso El sistema redirige a la \IUref{IU08}{Pantalla Lista de asistencia de ETS}.
 \end{UCtrayectoria}
-%--------------------------------------        
-\begin{UCtrayectoriaA}{A}{El Docente está seguro de la identidad del alumno sin la necesidad de usar el reconocimiento facial y decide que le registrara asistencia sin la necesidad del reconocimiento facial}
-	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Registrar asistencia}.
-	\UCpaso El sistema actualiza la asistencia.
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{A}{No se encuentran datos del alumno}
+	\UCpaso El sistema muestra el mensaje: \textbf{\hyperref[msg:CU09-E1]{MSG-CU09-E1}} ``No se encontraron datos.''
+	\UCpaso[\UCactor] El docente revisa la información o regresa a la lista de alumnos.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
-%--------------------------------------        
-\begin{UCtrayectoriaA}{B}{El Docente no está seguro de la identidad del alumno sin la necesidad de usar el reconocimiento facial y decide que no le registrara asistencia}
-	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{No registrar asistencia}.
-	\UCpaso El sistema no actualiza la asistencia.
-	\UCpaso Fin de la trayectoria alternativa.
-\end{UCtrayectoriaA}        
-%--------------------------------------        
-\begin{UCtrayectoriaA}{C}{El ETS no tiene alumnos inscritos}
-	\UCpaso El sistema muestra un mensaje: {\bf MSG-16}{``No hay alumnos inscritos en este ETS.''}
-	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Regresar} para volver a la pantalla anterior.
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{B}{Verificación con Código QR}
+	\UCpaso[\UCactor] El docente presiona \IUbutton{Verificar con QR}.
+	\UCpaso El sistema redirige a la \IUref{IU10}{Pantalla Código QR} para escanear la credencial.
+	\UCpaso Si el código QR no es válido, el sistema muestra: \textbf{\hyperref[msg:CU09-E2]{MSG-CU09-E2}} ``Código QR no válido.''
+	\UCpaso Si el código QR es válido, el sistema redirige a la \IUref{IU11}{Pantalla Credencial del alumno} mostrando la credencial simulada y la obtenida del QR.
+	\UCpaso[\UCactor] El docente verifica la información y regresa a la \IUref{IUE07}{Creación del reporte}.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
-%--------------------------------------        
-\begin{UCtrayectoriaA}{D}{Error en la conexión con la base de datos}
-	\UCpaso El sistema muestra un mensaje de error: {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
-	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
-	\UCpaso[\UCactor] El docente puede intentar registrar la asistencia.
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{C}{Verificación con IA (Reconocimiento Facial)}
+	\UCpaso[\UCactor] El docente presiona \IUbutton{Verificar con IA}.
+	\UCpaso El sistema redirige a la \IUref{IU17}{Pantalla de Reconocimiento facial}.
+	\UCpaso Si la foto no se puede tomar, el sistema muestra: \textbf{\hyperref[msg:CU09-E3]{MSG-CU09-E3}} ``Error al capturar la fotografía: [detalle del error]''.
+	\UCpaso El sistema realiza el reconocimiento facial y obtiene la precisión. \Trayref{C1}, \Trayref{C2}, \Trayref{C3}, \Trayref{C4}
+	\UCpaso El sistema regresa a la \IUref{IUE07}{Creación del reporte} mostrando la precisión y la foto (si exitoso).
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
-%--------------------------------------        
-\begin{UCtrayectoriaA}{E}{El sistema detecta incertidumbre en la identidad de un alumno}
-	\UCpaso El sistema detecta las características coincidentes como las que no coinciden con el alumno.
-	\UCpaso[\UCactor] El docente revisa la información proporcionada y toma una decisión sobre la identidad del alumno.
-	\UCpaso[\UCactor] El docente confirma o corrige la asistencia.
-	\UCpaso El sistema actualiza la asistencia según la confirmación del docente.
-	\UCpaso El sistema muestra la lista de asistencia de los alumnos actualizada en la \IUref{IU08}{Pantalla Lista de asistencia de ETS}.
+%--------------------------------------
+\begin{UCtrayectoriaA}{C1}{Reconocimiento Facial Exitoso (>= 80\%)}
+	\UCpaso El sistema muestra: ``Es casi seguro que el alumno es quien dice ser. Precisión del reconocimiento facial: [precisión]\%''
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
-%--------------------------------------        
-\begin{UCtrayectoriaA}{F}{El sistema identifica que el alumno no coincide con la foto registrada}
-	\UCpaso El sistema muestra al docente las características que no coinciden.
-	\UCpaso[\UCactor] El docente revisa las discrepancias y decide marcar al alumno como ausente o realizar una verificación adicional.
-	\UCpaso El sistema actualiza la asistencia.
-	\UCpaso El sistema muestra la lista de asistencia de los alumnos actualizada en la \IUref{IU08}{Pantalla Lista de asistencia de ETS}.
+%--------------------------------------
+\begin{UCtrayectoriaA}{C2}{Identidad Dudosa (>= 60\% y < 80\%)}
+	\UCpaso El sistema muestra: ``Es dudosa la identidad del alumno. la precisión del reconocimiento facial: [precisión]\%''
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%--------------------------------------
+\begin{UCtrayectoriaA}{C3}{No Coincidencia (< 60\%)}
+	\UCpaso El sistema muestra: ``El casi seguro que el alumno no es quien dice ser. Precisión del reconocimiento facial: menor al 60\%''
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%--------------------------------------
+\begin{UCtrayectoriaA}{C4}{Error en el Reconocimiento Facial}
+	\UCpaso El sistema muestra: \textbf{\hyperref[msg:CU09-E4]{MSG-CU09-E4}} ``Error al realizar el reconocimiento facial: [detalle del error]''.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{D}{Registro Directo: Asistencia}
+	\UCpaso[\UCactor] El docente selecciona un tipo de asistencia y presiona \IUbutton{Registrar asistencia}. \Trayref{F1}
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{E}{Registro Directo: Incidencia}
+	\UCpaso[\UCactor] El docente selecciona un tipo de incidencia, escribe una razón y presiona \IUbutton{Registrar incidencia}. \Trayref{F2}
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{F1}{Falta selección de tipo (Asistencia)}
+	\UCpaso Si el docente no selecciona un tipo, el sistema muestra: \textbf{\hyperref[msg:CU09-E7]{MSG-CU09-E7}} ``Debe seleccionar un tipo.''
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{F2}{Falta selección de tipo o razón (Incidencia)}
+	\UCpaso Si el docente no selecciona un tipo, el sistema muestra: \textbf{\hyperref[msg:CU09-E7]{MSG-CU09-E7}} ``Debe seleccionar un tipo.''
+	\UCpaso Si la razón tiene menos de 5 letras, el sistema muestra: \textbf{\hyperref[msg:CU09-E12]{MSG-CU09-E12}} ``La razón debe tener al menos 5 letras.''
+	\UCpaso Si faltan campos, el sistema muestra: \textbf{\hyperref[msg:CU09-E9]{MSG-CU09-E9}} ``Debe completar todos los campos correctamente.''
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{G}{Registrar Asistencia: Éxito}
+	\UCpaso El sistema guarda el reporte de asistencia.
+	\UCpaso El sistema muestra: \textbf{\hyperref[msg:CU09-S1]{MSG-CU09-S1}} ``Asistencia registrada con éxito.''
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{H}{Registrar Incidencia: Éxito}
+	\UCpaso El sistema guarda el reporte de incidencia.
+	\UCpaso El sistema muestra: \textbf{\hyperref[msg:CU09-S2]{MSG-CU09-S2}} ``Incidencia registrada con éxito.''
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{I}{Fallo al Registrar Reporte}
+	\UCpaso Si falla el registro de asistencia, el sistema muestra: \textbf{\hyperref[msg:CU09-E10]{MSG-CU09-E10}} ``Error al crear el reporte de asistencia.''
+	\UCpaso Si falla el registro de incidencia, el sistema muestra: \textbf{\hyperref[msg:CU09-E11]{MSG-CU09-E11}} ``Error al crear el reporte de incidencia.''
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{J}{Reporte Existente: Eliminar}
+	\UCpaso El sistema detecta que ya existe un reporte para el alumno y pregunta: ``El reporte para este alumno ya fue creado con anterioridad. ¿Desea eliminar el reporte?''
+	\UCpaso[\UCactor] El docente selecciona "Sí" para eliminar.
+	\UCpaso El sistema elimina el reporte y muestra: ``El reporte se eliminó exitosamente.''
+	\UCpaso El sistema recarga la \IUref{IUE07}{Creación del reporte}.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{K}{Reporte Existente: No Eliminar}
+	\UCpaso El sistema detecta que ya existe un reporte para el alumno y pregunta: ``El reporte para este alumno ya fue creado con anterioridad. ¿Desea eliminar el reporte?''
+	\UCpaso[\UCactor] El docente selecciona "No" o cierra el diálogo.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 

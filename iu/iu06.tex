@@ -1,30 +1,69 @@
 %--------------------------------------
 \subsection{IU06 Pantalla Información de ETS}
 
-\subsubsection{Objetivo}
-	Permitir al docente visualizar la información detallada cada ETS que tiene asignados.
-	
-\subsubsection{Diseño}
-	Esta pantalla \IUref{IU06}{Pantalla Información de ETS} (ver figura~\ref{IU06}) aparece luego de seleccionar un ETS asignado. 
+\IUfig[.40]{cu06}{IU06}{Pantalla Información de ETS}
+\newpage
 
-\IUfig[.35]{cu06}{IU06}{Pantalla Información de ETS}
+\subsubsection{Objetivo}
+Permitir al docente visualizar la información detallada cada ETS que tiene asignados.
+
+\subsubsection{Diseño}
+Esta pantalla \IUref{IU06}{Pantalla Información de ETS} (ver figura~\ref{IU06}) aparece luego de seleccionar un ETS asignado.
+
+
+
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Icono de flecha hacia la izquierda:} Para regresar a la pantalla anterior (\IUref{IU05}{Pantalla Consultar ETS}).
+		\item \textbf{Título:} "Detalles del ETS de Bases de Datos".
+		\item \textbf{Icono de tres puntos horizontales con una burbuja de diálogo:} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\end{itemize}
+	\item \textbf{Información del ETS:} Muestra los detalles del ETS en forma de lista o texto informativo:
+	\begin{itemize}
+		\item Unidad de aprendizaje.
+		\item Tipo de ETS.
+		\item Periodo.
+		\item Fecha de aplicación.
+		\item Turno.
+		\item Duración.
+		\item Salones asignados:
+		\item Hora de inicio.
+	\end{itemize}
+	\item \textbf{Botón \IUbutton{Solicitar reemplazo}:} Visible si el docente es el aplicador del ETS. Redirige a la \IUref{IU07}{Pantalla Solicitar remplazo}.
+	\item \textbf{Botón \IUbutton{Ir a la lista de alumnos}:} Visible si hay alumnos inscritos en el ETS. Redirige a la \IUref{IU08}{Pantalla Lista de alumnos inscritos a un ETS}.
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+		\item \textbf{Icono de campana:} Redirección a la pantalla de notificaciones.
+		\item \textbf{Icono de calendario con marcas:} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\end{itemize}
+\end{itemize}
 
 \subsubsection{Salidas}
-
-	Información detallada del ETS seleccionado. 
+Información detallada del ETS seleccionado.
 
 \subsubsection{Entradas}
 Ninguna
 
 \subsubsection{Comandos}
 \begin{itemize}
-	\item \IUbutton{Ver alumnos} Redirige a la pantalla \IUref{IU06}{consultar lista de alumnos inscritos a un ETS}
+	\item \IUbutton{Solicitar reemplazo}: Redirige a la pantalla \IUref{IU07}{Solicitar remplazo}.
+	\item \IUbutton{Ir a la lista de alumnos}: Redirige a la pantalla \IUref{IU08}{Lista de alumnos inscritos a un ETS}.
+	\item \textbf{Icono de flecha izquierda (barra superior):} Regresa a la pantalla anterior (\IUref{IU05}{Pantalla Consultar ETS}).
+	\item \textbf{Icono de tres puntos (barra superior):} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\item \textbf{Icono de calendario (barra de navegación inferior):} Redirige a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirige a la pantalla de notificaciones.
+	\item \textbf{Icono de casa (barra de navegación inferior):} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
 \end{itemize}
 
 \subsubsection{Mensajes}
-
-\begin{Citemize}
-	\item {\bf MSG-12}{``Información no disponible para el ETS seleccionado''}
-	\item {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
-\end{Citemize}
+Los mensajes que se pueden mostrar en esta pantalla, según el caso de uso CU-06, son:
+\begin{itemize}
+	\item \textbf{\hyperref[msg:CU06-E1]{MSG-CU06-E1}} Ocurrió un error al desplegar los detalles del ETS.
+	\item \textbf{\hyperref[msg:CU06-E2]{MSG-CU06-E2}} Error al consultar la base de datos. Intente nuevamente más tarde.
+\end{itemize}
 

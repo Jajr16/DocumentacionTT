@@ -10,8 +10,8 @@
 	\UCitem{Supervisa}{\color{Gray}De la cruz De la cruz alejandra.}
 	\UCitem{Actor}{\hyperlink{tDocente}{Docente}}
 	\UCitem{Propósito}{Permitir a los docentes revisar los detalles de la asistencia de un alumno específico a un ETS.}
-	\UCitem{Entradas}{Selección de un alumno desde la \IUref{IU13}{Pantalla consultar lista de alumnos inscritos a un ETS}.}
-	\UCitem{Origen}{\IUref{IU13}{Pantalla consultar lista de alumnos inscritos a un ETS}}
+	\UCitem{Entradas}{Selección de un alumno desde la \IUref{IU08}{Lista de asistencia de ETS}.}
+	\UCitem{Origen}{\IUref{IU08}{Lista de asistencia de ETS}}
 	\UCitem{Salidas}{Información detallada del alumno y su reporte de asistencia, incluyendo (si aplica): foto de la credencial, foto del reconocimiento facial (con precisión), boleta, nombre completo, CURP, carrera, unidad de aprendizaje del ETS, periodo del ETS, turno del ETS, materia del ETS, tipo de ETS, fecha de ingreso, hora de ingreso, nombre del docente aplicador, razón del reporte, motivo del rechazo. Mensajes indicando la ausencia de reporte o de imágenes.}
 	\UCitem{Destino}{\IUref{IU20}{Pantalla mostrar la foto e información del alumno}}
 	\UCitem{Precondiciones}{El docente debe haber iniciado sesión (\textbf{\hyperref[CU-01]{CU-01 Iniciar sesión del sistema móvil}}) y haber consultado la lista de alumnos inscritos al ETS (\textbf{\hyperref[CU-08]{CU-08 Consultar lista de alumnos inscritos a un ETS}}).}
@@ -24,7 +24,7 @@
 \end{UseCase}
 %--------------------------------------
 \begin{UCtrayectoria}
-	\UCpaso[\UCactor] El docente selecciona un alumno de la lista en la \IUref{IU13}{Pantalla consultar lista de alumnos inscritos a un ETS}.
+	\UCpaso[\UCactor] El docente selecciona un alumno de la lista en la \IUref{IU08}{Lista de asistencia de ETS}.
 	\UCpaso El sistema recupera la información del alumno y su reporte de asistencia. \Trayref{A}, \Trayref{B}
 	\UCpaso El sistema muestra en la \IUref{IU20}{Pantalla mostrar la foto e información del alumno}: boleta, nombre completo, CURP, carrera, unidad de aprendizaje del ETS, periodo del ETS, turno del ETS, materia del ETS, tipo de ETS, fecha de ingreso, hora de ingreso, nombre del docente aplicador y razón del reporte.
 	\UCpaso Si el reporte es un rechazo, se muestra el motivo del rechazo.

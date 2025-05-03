@@ -1,32 +1,64 @@
 %--------------------------------------
-\subsection{IU08 Pantalla Lista de asistencia de ETS}
+\subsection{IU08: Pantalla Lista de asistencia de ETS}
+
+\IUfig[.40]{cu08}{IU08}{Pantalla Lista de asistencia de ETS}
+\newpage
 
 \subsubsection{Objetivo}
-Permitir al docente visualizar la asistencia de los alumnos inscritos a un ETS asignado.
+Permitir al docente visualizar la lista de los alumnos inscritos en un ETS asignado, junto con su estado de asistencia, y acceder a las funciones de reporte dentro del periodo permitido.
 
 \subsubsection{Diseño}
-Esta pantalla aparece luego de registrar la asistencia de los alumnos en la \IUref{IU08}{Pantalla lista de asistencia de ETS} (ver figura~\ref{IU08})
+Esta pantalla \IUref{IU08}{Pantalla Lista de asistencia de ETS} (ver figura~\ref{IU08}) muestra la lista de alumnos inscritos en el ETS seleccionado. Se accede a ella al presionar el botón "Ir a la lista de alumnos" desde la \IUref{IU06}{Pantalla Información de ETS}.
 
-\IUfig[.35]{cu08}{IU08}{Pantalla Lista de asistencia de ETS}
+
+
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Icono de flecha hacia la izquierda:} Para regresar a la pantalla anterior (\IUref{IU06}{Pantalla Información de ETS}).
+		\item \textbf{Título:} "ETS de Bases de Datos\newline 25/2\newline Lista de alumnos inscritos".
+		\item \textbf{Icono de tres puntos horizontales con una burbuja de diálogo:} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\end{itemize}
+	\item \textbf{Lista de alumnos inscritos:} Muestra a los alumnos inscritos en el ETS en forma de tarjetas o filas. Para cada alumno se muestra:
+	\begin{itemize}
+		\item \textbf{Boleta y Nombre:} Presentados como texto. Este elemento, al ser presionado (si está habilitado), redirige a la \textbf{Pantalla Reporte} (\IUref{IUE07}{Creación del reporte}).
+		\item \textbf{Icono de estado de asistencia:} Un icono visual que representa el estado de asistencia del alumno (ej., una "X" roja o una paloma verde). Al presionarlo, redirige a la \IUref{IU20}{Pantalla mostrar la foto e información del alumno} (solo dentro del periodo de tiempo especificado).
+	\end{itemize}
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+		\item \textbf{Icono de campana:} Redirección a la pantalla de notificaciones.
+		\item \textbf{Icono de calendario con marcas:} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\end{itemize}
+\end{itemize}
 
 \subsubsection{Salidas}
-Lista de asistencia de ETS.
+Muestra la lista de los alumnos inscritos en el ETS, incluyendo su boleta, nombre y un icono de estado de asistencia. Puede mostrar mensajes informativos sobre el periodo de reporte y los permisos del docente.
 
 \subsubsection{Entradas}
-Ninguna
+Ninguna directa por parte del usuario en esta pantalla, ya que la lista se muestra al acceder a ella.
 
 \subsubsection{Comandos}
 \begin{itemize}
-	\item \IUbutton{Alumno} Selecciona un alumno de la lista para registrar su asistencia y lo redirige a la pantalla \IUref{IU17}{reconocimiento facial}.
-	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
-    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
-    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+	\item \textbf{Boleta y Nombre del alumno (al ser presionado):} Si está habilitado (dentro del periodo de reporte y si el docente tiene permisos), redirige a la \textbf{Pantalla Reporte} (\IUref{IUE07}{Creación del reporte}).
+	\item \textbf{Icono de estado de asistencia (al ser presionado):} Redirige a la \IUref{IU20}{Pantalla mostrar la foto e información del alumno} (solo dentro del periodo de tiempo especificado).
+	\item \textbf{Icono de calendario (barra de navegación inferior):} Redirige a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirige a la pantalla de notificaciones.
+	\item \textbf{Icono de casa (barra de navegación inferior):} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\item \textbf{Icono de flecha izquierda (barra superior):} Regresa a la pantalla anterior (\IUref{IU06}{Pantalla Información de ETS}).
+	\item \textbf{Icono de tres puntos (barra superior):} Accede a la funcionalidad de mensajes dentro de la aplicación.
 \end{itemize}
 
 \subsubsection{Mensajes}
-
-\begin{Citemize}
-	\item {\bf MSG-16}{``No hay alumnos inscritos en este ETS.''}
-	\item {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
-	\item {\bf MSG-18}{``Asistencia registrada exitosamente.''}  
-\end{Citemize}
+Los mensajes que se pueden mostrar en esta pantalla, según el caso de uso CU-08, son:
+\begin{itemize}
+	\item \textbf{\hyperref[msg:CU08-E2]{MSG-CU08-E2}} Error al consultar la base de datos. Intente nuevamente más tarde.
+	\item \textbf{\hyperref[msg:CU08-A1]{MSG-CU08-A1}} No hay alumnos inscritos al ETS.
+	\item \textbf{\hyperref[msg:CU08-C1]{MSG-CU08-C1}} El ETS seleccionado no es válido.
+	\item \textbf{\hyperref[msg:CU08-D1]{MSG-CU08-D1}} Aún no es periodo para crear los reportes. Faltan (tiempo).
+	\item \textbf{\hyperref[msg:CU08-ET2]{MSG-CU08-ET2}} El periodo para registrar los reportes ha concluido.
+	\item \textbf{\hyperref[msg:CU08-F1]{MSG-CU08-F1}} Usted no está autorizado para crear el reporte de este alumno.
+\end{itemize}

@@ -1,39 +1,57 @@
 %--------------------------------------
-\subsection{IU17 Pantalla de Reconocimiento facial}
+\subsection{IU17: Pantalla de Reconocimiento facial}
+
+\IUfig[.40]{cu19}{IU17}{Pantalla de Reconocimiento facial.}
+\newpage
 
 \subsubsection{Objetivo}
-Permitir al docente registrar la asistencia al ETS de los alumnos y al personal de seguridad le permite registrar la entrada a las instalaciones.
+Permitir al docente capturar una fotografía del alumno para realizar el reconocimiento facial como método de verificación de identidad al registrar la asistencia al ETS.
 
 \subsubsection{Diseño}
-Esta pantalla \IUref{IU17}{Pantalla de Reconocimiento facial} (ver figura~\ref{IU17}) aparece luego de seleccionar el botón \IUbutton{Registrar asistencia} desde la pantalla \IUref{IU08}{Lista de asistencia de ETS}..
+Esta pantalla \IUref{IU17}{Pantalla de Reconocimiento facial} (ver figura~\ref{IU17}) se muestra al presionar el botón "Verificar con IA" desde la \IUref{IUE07}{Pantalla Crear Reporte}. Presenta una interfaz para que el docente pueda tomar una fotografía del alumno utilizando la cámara del dispositivo.
 
 
-\IUfig[.30]{cu19}{IU17}{Pantalla de Reconocimiento facial}
+
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Icono de flecha hacia la izquierda:} Para regresar a la pantalla anterior (\IUref{IUE07}{Pantalla Crear Reporte}).
+		\item \textbf{Título:} "Tome la fotografía".
+		\item \textbf{Icono de tres puntos horizontales con una burbuja de diálogo:} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\end{itemize}
+	\item \textbf{Vista de la cámara:} Un área central oscura que muestra la vista previa de lo que la cámara del dispositivo está enfocando, indicando dónde debe colocarse el rostro del alumno para tomar la fotografía. Un recuadro.
+	\item \textbf{Botón de captura:} Un círculo con un icono de cámara en el centro, ubicado en la parte inferior central de la pantalla. Al presionarlo, se toma la fotografía del alumno.
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+		\item \textbf{Icono de campana:} Redirección a la pantalla de notificaciones.
+		\item \textbf{Icono de calendario con marcas:} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\end{itemize}
+\end{itemize}
 
 \subsubsection{Salidas}
-Confirmación de asistencia registrada
+Después de tomar la fotografía, el sistema procesa la imagen para el reconocimiento facial y regresa a la \IUref{IUE07}{Pantalla Crear Reporte}, mostrando el resultado de la precisión del reconocimiento y la fotografía capturada (si el proceso es exitoso). En caso de error, se muestran mensajes.
 
 \subsubsection{Entradas}
-Ninguna
+La fotografía capturada por la cámara del dispositivo al presionar el botón de captura.
 
 \subsubsection{Comandos}
 \begin{itemize}
-    \item \IUbutton{Cancelar}: Permite al alumno cancelar la operación de Reconocimeinto facial.
-    \item \IUbutton{Comenzar}: Activa la cámara para el Reconocimiento facil. 
-    \item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
-    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
-    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
-    \item \IUbutton{Registrar asistencia} Si el usuario que presiona el botón es un docente, marca la asistencia del alumno al ETS, por otro lado si el usuario que presiona es un botón personal de seguridad, marca la entrada del alumno a las instalaciones.
-    \item \IUbutton{No registrar asistencia} No marca la asistencia ni la entrada (El alumno no es quien dice ser).
+	\item \textbf{Botón de captura (icono de cámara):} Activa la toma de la fotografía.
+	\item \textbf{Icono de flecha izquierda (barra superior):} Regresa a la pantalla anterior (\IUref{IUE07}{Pantalla Crear Reporte}).
+	\item \textbf{Icono de tres puntos (barra superior):} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\item \textbf{Icono de calendario (barra de navegación inferior):} Redirige a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirige a la pantalla de notificaciones.
+	\item \textbf{Icono de casa (barra de navegación inferior):} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
 \end{itemize}
 
 \subsubsection{Mensajes}
-
-\begin{Citemize}
-    \item {\bf MSG-17}{``No se pudo activar la cámara o reconocer la identidad. Intente nuevamente.''}
-    \item {\bf MSG-16}{``No hay alumnos inscritos en este ETS.''}
-    \item {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
-    \item {\bf MSG-15}{``Asistencia registrada exitosamente.''}
-    \item {\bf MSG-23}{``Entrada registrada exitosamente.''}
-    \item {\bf MSG-24}{``Entrada no registrada .''}
-\end{Citemize}
+\begin{itemize}
+	\item \textbf{\hyperref[msg:CU09-E3]{MSG-CU09-E3}} Error al capturar la fotografía: [detalle del error].
+	\item \textbf{\hyperref[msg:CU09-E4]{MSG-CU09-E4}} Error al realizar el reconocimiento facial: [detalle del error].
+	\item \textbf{\hyperref[msg:CU09-E5]{MSG-CU09-E5}} Error de conexión. (Podría ocurrir durante el proceso de reconocimiento).
+	\item \textbf{\hyperref[msg:CU09-E6]{MSG-CU09-E6}} Ocurrió un fallo en el proceso. (Un error general durante el reconocimiento).
+\end{itemize}

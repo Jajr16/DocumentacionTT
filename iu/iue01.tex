@@ -1,33 +1,51 @@
 % !TeX root = ../ejemplo.tex
 %--------------------------------------
-\subsection{IUE01 Saludo de docente}
+\subsection{IUE01: Pantalla Saludo de docente}
+
+\IUfig[.40]{IUE01}{IUE01}{Pantalla Menú de docente.}
+\newpage	
 
 \subsubsection{Objetivo}
-	Mostrar una pantalla de home después de iniciar sesión y marcar las acciones que el docente puede hacer.
+Mostrar una pantalla de inicio después de que el docente inicia sesión exitosamente, presentando las principales acciones que puede realizar, además de las opciones generales del usuario.
 
 \subsubsection{Diseño}
-	Esta pantalla \IUref{IUE01}{Pantalla saludo de docente} (ver figura~\ref{IUE01}) aparece al iniciar sesión exitosamente y muestra las acciones que el docente puede hacer,ademas de las opciones generales de usuario (Consultar calendario escolar y consultar notificaciones). 
+Esta pantalla \IUref{IUE01}{Pantalla saludo de docente} (ver figura~\ref{IUE01}) aparece al iniciar sesión exitosamente y muestra las acciones principales disponibles para el docente, además de las opciones generales del usuario (Consultar calendario escolar y consultar notificaciones).
 
-\IUfig[.35]{IUE01}{IUE01}{Pantalla Menú de docente.}
+
+
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Logotipo de ESCOM:} Imagen del logo de ESC en la parte superior central.
+		\item \textbf{Icono de tres puntos horizontales con una burbuja de diálogo:} Accede a la funcionalidad de mensajes dentro de la aplicación (ubicado en la esquina superior derecha).
+	\end{itemize}
+	\item \textbf{Mensaje de bienvenida:} Texto "Bienvenido [Nombre del Docente]" (ej., Bienvenido Ulises Velez Saldaña) en la parte central superior.
+	\item \textbf{Pregunta de acción:} Texto "¿Qué deseas hacer?" debajo del mensaje de bienvenida.
+	\item \textbf{Botón de acción principal:} Un botón rectangular redondeado con un icono de lista y el texto "ETS" debajo. Al presionarlo, redirige a la pantalla \IUref{IU04}{Consultar periodos de ETS asignados al docente}.
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a esta pantalla de saludo del docente.
+		\item \textbf{Icono de campana:} Redirección a la pantalla \IUref{IU03}{Consultar notificaciones}.
+		\item \textbf{Icono de calendario con marcas:} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\end{itemize}
+\end{itemize}
 
 \subsubsection{Salidas}
-
-	Ninguna.
+Ninguna.
 
 \subsubsection{Entradas}
-	Ninguna.
+Ninguna.
 
 \subsubsection{Comandos}
 \begin{itemize}
-	\item \IUbutton{Consultar periodos de ETS asignados}: Redirige a los docentes a la pantalla \IUref{IU04}{Consultar periodos de ETS asignados al docente}
-	\item \IUbutton{Notificaciones}: Redirige a los docentes a la pantalla \IUref{IU03}{Consultar notificaciones}
-	\item \IUbutton{Calendario}: Redirige a los docentes a la pantalla \IUref{IU02}{Consultar calendario escolar}
-	
+	\item \IUbutton{ETS}: Redirige a la pantalla \IUref{IU05}{Pantalla Consultar ETS}.
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirige a la pantalla \IUref{IU03}{Consultar notificaciones}.
+	\item \textbf{Icono de calendario (barra de navegación inferior):} Redirige a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\item \textbf{Icono de tres puntos (barra superior):} Accede a la funcionalidad de mensajes dentro de la aplicación.
 \end{itemize}
 
 \subsubsection{Mensajes}
-
-\begin{Citemize}
-	\item Ninguno.
-\end{Citemize}
 

@@ -1,33 +1,49 @@
 %--------------------------------------
-\subsection{IU11 Pantalla Credencial del alumno}
+\subsection{IU11: Pantalla Credencial del alumno}
+
+\IUfig[.40]{cu14}{IU11}{Pantalla Credencial del alumno.}
+\newpage
 
 \subsubsection{Objetivo}
-	Permitir al personal de seguridad consultar la información del alumno mediante el escaneo del código QR de su credencial.
+Mostrar al docente la información del alumno obtenida al escanear el código QR de su credencial, para verificar su identidad.
 
 \subsubsection{Diseño}
-Esta pantalla aparece luego de que se escanea el código QR de la credencial del alumno \IUref{IU11}{Pantalla Credencial del alumno} (ver figura~\ref{IU11}).
-	
+Esta pantalla \IUref{IU11}{Pantalla Credencial del alumno} (ver figura~\ref{IU11}) se muestra después de que el docente escanea con éxito el código QR de la credencial del alumno desde la \IUref{IU10}{Pantalla Código QR}. Presenta una imagen simulada de la credencial y la información del alumno.
 
-\IUfig[.35]{cu14}{IU11}{Pantalla Credencial del alumno}
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Icono de flecha hacia la izquierda:} Para regresar a la pantalla anterior (\IUref{IU10}{Pantalla Código QR}).
+		\item \textbf{Título:} "Credencial".
+	\end{itemize}
+	\item \textbf{Se muestra la imagen de la credencial de la DAEx}
+	\item \textbf{Imagen simulada de la credencial:} Muestra una representación visual de la credencial del alumno, incluyendo el logotipo del IPN, número de control (ej., 2021340022), fotografía del alumno, CURP (ej., CUCA010403MHGRRLAS), nombre completo (ej., ALEJANDRA DE LA CRUZ DE LA CRUZ), programa académico (ej., INGENIERÍA EN INTELIGENCIA ARTIFICIAL), unidad académica (ej., ESCOM) y vigencia.
+	\item \textbf{Botón \IUbutton{Regresar a la creación del reporte}:} Permite al docente regresar a la creación del reporte después de verificar su información. Al presionarlo, regresa a la \IUref{IUE07}{Pantalla Crear Reporte}
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+		\item \textbf{Icono de campana:} Redirección a la pantalla de notificaciones.
+		\item \textbf{Icono de calendario con marcas:} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\end{itemize}
+\end{itemize}
 
 \subsubsection{Salidas}
-	Información del alumno
+Muestra la información del alumno obtenida del código QR escaneado.
 
 \subsubsection{Entradas}
-Ninguna
+Ninguna directa por parte del usuario en esta pantalla, ya que la información se muestra automáticamente después del escaneo.
 
 \subsubsection{Comandos}
 \begin{itemize}
-	\item \IUbutton{Registrar asistencia}: Permite registrar la asistencia del alumno.
-	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
-    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
-    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+	\item \IUbutton{Regresar a la creación del reporte}: Regresa a la \IUref{IUE07}{Pantalla Crear Reporte}.
+	\item \textbf{Icono de calendario (barra de navegación inferior):} Redirige a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirige a la pantalla de notificaciones.
+	\item \textbf{Icono de casa (barra de navegación inferior):} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
 \end{itemize}
 
 \subsubsection{Mensajes}
 
-\begin{Citemize}
-	\item {\bf MSG-20}{``Alumno no registrado''}
-	\item {\bf MSG-11}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
-\end{Citemize}
 
