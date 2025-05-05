@@ -21,7 +21,6 @@ La pantalla contiene los siguientes elementos:
 	\item \textbf{Campo "Boleta":} Para que los alumnos ingresen su número de boleta. Tiene un icono de usuario asociado.
 	\item \textbf{Campo "Contraseña":} Para que todos los usuarios ingresen su contraseña. Tiene un icono de candado asociado.
 	\item \textbf{Botón \IUbutton{Entrar}:} Permite iniciar la sesión una vez que se han introducido las credenciales.
-	\item \textbf{Enlace "¿Su cuenta está bloqueada? Presione aquí para pedir su activación":} Redirige a la \IUref{UI32}{Pantalla de Solicitar desbloqueo de cuenta}.
 \end{itemize}
 
 \subsubsection{Salidas}
@@ -37,8 +36,8 @@ Redirección a la pantalla de saludo correspondiente al rol del usuario autentic
 Dependiendo del rol del usuario:
 \begin{itemize}
 	\item \textbf{Alumno:} Número de boleta y Contraseña.
-	\item \textbf{Personal de seguridad:} CURP y Contraseña (aunque la pantalla actual muestra "Boleta", esto debe ser "CURP" para el personal de seguridad).
-	\item \textbf{Docente, Presidente de academia, Jefe de departamento:} RFC y Contraseña (aunque la pantalla actual muestra "Boleta", esto debe ser "RFC" para estos roles).
+	\item \textbf{Personal de seguridad:} CURP y Contraseña.
+	\item \textbf{Docente, Presidente de academia, Jefe de departamento:} RFC y Contraseña.
 \end{itemize}
 	
 	\subsubsection{Comandos}
@@ -54,7 +53,6 @@ Dependiendo del rol del usuario:
 	\end{itemize}
 	
 	\subsubsection{Mensajes}
-	Los mensajes relevantes para esta pantalla, definidos en el caso de uso CU-01, son:
 	\begin{itemize}
 		\item \textbf{\hyperref[msg:CU01-E1]{MSG-CU01-E1}} Por favor, completa todos los campos.
 		\item \textbf{\hyperref[msg:CU01-E2]{MSG-CU01-E2}} Datos incorrectos.
