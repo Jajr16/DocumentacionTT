@@ -6,46 +6,66 @@
 
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
 %--------------------------------------
+
 \begin{UseCase}{CU-17}{Consultar ETS inscritos}{
-		Este caso de uso permite al alumno consultar los ETS que tiene asignados.
+		\label{CU-17}
+		Este caso de uso permite al alumno consultar los ETS en los que se ha inscrito, con la opción de buscar por nombre.
 	}
-	\UCitem{Versión}{\color{Gray}1.0}
+	\UCitem{Versión}{\color{Gray}2.0}
 	\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
 	\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín}
 	\UCitem{Actor}{\hyperlink{Alumno}{Alumno}}
-	\UCitem{Propósito}{Permitir al alumno consultar los ETS que ha inscrito.}
-	\UCitem{Entradas}{Seleccionar un periodo}
-	\UCitem{Origen}{Pantalla táctil}
-	\UCitem{Salidas}{Lista de ETS inscritos.}
-	\UCitem{Destino}{\IUref{IU15}{Pantalla Consultar ETS del alumno}}
+	\UCitem{Propósito}{Permitir al alumno consultar los ETS en los que se ha inscrito, con la posibilidad de filtrar por nombre del ETS.}
+	\UCitem{Entradas}{Selecciona el boton \IUbutton{Listado de ETS} en la \IUref{IUE03}{Pantalla de saludo del alumno}.}
+	\UCitem{Origen}{Pantalla táctil.}
+	\UCitem{Salidas}{Lista de ETS inscritos (con nombre, periodo, fecha, turno) o indicación de que no hay ETS inscritos.}
+	\UCitem{Destino}{\IUref{IU15}{Pantalla Consultar ETS del alumno}.}
 	\UCitem{Precondiciones}{El alumno debe estar autenticado en el sistema.}
-	\UCitem{Postcondiciones}{El alumno ha consultado los ETS inscritos.}
+	\UCitem{Postcondiciones}{El alumno ha consultado los ETS inscritos para el periodo seleccionado.}
 	\UCitem{Errores}{
-			E1: El sistema no puede recuperar la información de los ETS asignados y muestra el mensaje {\bf MSG-26}{``No hay ETS inscritos actualmente.''}
-			
-			E2: No hay ETS inscritos {\bf MS-G9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+		\begin{itemize}
+			\item \textbf{\hyperref[msg:CU17-E1]{MSG-CU17-E1}} ``Error al consultar la base de datos. Intente nuevamente más tarde.''
+			\item \textbf{\hyperref[msg:CU17-E2]{MSG-CU17-E2}} ``Conexión perdida.''
+		\end{itemize}
 	}
-	\UCitem{Tipo}{Se extiende del CU-01 Iniciar sesión del sistema móvil}
-	\UCitem{Observaciones}{Ninguna}
+	\UCitem{Tipo}{Caso de uso primario}
+	\UCitem{Observaciones}{Incluye una barra de búsqueda para filtrar los ETS inscritos por nombre.}
 \end{UseCase}
 %--------------------------------------
 \begin{UCtrayectoria}
-	\UCpaso[\UCactor] El alumno selecciona el período académico que desea consultar desde la \IUref{IU14}{Pantalla Periodo de ETS del alumno}.
-	\UCpaso El sistema verifica que el alumno tenga ETS inscritos en el periodo seleccionado \Trayref{A}.
-	\UCpaso El sistema despliega la lista de ETS inscritos en la \IUref{IU15}{Pantalla Consultar ETS del alumno}.
+	\UCpaso[\UCactor] El alumno selecciona el botón \IUbutton{Listado de ETS} en la \IUref{IUE03}{Pantalla de saludo del alumno}.
+	\UCpaso El sistema muestra la \IUref{IU15}{Pantalla Consultar ETS del alumno} con una barra de búsqueda.
+	\UCpaso El sistema recupera la lista de todos los ETS inscritos para el periodo seleccionado.
+	\UCpaso[\UCactor] Opcionalmente, el alumno puede ingresar un término en la barra de búsqueda para filtrar los ETS por nombre.
+	\UCpaso El sistema muestra la lista de ETS inscritos (filtrada por el término de búsqueda, si se proporcionó), incluyendo para cada uno: nombre, periodo, fecha y turno. \Trayref{A}
+	\UCpaso[\UCactor] El alumno visualiza la lista de ETS inscritos.
+	\UCpaso[\UCactor] El alumno puede seleccionar un ETS de la lista para ver más detalles.
+	\UCpaso[\UCactor] Opcionalmente, el alumno puede presionar un botón para ver todos los ETS inscritos (sin filtro).
 \end{UCtrayectoria}
 
-%--------------------------------------        
+%--------------------------------------
 \begin{UCtrayectoriaA}{A}{No hay ETS inscritos en el periodo seleccionado}
-	\UCpaso El sistema muestra un mensaje: {\bf MSG-26}{``No hay ETS inscritos actualmente.''}
-	\UCpaso[\UCactor] El alumno presiona el botón \IUbutton{Regresar} para volver a la pantalla anterior.
+	\UCpaso El sistema verifica que no hay ETS inscritos para el periodo seleccionado (o que no coinciden con el término de búsqueda).
+	\UCpaso El sistema muestra el mensaje \textbf{\hyperref[msg:CU17-E3]{MSG-CU17-E3}} ``No hay ETS inscritos.''
+	\UCpaso[\UCactor] El alumno visualiza el mensaje y puede intentar una nueva búsqueda o regresar.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
-%--------------------------------------        
+
+%--------------------------------------
 \begin{UCtrayectoriaA}{B}{Error en la conexión con la base de datos}
-	\UCpaso El sistema muestra un mensaje de error: {\bf MSG-09}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+	\UCpaso El sistema intenta recuperar la lista de ETS inscritos.
+	\UCpaso Ocurre un error en la conexión con la base de datos.
+	\UCpaso El sistema muestra el mensaje de error: \textbf{\hyperref[msg:CU17-E1]{MSG-CU17-E1}} ``Error al consultar la base de datos. Intente nuevamente más tarde.''
 	\UCpaso[\UCactor] El alumno presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
 	\UCpaso[\UCactor] El alumno puede intentar la consulta nuevamente o presionar el botón \IUbutton{Regresar} para volver a la pantalla anterior.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+
+%--------------------------------------
+\begin{UCtrayectoriaA}{C}{Conexión perdida}
+	\UCpaso Durante la recuperación de la lista de ETS inscritos, se pierde la conexión.
+	\UCpaso El sistema muestra el mensaje de error: \textbf{\hyperref[msg:CU17-E2]{MSG-CU17-E2}} ``Conexión perdida.''
+	\UCpaso[\UCactor] El alumno verifica su conexión a internet e intenta nuevamente.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 

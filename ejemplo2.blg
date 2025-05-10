@@ -18,13 +18,13 @@ A level-1 auxiliary file: TrabajoF.aux
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: ref.bib
 Warning--entry type for "D1" isn't style-file defined
---line 454 of file ref.bib
+--line 907 of file ref.bib
 Warning--entry type for "CALF" isn't style-file defined
---line 596 of file ref.bib
+--line 1191 of file ref.bib
 Warning--entry type for "UNAMSE" isn't style-file defined
---line 604 of file ref.bib
+--line 1207 of file ref.bib
 Warning--I'm ignoring FacialF's extra "pages" field
---line 631 of file ref.bib
+--line 1261 of file ref.bib
 Warning--I didn't find a database entry for "."
 You've used 66 entries,
             1876 wiz_defined-function locations,

@@ -1,31 +1,69 @@
 %--------------------------------------
 \subsection{IU15 Pantalla Consultar ETS del alumno}
 
+\IUfig[.35]{cu17}{IU15}{Pantalla Consultar ETS del alumno.}
+\label{IU15}
+\newpage
+
 \subsubsection{Objetivo}
-Permitir al alumno consultar los ETS que tiene inscritos. 
+Permitir al alumno visualizar la lista de los ETS en los que se ha inscrito y, opcionalmente, filtrarlos por nombre.
 
 \subsubsection{Diseño}
-Esta pantalla \IUref{IU15}{Pantalla Consultar ETS del alumno} (ver figura~\ref{IU15}) aparece luego de seleccionar un periodo de ETS. 
+Esta pantalla \IUref{IU15}{Pantalla Consultar ETS del alumno} (ver figura~\ref{IU15}) aparece luego de que el alumno selecciona el botón \IUbutton{Listado de ETS} en la \IUref{IUE03}{Pantalla de saludo del alumno}.
 
-\IUfig[.35]{cu17}{IU15}{Pantalla Consultar ETS del alumno.}
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Icono de flecha hacia la izquierda:} Para regresar a la pantalla anterior (\IUref{IUE03}{Pantalla de saludo del alumno}).
+		\item \textbf{Título:} "Lista de ETS".
+		\item \textbf{Icono de tres puntos horizontales con una burbuja de diálogo:} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\end{itemize}
+	\item \textbf{Barra de búsqueda:} Campo de texto donde el alumno puede ingresar el nombre de un ETS para filtrar la lista.
+	\begin{itemize}
+		\item \textbf{Botón \IUbutton{Todos}:} Muestra todos los ETS.
+		\item \textbf{Botón \IUbutton{Mis ETS}:} Muestra los ETS en los que el alumno está inscrito.
+	\end{itemize}
+	\item \textbf{Lista de ETS inscritos:} Muestra una lista de los ETS en los que el alumno se ha inscrito. Por cada ETS muestra:
+	\begin{itemize}
+		\item Unidad de Aprendizaje.
+		\item Periodo.
+		\item Fecha.
+		\item Turno.
+	\end{itemize}
+	Al seleccionar un elemento de esta lista, se navega a la \IUref{IU16}{Pantalla Información de ETS del alumno}.
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a la pantalla de saludo del alumno (\IUref{IUE03}{Pantalla de saludo del alumno}).
+		\item \textbf{Icono de campana:} Redirección a la pantalla de notificaciones.
+		\item \textbf{Icono de calendario con marcas:} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\end{itemize}
+\end{itemize}
 
 \subsubsection{Salidas}
-Lista de ETS asignados. 
+Lista de ETS inscritos (con nombre, periodo, fecha, turno) o indicación de que no hay ETS inscritos.
 
 \subsubsection{Entradas}
-Ninguna
-
+Término de búsqueda ingresado por el alumno. Selección de un ETS de la lista. Selección de los botones de filtro.
 
 \subsubsection{Comandos}
-
 \begin{itemize}
-	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
-	\item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
-	\item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+	\item \textbf{Ingresar texto en la barra de búsqueda:} Filtra la lista de ETS por nombre.
+	\item \textbf{Seleccionar un ETS de la lista:} Navega a la \IUref{IU16}{Pantalla Información de ETS del alumno}.
+	\item \textbf{Botón \IUbutton{Todos}:} Muestra todos los ETS inscritos.
+	\item \textbf{Botón \IUbutton{Mis ETS}:} Muestra los ETS inscritos del alumno.
+	\item \textbf{Icono de flecha izquierda (barra superior):} Regresa a la pantalla anterior (\IUref{IUE03}{Pantalla de saludo del alumno}).
+	\item \textbf{Icono de tres puntos (barra superior):} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\item \textbf{Icono de calendario (barra de navegación inferior):} Redirige a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirige a la pantalla de notificaciones.
+	\item \textbf{Icono de casa (barra de navegación inferior):} Redirección a la pantalla de saludo del alumno (\IUref{IUE03}{Pantalla de saludo del alumno}).
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
 \end{itemize}
-\subsubsection{Mensajes}
 
-\begin{Citemize}
-	\item {\bf MSG-26}{``No hay ETS inscritos actualmente.''}
-	\item {\bf MSG-09}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
-\end{Citemize}
+\subsubsection{Mensajes}
+\begin{itemize}
+	\item \textbf{\hyperref[msg:CU17-E1]{MSG-CU17-E1}} Error al consultar la base de datos. Intente nuevamente más tarde.
+	\item \textbf{\hyperref[msg:CU17-E2]{MSG-CU17-E2}} Conexión perdida.
+	\item \textbf{\hyperref[msg:CU17-E3]{MSG-CU17-E3}} No hay ETS inscritos.
+\end{itemize}

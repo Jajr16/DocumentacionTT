@@ -1,44 +1,85 @@
 %-------------------------------------- COMIENZA descripción del caso de uso.
 
+\label{CU-19}
 \begin{UseCase}{CU-19}{Probar reconocimiento facial}{
-		Este caso de uso permite al alumno registrar su asistencia al ETS.
+		Permitir que el alumno pruebe la funcionalidad de reconocimiento facial para asegurar que su rostro sea reconocido correctamente por el sistema.
 	}
-	\UCitem{Versión}{\color{Gray}1.0}
+	\UCitem{Versión}{\color{Gray}2.0}
 	\UCitem{Autor}{\color{Gray}De la cruz De la cruz Alejandra}
 	\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín}
 	\UCitem{Actor}{\hyperlink{Alumno}{Alumno}}
-	\UCitem{Propósito}{Facilitar el registro de asistencia de los alumnos.}
-	\UCitem{Entradas}{Pantalla táctil}
-	\UCitem{Origen}{Cámara del dispositivo}
-	\UCitem{Salidas}{Confirmación de asistencia registrada.}
-	\UCitem{Destino}{Mensaje de confirmación de asistencia.}
-	\UCitem{Precondiciones}{El alumno debe estar frente a la cámara del dispositivo.}
-	\UCitem{Postcondiciones}{El alumno asegura que el reconocimiento facial lo reconosca.}
+	\UCitem{Propósito}{Permitir al alumno verificar que el sistema de reconocimiento facial funciona correctamente con su rostro.}
+	\UCitem{Entradas}{Selección del botón \IUbutton{Probar reconocimiento facial} en la \IUref{IUE03}{Pantalla de saludo del alumno}.}
+	\UCitem{Origen}{Interacción del alumno con la \IUref{IUE03}{Pantalla de saludo del alumno}.}
+	\UCitem{Salidas}{Retroalimentación visual en la \IUref{IU19}{Pantalla Reconocimiento facial alumno} indicando la precisión del reconocimiento y una imagen del rostro capturado (si aplica). Mensaje de error si la cámara no se activa o falla el reconocimiento.}
+	\UCitem{Destino}{\IUref{IU19}{Pantalla Reconocimiento facial alumno}.}
+	\UCitem{Precondiciones}{El alumno ha iniciado sesión en la aplicación móvil (\textbf{\hyperref[CU-02]{CU-02 Iniciar sesión del alumno}}).}
+	\UCitem{Postcondiciones}{El alumno ha visualizado el resultado de la prueba de reconocimiento facial.}
 	\UCitem{Errores}{
-			
-			E1: Falló en la activación de la cámara y muestra el mensaje {\bf MSG-17}{``No se pudo activar la cámara o reconocer la identidad. Intente nuevamente.''}.
-
+		\begin{itemize}
+			\item \textbf{\hyperref[msg:CU19-E1]{MSG-CU19-E1}} Error al capturar la fotografía.
+			\item \textbf{\hyperref[msg:CU19-E2]{MSG-CU19-E2}} Error al realizar el reconocimiento facial.
+			\item \textbf{\hyperref[msg:CU19-E3]{MSG-CU19-E3}} Error de conexión.
+		\end{itemize}
 	}
-	\UCitem{Tipo}{Extiende de CU18 Mostrar información de los ETS inscritos}
-	\UCitem{Observaciones}{}
+	\UCitem{Tipo}{Caso de uso primario}
+	\UCitem{Observaciones}{La precisión del reconocimiento facial se mostrará al alumno.}
 \end{UseCase}
 %--------------------------------------
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Selecciona el botón \IUbutton{Probar reconocimiento facial } desde la pantalla \IUref{IUE03}{Pantalla de saludo del alumno}.
-	\UCpaso Activa la cámara del dispositivo para iniciar el reconocimiento facial \IUref{IU19}{Pantalla Reconocimiento facial alumno}. \Trayref{A}
-	\UCpaso Realiza el reconocimiento facial y verifica la identidad del alumno.
-	\UCpaso El sistema analiza la imagen del alumno y muestra un indicador:
+	\UCpaso El sistema activa la cámara del dispositivo y muestra la \IUref{IU19}{Pantalla Reconocimiento facial alumno} con una vista previa de la cámara. \Trayref{A}, \Trayref{B}, \Trayref{C}
+	\UCpaso[\UCactor] El alumno se posiciona frente a la cámara y presiona el botón \IUbutton{Probar}.
+	\UCpaso El sistema captura la imagen del rostro del alumno y la envía para el reconocimiento facial.
+	\UCpaso El sistema recibe el resultado del reconocimiento facial (precisión).
+	\UCpaso El sistema muestra en la \IUref{IU19}{Pantalla Reconocimiento facial alumno} la precisión del reconocimiento:
 	\begin{itemize}
-		\item Verde: El sistema está casi seguro de que la persona es quien dice ser y muestra las características coincidentes.
-		\item Rojo: El sistema está casi seguro de que la persona no es quien dice ser y muestra las características que no coinciden. \Trayref{F}
-		\item Amarillo: El sistema no está seguro y necesita la ayuda del docente para confirmar la identidad, mostrando tanto las características coincidentes como las que no coinciden. \Trayref{G}
+		\item Si la precisión es alta (>= 80\%), se muestra un mensaje indicando que el reconocimiento fue exitoso y la precisión. 
+		\item Si la precisión es media (>= 60\% y < 80\%), se muestra un mensaje indicando que la identidad podría ser dudosa y la precisión.
+		\item Si la precisión es baja (< 60\%), se muestra un mensaje indicando que no se encontró una coincidencia y la precisión.
 	\end{itemize}
-	\UCpaso[\UCactor] El alumno revisa los resultados.
+	\UCpaso[\UCactor] El alumno revisa el resultado.
 \end{UCtrayectoria}
-%--------------------------------------        
-\begin{UCtrayectoriaA}{A}{Error al activar la cámara o fallo en el reconocimiento facial}
-	\UCpaso El sistema muestra un mensaje de error: {\bf MSG-17}{``No se pudo activar la cámara o reconocer la identidad. Intente nuevamente.''}
-	\UCpaso[\UCactor] El alumno puede intentar probar el reconocimiento nuevamente o contactar al responsable técnico.
+%--------------------------------------
+\begin{UCtrayectoriaA}{A}{Error al capturar la fotografía}
+	\UCpaso El sistema intenta activar la cámara y capturar la fotografía, pero ocurre un error.
+	\UCpaso El sistema muestra un mensaje de error: \textbf{\hyperref[msg:CU19-E1]{MSG-CU19-E1}} ``Error al capturar la fotografía: [detalle del error]''.
+	\UCpaso[\UCactor] El alumno puede intentar nuevamente.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%--------------------------------------
+\begin{UCtrayectoriaA}{B}{Error al realizar el reconocimiento facial}
+	\UCpaso El sistema captura la fotografía, pero ocurre un error al realizar el reconocimiento facial.
+	\UCpaso El sistema muestra un mensaje de error: \textbf{\hyperref[msg:CU19-E2]{MSG-CU19-E2}} ``Error al realizar el reconocimiento facial: [detalle del error]''.
+	\UCpaso[\UCactor] El alumno puede intentar nuevamente.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%--------------------------------------
+\begin{UCtrayectoriaA}{C}{Error de conexión}
+	\UCpaso Ocurre un error al intentar conectar con el servidor para el reconocimiento facial.
+	\UCpaso El sistema muestra un mensaje de error: \textbf{\hyperref[msg:CU19-E3]{MSG-CU19-E3}} ``Error de conexión.''
+	\UCpaso[\UCactor] El alumno verifica su conexión a internet o intenta nuevamente.
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%--------------------------------------
+\begin{UCtrayectoriaA}{C1}{Reconocimiento Facial Exitoso (>= 80\%)}
+	\UCpaso El sistema muestra: ``Es casi seguro que el alumno es quien dice ser. Precisión del reconocimiento facial: [precisión]\%''
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%--------------------------------------
+\begin{UCtrayectoriaA}{C2}{Identidad Dudosa (>= 60\% y < 80\%)}
+	\UCpaso El sistema muestra: ``Es dudosa la identidad del alumno. la precisión del reconocimiento facial: [precisión]\%''
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%--------------------------------------
+\begin{UCtrayectoriaA}{C3}{No Coincidencia (< 60\%)}
+	\UCpaso El sistema muestra: ``El casi seguro que el alumno no es quien dice ser. Precisión del reconocimiento facial: menor al 60\%''
+	\UCpaso Fin de la trayectoria alternativa.
+\end{UCtrayectoriaA}
+%--------------------------------------
+\begin{UCtrayectoriaA}{C4}{Error en el Reconocimiento Facial (Detallado)}
+	\UCpaso El sistema realiza el reconocimiento facial pero ocurre un error específico.
+	\UCpaso El sistema muestra: \textbf{\hyperref[msg:CU19-E2]{MSG-CU19-E2}} ``Error al realizar el reconocimiento facial: [detalle del error]''.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 %-------------------------------------- TERMINA descripción del caso de uso.

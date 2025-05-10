@@ -1,31 +1,59 @@
 %--------------------------------------
 \subsection{IU18 Pantalla de Detalles del proceso de ETS}
 
+\IUfig[.35]{CU20}{IU18}{Pantalla de Detalles del proceso de ETS}
+\label{IU18}
+\newpage
+
 \subsubsection{Objetivo}
-Permitir al alumno visualizar la información detallada sobre el proceso de ETS.
+Permitir al alumno visualizar la información detallada sobre los pasos a seguir para la inscripción al ETS.
 
 \subsubsection{Diseño}
-Esta pantalla \IUref{IU18}{Pantalla de Detalles del proceso de ETS} (ver figura~\ref{IU18}) aparece luego de seleccionar el botón \IUbutton{Revisar Información de acceso}. 
+Esta pantalla \IUref{IU18}{Pantalla de Detalles del proceso de ETS} (ver figura~\ref{IU18}) aparece luego de seleccionar el botón \IUbutton{Información de Acceso} en la \IUref{IUE03}{Pantalla saludo del alumno}.
 
-\IUfig[.35]{CU20}{IU18}{Pantalla de Detalles del proces de ETS}
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Icono de flecha hacia la izquierda:} Para regresar a la pantalla anterior (\IUref{IUE03}{Pantalla saludo del alumno}).
+		\item \textbf{Título:} "Guía de Inscripción al ETS".
+		\item \textbf{Icono de tres puntos horizontales con una burbuja de diálogo:} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\end{itemize}
+	\item \textbf{Lista de pasos para la inscripción al ETS:} Muestra los pasos numerados para la inscripción, cada uno dentro de un recuadro con un fondo claro:
+	\begin{itemize}
+		\item \textbf{1.} Pagar en caja y verificar que estén correctos los siguientes datos: Nombre, Boleta, Carrera y Número de unidades de aprendizaje.
+		\item \textbf{2.} Acudir a ventanilla de gestión escolar para generar créditos en el "SAES".
+		\item \textbf{3.} Una vez generados los créditos, inscribir las unidades de aprendizaje en la página del "SAES".
+		\item \textbf{4.} Entregar en ventanilla de gestión escolar el comprobante de inscripción de ETS generado por SAES y el recibo de pago para finalizar la inscripción al ETS.
+		\item \textbf{5.} Acudir el día y la hora establecida en el calendario.
+	\end{itemize}
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a la (\IUref{IUE03}{Pantalla de saludo del alumno}.
+		\item \textbf{Icono de campana:} Redirección a la pantalla de notificaciones.
+		\item \textbf{Icono de calendario con marcas:} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\end{itemize}
+\end{itemize}
 
 \subsubsection{Salidas}
-
-Información detallada del proceso de ETS. 
+Información detallada de los pasos para la inscripción al ETS.
 
 \subsubsection{Entradas}
-Ninguna
-
+Ninguna.
 
 \subsubsection{Comandos}
 \begin{itemize}
-	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
-	\item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
-	\item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+	\item \textbf{Icono de flecha izquierda (barra superior):} Regresa a la pantalla anterior (\IUref{IUE03}{Pantalla saludo del alumno}).
+	\item \textbf{Icono de tres puntos (barra superior):} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\item \textbf{Icono de calendario (barra de navegación inferior):} Redirige a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirige a la pantalla de notificaciones.
+	\item \textbf{Icono de casa (barra de navegación inferior):} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
 \end{itemize}
-\subsubsection{Mensajes}
 
-\begin{Citemize}
-	\item {\bf MSG-9}{``Error al querer mostrar la información. Por favor, intente nuevamente.''}
-\end{Citemize}
+\subsubsection{Mensajes}
+\begin{itemize}
+	\item \textbf{\hyperref[msg:CU20-E1]{MSG-CU20-E1}} Error al recuperar la información del proceso. Intente nuevamente más tarde.
+\end{itemize}
 

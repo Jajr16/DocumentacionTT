@@ -1,34 +1,61 @@
 % !TeX root = ../ejemplo.tex
 %--------------------------------------
-\subsection{IUE03 saludo de alumno}
+\subsection{IUE03 Pantalla saludo del alumno}
+
+\IUfig[.35]{IUE03}{IUE03}{Pantalla saludo del alumno.}
+\label{IUE03}
+\newpage
 
 \subsubsection{Objetivo}
-Mostrar una pantalla de home después de iniciar sesión y marcar las acciones que el alumno puede hacer.
+Mostrar una pantalla de bienvenida al alumno después de iniciar sesión, presentando las principales acciones que puede realizar.
 
 \subsubsection{Diseño}
-Esta pantalla \IUref{IUE03}{Pantalla saludo de alumno} (ver figura~\ref{IUE03}) aparece al iniciar sesión exitosamente y muestra las acciones que el alumno puede hacer,ademas de las opciones generales de usuario (Consultar calendario escolar y consultar notificaciones). 
+Esta pantalla \IUref{IUE03}{Pantalla saludo del alumno} (ver figura~\ref{IUE03}) aparece al iniciar sesión exitosamente. Muestra un saludo personalizado al alumno y las opciones principales para interactuar con el sistema, además de las opciones generales de usuario.
 
-\IUfig[.35]{IUE03}{IUE03}{Pantalla saludo de alumno.}
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Logotipo del IPN ESCOM:} Imagen del logotipo institucional.
+		\item \textbf{Icono de tres puntos horizontales con una burbuja de diálogo:} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\end{itemize}
+	\item \textbf{Saludo personalizado:} Texto de bienvenida al alumno, mostrando su nombre.
+	\item \textbf{Pregunta guía:} Texto que invita a la interacción.
+	\item \textbf{Botones de acción principales:}
+	\begin{itemize}
+		\item \textbf{Botón \IUbutton{Listado de ETS}:} Muestra un icono de lista y el texto Listado de ETS. Al seleccionarlo, redirige a la \IUref{IU15}{Pantalla Consultar ETS del alumno}.
+		\item \textbf{Botón \IUbutton{Información de acceso}:} Muestra un icono de información ("i" dentro de un círculo) y el texto Información de acceso. Al seleccionarlo, redirige a la \IUref{IU18}{Pantalla Detalles del Proceso de ETS}.
+		\item \textbf{Botón \IUbutton{Probar reconocimiento facial}:} Muestra un icono de cámara y el texto Probar reconocimiento facial y redirige la \IUref{IU19}{Pantalla de Reconocimiento facial alumno}.
+	\end{itemize}
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a esta misma pantalla de saludo del alumno (\IUref{IUE03}{Pantalla saludo del alumno}).
+		\item \textbf{Icono de campana:} Redirección a la pantalla de notificaciones.
+		\item \textbf{Icono de calendario con marcas:} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\end{itemize}
+\end{itemize}
 
 \subsubsection{Salidas}
-
-Ninguna.
+Presentación de las opciones principales para el alumno.
 
 \subsubsection{Entradas}
 Ninguna.
 
 \subsubsection{Comandos}
 \begin{itemize}
-	\item \IUbutton{Consultar periodos de ETS asignados}: Redirige a los alumnos a la pantalla \IUref{IU13}{Consultar periodo de ETS de alumnos}
-	\item \IUbutton{Información de acceso}: Redirige a los alumnos a la pantalla \IUref{IU18}{Consultar periodo de ETS de alumnos}
-	\item \IUbutton{Notificaciones}: Redirige a los alumnos a la pantalla \IUref{IU03}{Consultar notificaciones}
-	\item \IUbutton{Calendario}: Redirige a los alumnos a la pantalla \IUref{IU02}{Consultar calendario escolar}
-	
+	\item \textbf{Botón \IUbutton{Listado de ETS}:} Redirige a la \IUref{IU15}{Pantalla Consultar ETS del alumno}.
+	\item \textbf{Botón \IUbutton{Información de acceso}:} Redirige a la \IUref{IU18}{Pantalla Detalles del Proceso de ETS}.
+	\item \textbf{Botón \IUbutton{Probar reconocimiento facial}:} Redirige a la funcionalidad de prueba de reconocimiento facial la \IUref{IU19}{Pantalla de Reconocimiento facial alumno}.
+	\item \textbf{Icono de tres puntos (barra superior):} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\item \textbf{Icono de calendario (barra de navegación inferior):} Redirige a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirige a la pantalla de notificaciones.
+	\item \textbf{Icono de casa (barra de navegación inferior):} Redirección a esta misma pantalla de saludo del alumno (\IUref{IUE03}{Pantalla saludo del alumno}).
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
 \end{itemize}
 
 \subsubsection{Mensajes}
-
-\begin{Citemize}
+\begin{itemize}
 	\item Ninguno.
-\end{Citemize}
+\end{itemize}
 

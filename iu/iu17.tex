@@ -1,34 +1,64 @@
 %--------------------------------------
-\subsection{IU16 Pantalla Información de ETS}
+\subsection{IU16 Pantalla Información de ETS del alumno}
+
+\IUfig[.35]{cu18}{IU16}{Pantalla Información de ETS del alumno}
+\label{IU16}
+\newpage
 
 \subsubsection{Objetivo}
-Permitir al alumno visualizar la información detallada cada ETS que tiene inscrito.
+Permitir al alumno visualizar la información detallada del ETS que ha seleccionado de su lista de ETS inscritos.
 
 \subsubsection{Diseño}
-Esta pantalla \IUref{IU16}{Pantalla de Información de ETS del alumno} (ver figura~\ref{IU16}) aparece luego de seleccionar un ETS inscrito. 
+Esta pantalla \IUref{IU16}{Pantalla Información de ETS del alumno} (ver figura~\ref{IU16}) aparece luego de que el alumno selecciona un ETS de la \IUref{IU15}{Pantalla Consultar ETS del alumno}.
 
-\IUfig[.35]{cu18}{IU16}{Pantalla de Información de ETS del alumno}
+La pantalla contiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{Barra de navegación superior:}
+	\begin{itemize}
+		\item \textbf{Icono de flecha hacia la izquierda:} Para regresar a la pantalla anterior (\IUref{IU15}{Pantalla Consultar ETS del alumno}).
+		\item \textbf{Título:} "Detalles del ETS de Unidad de aprendizaje.
+		\item \textbf{Icono de tres puntos horizontales con una burbuja de diálogo:} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\end{itemize}
+	\item \textbf{Información del ETS:} Muestra los detalles del ETS en forma de lista o texto informativo:
+	\begin{itemize}
+		\item Unidad de aprendizaje.
+		\item Tipo de ETS.
+		\item Periodo.
+		\item Fecha de aplicación.
+		\item Turno.
+		\item Duración.
+		\item Salones asignados:
+		\item Hora de inicio.
+	\end{itemize}
+	\item \textbf{Barra de navegación inferior:} Contiene iconos para:
+	\begin{itemize}
+		\item \textbf{Icono de casa:} Redirección a la (\IUref{IUE03}{Pantalla de saludo del alumno}).
+		\item \textbf{Icono de campana:} Redirección a la pantalla de notificaciones.
+		\item \textbf{Icono de calendario con marcas:} Redirección a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+		\item \textbf{Icono de flecha apuntando hacia la derecha saliendo de un recuadro:} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
+	\end{itemize}
+\end{itemize}
 
 \subsubsection{Salidas}
-
-Información detallada del ETS seleccionado. 
+Información detallada del ETS seleccionado.
 
 \subsubsection{Entradas}
-Ninguna
-
+Ninguna.
 
 \subsubsection{Comandos}
 \begin{itemize}
-	\item \IUbutton{Calendario} Redirige a la pantalla \IUref{UI02}{Consultar calendario escolar}.
-    \item \IUbutton{Campana} Redirige a la pantalla \IUref{UI03}{Consultar notificaciones }.
-    \item \IUbutton{Home} Redirige a la pantalla de bienvenida correspondiente al tipo de usuario.
+	\item \textbf{Icono de flecha izquierda (barra superior):} Regresa a la pantalla anterior (\IUref{IU15}{Pantalla Consultar ETS del alumno}).
+	\item \textbf{Icono de tres puntos (barra superior):} Accede a la funcionalidad de mensajes dentro de la aplicación.
+	\item \textbf{Icono de calendario (barra de navegación inferior):} Redirige a la pantalla \IUref{IU02}{Consultar calendario escolar}.
+	\item \textbf{Icono de campana (barra de navegación inferior):} Redirige a la pantalla de notificaciones.
+	\item \textbf{Icono de casa (barra de navegación inferior):} Redirección a la pantalla de saludo correspondiente al tipo de usuario.
+	\item \textbf{Icono de flecha saliendo (barra de navegación inferior):} Cierra la sesión del usuario y lo regresa a la pantalla de inicio de sesión (\IUref{IU01}{Iniciar sesión del sistema móvil}).
 \end{itemize}
 
 \subsubsection{Mensajes}
-
-\begin{Citemize}
-	\item {\bf MSG-13}{``Información no disponible para el ETS seleccinado''}
-	\item {\bf MSG-11}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
-\end{Citemize}
+\begin{itemize}
+	\item \textbf{\hyperref[msg:CU18-E1]{MSG-CU18-E1}} Error al consultar la base de datos. Intente nuevamente más tarde.
+	\item \textbf{\hyperref[msg:CU18-E2]{MSG-CU18-E2}} Información no disponible para el ETS seleccionado.
+\end{itemize}
 
 
