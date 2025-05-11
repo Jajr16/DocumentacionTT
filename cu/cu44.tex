@@ -1,0 +1,33 @@
+% !TeX root = ../ejemplo.tex
+
+%--------------------------------------
+\begin{UseCase}{CU-44}{Consultar inscripciones }{
+		
+		Permitir al Personal de gestión escolar consultar una lista de los alumnos inscritos a los ETS.
+	}
+	\UCitem{Versión}{\color{Gray}1}
+	\UCitem{Autor}{\color{Gray}Jiménez Rodríguez José Alfredo}
+	\UCitem{Supervisa}{\color{Gray}Huertas Ramírez Daniel Martín.}
+	\UCitem{Actor}{Personal de gestión escolar}
+	\UCitem{Propósito}{Permitir al Personal de gestión escolar consultar una lista de los alumnos inscritos a los ETS.}
+	\UCitem{Entradas}{Ninguna}
+	\UCitem{Origen}{Teclado}
+	\UCitem{Salidas}{Ninguna}
+	\UCitem{Destino}{-}
+	\UCitem{Precondiciones}{ El Personal de gestión escolar debe de haber iniciado sesión}
+	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Errores}{
+		E1: Cuando no hay ninguna inscripción se muestra el mensaje {\bf MSG-39}  ``Aún no hay alumnos inscritos a ningún ETS.''
+	}
+	\UCitem{Tipo}{ Extiende de CU41 Iniciar sesión de personal escolar web}
+	\UCitem{Observaciones}{Ninguna}
+	
+\end{UseCase}
+%-------------------------------------- 
+
+\begin{UCtrayectoria}
+	\UCpaso[\UCactor] El Personal de gestión escolar accede a la pantalla \IUref{IU30}{ Consultar inscripciones}\label{CU36.introduceDatos} apretando el botón \IUbutton{Consultar inscripciones} a través del menú lateral que tiene en todas las pantallas.
+	\UCpaso El sistema muestra la información de todas las inscripciones de los alumnos a los ETS.
+\end{UCtrayectoria}
+
+
