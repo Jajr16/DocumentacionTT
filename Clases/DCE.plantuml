@@ -1,0 +1,427 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Alumno {
+  + Alumno(String, Persona, String, ProgramaAcademico, String): 
+  + Alumno(): 
+  + Alumno(String, Persona, String, ProgramaAcademico): 
+  - inscETSAl: List<InscripcionETS>
+  - idPA: ProgramaAcademico
+  - CURP: Persona
+  - imagenCredencial: String
+  - boleta: String
+  - CorreoI: String
+   idPA: ProgramaAcademico
+   inscETSAl: List<InscripcionETS>
+   CURP: Persona
+   imagenCredencial: String
+   CorreoI: String
+   boleta: String
+}
+class Aplica {
+  + Aplica(AplicaPK): 
+  + Aplica(): 
+  + Aplica(AplicaPK, boolean): 
+  - docenteRFC: PersonalAcademico
+  - id: AplicaPK
+  - idETS: ETS
+   titular: boolean
+   docenteRFC: PersonalAcademico
+   id: AplicaPK
+   idETS: ETS
+}
+class Cargo {
+  + Cargo(): 
+  + Cargo(String): 
+  + Cargo(Integer, String): 
+  - cargo: String
+  - CDDetails: List<CargoDocente>
+   idCargo: Integer
+   CDDetails: List<CargoDocente>
+   cargo: String
+}
+class CargoDocente {
+  + CargoDocente(): 
+  + CargoDocente(CargoDocentePK): 
+  - id: CargoDocentePK
+   idCargo: Cargo
+   RFC: PersonalAcademico
+   id: CargoDocentePK
+}
+class CargoPS {
+  + CargoPS(String): 
+  + CargoPS(): 
+  + CargoPS(Integer, String): 
+  - nombre: String
+  - idCargo: Integer
+   idCargo: Integer
+   nombre: String
+}
+class Chat {
+  + Chat(): 
+  + Chat(Usuario, Usuario): 
+  - remitente: Usuario
+  - destinatario: Usuario
+  - id: Long
+  + toString(): String
+   id: Long
+   remitente: Usuario
+   destinatario: Usuario
+}
+class ETS {
+  + ETS(Integer, periodoETS, Turno, Date, Time, Integer, UnidadAprendizaje, Integer): 
+  + ETS(periodoETS, Turno, Date, Time, Integer, UnidadAprendizaje, Integer): 
+  + ETS(): 
+  - hora: Time
+  - idUA: UnidadAprendizaje
+  - idPeriodo: periodoETS
+  - Cupo: Integer
+  - ETSSETTSDetails: List<SalonETS>
+  - id_ETS: Integer
+  - ETS: List<Aplica>
+  - Fecha: Date
+  - Turno: Turno
+  - Duracion: Integer
+  - insETS: List<InscripcionETS>
+  + toString(): String
+   Fecha: Date
+   hora: Time
+   id_ETS: Integer
+   Turno: Turno
+   insETS: List<InscripcionETS>
+   ETSSETTSDetails: List<SalonETS>
+   idPeriodo: periodoETS
+   Cupo: Integer
+   idETS: Integer
+   ETS: List<Aplica>
+   idUA: UnidadAprendizaje
+   Duracion: Integer
+}
+class EscuelaPrograma {
+  + EscuelaPrograma(EscuelaProgramaPK): 
+  + EscuelaPrograma(EscuelaProgramaPK, UnidadAcademica, ProgramaAcademico): 
+  + EscuelaPrograma(): 
+  + EscuelaPrograma(UnidadAcademica, ProgramaAcademico): 
+  - id: EscuelaProgramaPK
+   idEscuela: UnidadAcademica
+   id: EscuelaProgramaPK
+   idPA: ProgramaAcademico
+}
+class IngresoInstalacion {
+  + IngresoInstalacion(IngresoInstalacionPK): 
+  + IngresoInstalacion(): 
+  - id: IngresoInstalacionPK
+  + toString(): String
+   id: IngresoInstalacionPK
+}
+class IngresoSalon {
+  + IngresoSalon(): 
+  + IngresoSalon(BoletaETSPK, Date, Time, PersonalAcademico, TipoEstado): 
+  - inscripcionETS: InscripcionETS
+  - docente: PersonalAcademico
+  - id: BoletaETSPK
+  - fecha: Date
+  - hora: Time
+  + toString(): String
+   id: BoletaETSPK
+   tipo: TipoEstado
+   hora: Time
+   docente: PersonalAcademico
+   fecha: Date
+   inscripcionETS: InscripcionETS
+}
+class InscripcionETS {
+  + InscripcionETS(): 
+  + InscripcionETS(InscripcionETSPK): 
+  - id: InscripcionETSPK
+  - asistencias: IngresoSalon
+   ets: ETS
+   id: InscripcionETSPK
+   asistencias: IngresoSalon
+   alumno: Alumno
+}
+class Mensaje {
+  + Mensaje(): 
+  + Mensaje(MensajePK, Usuario, String): 
+  - mensaje: String
+  - id: MensajePK
+  + toString(): String
+   mensaje: String
+   remitente: Usuario
+   id: MensajePK
+}
+class MotivoRechazo {
+  + MotivoRechazo(BoletaETSPK, String): 
+  + MotivoRechazo(): 
+  - id: BoletaETSPK
+  - motivo: String
+  - ingresoSalon: IngresoSalon
+  + toString(): String
+   id: BoletaETSPK
+   ingresoSalon: IngresoSalon
+   motivo: String
+}
+class Persona {
+  + Persona(String, String, String, Sexo, UnidadAcademica): 
+  + Persona(String, String, String, String, Sexo, UnidadAcademica): 
+  + Persona(): 
+  - unidadAcademica: UnidadAcademica
+  - CURP: String
+  - nombre: String
+  - sexo: Sexo
+   apellido_M: String
+   sexo: Sexo
+   CURP: String
+   apellido_P: String
+   unidadAcademica: UnidadAcademica
+   nombre: String
+}
+class PersonalAcademico {
+  + PersonalAcademico(): 
+  + PersonalAcademico(String, Persona, String, TipoPersonal): 
+  - TipoPA: TipoPersonal
+  - RFCCargoDocente: List<CargoDocente>
+  - AplicaPersA: List<Aplica>
+  - CURP: Persona
+   RFCCargoDocente: List<CargoDocente>
+   TipoPA: TipoPersonal
+   RFC: String
+   CURP: Persona
+   AplicaPersA: List<Aplica>
+   correoI: String
+}
+class PersonalSeguridad {
+  + PersonalSeguridad(String, Persona, Turno, CargoPS): 
+  + PersonalSeguridad(): 
+  - Turno: Turno
+  - Cargo: CargoPS
+  - rfc: String
+  - CURP: Persona
+   Turno: Turno
+   Cargo: CargoPS
+   CURP: Persona
+   rfc: String
+}
+class ProgramaAcademico {
+  + ProgramaAcademico(): 
+  + ProgramaAcademico(String, String, String): 
+  + ProgramaAcademico(String, String): 
+  - detailsEP: List<EscuelaPrograma>
+  - Descripcion: String
+  - nombre: String
+  - idPA: String
+   id_PA: String
+   Descripcion: String
+   detailsEP: List<EscuelaPrograma>
+   idPA: String
+   nombre: String
+}
+class Reemplazo {
+  + Reemplazo(AplicaPK, String, Integer): 
+  + Reemplazo(): 
+  - id: AplicaPK
+  - reemplazoPK: Aplica
+  - motivo: String
+  - estatus: Integer
+  + toString(): String
+   reemplazoPK: Aplica
+   id: AplicaPK
+   motivo: String
+   estatus: Integer
+}
+class ResultadoRN {
+  + ResultadoRN(): 
+  + ResultadoRN(BoletaETSPK, String, Float, IngresoSalon): 
+  - imagenAlumno: String
+  - id: BoletaETSPK
+  - precision: Float
+  - ingresoSalon: IngresoSalon
+  + toString(): String
+   id: BoletaETSPK
+   ingresoSalon: IngresoSalon
+   precision: Float
+   imagenAlumno: String
+}
+class Salon {
+  + Salon(Integer, Integer, Integer, TipoSalon): 
+  + Salon(): 
+  - SETSDetails: List<SalonETS>
+  - Piso: Integer
+  - Edificio: Integer
+  - numSalon: Integer
+  - tipoSalon: TipoSalon
+   Edificio: Integer
+   SETSDetails: List<SalonETS>
+   numSalon: Integer
+   Piso: Integer
+   tipoSalon: TipoSalon
+}
+class SalonETS {
+  + SalonETS(SalonETSPK): 
+  + SalonETS(): 
+  - id: SalonETSPK
+   idETS: ETS
+   id: SalonETSPK
+   numSalon: Salon
+}
+class Sexo {
+  + Sexo(): 
+  + Sexo(int, String): 
+  + Sexo(String): 
+  - nombre: String
+  - idSexo: Integer
+   idSexo: Integer
+   nombre: String
+}
+class TipoEstado {
+  + TipoEstado(): 
+  + TipoEstado(Integer, String): 
+  - idtipo: Integer
+  - tipo: String
+  - validarIdtipo(): void
+  - isValid(Integer): boolean
+  + toString(): String
+   idtipo: Integer
+   tipo: String
+}
+class TipoPersonal {
+  + TipoPersonal(): 
+  + TipoPersonal(Integer, String): 
+  - cargo: String
+  - tipoPA: Integer
+   tipoPA: Integer
+   cargo: String
+}
+class TipoSalon {
+  + TipoSalon(): 
+  + TipoSalon(Integer, String): 
+  + TipoSalon(String): 
+  - idTS: Integer
+  - tipo: String
+   idTS: Integer
+   tipo: String
+}
+class TipoUsuario {
+  + TipoUsuario(Integer, String): 
+  + TipoUsuario(String): 
+  + TipoUsuario(): 
+  - tipo: String
+  - idTU: Integer
+   idTU: Integer
+   tipo: String
+}
+class TokenNotificacion {
+  + TokenNotificacion(): 
+  - usuario: Usuario
+  - token: String
+  - id: Long
+   id: Long
+   usuario: Usuario
+   token: String
+}
+class Turno {
+  + Turno(): 
+  + Turno(String): 
+  + Turno(Integer, String): 
+  - nombre: String
+  - idTurno: Integer
+   idTurno: Integer
+   nombre: String
+}
+class UnidadAcademica {
+  + UnidadAcademica(String): 
+  + UnidadAcademica(): 
+  + UnidadAcademica(int, String): 
+  - nombre: String
+   idEscuela: Integer
+   nombre: String
+}
+class UnidadAprendizaje {
+  + UnidadAprendizaje(): 
+  + UnidadAprendizaje(String, String, String, ProgramaAcademico): 
+  - idUA: String
+  - nombre: String
+  - idPA: ProgramaAcademico
+   idUA: String
+   idPA: ProgramaAcademico
+   descirpcion: String
+   nombre: String
+}
+class Usuario {
+  + Usuario(): 
+  + Usuario(String, String, TipoUsuario, Persona): 
+  - CURP: Persona
+  - usuario: String
+  - TipoU: TipoUsuario
+  - Password: String
+   usuario: String
+   Password: String
+   TipoU: TipoUsuario
+   CURP: Persona
+}
+class periodoETS {
+  + periodoETS(String, char, Date, Date): 
+  + periodoETS(): 
+  - Fecha_Fin: Date
+  - tipo: char
+  - Fecha_Inicio: Date
+  - periodo: String
+  - idPeriodo: Integer
+  + toString(): String
+   idPeriodo: Integer
+   tipo: char
+   periodo: String
+   Fecha_Fin: Date
+   Fecha_Inicio: Date
+}
+
+Alumno             "1" *-[#595959,plain]-> "inscETSAl\n*" InscripcionETS     
+Alumno             "1" *-[#595959,plain]-> "CURP\n1" Persona            
+Alumno             "1" *-[#595959,plain]-> "idPA\n1" ProgramaAcademico  
+Aplica             "1" *-[#595959,plain]-> "idETS\n1" ETS                
+Aplica             "1" *-[#595959,plain]-> "docenteRFC\n1" PersonalAcademico  
+Cargo              "1" *-[#595959,plain]-> "CDDetails\n*" CargoDocente       
+CargoDocente       "1" *-[#595959,plain]-> "idCargoCD\n1" Cargo              
+CargoDocente       "1" *-[#595959,plain]-> "RFCCD\n1" PersonalAcademico  
+Chat               "1" *-[#595959,plain]-> "remitente\n1" Usuario            
+ETS                "1" *-[#595959,plain]-> "ETS\n*" Aplica             
+ETS                "1" *-[#595959,plain]-> "insETS\n*" InscripcionETS     
+ETS                "1" *-[#595959,plain]-> "ETSSETTSDetails\n*" SalonETS           
+ETS                "1" *-[#595959,plain]-> "Turno\n1" Turno              
+ETS                "1" *-[#595959,plain]-> "idUA\n1" UnidadAprendizaje  
+ETS                "1" *-[#595959,plain]-> "idPeriodo\n1" periodoETS         
+EscuelaPrograma    "1" *-[#595959,plain]-> "idPAcad\n1" ProgramaAcademico  
+EscuelaPrograma    "1" *-[#595959,plain]-> "idUA\n1" UnidadAcademica    
+IngresoInstalacion "1" *-[#595959,plain]-> "ingresoSalon\n1" IngresoSalon       
+IngresoSalon       "1" *-[#595959,plain]-> "inscripcionETS\n1" InscripcionETS     
+IngresoSalon       "1" *-[#595959,plain]-> "docente\n1" PersonalAcademico  
+IngresoSalon       "1" *-[#595959,plain]-> "estado\n1" TipoEstado         
+InscripcionETS     "1" *-[#595959,plain]-> "boletaIns\n1" Alumno             
+InscripcionETS     "1" *-[#595959,plain]-> "idETSIns\n1" ETS                
+InscripcionETS     "1" *-[#595959,plain]-> "asistencias\n1" IngresoSalon       
+Mensaje            "1" *-[#595959,plain]-> "usuario\n1" Usuario            
+MotivoRechazo      "1" *-[#595959,plain]-> "ingresoSalon\n1" IngresoSalon       
+Persona            "1" *-[#595959,plain]-> "sexo\n1" Sexo               
+Persona            "1" *-[#595959,plain]-> "unidadAcademica\n1" UnidadAcademica    
+PersonalAcademico  "1" *-[#595959,plain]-> "AplicaPersA\n*" Aplica             
+PersonalAcademico  "1" *-[#595959,plain]-> "RFCCargoDocente\n*" CargoDocente       
+PersonalAcademico  "1" *-[#595959,plain]-> "CURP\n1" Persona            
+PersonalAcademico  "1" *-[#595959,plain]-> "TipoPA\n1" TipoPersonal       
+PersonalSeguridad  "1" *-[#595959,plain]-> "Cargo\n1" CargoPS            
+PersonalSeguridad  "1" *-[#595959,plain]-> "CURP\n1" Persona            
+PersonalSeguridad  "1" *-[#595959,plain]-> "Turno\n1" Turno              
+ProgramaAcademico  "1" *-[#595959,plain]-> "detailsEP\n*" EscuelaPrograma    
+Reemplazo          "1" *-[#595959,plain]-> "reemplazoPK\n1" Aplica             
+ResultadoRN        "1" *-[#595959,plain]-> "ingresoSalon\n1" IngresoSalon       
+Salon              "1" *-[#595959,plain]-> "SETSDetails\n*" SalonETS           
+Salon              "1" *-[#595959,plain]-> "tipoSalon\n1" TipoSalon          
+SalonETS           "1" *-[#595959,plain]-> "idETSSETS\n1" ETS                
+SalonETS           "1" *-[#595959,plain]-> "numSalonSETS\n1" Salon              
+TokenNotificacion  "1" *-[#595959,plain]-> "usuario\n1" Usuario            
+UnidadAprendizaje  "1" *-[#595959,plain]-> "idPA\n1" ProgramaAcademico  
+Usuario            "1" *-[#595959,plain]-> "CURP\n1" Persona            
+Usuario            "1" *-[#595959,plain]-> "TipoU\n1" TipoUsuario        
+@enduml
