@@ -188,7 +188,7 @@ Se refiere a las personas registradas como empleados y personal administrativo q
 
 \newpage
 
-\subsection{Diagramas de casos de uso}
+	\subsection{Diagramas de casos de uso}
 
 A continuación se muestran los diagramas de casos de uso:
 
@@ -237,6 +237,8 @@ En la Figura \ref{fig:casosDeUso2} se presenta el diagrama de casos de uso corre
 La mayoría de los casos de uso en este diagrama se presentan en color verde, lo que indica que fueron considerados prioritarios y han sido realizados. Estos casos de uso abarcan la gestión de información y procesos administrativos relevantes para los roles del Personal de la DAE y el Personal de gestión escolar.
 
 Sin embargo, es importante destacar la relación existente entre los casos de uso CU-21 (Dar de alta a alumno), CU-22 (Crear credencial) y CU-23 (Capturar fotografía estudiantil). Inicialmente concebidos como funcionalidades separadas, durante la fase de desarrollo se tomó la decisión de unificarlos dentro del caso de uso CU-21. Esta integración se realizó con el objetivo de optimizar la experiencia del usuario, permitiendo que el Personal de la DAE realice el alta del alumno, la captura de su fotografía y la creación de la credencial en una única pantalla o flujo de proceso. 
+
+Además, se agregaron los casos de uso CU-43 (Consultar lista de alumnos), el CU-44 (Consultar inscripciones) y el CU-45 (Inscribir alumno a ETS), con el propósito de simular el flijo de trabajo de un escenario real, y a su vez de mejorar la experiencia de los usuarios al incorporar sus respectivas vistas dentro del sistema de la simulación del SAES.
 
 \subsection{Detalle de los casos de uso}
 
@@ -309,9 +311,6 @@ Sin embargo, es importante destacar la relación existente entre los casos de us
 \input{cu/cu21.tex}
 \newpage
 
-\input{cu/cu45.tex}
-\newpage
-
 \input{cu/cu22.tex}
 \newpage
 
@@ -348,7 +347,19 @@ Sin embargo, es importante destacar la relación existente entre los casos de us
 \input{cu/cu41.tex}
 \newpage
 
+\input{cu/cu42.tex}
+\newpage
+
 \input{cu/cu43.tex}
+\newpage
+
+\input{cu/cu44.tex}
+\newpage
+
+\input{cu/cu45.tex}
+
+
+
 \newpage
 
 \section{Lista de Mensajes del Sistema}

@@ -1,39 +1,33 @@
-% \IUref{IUAdmPS}{Administrar Planta de Selección}
-% \IUref{IUModPS}{Modificar Planta de Selección}
-% \IUref{IUEliPS}{Eliminar Planta de Selección}
+% !TeX root = ../ejemplo.tex
 
-%-------------------------------------- COMIENZA descripción del caso de uso.
-
-%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
 %--------------------------------------
-\begin{UseCase}{CU-42}{Asignar docente de remplazo }{
-    Este caso de uso permite al jefe de departamento y/o al presidente de academia responder a una solicitud de remplazo y asignar un docente de remplazo para el ETS.
-}
-\UCitem{Versión}{\color{Gray}1.0}
-\UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martin}
-\UCitem{Supervisa}{\color{Gray}De la Cruz de la Cruz Alejandra.}
-\UCitem{Actor}{\hyperlink{PersonalAcademico}{Presidente de academia} y \hyperlink{PersonalAcademico}{Jefe de departamento}}
-\UCitem{Propósito}{Permitir al Presidente de academia y/o al Jefe de departamento revisar las solicitudes de remplazo y asignar un docente de remplazo para el ETS}
-\UCitem{Entradas}{Identificador del ETS y nombre del nuevo docente asignado.}
-\UCitem{Origen}{Teclado}
-\UCitem{Salidas}{Confirmación de asignación del nuevo docente y se muestra el mensaje \bf MSG-42{``docente de remplazo asignado con exito''}.}
-\UCitem{Destino}{IUref{IU03}{Consultar notificaciones}}
-\UCitem{Precondiciones}{El Presidente de academia y/o el Jefe de departamento debe estar autenticado en el sistema y debe de tener una solicitud de remplazo.}
-\UCitem{Postcondiciones}{El docente se de remplazo es asignado y se le manda a una notificacion al docente solicitante.}
-\UCitem{Errores}{
-        E1: El sistema pierde la conexión al intentar registrar la asignación.
-}
-\UCitem{Tipo}{Se entiende del CU01 Iniciar sesión de personal escolar móvil }
-\UCitem{Observaciones}{Ninguna}
+\begin{UseCase}{CU-43}{Consultar lista de alumnos }{
+		
+		Permitir al Personal de la DAE consultar la lista de alumnos con su respectiva información.
+	}
+	\UCitem{Versión}{\color{Gray}1}
+	\UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
+	\UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra.}
+	\UCitem{Actor}{Personal de la DAE}
+	\UCitem{Propósito}{Permitir al Personal de la DAE consultar la lista de alumnos con su respectiva información.}
+	\UCitem{Entradas}{Ninguna}
+	\UCitem{Origen}{Teclado}
+	\UCitem{Salidas}{Ninguna}
+	\UCitem{Destino}{-}
+	\UCitem{Precondiciones}{ El Personal de la DAE debe de haber iniciado sesión}
+	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Errores}{
+		E1: Cuando no hay ningún alumno dado de alta se muestra el mensaje {\bf MSG-39}  ``No hay alumnos dados de alta.''
+	}
+	\UCitem{Tipo}{ Extiende de CU41 Iniciar sesión de personal escolar web}
+	\UCitem{Observaciones}{Ninguna}
+	
 \end{UseCase}
-%--------------------------------------
+%-------------------------------------- 
+
 \begin{UCtrayectoria}
-    \UCpaso[\UCactor] El Presidente de academia y/o el Jefe de departamento accede a la \IUref{IU01}{iniciar sesión de personal escolar móvil}.
-    \UCpaso[\UCactor] El Presidente de academia y/o el Jefe de departamento inicia sesion.
-    \UCpaso El sistema redirige al Presidente de academia y/o el Jefe de departamento a la pantalla \IUref{IU09}{Asignar docente de remplazo}.
-    \UCpaso El sistema ingresa el ETS.
-    \UCpaso[\UCactor] El Presidente de academia y/o el Jefe de departamento ingresan el nombre del nuevo docente asignado.
-    UCpaso[\UCactor] El Presidente de academia y/o el Jefe de departamento selecciona el botón \IUbutton{Asignar}.
-    \UCpaso El sistema envia la notificación al docente de que su cambio se realizo con exito y se cambia el docente asignado al ETS especificado.
-    \UCpaso El sistema redirige al Presidente de academia y/o el Jefe de departamento a la pantalla \IUref{IU03}{Consultar notificaciones}.
+	\UCpaso[\UCactor] El Personal de la DAE accede a la pantalla \IUref{IU46}{ Consultar lista de alumnos}\label{CU36.introduceDatos} apretando el botón \IUbutton{Consultar alumnos} a través del menú lateral que tiene en todas las pantallas.
+	\UCpaso El sistema muestra la información de todos los docentes.
 \end{UCtrayectoria}
+
+
