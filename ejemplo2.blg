@@ -25,37 +25,38 @@ Warning--entry type for "UNAMSE" isn't style-file defined
 --line 1207 of file ref.bib
 Warning--I'm ignoring FacialF's extra "pages" field
 --line 1261 of file ref.bib
+Warning--I didn't find a database entry for "CitaA19"
 Warning--I didn't find a database entry for "."
-You've used 66 entries,
+You've used 47 entries,
             1876 wiz_defined-function locations,
-            859 strings with 13882 characters,
-and the built_in function-call counts, 9671 in all, are:
-= -- 978
-> -- 307
+            753 strings with 11066 characters,
+and the built_in function-call counts, 7087 in all, are:
+= -- 712
+> -- 231
 < -- 0
-+ -- 145
-- -- 79
-* -- 410
-:= -- 1431
-add.period$ -- 125
-call.type$ -- 66
-change.case$ -- 63
++ -- 107
+- -- 60
+* -- 315
+:= -- 1051
+add.period$ -- 87
+call.type$ -- 47
+change.case$ -- 44
 chr.to.int$ -- 0
-cite$ -- 66
-duplicate$ -- 324
-empty$ -- 1213
-format.name$ -- 79
-if$ -- 2459
+cite$ -- 47
+duplicate$ -- 248
+empty$ -- 871
+format.name$ -- 60
+if$ -- 1794
 int.to.chr$ -- 0
-int.to.str$ -- 66
+int.to.str$ -- 47
 missing$ -- 4
-newline$ -- 260
-num.names$ -- 66
-pop$ -- 379
+newline$ -- 184
+num.names$ -- 47
+pop$ -- 265
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 236
+skip$ -- 179
 stack$ -- 0
 substring$ -- 88
 swap$ -- 35
@@ -64,7 +65,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 73
-width$ -- 68
-write$ -- 650
-(There were 5 warnings)
+while$ -- 54
+width$ -- 49
+write$ -- 460
+(There were 6 warnings)

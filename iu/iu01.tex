@@ -1,4 +1,4 @@
-% !TeX root = ../ejemplo.tex
+% !TeX root = ../ejemplo2.tex
 
 %--------------------------------------
 \subsection{IU01: Pantalla Iniciar sesión del sistema móvil}
@@ -44,9 +44,9 @@ Dependiendo del rol del usuario:
 	\begin{itemize}
 		\item \IUbutton{Entrar}:
 		\begin{enumerate}
-			\item Verifica que se hayan llenado todos los campos (Boleta y Contraseña). Si falta algún campo, muestra el mensaje \textbf{\hyperref[msg:CU01-E1]{MSG-CU01-E1}}{``Por favor, completa todos los campos.''}.
-			\item Verifica que las credenciales (Boleta y Contraseña) coincidan con un usuario registrado en el sistema. Si no coinciden, muestra el mensaje \textbf{\hyperref[msg:CU01-E2]{MSG-CU01-E2}} ``Datos incorrectos.''.
-			\item En caso de pérdida de conexión durante la verificación, muestra el mensaje \textbf{\hyperref[msg:CU01-E3]{MSG-CU01-E3}} ``Conexión perdida.''.
+			\item Verifica que se hayan llenado todos los campos (Boleta y Contraseña). Si falta algún campo, muestra el mensaje \textbf{``Por favor, completa todos los campos.''}.
+			\item Verifica que las credenciales (Boleta y Contraseña) coincidan con un usuario registrado en el sistema. Si no coinciden, muestra el mensaje \textbf{ ``Datos incorrectos.''.}
+			\item En caso de pérdida de conexión durante la verificación, muestra el mensaje \textbf{ ``Conexión perdida.''.}
 			\item Si la autenticación es exitosa, determina el rol del usuario y lo redirige a la pantalla de saludo correspondiente (\IUref{IUE01}{Pantalla de saludo del docente}, \IUref{IUE02}{Pantalla de saludo del personal de seguridad}, \IUref{IUE03}{Pantalla de saludo del alumno} o \IUref{IUE06}{Pantalla de saludo del presidente de academia/jefe de departamento}).
 		\end{enumerate}
 		
@@ -54,9 +54,9 @@ Dependiendo del rol del usuario:
 	
 	\subsubsection{Mensajes}
 	\begin{itemize}
-		\item \textbf{\hyperref[msg:CU01-E1]{MSG-CU01-E1}} Por favor, completa todos los campos.
-		\item \textbf{\hyperref[msg:CU01-E2]{MSG-CU01-E2}} Datos incorrectos.
-		\item \textbf{\hyperref[msg:CU01-E3]{MSG-CU01-E3}} Conexión perdida.
+		\item Por favor, completa todos los campos.
+		\item Datos incorrectos.
+		\item Conexión perdida.
 	\end{itemize}
 
 

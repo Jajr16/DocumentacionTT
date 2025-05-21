@@ -17,19 +17,20 @@
 \UCitem{Entradas}{Identificador del ETS y nombre del nuevo docente asignado.}
 \UCitem{Origen}{Teclado}
 \UCitem{Salidas}{
-	Se muestra el mensaje \textbf{MSG-42}: ``¿Confirmar aprobación? ¿Está seguro de aprobar esta solicitud y asignar al docente como reemplazo?'', solicitando confirmación para la asignación del reemplazo.
+	Se muestra el mensaje\textbf{: ``¿Confirmar aprobación? ¿Está seguro de aprobar esta solicitud y asignar al docente como reemplazo?'', solicitando confirmación para la asignación del reemplazo.}
 	
-	Se muestra el mensaje \textbf{MSG-43}: ``Motivo de rechazo. Por favor, indique el motivo del rechazo'', indicando que se requiere justificación para denegar la solicitud.}
+	Se muestra el mensaje\textbf{: ``Motivo de rechazo. Por favor, indique el motivo del rechazo'', indicando que se requiere justificación para denegar la solicitud.}
+}
 
 \UCitem{Destino}{\IUref{IU03}{}}
 \UCitem{Precondiciones}{El Presidente de academia y/o el Jefe de departamento debe estar autenticado en el sistema y debe de tener una solicitud de remplazo.}
 \UCitem{Postcondiciones}{El docente de remplazo es asignado y se actualiza el estado de la solicitud al docente solicitante.}
 \UCitem{Errores}{
 	\begin{itemize}
-		\item \textbf{E1}: Pérdida de conexión. Muestra el mensaje \textbf{MSG-41}: ``Error de red. Verifique su conexión e intente nuevamente''.
-		\item \textbf{E2}: Datos inválidos. Muestra \textbf{MSG-42}: ``Los datos recibidos no tienen el formato esperado'' (cuando faltan campos obligatorios).
-		\item \textbf{E3}: Error en aprobación/rechazo. Muestra \textbf{MSG-43}: ``No se pudo completar la acción. Intente más tarde''.
-		\item \textbf{E4}: Docentes no disponibles. Muestra \textbf{MSG-44}: ``Error al cargar docentes''.
+		\item \textbf{E1}: Pérdida de conexión. Muestra el mensaje\textbf{: ``Error de red. Verifique su conexión e intente nuevamente''.}
+		\item \textbf{E2}: Datos inválidos. Muestra\textbf{: ``Los datos recibidos no tienen el formato esperado'' (cuando faltan campos obligatorios).}
+		\item \textbf{E3}: Error en aprobación/rechazo. Muestra\textbf{: ``No se pudo completar la acción. Intente más tarde''.}
+		\item \textbf{E4}: Docentes no disponibles. Muestra\textbf{: ``Error al cargar docentes''.}
 	\end{itemize}
 }
 \UCitem{Tipo}{Se entiende del CU01 Iniciar sesión de personal escolar móvil }
@@ -54,7 +55,7 @@
 %--------------------------------------
 \begin{UCtrayectoriaA}{A}{Error en carga de docentes}
 	\UCpaso El sistema falla al cargar docentes disponibles.
-	\UCpaso Muestra \textbf{MSG-44}: ``Error al cargar docentes''.
+	\UCpaso Muestra \textbf{ ``Error al cargar docentes''.}
 	\UCpaso[\UCactor] Presiona \IUbutton{Aceptar}: Redirige a \IUref{IU10}{}.
 \end{UCtrayectoriaA}
 
@@ -67,20 +68,20 @@
 		\item Actualiza el estado de la solicitud a "APROBADO"
 		\item Asigna el docente al ETS
 	\end{itemize}
-	\UCpaso Muestra el mensaje \textbf{MSG-42}: ``¿Confirmar aprobación? ¿Está seguro de aprobar esta solicitud y asignar al docente como reemplazo?''.
+	\UCpaso Muestra el mensaje \textbf{: ``¿Confirmar aprobación? ¿Está seguro de aprobar esta solicitud y asignar al docente como reemplazo?''.}
 	\UCpaso[\UCactor] Oprime el \IUbutton{Aceptar}.
 	\UCpaso Redirige a \IUref{IU09}{Lista de solicitudes pendientes}
 \end{UCtrayectoriaA}
 %--------------------------------------
 \begin{UCtrayectoriaA}{C}{Rechazar solicitud}
-	\UCpaso El sistema muestra el campo \IUref{IU12}{Ingresar motivo de rechazo}.
+	\UCpaso El sistema muestra el campo Ingresar motivo de rechazo.
 	\UCpaso[\UCactor] Ingresa el motivo y selecciona \IUbutton{Confirmar rechazo}.
 	\UCpaso El sistema:
 	\begin{itemize}
 		\item Actualiza el estado de la solicitud a "RECHAZADO"
 		\item Registra el motivo
 	\end{itemize}
-	\UCpaso Muestra el mensaje \textbf{MSG-43}: ``Motivo de rechazo. Por favor, indique el motivo del rechazo'', indicando que se requiere justificación para denegar la solicitud.
+	\UCpaso Muestra el mensaje \textbf{: ``Motivo de rechazo. Por favor, indique el motivo del rechazo'', indicando que se requiere justificación} para denegar la solicitud.
 	\UCpaso[\UCactor] Oprime el \IUbutton{Aceptar}.
 	\UCpaso Redirige a \IUref{IU09}{Lista de solicitudes pendientes}
 \end{UCtrayectoriaA}

@@ -52,16 +52,85 @@ La comunicación con los servicios backend se gestiona a través del paquete `Re
 
 
 
-A continuación, se presentarán las clases contenidas en los paquetes `com.example.prueba3.Views` (ViewModels), `com.example.prueba3.Clases` (Data Classes) y las interfaces definidas en el paquete `RetroFit`, detallando su estructura y funcionalidad sección por sección. Adicionalmente, se incluirán diagramas de componentes específicos para cada una de las `Pantallas` de la aplicación móvil, ilustrando la composición de sus elementos de interfaz de usuario y sus dependencias internas.
+A continuación, se presentarán las clases contenidas en los paquetes `com.example.prueba3.Views` (ViewModels), `com.example.prueba3.Clases` (Data Classes) y las interfaces definidas en el paquete `RetroFit`, detallando su estructura y funcionalidad sección por sección. Adicionalmente, se incluirán diagramas de componentes específicos para cada una de las `Pantallas` de la aplicación móvil, ilustrando la composición de sus elementos y sus dependencias internas.
+
+\subsection{Diagramas de Componentes de Pantallas}
+
+Para una comprensión más profunda de la arquitectura de la interfaz de usuario de la aplicación móvil, a continuación se presentan los diagramas de componentes para cada una de las pantallas principales. Estos diagramas ilustran la composición interna de cada pantalla, mostrando los elementos de la interfaz de usuario (Composables), los datos que manejan y las posibles interacciones o dependencias con otros componentes. Cada diagrama proporciona una vista modular de la pantalla, facilitando la visualización de cómo se construyen las distintas secciones de la interfaz de usuario y cómo se relacionan entre sí. La Figura \ref{fig:Pantallas} muestra las pantallas (archivos .kt) presentes en package.Pantallas.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (12)}
+		\caption{Pantallas presentes en package.Pantallas (archivos .kt).}
+		\label{fig:Pantallas}
+	\end{center}
+\end{figure}
+
+
+\newpage
+
+\subsubsection{Diagrama de Componentes de CalendarScreen.kt}
+
+La Figura \ref{fig:Componentes_1} muestra el diagrama de componentes para CalendarScreen.kt que es un composable que contiene a la \IUref{IU02}{Pantalla Consultar calendario escolar}, que muestra el calendario escolar y permite al usuario ver cuantos días faltan para el periodo de ETS próximo si esta disponible.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (13)}
+		\caption{Diagrama de componentes para CalendarScreen.kt .}
+		\label{fig:Componentes_1}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsubsection{Diagrama de Componentes de CamaraScreen.kt}
+
+La Figura \ref{fig:Componentes_2} muestra el diagrama de componentes para CamaraScreen.kt que es un composable que contiene a la \IUref{IU17}{Pantalla de Reconocimiento facial} y la \IUref{IU19}{Pantalla de Reconocimiento facial alumno}, que muestran la cámara usada para obtener la foto que se usara para el proceso de reconocimiento facial.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (14)}
+		\caption{Diagrama de componentes para CamaraScreen.kt .}
+		\label{fig:Componentes_2}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsubsection{Diagrama de Componentes de ChatScreen.kt}
+
+La Figura \ref{fig:Componentes_3} muestra el diagrama de componentes para ChatScreen.kt que es un composable que contiene una pantalla que muestra el chat de mensajes que pueden usar los usuarios.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (15)}
+		\caption{Diagrama de componentes para ChatScreen.kt .}
+		\label{fig:Componentes_3}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsubsection{Diagrama de Componentes de ConsultarScreen.kt}
+
+La Figura \ref{fig:Componentes_4} muestra el diagrama de componentes para ConsultarScreen.kt que es un composable que contiene a la  , que muestra la lista de los alumnos inscritos a un ETS para el personal de seguridad.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (16)}
+		\caption{Diagrama de componentes para ConsultarScreen.kt .}
+		\label{fig:Componentes_4}
+	\end{center}
+\end{figure}
 
 \newpage
 
 \newpage
 
 
-\section{Diagrama de clases}
+%\section{Diagrama de clases}
 
-En la figura \ref{fig:Diagrama de clases} se muestra el diagrama de clases del sistema, en el cual se establecen las clases que tenemos contempladas para ser implementadas en la creación del sistema, a su vez en este se muestran las relaciones entre las clases, los atributos que estes clases contienen y los procesos que llevaran a cabo.
+%En la figura \ref{fig:Diagrama de clases} se muestra el diagrama de clases del sistema, en el cual se establecen las clases que tenemos contempladas para ser implementadas en la creación del sistema, a su vez en este se muestran las relaciones entre las clases, los atributos que estes clases contienen y los procesos que llevaran a cabo.
 
 \newpage
 

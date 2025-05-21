@@ -21,8 +21,9 @@
 	\UCitem{Precondiciones}{El sistema debe tener conectividad con la base de datos y el personal de seguridad debe estar autenticado en el sistema.}
 	\UCitem{Postcondiciones}{El personal de seguridad ha consultado la información del alumno utilizando su nombre.}
 	\UCitem{Errores}{
-			E1: El nombre ingresado no corresponde a ningún alumno registrado y muestra el mensaje {\bf MSG-22}{``Alumno no registrado''}.
-			E2: El sistema no puede recuperar la información del alumno y muestra el mensaje {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+			E1: El nombre ingresado no corresponde a ningún alumno registrado y muestra el mensaje {\bf ``Alumno no registrado''}.
+			
+			E2: El sistema no puede recuperar la información del alumno y muestra el mensaje {\bf ``Error al consultar la base de datos. Intente nuevamente más tarde.''}
 	}
 	\UCitem{Tipo}{Se entiende del CU01 Iniciar sesión de personal escolar móvil }
 	\UCitem{Observaciones}{Este caso de uso es esencial para validar la identidad de los alumnos al acceder a las instalaciones mediante la búsqueda por nombre.}
@@ -38,14 +39,14 @@
 \end{UCtrayectoria}
 %--------------------------------------        
 \begin{UCtrayectoriaA}{A}{Alumno no registrado}
-	\UCpaso[\UCactor] El personal de seguridad muestra un mensaje: {\bf MSG-22}{``Alumno no registrado''}
+	\UCpaso[\UCactor] El personal de seguridad muestra un mensaje: {\bf ``Alumno no registrado''}
 	\UCpaso[\UCactor] El personal de seguridad presiona el botón \IUbutton{Regresar} para intentar una nueva búsqueda o regresar a la pantalla anterior.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 
 %--------------------------------------        
 \begin{UCtrayectoriaA}{B}{Error de conexión con la base de datos}
-	\UCpaso[\UCactor] El personal de seguridad muestra un mensaje de error: {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+	\UCpaso[\UCactor] El personal de seguridad muestra un mensaje de error: {\bf ``Error al consultar la base de datos. Intente nuevamente más tarde.''}
 	\UCpaso[\UCactor] El personal de seguridad presiona el botón \IUbutton{Aceptar} para cerrar el mensaje y puede intentar la consulta nuevamente.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}

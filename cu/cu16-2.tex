@@ -21,9 +21,9 @@
 	\UCitem{Precondiciones}{El alumno debe estar autenticado en el sistema.}
 	\UCitem{Postcondiciones}{El alumno ha consultado los periodos de ETS.}
 	\UCitem{Errores}{
-			E1: El sistema no puede recuperar la información de los periodos y muestra el mensaje {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde''}.
+			E1: El sistema no puede recuperar la información de los periodos y muestra el mensaje {\bf ``Error al consultar la base de datos. Intente nuevamente más tarde''}.
 			
-			E2:  No hay periodos de ETS y muestra el mensaje  {\bf MSG-25}{``No hay periodos de ETS''}. 
+			E2:  No hay periodos de ETS y muestra el mensaje  {\bf ``No hay periodos de ETS''}. 
 	}
 	\UCitem{Tipo}{Se extiende del CU-01 Iniciar sesión del sistema móvil}
 	\UCitem{Observaciones}{Ninguna}
@@ -39,13 +39,13 @@
 %--------------------------------------        
 \begin{UCtrayectoriaA}{A}{No hay periodos}
 	\UCpaso El sistema verifica y no encuentra registros de periodos de ETS.
-	\UCpaso El sistema muestra un mensaje: {\bf MSG-25}{``No hay periodos de ETS''}
+	\UCpaso El sistema muestra un mensaje: {\bf ``No hay periodos de ETS''}
 	\UCpaso[\UCactor] El alumno presiona el botón \IUbutton{Regresar} para volver a la pantalla anterior.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 %--------------------------------------        
 \begin{UCtrayectoriaA}{B}{Error en la conexión con la base de datos}
-	\UCpaso El sistema muestra un mensaje de error: {\bf MSG-9}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+	\UCpaso El sistema muestra un mensaje de error: {\bf ``Error al consultar la base de datos. Intente nuevamente más tarde.''}
 	\UCpaso[\UCactor] El alumno presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
 	\UCpaso[\UCactor] El alumno puede intentar la consulta nuevamente o presionar el botón \IUbutton{Regresar} para volver a la pantalla anterior.
 	\UCpaso Fin de la trayectoria alternativa.

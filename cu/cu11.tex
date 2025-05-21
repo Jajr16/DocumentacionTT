@@ -17,7 +17,7 @@
 	\UCitem{Precondiciones}{El docente debe haber iniciado sesión (\textbf{\hyperref[CU-01]{CU-01 Iniciar sesión del sistema móvil}}) y haber consultado la lista de alumnos inscritos al ETS (\textbf{\hyperref[CU-08]{CU-08 Consultar lista de alumnos inscritos a un ETS}}).}
 	\UCitem{Postcondiciones}{El docente ha visualizado la información detallada del alumno seleccionado y su reporte de asistencia.}
 	\UCitem{Errores}{
-		E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje \textbf{\hyperref[msg:CU11-E1]{MSG-CU11-E1}} ``El proceso no se pudo realizar por un fallo de red.''
+		E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje \textbf{``El proceso no se pudo realizar por un fallo de red.''}
 	}
 	\UCitem{Tipo}{Caso de uso primario}
 	\UCitem{Observaciones}{En caso de que las imágenes (foto de credencial o reconocimiento facial) no se carguen, se mostrará el texto Sin Imagen en su lugar.}
@@ -36,7 +36,7 @@
 %--------------------------------------
 \begin{UCtrayectoriaA}{A}{No se ha creado reporte para este alumno (dentro del periodo)}
 	\UCpaso El sistema verifica que no existe un reporte de asistencia para el alumno seleccionado y que la hora actual no ha superado las 2 horas posteriores al inicio del ETS.
-	\UCpaso El sistema muestra el mensaje: \textbf{\hyperref[msg:CU11-A1]{MSG-CU11-A1}} ``No se ha creado reporte para este alumno.''
+	\UCpaso El sistema muestra el mensaje: \textbf{ ``No se ha creado reporte para este alumno.''}
 	\UCpaso[\UCactor] El docente visualiza el mensaje.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
@@ -44,7 +44,7 @@
 %--------------------------------------
 \begin{UCtrayectoriaA}{B}{El alumno no se presentó al ETS (fuera del periodo)}
 	\UCpaso El sistema verifica que no existe un reporte de asistencia para el alumno seleccionado y que la hora actual ha superado las 2 horas posteriores al inicio del ETS.
-	\UCpaso El sistema muestra el mensaje: \textbf{\hyperref[msg:CU11-B1]{MSG-CU11-B1}} ``El alumno no se presentó al ETS.''
+	\UCpaso El sistema muestra el mensaje: \textbf{ ``El alumno no se presentó al ETS.''}
 	\UCpaso[\UCactor] El docente visualiza el mensaje.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}

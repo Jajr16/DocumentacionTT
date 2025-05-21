@@ -1,10 +1,10 @@
-% !TeX root = ../ejemplo.tex
+% !TeX root = ../ejemplo2.tex
 
 %--------------------------------------
 \begin{UseCase}{CU-22}{Crear credencial}{
 
-    Permitir al personal de la DAE previsualizar la credencial del alumno que acaba de dar de alta y si se da el caso corregir los datos.
-}
+    Permitir al personal de la DAE previsualización la credencial del alumno que acaba de dar de alta y si se da el caso corregir los datos.	
+    }
     \UCitem{Versión}{\color{Gray}1}
     \UCitem{Autor}{\color{Gray}Huertas Ramírez Daniel Martín}
     \UCitem{Supervisa}{\color{Gray}De la cruz De la cruz Alejandra.}
@@ -18,11 +18,11 @@
     \UCitem{Postcondiciones}{El alumno es dado de alta por el Personal de la DAE y está esperando por su credencial escolar.}
     \UCitem{Errores}{
 
-        E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}  ``El proceso no se pudo realizar por un falló de red.''
+        E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf  ``El proceso no se pudo realizar por un falló de red.''}
 
-        E2: Cuando falte algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29-}{``Los campos no están correctamente llenados.''}
+        E2: Cuando falte algún dato requerido entonces el sistema muestra el mensaje {\bf ``Los campos no están correctamente llenados.''}
 
-        E3: Cuando la CURP o la boleta del alumno ya estén registrados el sistema muestra el mensaje {\bf MSG-30-}{``La CURP o la boleta ya han sido asociadas a este alumno con anterioridad u otro alumno.''}
+        E3: Cuando la CURP o la boleta del alumno ya estén registrados el sistema muestra el mensaje {\bf``La CURP o la boleta ya han sido asociadas a este alumno con anterioridad u otro alumno.''}
     }
     \UCitem{Tipo}{ Extiende de CU21 Dar de alta a alumno}
     \UCitem{Observaciones}{Ninguna}
