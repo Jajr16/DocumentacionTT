@@ -15,3 +15,52 @@ Antes de irnos a la definición de JPA, hay que entender qué es la persistencia
 Algunas de las ventajas que nos presenta JPA es que nos permite hacer el mapeo de entidades, es decir, el definir cómo se relacionan las clases de nuestra aplicación con los elementos de nuestra base de \cite{CitaAJ03}. Esto abarca temas como las relaciones entre clases y tablas en nuestra abse de datos, propiedades de las clases y los campos de las tablas e incluso la relación entre diferentes clases y las claves exrternas de nuestras tablas. 
 
 Además, JPA ofrece la capacidad de interactuar con diferentes sistemas de gestión de bases de datos, ya que no usa sentencias SQL o de algún tipo de base de datos en específico, por lo que mejora la portabilidad y escalabilidad de las aplicaciones. \cite{CitaAJ04}
+
+Spring Boot cuenta con una serie de anotaciones que ayudan a simplificar el desarrollo de las aplicaciones. Estas anotaciones son mecanismos que agregan metadatos, los cuales son interpretados por Spring Boot para así configurar y gestionar automáticamente los componentes de una aplicación \cite{}.
+
+Las anotaciones usadas en este proyecto fueron las siguientes:
+\begin{itemize}
+	\item  \textbf{@Configuration:} Esta anotación se usa en clases que definen beans. Esta anotación es un análogo para un archivo de configuración XML, solo que la configuración se hace mediante clases Java.
+	\item \textbf{@Value:} Indica una expresión de valor predeterminado para un campo o parámetro al inicializar una propiedad.
+	\item \textbf{@Bean:} Se usa a la par de @Configuration para crear beans Spring, es decir, para crear objetos gestionados por Spring. 
+	\item \textbf{@Override:} Se usa para un sobrescribir un método. Usar @Override garantiza en tiempo de compilación que estás sobrescribiendo correctamente un método.
+	\item \textbf{@Service:} Marca una clase Java que realizará algún servicio, como ejecutar la lógica de negocio, realizar cálculos y llamar a API's externas.
+	\item \textbf{@PostConstruct:} Define un método que debe ejecutarse después de que el bean haya sido inicializado y todas sus dependencias hayan sido inyectadas.
+	\item \textbf{@Embeddable:} Esta anotación quiere decir que las propiedades de una clase pueden ser incluidas en otra como un valor
+	\item \textbf{@Column:} Define variables de una clase como columnsa en una base de datos.
+	\item \textbf{@ManyToOne:} Se encarga de generar una relación de muchos a uno. 
+	\item \textbf{@JoinColumn:} Sirve para hacer referencia a la columna que es llave foránea en una tabla, y la cual se encarga de definir la relación.
+	\item \textbf{@Entity:} Registra una clase como una entidad.
+	\item \textbf{@Table:} Se encarga de mapear una entidad contra una tabla que tenga un nombre distinto. 
+	\item \textbf{@Id:} Indica que una variable será registrada como una llave primaria de una entidad.
+	\item \textbf{@JsonProperty:} Sirve para indicar el nombre de una variable en un JSON.
+	\item \textbf{@OneToOne:} Se encarga de generar una relación uno a uno en una base de datos.
+	\item \textbf{@OneToMany:} Se encarga de generar una relación uno a muchos en una base de datos.
+	\item \textbf{@EmbeddedId:} Se utiliza para definir una clave primaria compuesta embebida en una entidad.
+	\item \textbf{@MapsId:} Indica que un atributo de una entidad comparte su identificador con otra entidad, esto llega a ser muy útil en relaciones donde se comparten claves primarias.
+	\item \textbf{@GeneratedValue:} Esta anotación se usa muy seguido, sobre todo porque hay veces en las que las claves primarias que tenemos deben de ser valores autoincrementables o definidos. Esta anotación es justo lo que hace, definir un valor a una llave primaria. 
+	\item \textbf{@UniqueConstraint:} Define restricciones de unicidad en columnas de una tabla, para asegurar que los valores que se inserten sean únicos.
+	\item \textbf{@Temporal:} Se usa para definir tipos de variables Date, Time.
+	\item \textbf{@JoinColumns:} Define múltilpes columnas de unión en relaciones compuestas entre entidades.
+	\item \textbf{@PrePersist:} Sirve para ejecutar alguna acción antes de que se guarde una nueva entidad.
+	\item \textbf{@PreUpdate:} Indica que un método debe ejecutarse antes de que una entidad sea actualizada. 
+	\item \textbf{@RestController:} Con esta anotación se construyen servicios REST de manera más fácil y efectiva. Indica que una clase manejará las solicitudes HTTP y que devolverá datos JSON.
+	\item \textbf{@RequestMapping:} Se usa para mapear solicitudes HTTP a métodos Request.
+	\item \textbf{@Autowired:} Inyecta dependencias de una clase automáticamente.
+	\item \textbf{@GetMapping:} Se usa para mapear solicitudes HTTP a métodos GET.
+	\item \textbf{@PostMapping:} Se usa para mapear solicitudes HTTP a métodos POST.
+	\item \textbf{@RequestPart:} Se uusa para vincular una parte de una solicitud a un parámetro de un método.
+	\item \textbf{@RequestParam:} Indica que un parámetro de un método se debe de vincular a un parámetro de una solicitud. Un ejemplo de esto es para exrtraer datos de una URL.
+	\item \textbf{@DeleteMapping:} Se usa para mapear solicitudes HTTP a métodos DELETE.
+	\item \textbf{@CrossOrigin:} Permite solicitudes desde diferentes dominios. 
+	\item \textbf{@ExceptionHandler:} Define un método para manejar excepciones específicas lanzadas por el controlador.
+	\item \textbf{@Repository:} Registra una clase como un bean, en este caso, define clases que pueden acceder a la base de datos.
+	\item \textbf{@Query:} Define consultas personalizadas usando JPQL o SQL nativo.
+	\item \textbf{@Modifying:} Se usa junto con @Query, y es para indicar que la consulta realiza operaciones de modificación, como insert, update o delete.
+	\item \textbf{@Transactional:} Permite a una clase ejecutarse dentro de una transacción de una base de datos, es decir que si alguna parte de un método llega a fallar, todas las operaciones realizadas en dicho método se cancelan.
+	\item \textbf{@Param:} Se usa para nombrar parámetros en consultas definidas con @Query.
+	\item \textbf{@Service:} Defina a una clase como un componente de servicio. Estas clases son las que tienen toda la lógica de negocio.
+	\item \textbf{@Async:} Permite ejecutar métodos de manera asíncrona.
+	\item \textbf{@Scheduled:} Programa la ejecución de un método en intervalos específicos.
+	\item \textbf{@SpringBootApplication:} Marca la clase principal de una aplicación Spring Boot.
+\end{itemize}}
