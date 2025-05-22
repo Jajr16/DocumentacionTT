@@ -15,6 +15,8 @@ Reallocating 'name_of_file' (item size: 1) to 12 items.
 A level-1 auxiliary file: Diseño.aux
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 A level-1 auxiliary file: TrabajoF.aux
+Reallocating 'name_of_file' (item size: 1) to 12 items.
+A level-1 auxiliary file: Pruebas.aux
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: ref.bib
 Warning--entry type for "D1" isn't style-file defined
@@ -26,10 +28,11 @@ Warning--entry type for "UNAMSE" isn't style-file defined
 Warning--I'm ignoring FacialF's extra "pages" field
 --line 1261 of file ref.bib
 Warning--I didn't find a database entry for "CitaA19"
+Warning--I didn't find a database entry for ""
 Warning--I didn't find a database entry for "."
 You've used 47 entries,
             1876 wiz_defined-function locations,
-            753 strings with 11066 characters,
+            754 strings with 11077 characters,
 and the built_in function-call counts, 7087 in all, are:
 = -- 712
 > -- 231
@@ -68,4 +71,4 @@ warning$ -- 0
 while$ -- 54
 width$ -- 49
 write$ -- 460
-(There were 6 warnings)
+(There were 7 warnings)
