@@ -22,8 +22,11 @@ La capa de presentación se compone de dos clientes principales: el Sistema Web 
 	\end{center}
 \end{figure}
 
-A continuación se entrara más en detalle en la estructura interna de los componentes del sistema del diagrama anterior.
+A continuación se entrará más en detalle en la estructura interna de los componentes del sistema del diagrama anterior.
 
+\newpage
+
+\input{sv/resumen}
 \newpage
 
 \section{Estructura Interna Detallada de la Aplicación Móvil} 
@@ -34,7 +37,7 @@ El punto de entrada principal de la aplicación es la actividad `MainActivity.kt
 
 La interfaz de usuario de la aplicación se construye dentro del paquete `Pantallas`. Este paquete contiene las implementaciones de las pantallas de la aplicación utilizando Jetpack Compose. Cada pantalla se define mediante funciones Composable, que describen la estructura y el comportamiento de la interfaz de usuario de manera declarativa. 
 
-La lógica de presentación y la gestión del estado de las `Pantallas` se encuentran en el paquete llamado `com.example.prueba3.Views`. Dentro de este paquete, los ViewModels actúan como intermediarios, proporcionando los datos necesarios a las Composables y manejando la lógica de las interacciones del usuario. Existe una relación directa entre las `Pantallas` y los `Views`, donde cada pantalla suele estar asociada a un ViewModel específico. 
+La lógica de presentación y la gestión del estado de las `Pantallas` se encuentran en el paquete llamado `com.example.prueba3.Views`. Dentro de este paquete, los ViewModels actúan como intermediarios, proporcionando los datos necesarios a los Composables y manejando la lógica de las interacciones del usuario. Existe una relación directa entre las `Pantallas` y los `Views`, donde cada pantalla suele estar asociada a un ViewModel específico. 
 
 El modelo de datos de la aplicación se define principalmente en el paquete `com.example.prueba3.Clases`. Este paquete contiene las clases que representan los datos utilizados por la aplicación. En su mayoría, estas clases son Data Classes, diseñadas para almacenar y transportar datos de manera concisa y eficiente.
 
