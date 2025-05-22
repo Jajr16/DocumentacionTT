@@ -20,46 +20,48 @@ A level-1 auxiliary file: Pruebas.aux
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: ref.bib
 Warning--entry type for "D1" isn't style-file defined
---line 907 of file ref.bib
+--line 454 of file ref.bib
 Warning--entry type for "CALF" isn't style-file defined
---line 1191 of file ref.bib
+--line 596 of file ref.bib
 Warning--entry type for "UNAMSE" isn't style-file defined
---line 1207 of file ref.bib
+--line 604 of file ref.bib
 Warning--I'm ignoring FacialF's extra "pages" field
---line 1261 of file ref.bib
+--line 631 of file ref.bib
 Warning--I didn't find a database entry for "CitaA19"
 Warning--I didn't find a database entry for ""
 Warning--I didn't find a database entry for "."
-You've used 47 entries,
+Warning--empty journal in SpringController
+Warning--empty journal in yadav-2024
+You've used 52 entries,
             1876 wiz_defined-function locations,
-            754 strings with 11077 characters,
-and the built_in function-call counts, 7087 in all, are:
-= -- 712
-> -- 231
+            773 strings with 11478 characters,
+and the built_in function-call counts, 7701 in all, are:
+= -- 760
+> -- 251
 < -- 0
-+ -- 107
-- -- 60
-* -- 315
-:= -- 1051
-add.period$ -- 87
-call.type$ -- 47
-change.case$ -- 44
++ -- 117
+- -- 65
+* -- 348
+:= -- 1142
+add.period$ -- 91
+call.type$ -- 52
+change.case$ -- 49
 chr.to.int$ -- 0
-cite$ -- 47
-duplicate$ -- 248
-empty$ -- 871
-format.name$ -- 60
-if$ -- 1794
+cite$ -- 54
+duplicate$ -- 276
+empty$ -- 955
+format.name$ -- 65
+if$ -- 1941
 int.to.chr$ -- 0
-int.to.str$ -- 47
-missing$ -- 4
-newline$ -- 184
-num.names$ -- 47
-pop$ -- 265
+int.to.str$ -- 52
+missing$ -- 6
+newline$ -- 199
+num.names$ -- 52
+pop$ -- 294
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 179
+skip$ -- 199
 stack$ -- 0
 substring$ -- 88
 swap$ -- 35
@@ -67,8 +69,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 54
-width$ -- 49
-write$ -- 460
-(There were 7 warnings)
+warning$ -- 2
+while$ -- 59
+width$ -- 54
+write$ -- 494
+(There were 9 warnings)
