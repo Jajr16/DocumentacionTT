@@ -3,16 +3,28 @@
 En el presente capítulo, se ofrece una descripción detallada de las clases que constituyen los diversos subsistemas, las bases de datos que almacenan la información crítica y los servidores que sustentan la operatividad del sistema. Se presentan, además, los diagramas de clases específicos para cada uno de estos subsistemas, proporcionando una visión clara de su estructura interna y las relaciones entre sus entidades. Adicionalmente, se incluyen diagramas de componentes que desglosan la arquitectura de las pantallas que conforman la aplicación móvil, ilustrando su organización y dependencias. Finalmente, se exploran los diagramas de secuencia, los cuales representan de manera exhaustiva las dinámicas trayectorias de interacción definidas por los casos de uso del sistema.
 
 \section{Diagrama de la Estructura General del Sistema} 
-La Figura \ref{fig:Diagrama de sistemas} ilustra la arquitectura general del sistema propuesto, presentando los principales componentes que lo integran y sus interconexiones. 
+La Figura \ref{fig:Diagrama de sistemas} ilustra la arquitectura general del sistema propuesto, presentando los principales componentes que lo integran y sus interconexiones desde la perspectiva del patrón de diseño Modelo-Vista-Controlador (MVC). Este enfoque promueve la separación de responsabilidades, dividiendo la aplicación en tres partes principales:
 
-En este diagrama de alto nivel, se distinguen tres capas fundamentales: la capa de datos, la capa de servicios y la capa de presentación. 
+\begin{itemize}
+	\item \textbf{El Modelo (Model):} Representa la lógica de negocio, los datos de la aplicación y las reglas para manipular esos datos. Es el corazón de la aplicación, independiente de la interfaz de usuario.
+	\begin{itemize}
+		\item El \textbf{Servidor Java Spring-Boot} (desplegado en \textbf{Azure}) se encarga de la lógica de negocio, procesando las solicitudes, realizando validaciones, aplicando reglas de negocio y gestionando la interacción directa con la base de datos PostgreSQL mediante el protocolo SSL. Podría decirse que este servidor contiene la lógica que opera sobre el Modelo y expone los datos y funcionalidades a otros componentes (Son principalmente los Service y los Repository).
+		\item El \textbf{Servidor Red Neuronal} (también en \textbf{Azure}) puede considerarse una extensión especializada del Modelo, proporcionando funcionalidades avanzadas de lógica de negocio (reconocimiento facial) que operan sobre datos y que el Controlador podría invocar para procesamientos específicos.
+	\end{itemize}
+	
+	\item \textbf{La Vista (View):} Es la capa muestra los datos al usuario. Su responsabilidad principal es renderizar la interfaz de usuario y reflejar el estado actual del Modelo.
+	\begin{itemize}
+		\item El \textbf{Sistema Web (Simulación SAES y DAE)}, desplegado localmente, actúa como una Vista para los usuarios de escritorio, presentando la información y recibiendo las interacciones.
+		\item La \textbf{App Móvil} representa otra Vista, diseñada específicamente para dispositivos móviles, ofreciendo una interfaz adaptada para el usuario final en un entorno portátil.
+	\end{itemize}
+	
+	\item \textbf{El Controlador (Controller):} Actúa como un intermediario entre el Modelo y la Vista. Recibe las entradas del usuario desde la Vista, las traduce en acciones apropiadas para el Modelo, y actualiza la Vista con la respuesta del Modelo.
+	\begin{itemize}
+		\item En este sistema distribuido, el rol del Controlador se distribuye entre los mecanismos de comunicación de los clientes y la parte inicial de procesamiento del \textbf{Servidor Java Spring-Boot}. Cuando el Sistema Web o la App Móvil envían solicitudes a los servidores vía HTTPS, estas solicitudes actúan como ´´entradas del usuari´´.
+		\item El \textbf{Servidor Java Spring-Boot} (a través de sus controladores RESTful internos) es quien recibe estas solicitudes de la Vista, invoca la lógica de negocio apropiada dentro del Modelo (o en el Servidor Red Neuronal si es necesario), y prepara los datos para ser enviados de vuelta a la Vista, completando el ciclo.
+	\end{itemize}
+\end{itemize}
 
-La capa de datos está representada por una base de datos PostgreSQL alojada en la plataforma Railway. Esta base de datos se comunica de manera segura mediante el protocolo SSL con el Servidor Java Spring-Boot, el cual reside en la plataforma Azure. 
-
-La capa de servicios se compone de dos servidores principales, ambos desplegados en Azure. El primero es el Servidor Java Spring-Boot, que actúa como el núcleo de la lógica de negocio y gestiona el acceso a la base de datos. El segundo es el Servidor Red Neuronal, encargado de las funcionalidades específicas relacionadas con redes neuronales y el reconocimiento facial. 
-
-
-La capa de presentación se compone de dos clientes principales: el Sistema Web (Simulación SAES y DAE), desplegado localmente, y la App Móvil. Ambos clientes se comunican con los servidores en Azure mediante el protocolo HTTPS, garantizando una comunicación segura, también, el Sistema Web interactúa directamente con el Servidor Java Spring-Boot, mientras que la App Móvil se comunica tanto con el Servidor Java Spring-Boot como con el Servidor Red Neuronal, también a través de HTTPS.
 
 \begin{figure}[htbp!]
 	\begin{center}
@@ -34,7 +46,7 @@ El punto de entrada principal de la aplicación es la actividad `MainActivity.kt
 
 La interfaz de usuario de la aplicación se construye dentro del paquete `Pantallas`. Este paquete contiene las implementaciones de las pantallas de la aplicación utilizando Jetpack Compose. Cada pantalla se define mediante funciones Composable, que describen la estructura y el comportamiento de la interfaz de usuario de manera declarativa. 
 
-La lógica de presentación y la gestión del estado de las `Pantallas` se encuentran en el paquete llamado `com.example.prueba3.Views`. Dentro de este paquete, los ViewModels actúan como intermediarios, proporcionando los datos necesarios a las Composables y manejando la lógica de las interacciones del usuario. Existe una relación directa entre las `Pantallas` y los `Views`, donde cada pantalla suele estar asociada a un ViewModel específico. 
+La lógica y la gestión del estado de las `Pantallas` se encuentran en el paquete llamado `com.example.prueba3.Views`. Dentro de este paquete, los ViewModels actúan como intermediarios, proporcionando los datos necesarios a las Composables y manejando la lógica de las interacciones del usuario. Existe una relación directa entre las `Pantallas` y los `Views`, donde cada pantalla suele estar asociada a un ViewModel específico. 
 
 El modelo de datos de la aplicación se define principalmente en el paquete `com.example.prueba3.Clases`. Este paquete contiene las clases que representan los datos utilizados por la aplicación. En su mayoría, estas clases son Data Classes, diseñadas para almacenar y transportar datos de manera concisa y eficiente.
 
