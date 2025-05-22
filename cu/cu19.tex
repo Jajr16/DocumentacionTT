@@ -16,11 +16,13 @@
 	\UCitem{Precondiciones}{El alumno ha iniciado sesión en la aplicación móvil (\textbf{\hyperref[CU-02]{CU-02 Iniciar sesión del alumno}}).}
 	\UCitem{Postcondiciones}{El alumno ha visualizado el resultado de la prueba de reconocimiento facial.}
 	\UCitem{Errores}{
-		\begin{itemize}
-			\item \textbf{\hyperref[msg:CU19-E1]{MSG-CU19-E1}} Error al capturar la fotografía.
-			\item \textbf{\hyperref[msg:CU19-E2]{MSG-CU19-E2}} Error al realizar el reconocimiento facial.
-			\item \textbf{\hyperref[msg:CU19-E3]{MSG-CU19-E3}} Error de conexión.
-		\end{itemize}
+		
+			E1: Cuando no se puede capturar la fotografía del alumno se muestra el mensaje \textbf{ ´´Error al capturar la fotografía.´´}
+			
+			E2: Cuando hay un fallo en el reconocimiento facial se muestra el mensaje \textbf{ ´´Error al realizar el reconocimiento facial.´´}
+			 
+			E3: Cuando falla la conexión se muestra el mensaje \textbf{ ´´Error de conexión.´´}
+		
 	}
 	\UCitem{Tipo}{Caso de uso primario}
 	\UCitem{Observaciones}{La precisión del reconocimiento facial se mostrará al alumno.}
@@ -43,21 +45,21 @@
 %--------------------------------------
 \begin{UCtrayectoriaA}{A}{Error al capturar la fotografía}
 	\UCpaso El sistema intenta activar la cámara y capturar la fotografía, pero ocurre un error.
-	\UCpaso El sistema muestra un mensaje de error: \textbf{\hyperref[msg:CU19-E1]{MSG-CU19-E1}} ``Error al capturar la fotografía: [detalle del error]''.
+	\UCpaso El sistema muestra un mensaje de error: \textbf{``Error al capturar la fotografía: [detalle del error]''.}
 	\UCpaso[\UCactor] El alumno puede intentar nuevamente.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 %--------------------------------------
 \begin{UCtrayectoriaA}{B}{Error al realizar el reconocimiento facial}
 	\UCpaso El sistema captura la fotografía, pero ocurre un error al realizar el reconocimiento facial.
-	\UCpaso El sistema muestra un mensaje de error: \textbf{\hyperref[msg:CU19-E2]{MSG-CU19-E2}} ``Error al realizar el reconocimiento facial: [detalle del error]''.
+	\UCpaso El sistema muestra un mensaje de error: \textbf{ ``Error al realizar el reconocimiento facial: [detalle del error]''.}
 	\UCpaso[\UCactor] El alumno puede intentar nuevamente.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 %--------------------------------------
 \begin{UCtrayectoriaA}{C}{Error de conexión}
 	\UCpaso Ocurre un error al intentar conectar con el servidor para el reconocimiento facial.
-	\UCpaso El sistema muestra un mensaje de error: \textbf{\hyperref[msg:CU19-E3]{MSG-CU19-E3}} ``Error de conexión.''
+	\UCpaso El sistema muestra un mensaje de error: \textbf{ ``Error de conexión.''}
 	\UCpaso[\UCactor] El alumno verifica su conexión a internet o intenta nuevamente.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
@@ -79,7 +81,7 @@
 %--------------------------------------
 \begin{UCtrayectoriaA}{C4}{Error en el Reconocimiento Facial (Detallado)}
 	\UCpaso El sistema realiza el reconocimiento facial pero ocurre un error específico.
-	\UCpaso El sistema muestra: \textbf{\hyperref[msg:CU19-E2]{MSG-CU19-E2}} ``Error al realizar el reconocimiento facial: [detalle del error]''.
+	\UCpaso El sistema muestra: \textbf{ ``Error al realizar el reconocimiento facial: [detalle del error]''.}
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 %-------------------------------------- TERMINA descripción del caso de uso.

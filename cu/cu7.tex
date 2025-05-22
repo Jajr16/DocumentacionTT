@@ -17,14 +17,15 @@
 \UCitem{Entradas}{Identificador del ETS y razón por la que se pide el remplazo.}
 \UCitem{Origen}{Pantalla táctil}
 \UCitem{Salidas}{
-	Se muestra el mensaje \textbf{MSG-13}: ``Solicitud exitosa. La solicitud de reemplazo ha sido registrada correctamente'', indicando que la solicitud fue enviada con éxito.
+	Se muestra el mensaje \textbf{``Solicitud exitosa. La solicitud de reemplazo ha sido registrada correctamente'', indicando que la solicitud fue enviada con éxito.}
 	
-	Se muestra el mensaje \textbf{MSG-14}: ``Ya existe una solicitud pendiente para este ETS'', indicando que ya se ha realizado una solicitud previa para el ETS.}
+	Se muestra el mensaje \textbf{: ``Ya existe una solicitud pendiente para este ETS'', indicando que ya se ha realizado una solicitud previa para el ETS.}
+	}
 \UCitem{Destino}{\IUref{IU06}{Pantalla Información de ETS}}
 \UCitem{Precondiciones}{El docente debe estar autenticado en el sistema y tener un ETS asignado.}
 \UCitem{Postcondiciones}{La solicitud ha sido enviada al jefe de departamento y/o al presidente de academia.}
 \UCitem{Errores}{
-	E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-4}  ``Error al enviar la solicitud''
+	E1: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf  ``Error al enviar la solicitud''}
 }
 \UCitem{Tipo}{Se entiende del CU-06 Mostrar información de los ETS asignados}
 \UCitem{Observaciones}{Ninguna}
@@ -42,13 +43,13 @@
 %--------------------------------------        
 \begin{UCtrayectoriaA}{A}{Ya existe una solicitud pendiente para el ETS}
 	\UCpaso El sistema valida que exista una solicitud previa no resuelta.
-	\UCpaso El sistema muestra el mensaje: {\bf MSG-14}{``Ya existe una solicitud pendiente para este ETS''}.
+	\UCpaso El sistema muestra el mensaje: {\bf``Ya existe una solicitud pendiente para este ETS''}.
 	\UCpaso[\UCactor] El docente presiona \IUbutton{Aceptar} para regresar a \IUref{IU06}{Pantalla Información de ETS}.
 \end{UCtrayectoriaA}
 %-------------------------------------- TERMINA descripción del caso de uso.
 \begin{UCtrayectoriaA}{B}{Error al enviar la solicitud}
 	\UCpaso El sistema detecta un fallo en el servidor o conexión.
-	\UCpaso Muestra el mensaje: {\bf MSG-16}{``Error al enviar la solicitud''}.
+	\UCpaso Muestra el mensaje: {\bf``Error al enviar la solicitud''}.
 	\UCpaso[\UCactor] El docente selecciona:
 	\begin{itemize}
 		\item \IUbutton{Cancelar} para volver a \IUref{IU06}{Pantalla Información de ETS}.

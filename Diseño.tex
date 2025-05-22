@@ -52,18 +52,517 @@ La comunicación con los servicios backend se gestiona a través del paquete `Re
 
 
 
-A continuación, se presentarán las clases contenidas en los paquetes `com.example.prueba3.Views` (ViewModels), `com.example.prueba3.Clases` (Data Classes) y las interfaces definidas en el paquete `RetroFit`, detallando su estructura y funcionalidad sección por sección. Adicionalmente, se incluirán diagramas de componentes específicos para cada una de las `Pantallas` de la aplicación móvil, ilustrando la composición de sus elementos de interfaz de usuario y sus dependencias internas.
+A continuación, se presentarán las clases contenidas en los paquetes `com.example.prueba3.Views` (ViewModels), `com.example.prueba3.Clases` (Data Classes) y las interfaces definidas en el paquete `RetroFit`, detallando su estructura y funcionalidad sección por sección. Adicionalmente, se incluirán diagramas de componentes específicos para cada una de las `Pantallas` de la aplicación móvil, ilustrando la composición de sus elementos y sus dependencias internas.
 
 \newpage
 
+\subsection{Diagramas de Componentes de package Pantallas}
+
+Para una comprensión más profunda de la arquitectura de la interfaz de usuario de la aplicación móvil, a continuación se presentan los diagramas de componentes para cada una de las pantallas principales. Estos diagramas ilustran la composición interna de cada pantalla, mostrando los elementos de la interfaz de usuario (Composables), los datos que manejan y las posibles interacciones o dependencias con otros componentes. Cada diagrama proporciona una vista modular de la pantalla, facilitando la visualización de cómo se construyen las distintas secciones de la interfaz de usuario y cómo se relacionan entre sí. La Figura \ref{fig:Pantallas} muestra las pantallas (archivos .kt) presentes en package.Pantallas.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (12)}
+		\caption{Pantallas presentes en package.Pantallas (archivos .kt).}
+		\label{fig:Pantallas}
+	\end{center}
+\end{figure}
+
+
 \newpage
 
+\subsection{Diagrama de Componentes de CalendarScreen.kt}
 
-\section{Diagrama de clases}
+La Figura \ref{fig:Componentes_1} muestra el diagrama de componentes para CalendarScreen.kt que es un composable que contiene a la \IUref{IU02}{Pantalla Consultar calendario escolar}, que muestra el calendario escolar y permite al usuario ver cuantos días faltan para el periodo de ETS próximo si esta disponible.
 
-En la figura \ref{fig:Diagrama de clases} se muestra el diagrama de clases del sistema, en el cual se establecen las clases que tenemos contempladas para ser implementadas en la creación del sistema, a su vez en este se muestran las relaciones entre las clases, los atributos que estes clases contienen y los procesos que llevaran a cabo.
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (13)}
+		\caption{Diagrama de componentes para CalendarScreen.kt .}
+		\label{fig:Componentes_1}
+	\end{center}
+\end{figure}
 
 \newpage
+
+\subsection{Diagrama de Componentes de CamaraScreen.kt}
+
+La Figura \ref{fig:Componentes_2} muestra el diagrama de componentes para CamaraScreen.kt que es un composable que contiene a la \IUref{IU17}{Pantalla de Reconocimiento facial} y la \IUref{IU19}{Pantalla de Reconocimiento facial alumno}, que muestran la cámara usada para obtener la foto que se usara para el proceso de reconocimiento facial.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (14)}
+		\caption{Diagrama de componentes para CamaraScreen.kt .}
+		\label{fig:Componentes_2}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de ChatScreen.kt}
+
+La Figura \ref{fig:Componentes_3} muestra el diagrama de componentes para ChatScreen.kt que es un composable que contiene una pantalla que muestra el chat de mensajes que pueden usar los usuarios.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (15)}
+		\caption{Diagrama de componentes para ChatScreen.kt .}
+		\label{fig:Componentes_3}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de ConsultarScreen.kt}
+
+La Figura \ref{fig:Componentes_4} muestra el diagrama de componentes para ConsultarScreen.kt que es un composable que contiene a la \IUref{IU12}{Pantalla Buscar alumno}, que muestra la lista de los alumnos inscritos a un ETS para el personal de seguridad y le permite filtrarlos por nombre o boleta.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (16)}
+		\caption{Diagrama de componentes para ConsultarScreen.kt .}
+		\label{fig:Componentes_4}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de CredencialDaeScreen.kt}
+
+La Figura \ref{fig:Componentes_5} muestra el diagrama de componentes para CredencialDaeScreen.kt que es un composable que contiene a la \IUref{IU11}{Pantalla Credencial del alumno}, que muestra la comparación de la credencial de la DAE con la credencial creada por el sistema.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (17)}
+		\caption{Diagrama de componentes para CredencialDaeScreen.kt .}
+		\label{fig:Componentes_5}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de DetallesAlumnosScreen.kt}
+
+La Figura \ref{fig:Componentes_6} muestra el diagrama de componentes para DetallesAlumnosScreen.kt que es un composable que contiene a la \IUref{IU11}{Pantalla Credencial del alumno}, que en este caso muestra la información relevante del alumno.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (19)}
+		\caption{Diagrama de componentes para DetallesAlumnosScreen.kt .}
+		\label{fig:Componentes_6}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de EtsDetailScreen.kt}
+
+La Figura \ref{fig:Componentes_7} muestra el diagrama de componentes para EtsDetailScreen.kt que es un composable que contiene a la \IUref{IU06}{Pantalla Información de ETS} y \IUref{IU16}{Pantalla Información de ETS del alumno}, que muestra la información del ETS elegido por el usuario.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (20)}
+		\caption{Diagrama de componentes para EtsDetailScreen.kt .}
+		\label{fig:Componentes_7}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de EtsInscriptionProcessScreen.kt}
+
+La Figura \ref{fig:Componentes_8} muestra el diagrama de componentes para ETSInscriptionProcessScreen.kt que es un composable que contiene a la \IUref{IU18}{Pantalla de Detalles del proceso de ETS}, que muestra la información necesaria para inscribirse a un ETS.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (21)}
+		\caption{Diagrama de componentes para ETSInscriptionProcessScreen.kt .}
+		\label{fig:Componentes_8}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de EtsListScreen.kt}
+
+La Figura \ref{fig:Componentes_9} muestra el diagrama de componentes para EtsListScreen.kt que es un composable que contiene a la \IUref{IU05}{Pantalla Consultar ETS}, que muestra la lista de ETS del docente.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (22)}
+		\caption{Diagrama de componentes para EtsListScreen.kt .}
+		\label{fig:Componentes_9}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de EtsListScreenAlumno.kt}
+
+La Figura \ref{fig:Componentes_10} muestra el diagrama de componentes para EtsListScreenAlumno.kt que es un composable que contiene a la \IUref{IU05}{Pantalla Consultar ETS}, que muestra la lista de ETS del alumno.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (23)}
+		\caption{Diagrama de componentes para EtsListScreenAlumno.kt .}
+		\label{fig:Componentes_10}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de InformacionAlumno.kt}
+
+La Figura \ref{fig:Componentes_11} muestra el diagrama de componentes para InformacionAlumno.kt que es un composable que contiene a la \IUref{IUE07}{Creación del reporte}, que se utiliza para la creación de reportes y a su vez muestra la información esencial del alumno seleccionado.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{DiagramasMoviles/DCM (24)}
+		\caption{Diagrama de componentes para InformacionAlumno.kt .}
+		\label{fig:Componentes_11}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de ListaAlumnosScreen.kt}
+
+La Figura \ref{fig:Componentes_12} muestra el diagrama de componentes para ListaAlumnosScreen.kt que es un composable que contiene a la \IUref{IU08}{Pantalla Lista de asistencia de ETS}, que es la que le muestra la lista de alumnos inscritos a un ETS al docente, junto con su estado de asistencia con un icono.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (25)}
+		\caption{Diagrama de componentes para ListaAlumnosScreen.kt .}
+		\label{fig:Componentes_12}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de ListadoSolicitudesReemplazo.kt}
+
+La Figura \ref{fig:Componentes_13} muestra el diagrama de componentes para ListadoSolicitudesReemplazo.kt que es un composable que contiene una pantalla dedica a la visualización de las solicitudes de reemplazo y sus estados de aceptación o denegación. 
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (26)}
+		\caption{Diagrama de componentes para ListadoSolicitudesReemplazo.kt .}
+		\label{fig:Componentes_13}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de LoginScreen.kt}
+
+La Figura \ref{fig:Componentes_14} muestra el diagrama de componentes para LoginScreen.kt que es un composable que contiene a la \IUref{IU01}{Pantalla Iniciar sesión del sistema móvil}, que es el login de la aplicación móvil.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (27)}
+		\caption{Diagrama de componentes para LoginScreen.kt .}
+		\label{fig:Componentes_14}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de MensajesScreen.kt}
+
+La Figura \ref{fig:Componentes_15} muestra el diagrama de componentes para MensajesScreen.kt que es un composable que es la pantalla donde se ven los mensaje específicos mandados a otro usuario.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (28)}
+		\caption{Diagrama de componentes para MensajesScreen.kt .}
+		\label{fig:Componentes_15}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de QRScannerScreen.kt}
+
+La Figura \ref{fig:Componentes_16} muestra el diagrama de componentes para QRScannerScreen.kt que es un composable que contiene a la \IUref{IU10}{Pantalla Código QR}, que muestra la cámara para poder escanear el código QR de la credencial del alumno.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (29)}
+		\caption{Diagrama de componentes para QRScannerScreen.kt .}
+		\label{fig:Componentes_16}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de ReporteScreen.kt}
+
+La Figura \ref{fig:Componentes_17} muestra el diagrama de componentes para ReporteScreen.kt que es un composable que contiene a la \IUref{IU20}{Pantalla Reporte del Alumno}, que es donde el docente puede revisar el reporte de la asistencia del alumno.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{DiagramasMoviles/DCM (30)}
+		\caption{Diagrama de componentes para ReporteScreen.kt .}
+		\label{fig:Componentes_17}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de ScreenAsignarremplazo.kt}
+
+La Figura \ref{fig:Componentes_18} muestra el diagrama de componentes para ScreenAsignarremplazo.kt que es un composable que contiene a la pantalla \IUref{IU09}{Asignar docente de remplazo}, que es donde el jefe de departamento y/o el presidente de academia pueden responder a las solicitudes de reemplazo.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (31)}
+		\caption{Diagrama de componentes para ScreenAsignarremplazo.kt .}
+		\label{fig:Componentes_18}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de SolicitarReemplazo.kt}
+
+La Figura \ref{fig:Componentes_19} muestra el diagrama de componentes para SolicitarReemplazo.kt que es un composable que contiene a la \IUref{IU07}{Pantalla de Solicitar remplazo}, que es donde el docente puede pedir un reemplazo como aplacador del ETS.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (32)}
+		\caption{Diagrama de componentes para SolicitarReemplazo.kt .}
+		\label{fig:Componentes_19}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de WelcomeScreen.kt}
+
+La Figura \ref{fig:Componentes_20} muestra el diagrama de componentes para WelcomeScreen.kt que es un composable que contiene a la \IUref{IUE02}{Pantalla de saludo del personal de seguridad}, que es la pantalla de inicio del personal de seguridad (donde pude seleccionar la operación que quiere realizar y ver un saludo con su nombre).
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (33)}
+		\caption{Diagrama de componentes para WelcomeScreen.kt .}
+		\label{fig:Componentes_20}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de WelcomeScreenAcademico.kt}
+
+La Figura \ref{fig:Componentes_21} muestra el diagrama de componentes para WelcomeScreenAcademico.kt que es un composable que contiene a la pantalla \IUref{IUE06}{saludo del presidente de academia y el jefe de departamento}, que es la pantalla de inicio del jefe de departamento y/o el presidente de academia (donde pude seleccionar la operación que quiere realizar y ver un saludo con su nombre).
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (34)}
+		\caption{Diagrama de componentes para WelcomeScreenAcademico.kt .}
+		\label{fig:Componentes_21}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de WelcomeScreenAlumno.kt}
+
+La Figura \ref{fig:Componentes_22} muestra el diagrama de componentes para WelcomeScreenAlumno.kt que es un composable que contiene a la pantalla \IUref{IUE03}{Pantalla saludo del alumno}, que es la pantalla de inicio del Alumno (donde pude seleccionar la operación que quiere realizar y ver un saludo con su nombre).
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{DiagramasMoviles/DCM (35)}
+		\caption{Diagrama de componentes para WelcomeScreenAlumno.kt .}
+		\label{fig:Componentes_22}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de Componentes de WelcomeScreenDocente.kt}
+
+La Figura \ref{fig:Componentes_23} muestra el diagrama de componentes para WelcomeScreenDocente.kt que es un composable que contiene a la pantalla \IUref{IUE01}{Pantalla saludo de docente}, que es la pantalla de inicio del Docente (donde pude seleccionar la operación que quiere realizar y ver un saludo con su nombre).
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{DiagramasMoviles/DCM (36)}
+		\caption{Diagrama de componentes para WelcomeScreenDocente.kt .}
+		\label{fig:Componentes_23}
+	\end{center}
+\end{figure}
+
+\subsection{Diagramas de clases de package com.example.prueba3.Views}
+
+La arquitectura de nuestra aplicación móvil se organiza en paquetes bien definidos para una clara separación de responsabilidades. Dentro de este esquema, el paquete `com.example.prueba3.Views`, que contiene nuestros ViewModels, se erige como un componente central y fundamental.
+
+Los ViewModels son elementos clave en la construcción de interfaces de usuario robustas y reactivas. Su función primordial es actuar como intermediarios estratégicos entre las `Pantallas` (implementadas como Composables en el paquete `Pantallas`), y la lógica de negocio o las fuentes de datos. Un ViewModel se encarga de exponer los datos necesarios para su `Pantalla` asociada de una manera que sea óptima para la interfaz de usuario, garantizando que el estado de la UI persista a través de cambios de configuración del dispositivo, como rotaciones o reconstrucciones de la actividad.
+
+A continuación se presentara las clases que conforman a package.example.prueba3.Views:
+
+
+\subsection{Diagrama de clases de package.example.prueba3.Views parte 1}
+
+La Figura \ref{fig:Views1} muestra la primera parte del diagrama de clases de package.example.prueba3.Views.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{DiagramasMoviles/DCM (7)}
+		\caption{Diagrama de clases para package.example.prueba3.Views parte 1.}
+		\label{fig:Views1}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de clases de package.example.prueba3.Views parte 2}
+
+La Figura \ref{fig:Views2} muestra la segunda parte del diagrama de clases de package.example.prueba3.Views.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{DiagramasMoviles/DCM (8)}
+		\caption{Diagrama de clases para package.example.prueba3.Views parte 2.}
+		\label{fig:Views2}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de clases de package.example.prueba3.Views parte 3}
+
+La Figura \ref{fig:Views3} muestra la tercer parte del diagrama de clases de package.example.prueba3.Views.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{DiagramasMoviles/DCM (9)}
+		\caption{Diagrama de clases para package.example.prueba3.Views parte 3.}
+		\label{fig:Views3}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\section{Clases e Interfaces de package Retrofit}
+
+En esta sección, se presenta una visualización de las clases e interfaces que componen el paquete `RetroFit`, el cual es esencial para la comunicación de la aplicación móvil con los servidores backend. Tal como se muestra en la Figura \ref{fig:Diagrama_app_movil_detallado} (en la sección de Estructura Interna Detallada de la Aplicación Móvil), este paquete encapsula toda la lógica de interacción con las APIs remotas.
+
+El enfoque principal de esta sección es mostrar las clases e interfaces que definen cómo la aplicación se comunica con el Servidor Java Spring-Boot y el Servidor Red Neuronal. Estas imágenes proporcionan una representación visual directa del código, facilitando la comprensión de la estructura y las relaciones entre los diferentes componentes del paquete `RetroFit`.
+
+A continuación, se mostrarán las imágenes de las clases e interfaces que conforman el paquete `RetroFit`. Cada imagen representa una parte del código, mostrando las definiciones de las interfaces, los métodos que mapean a las operaciones HTTP (GET, POST, DELETE, etc.) y las clases de datos utilizadas para las solicitudes y respuestas. Estas imágenes permiten una inspección visual del código, complementando la descripción general de la arquitectura de la aplicación móvil.
+
+\newpage
+
+\subsection{Diagrama de clases de package Retrofit parte 1}
+
+La Figura \ref{fig:Retrofit1} muestra la primer parte del diagrama de clases de package Retrofit.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{DiagramasMoviles/DCM (10)}
+		\caption{Diagrama de clases para package Retrofit parte 1.}
+		\label{fig:Retrofit1}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de clases de package Retrofit parte 2}
+
+La Figura \ref{fig:Retrofit2} muestra la segunda parte del diagrama de clases de package Retrofit.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{DiagramasMoviles/DCM (11)}
+		\caption{Diagrama de clases para package Retrofit parte 2.}
+		\label{fig:Retrofit2}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\section{Clases de com.example.prueba3.Clases}
+
+Esta sección se dedica a la presentación de las Clases que constituyen el modelo de datos de la aplicación, ubicadas principalmente en el paquete `com.example.prueba3.Clases`. Como se indicó en la Figura \ref{fig:Diagrama_app_movil_detallado} (en la sección de Estructura Interna Detallada de la Aplicación Móvil), estas clases son fundamentales para la manipulación y el transporte de información dentro de la aplicación.
+
+La mayoría de estas clases son Data Classes, un tipo de clase concisa en Kotlin diseñada específicamente para contener datos. Su función principal es servir como contenedores de información, estructurando los datos que se obtienen de los servicios remotos (a través de `RetroFit`), los que se manipulan dentro de la lógica de negocio, y los que finalmente se presentan en la interfaz de usuario a través de los `Views` (ViewModels). Estas clases aseguran la consistencia y la tipificación estricta de los datos a lo largo de todo el flujo de la aplicación.
+
+A continuación, se mostrarán las imágenes de las Data Classes que conforman el paquete llamado `com.example.prueba3.Clases`. Cada imagen representará la estructura de una clase de datos, incluyendo sus propiedades (atributos) y tipos de datos, proporcionando una visión clara de cómo se modela la información esencial que fluye entre los componentes de la aplicación.
+
+\newpage
+
+\subsection{Diagrama de clases de com.example.prueba3.Clases parte 1}
+
+La Figura \ref{fig:Clases1} muestra la primera parte del diagrama de clases de com.example.prueba3.Clases.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{DiagramasMoviles/DCM (2)}
+		\caption{Diagrama de clases para com.example.prueba3.Clases parte 1.}
+		\label{fig:Clases1}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de clases de com.example.prueba3.Clases parte 2}
+
+La Figura \ref{fig:Clases2} muestra la segunda parte del diagrama de clases de com.example.prueba3.Clases.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{DiagramasMoviles/DCM (3)}
+		\caption{Diagrama de clases para com.example.prueba3.Clases parte 2.}
+		\label{fig:Clases2}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de clases de com.example.prueba3.Clases parte 3}
+
+La Figura \ref{fig:Clases3} muestra la tercera parte del diagrama de clases de com.example.prueba3.Clases.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{DiagramasMoviles/DCM (4)}
+		\caption{Diagrama de clases para com.example.prueba3.Clases parte 3.}
+		\label{fig:Clases3}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de clases de com.example.prueba3.Clases parte 4}
+
+La Figura \ref{fig:Clases4} muestra la cuarta parte del diagrama de clases de com.example.prueba3.Clases.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{DiagramasMoviles/DCM (5)}
+		\caption{Diagrama de clases para com.example.prueba3.Clases parte 4.}
+		\label{fig:Clases4}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrama de clases de com.example.prueba3.Clases parte 5}
+
+La Figura \ref{fig:Clases5} muestra la quinta parte del diagrama de clases de com.example.prueba3.Clases.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{DiagramasMoviles/DCM (6)}
+		\caption{Diagrama de clases para com.example.prueba3.Clases parte 5.}
+		\label{fig:Clases5}
+	\end{center}
+\end{figure}
+
+\newpage
+
+%\section{Diagrama de clases}
+
+%En la figura \ref{fig:Diagrama de clases} se muestra el diagrama de clases del sistema, en el cual se establecen las clases que tenemos contempladas para ser implementadas en la creación del sistema, a su vez en este se muestran las relaciones entre las clases, los atributos que estes clases contienen y los procesos que llevaran a cabo.
 
 
 %\begin{figure}[htbp!]
@@ -80,8 +579,6 @@ En la figura \ref{fig:Diagrama de clases} se muestra el diagrama de clases del s
 A continuación, se presentan los diagramas de secuencia identificados para para la propuesta de solución presentada en este documento.
 En ellos se busca ilustrar el funcionamiento dinamico del sistema y modelar las interacciones entre los distintos componentes y actores dependiendo de los casos de uso descritos en el capitulo 4. 
 Cada diagrama representa el flujo de mensajes e información entre los actores y las capas de la aplicación en función de la arquitectura de una aplicación basada en Spring boot.
-
-\newpage
 
 \subsection{SE-01 Iniciar sesión del sistema móvil}
 

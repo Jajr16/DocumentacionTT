@@ -20,13 +20,13 @@
 		Se registra la entrada del alumno en el sistema.
 }
 \UCitem{Errores}{
-		E1: Si la información de la credencial no coincide con la información del sistema se mostrara el mensaje  {\bf MSG-22}{``Los datos no coinciden. No se puede registrar la asistencia con datos inconsistentes''}.
+		E1: Si la información de la credencial no coincide con la información del sistema se mostrara el mensaje  {\bf ``Los datos no coinciden. No se puede registrar la asistencia con datos inconsistentes''}.
 
 
-		E2: Si el alumno no tiene un ETS registrado para esa fecha o su ETS esta programada para otra fecha se mostrara el mensaje {\bf MSG-9}{``Error el alumno no cuenta con ETS inscritos ó su ETS está programada en otra fecha''}.
+		E2: Si el alumno no tiene un ETS registrado para esa fecha o su ETS esta programada para otra fecha se mostrara el mensaje {\bf ``Error el alumno no cuenta con ETS inscritos ó su ETS está programada en otra fecha''}.
 		
 		
-		E2: Si ya se cuenta con un registro previamente se mostrara el mensaje {\bf MSG-10}{``El alumno ya tiene registrada su asistencia el día de hoy''}.
+		E2: Si ya se cuenta con un registro previamente se mostrara el mensaje {\bf ``El alumno ya tiene registrada su asistencia el día de hoy''}.
 
 }
 \UCitem{Tipo}{Se entiende del CU-12 Consultar alumno mediante código QR de la credencial, CU-13 Buscar alumno por boleta y del CU-14 Buscar alumno por nombre }
@@ -52,25 +52,25 @@
 		\item Registrar asistencia 
 	\end{itemize}
 	\UCpaso[\UCactor] El personal de seguridad selecciona \IUbutton{Registrar asistencia}.
-	\UCpaso El sistema muestra confirmación: {\bf MSG-23}{``Entrada registrada exitosamente.''}
+	\UCpaso El sistema muestra confirmación: {\bf ``Entrada registrada exitosamente.''}
 \end{UCtrayectoria}
 %--------------------------------------
 \begin{UCtrayectoriaA}{A}{Datos inconsistentes}
 	\UCpaso El sistema detecta inconsistencias entre los datos del QR y el sistema.
-	\UCpaso El sistema muestra mensaje: {\bf MSG-22}{``Los datos no coinciden. No se puede registrar la asistencia con datos inconsistentes''}.
+	\UCpaso El sistema muestra mensaje: {\bf ``Los datos no coinciden. No se puede registrar la asistencia con datos inconsistentes''}.
 	\UCpaso[\UCactor] El personal de seguridad informa al alumno.
 \end{UCtrayectoriaA}
 %--------------------------------------
 \begin{UCtrayectoriaA}{B}{Alumno sin ETS vigente}
 	\UCpaso El sistema detecta que el alumno no tiene ETS vigente.
-	\UCpaso El sistema muestra mensaje: {\bf MSG-9}{``Error el alumno no cuenta con ETS inscritos ó su ETS está programada en otra fecha''}.
+	\UCpaso El sistema muestra mensaje: {\bf ``Error el alumno no cuenta con ETS inscritos ó su ETS está programada en otra fecha''}.
 	\UCpaso[\UCactor] El personal de seguridad informa al alumno.
 	\UCpaso Fin del caso de uso.
 \end{UCtrayectoriaA}
 %--------------------------------------        
 \begin{UCtrayectoriaA}{C}{Asistencia ya registrada}
 	\UCpaso El sistema detecta asistencia previa del alumno en la misma fecha.
-	\UCpaso El sistema muestra mensaje: {\bf MSG-10}{``El alumno ya tiene registrada su asistencia el día de hoy''}.
+	\UCpaso El sistema muestra mensaje: {\bf ``El alumno ya tiene registrada su asistencia el día de hoy''}.
 	\UCpaso[\UCactor] El personal de seguridad verifica si es un error.
 	\UCpaso[\UCactor] El personal de seguridad puede:
 	\begin{itemize}

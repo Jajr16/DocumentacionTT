@@ -1,4 +1,4 @@
-% !TeX root = ../ejemplo.tex
+% !TeX root = ../ejemplo2.tex
 
 %--------------------------------------
 \begin{UseCase}{CU-40}{Solicitar desbloqueo de cuenta}{
@@ -16,11 +16,11 @@
     \UCitem{Precondiciones}{El usuario debe de haber iniciado sesión.}
     \UCitem{Postcondiciones}{Se envía el correo con la petición.}
     \UCitem{Errores}{
-        E1: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+        E1: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf ``Los campos no están correctamente llenados.''}
 
-        E2: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf MSG-28}``El proceso no se pudo realizar por un fallo de red.''
+        E2: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje {\bf ``El proceso no se pudo realizar por un fallo de red.''}
 
-        E3: Cuando los datos no corresponden con algún registro en la base de datos se muestra el mensaje {\bf MSG-43}  ``Los datos no coinciden con ningún usuario''.
+        E3: Cuando los datos no corresponden con algún registro en la base de datos se muestra el mensaje {\bf   ``Los datos no coinciden con ningún usuario''.}
     }
     \UCitem{Tipo}{Caso de uso primario}
     \UCitem{Observaciones}{Ninguna}

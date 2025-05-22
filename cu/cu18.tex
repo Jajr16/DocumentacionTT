@@ -22,10 +22,11 @@
 	\UCitem{Precondiciones}{El alumno debe haber iniciado sesión (\textbf{\hyperref[CU-01]{CU-01 Iniciar sesión del sistema móvil}}) y haber consultado la lista de ETS inscritos (\textbf{\hyperref[CU-17]{CU-17 Consultar ETS inscritos}}).}
 	\UCitem{Postcondiciones}{El alumno ha visualizado la información detallada del ETS seleccionado.}
 	\UCitem{Errores}{
-		\begin{itemize}
-			\item \textbf {\hyperref[msg:CU18-E1]{MSG-CU18-E1}}{ ``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
-			\item \textbf {\hyperref[msg:CU18-E2]{MSG-CU18-E2}}{ ``Información no disponible para el ETS seleccionado.''}.
-		\end{itemize}
+		
+			E1: Cuando no se puede conectar con la base de datos se muestra el mensaje \textbf { ``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+			
+			E2: Cuando no se puede obtener la información del ETS se muestra el mensaje \textbf { ``Información no disponible para el ETS seleccionado.''}.
+		
 	}
 	\UCitem{Tipo}{Caso de uso primario}
 	\UCitem{Observaciones}{Ninguna.}
@@ -39,7 +40,7 @@
 \end{UCtrayectoria}
 %--------------------------------------
 \begin{UCtrayectoriaA}{A}{No hay detalles disponibles para el ETS seleccionado}
-	\UCpaso El sistema muestra el mensaje: \textbf{\hyperref[msg:CU18-E2]{MSG-CU18-E2}}{``Información no disponible para el ETS seleccionado.''}
+	\UCpaso El sistema muestra el mensaje: \textbf{``Información no disponible para el ETS seleccionado.''}
 	\UCpaso[\UCactor] El alumno presiona el botón \IUbutton{Regresar} para volver a la lista de ETS (\IUref{IU15}{Pantalla Consultar ETS del alumno}).
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
@@ -48,7 +49,7 @@
 \begin{UCtrayectoriaA}{B}{Error en la conexión con la base de datos}
 	\UCpaso El sistema intenta recuperar la información detallada del ETS.
 	\UCpaso Ocurre un error en la conexión con la base de datos.
-	\UCpaso El sistema muestra el mensaje de error: \textbf{\hyperref[msg:CU18-E1]{MSG-CU18-E1}}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+	\UCpaso El sistema muestra el mensaje de error: \textbf{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
 	\UCpaso[\UCactor] El alumno presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
 	\UCpaso[\UCactor] El alumno puede intentar la consulta nuevamente o presionar el botón \IUbutton{Regresar} para volver a la pantalla anterior (\IUref{IU15}{Pantalla Consultar ETS del alumno}).
 	\UCpaso Fin de la trayectoria alternativa.

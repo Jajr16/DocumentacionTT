@@ -24,7 +24,7 @@
 	\UCitem{Precondiciones}{El docente debe haber iniciado sesión (\textbf{\hyperref[cu:CU-01]{CU-01 Iniciar sesión del sistema móvil}}) y haber consultado la información detallada del ETS (\textbf{\hyperref[cu:CU-06]{CU-06 Mostrar información de los ETS asignados}}).}
 	\UCitem{Postcondiciones}{El docente ha visualizado la lista de asistencia de los alumnos inscritos al ETS y puede acceder a la creación de reportes si se encuentra dentro del periodo permitido y tiene los permisos necesarios.}
 	\UCitem{Errores}{
-		E1: El sistema pierde la conexión al intentar recuperar la lista de asistencia y se muestra el mensaje \textbf{\hyperref[msg:CU08-E2]{MSG-CU08-E2}}{ ``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+		E1: El sistema pierde la conexión al intentar recuperar la lista de asistencia y se muestra el mensaje \textbf{ ``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
 	}
 	\UCitem{Tipo}{Caso de uso primario}
 	\UCitem{Observaciones}{Cada alumno en la lista se presenta con dos botones: uno con su boleta y nombre, y otro con un icono representativo de su estado de asistencia. El botón con la boleta y nombre del alumno redirige a la \textbf{Pantalla Reporte} (\IUref{IUE07}{Creación del reporte}). El botón con el icono redirige a la \IUref{IU20}{Pantalla mostrar la foto e información del alumno} **solo si la hora actual se encuentra entre 10 minutos antes del inicio del ETS y 2 horas después del inicio del ETS.** Si se quiere conocer todos los iconos y su significado, porfavor revisar \textbf{\hyperref[sec:tablaIconosAsistencia]{Tabla de Iconos de Estado de Asistencia}.}}
@@ -44,7 +44,7 @@
 
 %--------------------------------------
 \begin{UCtrayectoriaA}{A}{El ETS no tiene alumnos inscritos}
-	\UCpaso El sistema muestra el mensaje: \textbf{\hyperref[msg:CU08-A1]{MSG-CU08-A1}}{ ``No hay alumnos inscritos al ETS.''}.
+	\UCpaso El sistema muestra el mensaje: \textbf{ ``No hay alumnos inscritos al ETS.''}.
 	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Regresar} para volver a la pantalla \IUref{IU06}{Pantalla Información de ETS}.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
@@ -52,7 +52,7 @@
 \begin{UCtrayectoriaA}{B}{Error en la conexión con la base de datos}
 	\UCpaso El sistema intenta recuperar la lista de alumnos inscritos.
 	\UCpaso Ocurre un error en la conexión con la base de datos.
-	\UCpaso El sistema muestra el mensaje de error: \textbf{\hyperref[msg:CU08-E2]{MSG-CU08-B2}}{ ``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+	\UCpaso El sistema muestra el mensaje de error: \textbf{ ``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
 	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
 	\UCpaso[\UCactor] El docente puede intentar la consulta nuevamente.
 	\UCpaso Fin de la trayectoria alternativa.
@@ -60,14 +60,14 @@
 %--------------------------------------
 \begin{UCtrayectoriaA}{C}{El ETS no existe}
 	\UCpaso El sistema no encuentra el ETS correspondiente.
-	\UCpaso El sistema muestra el mensaje de error: \textbf{\hyperref[msg:CU08-C1]{MSG-CU08-C1}}{ ``El ETS seleccionado no es válido.''}.
+	\UCpaso El sistema muestra el mensaje de error: \textbf{ ``El ETS seleccionado no es válido.''}.
 	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Regresar} para volver a la pantalla \IUref{IU06}{Pantalla Información de ETS}.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 %--------------------------------------
 \begin{UCtrayectoriaA}{D}{Aún no es periodo para crear reportes}
 	\UCpaso El sistema verifica que la hora actual es anterior a 10 minutos antes de la hora de inicio del ETS.
-	\UCpaso El sistema muestra el mensaje: \textbf{\hyperref[msg:CU08-D1]{MSG-CU08-D1}}{ ``Aún no es periodo para crear los reportes. Faltan (tiempo)''}.
+	\UCpaso El sistema muestra el mensaje: \textbf{ ``Aún no es periodo para crear los reportes. Faltan (tiempo)''}.
 	\UCpaso El botón con la boleta y nombre del alumno se muestra deshabilitado o no interactivo.
 	\UCpaso[\UCactor] El docente visualiza el mensaje.
 	\UCpaso Fin de la trayectoria alternativa.
@@ -75,7 +75,7 @@
 %--------------------------------------
 \begin{UCtrayectoriaA}{E}{El periodo para registrar los reportes ha concluido}
 	\UCpaso El sistema verifica que la hora actual es posterior a 2 horas después de la hora de inicio del ETS.
-	\UCpaso El sistema muestra el mensaje: \textbf{\hyperref[msg:CU08-E2]{MSG-CU08-ET2}}{ ``El periodo para registrar los reportes ha concluido.''}.
+	\UCpaso El sistema muestra el mensaje: \textbf{ ``El periodo para registrar los reportes ha concluido.''}.
 	\UCpaso El botón con la boleta y nombre del alumno se muestra deshabilitado o no interactivo.
 	\UCpaso[\UCactor] El docente visualiza el mensaje.
 	\UCpaso Fin de la trayectoria alternativa.
@@ -83,7 +83,7 @@
 %--------------------------------------
 \begin{UCtrayectoriaA}{F}{Docente no autorizado para ver información del alumno}
 	\UCpaso El sistema verifica que el docente no es el aplicador del ETS para el alumno seleccionado.
-	\UCpaso El sistema muestra el mensaje: \textbf{\hyperref[msg:CU08-F1]{MSG-CU08-F1}}{ ``Usted no está autorizado para crear el reporte de este alumno.''}.
+	\UCpaso El sistema muestra el mensaje: \textbf{ ``Usted no está autorizado para crear el reporte de este alumno.''}.
 	\UCpaso El botón con la boleta y nombre del alumno se muestra deshabilitado o no interactivo.
 	\UCpaso[\UCactor] El docente visualiza el mensaje.
 	\UCpaso Fin de la trayectoria alternativa.

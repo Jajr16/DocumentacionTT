@@ -22,9 +22,9 @@
 	\UCitem{Precondiciones}{El docente debe haber iniciado sesión en el sistema (\textbf{\hyperref[CU-01]{CU-01 Iniciar sesión del sistema móvil}}).}
 	\UCitem{Postcondiciones}{El docente ha consultado los ETS asignados.}
 	\UCitem{Errores}{
-		E1: El sistema no puede recuperar la información de los ETS asignados y se muestra el mensaje \textbf{\hyperref[msg:CU05-E1]{MSG-CU05-E1}}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+		E1: El sistema no puede recuperar la información de los ETS asignados y se muestra el mensaje \textbf{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
 		
-		E2: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje \textbf{\hyperref[msg:CU05-E2]{MSG-CU05-E2}} ``Conexión perdida.''
+		E2: Cuando se pierde la conexión durante el proceso, los procesos se cancelan y se muestra el mensaje \textbf{ ``Conexión perdida.''}
 	}
 	\UCitem{Tipo}{Caso de uso primario}
 	\UCitem{Observaciones}{Ninguna}
@@ -44,7 +44,7 @@
 %--------------------------------------
 \begin{UCtrayectoriaA}{A}{No hay ETS asignados}
 	\UCpaso El sistema verifica que no hay ETS asignados al docente.
-	\UCpaso El sistema muestra el mensaje \textbf{\hyperref[msg:CU05-E3]{MSG-CU05-E3}}{``No hay ETS creados.''} indicando que no hay ETS asignados.
+	\UCpaso El sistema muestra el mensaje \textbf{``No hay ETS creados.''} indicando que no hay ETS asignados.
 	\UCpaso[\UCactor] El docente visualiza el mensaje.
 	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Regresar} para volver a la pantalla anterior.
 	\UCpaso Fin de la trayectoria alternativa.
@@ -54,7 +54,7 @@
 \begin{UCtrayectoriaA}{B}{Error en la conexión con la base de datos}
 	\UCpaso El sistema intenta recuperar la lista de ETS asignados.
 	\UCpaso Ocurre un error en la conexión con la base de datos.
-	\UCpaso El sistema muestra el mensaje de error: \textbf{\hyperref[msg:CU05-E1]{MSG-CU05-E1}}{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
+	\UCpaso El sistema muestra el mensaje de error: \textbf{``Error al consultar la base de datos. Intente nuevamente más tarde.''}.
 	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
 	\UCpaso[\UCactor] El docente puede intentar la consulta nuevamente o presionar el botón \IUbutton{Regresar} para volver a la pantalla anterior.
 	\UCpaso Fin de la trayectoria alternativa.

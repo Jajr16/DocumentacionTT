@@ -23,10 +23,11 @@
 	\UCitem{Precondiciones}{El alumno debe estar autenticado en el sistema.}
 	\UCitem{Postcondiciones}{El alumno ha consultado los ETS inscritos para el periodo seleccionado.}
 	\UCitem{Errores}{
-		\begin{itemize}
-			\item \textbf{\hyperref[msg:CU17-E1]{MSG-CU17-E1}} ``Error al consultar la base de datos. Intente nuevamente más tarde.''
-			\item \textbf{\hyperref[msg:CU17-E2]{MSG-CU17-E2}} ``Conexión perdida.''
-		\end{itemize}
+		
+			E1: Cuando no se puede conectar con la base de datos se muestra el mensaje \textbf{ ``Error al consultar la base de datos. Intente nuevamente más tarde.''}
+			
+			E2: Cuando no se puede conectar con el servidor se muestra el mensaje \textbf{ ``Conexión perdida.''}
+		
 	}
 	\UCitem{Tipo}{Caso de uso primario}
 	\UCitem{Observaciones}{Incluye una barra de búsqueda para filtrar los ETS inscritos por nombre.}
@@ -46,7 +47,7 @@
 %--------------------------------------
 \begin{UCtrayectoriaA}{A}{No hay ETS inscritos en el periodo seleccionado}
 	\UCpaso El sistema verifica que no hay ETS inscritos para el periodo seleccionado (o que no coinciden con el término de búsqueda).
-	\UCpaso El sistema muestra el mensaje \textbf{\hyperref[msg:CU17-E3]{MSG-CU17-E3}} ``No hay ETS inscritos.''
+	\UCpaso El sistema muestra el mensaje \textbf{ ``No hay ETS inscritos.''}
 	\UCpaso[\UCactor] El alumno visualiza el mensaje y puede intentar una nueva búsqueda o regresar.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
@@ -55,7 +56,7 @@
 \begin{UCtrayectoriaA}{B}{Error en la conexión con la base de datos}
 	\UCpaso El sistema intenta recuperar la lista de ETS inscritos.
 	\UCpaso Ocurre un error en la conexión con la base de datos.
-	\UCpaso El sistema muestra el mensaje de error: \textbf{\hyperref[msg:CU17-E1]{MSG-CU17-E1}} ``Error al consultar la base de datos. Intente nuevamente más tarde.''
+	\UCpaso El sistema muestra el mensaje de error: \textbf{ ``Error al consultar la base de datos. Intente nuevamente más tarde.''}
 	\UCpaso[\UCactor] El alumno presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
 	\UCpaso[\UCactor] El alumno puede intentar la consulta nuevamente o presionar el botón \IUbutton{Regresar} para volver a la pantalla anterior.
 	\UCpaso Fin de la trayectoria alternativa.
@@ -64,7 +65,7 @@
 %--------------------------------------
 \begin{UCtrayectoriaA}{C}{Conexión perdida}
 	\UCpaso Durante la recuperación de la lista de ETS inscritos, se pierde la conexión.
-	\UCpaso El sistema muestra el mensaje de error: \textbf{\hyperref[msg:CU17-E2]{MSG-CU17-E2}} ``Conexión perdida.''
+	\UCpaso El sistema muestra el mensaje de error: \textbf{ ``Conexión perdida.''}
 	\UCpaso[\UCactor] El alumno verifica su conexión a internet e intenta nuevamente.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}

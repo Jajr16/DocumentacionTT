@@ -1,4 +1,4 @@
-% !TeX root = ../ejemplo.tex
+% !TeX root = ../ejemplo2.tex
 
 %--------------------------------------
 \begin{UseCase}{CU-25}{Dar de alta de periodo de ETS}{
@@ -12,15 +12,15 @@
      \UCitem{Propósito}{ Permitir al personal de gestión escolar dar de alta un nuevo periodo de ETS.}
      \UCitem{Entradas}{ Periodo, Tipo de periodo, Fecha de inicio y Fecha de fin. }
      \UCitem{Origen}{Teclado}
-     \UCitem{Salidas}{Muestra mensaje {\bf MSG-33} ``Periodo de ETS  dado de alta con éxito''.}
+     \UCitem{Salidas}{Muestra mensaje \bf ``Periodo de ETS  dado de alta con éxito''.}
      \UCitem{Destino}{-}
      \UCitem{Precondiciones}{El Personal de gestión escolar debe de haber iniciado sesión.}
      \UCitem{Postcondiciones}{El periodo de ETS es dado de alta y guardado en la base de datos}
      \UCitem{Errores}{
  
-        E2: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+        E1: Cuando falta algún dato requerido entonces el sistema muestra el mensaje \bf ``Los campos no están correctamente llenados.''
 
-        E3: Cuando el Periodo, Fecha-de-inicio o Fecha-de-fin ya están registradas en el sistema, el proceso no se realiza y se muestra el mensaje {\bf MSG-32}{`` Periodo, Fecha-de-inicio o Fecha-de-fin ya han sido asociadas a un periodo de ETS.''}
+        E2: Cuando el Periodo, Fecha-de-inicio o Fecha-de-fin ya están registradas en el sistema, el proceso no se realiza y se muestra el mensaje \bf `` Periodo, Fecha-de-inicio o Fecha-de-fin ya han sido asociadas a un periodo de ETS.''
      }
      \UCitem{Tipo}{ Extiende de CU42 Iniciar sesión de personal escolar web. }
      \UCitem{Observaciones}{Ninguna}
@@ -35,7 +35,7 @@
      \UCpaso El sistema revisa que los datos del periodo sean válidos.
      \UCpaso El sistema verifica que el Periodo, Fecha-de-inicio o Fecha-de-fin no hayan sido registrados con anterioridad.
      \UCpaso El periodo de ETS es dado de alta y guardado en la base de datos.
-     \UCpaso El sistema le muestra el mensaje {\bf MSG-33} ``Periodo de ETS  dado de alta con éxito'' al personal de gestión escolar.
+     \UCpaso El sistema le muestra el mensaje {\bf ``Periodo de ETS  dado de alta con éxito'' al personal de gestión escolar.}
  
  \end{UCtrayectoria}
  

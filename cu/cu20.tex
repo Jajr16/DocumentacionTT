@@ -16,9 +16,9 @@
 	\UCitem{Precondiciones}{El alumno debe estar autenticado en el sistema y tener ETS asignados.}
 	\UCitem{Postcondiciones}{El alumno ha visualizado la información detallada del proceso para presentar su ETS.}
 	\UCitem{Errores}{
-		\begin{itemize}
-		\item \textbf {\hyperref[msg:CU20-E1]{MSG-CU20-E1}}{``Error al recuperar la información del proceso. Intente nuevamente más tarde.''}.
-		\end{itemize}
+		
+		E1: Cuando la información no esta disponible \textbf {``Error al recuperar la información del proceso. Intente nuevamente más tarde.''}
+		
 	}
 	\UCitem{Tipo}{Caso de uso primario}
 	\UCitem{Observaciones}{Entre la información mostrada estan documentos necesarios, horarios, ubicación y cualquier otra instrucción relevante para el día del ETS.}
@@ -34,7 +34,7 @@
 \begin{UCtrayectoriaA}{A}{Error al querer mostrar la información}
 	\UCpaso El sistema intenta recuperar la información del proceso.
 	\UCpaso Ocurre un error al acceder a la información.
-	\UCpaso El sistema muestra el mensaje de error: \textbf{\hyperref[msg:CU20-E1]{MSG-CU20-E1}}{``Error al recuperar la información del proceso. Intente nuevamente más tarde.''}
+	\UCpaso El sistema muestra el mensaje de error: \textbf{``Error al recuperar la información del proceso. Intente nuevamente más tarde.''}
 	\UCpaso[\UCactor] El alumno presiona el botón \IUbutton{Aceptar} para cerrar el mensaje.
 	\UCpaso[\UCactor] El alumno puede intentar acceder a la información nuevamente o presionar el botón \IUbutton{Regresar} para volver a la pantalla principal.
 	\UCpaso Fin de la trayectoria alternativa.

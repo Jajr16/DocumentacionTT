@@ -21,20 +21,31 @@
 	\UCitem{Precondiciones}{El docente debe haber iniciado sesión (\textbf{\hyperref[CU-01]{CU-01 Iniciar sesión del sistema móvil}}) y haber consultado la lista de alumnos inscritos al ETS (\textbf{\hyperref[CU-08]{CU-08 Consultar lista de alumnos inscritos a un ETS}}).}
 	\UCitem{Postcondiciones}{La asistencia o incidencia del alumno ha sido registrada en el sistema para el ETS. En caso de eliminación de un reporte existente, la pantalla se recarga.}
 	\UCitem{Errores}{
-		\begin{itemize}
-			\item \textbf{\hyperref[msg:CU09-E1]{MSG-CU09-E1}} No se encontraron datos.
-			\item \textbf{\hyperref[msg:CU09-E2]{MSG-CU09-E2}} Código QR no válido.
-			\item \textbf{\hyperref[msg:CU09-E3]{MSG-CU09-E3}} Error al capturar la fotografía.
-			\item \textbf{\hyperref[msg:CU09-E4]{MSG-CU09-E4}} Error al realizar el reconocimiento facial.
-			\item \textbf{\hyperref[msg:CU09-E5]{MSG-CU09-E5}} Error de conexión.
-			\item \textbf{\hyperref[msg:CU09-E6]{MSG-CU09-E6}} Ocurrió un fallo en el proceso.
-			\item \textbf{\hyperref[msg:CU09-E7]{MSG-CU09-E7}} Debe seleccionar un tipo.
-			\item \textbf{\hyperref[msg:CU09-E8]{MSG-CU09-E8}} Para hacer un reporte de reconocimiento facial necesita haber hecho el proceso de verificar con IA.
-			\item \textbf{\hyperref[msg:CU09-E9]{MSG-CU09-E9}} Debe completar todos los campos correctamente.
-			\item \textbf{\hyperref[msg:CU09-E10]{MSG-CU09-E10}} Error al crear el reporte de asistencia.
-			\item \textbf{\hyperref[msg:CU09-E11]{MSG-CU09-E11}} Error al crear el reporte de incidencia.
-			\item \textbf{\hyperref[msg:CU09-E12]{MSG-CU09-E12}} La razón debe tener al menos 5 letras.
-		\end{itemize}
+		
+			E1: Cuando no se encuentra los datos del alumno \textbf{ ``No se encontraron datos.``}
+			
+			E2: Cuando el código QR no es valido se muestra el mensaje \textbf{ ``Código QR no válido.``}
+			
+			E3: Cuando no se pudo capturar la foto se  muestra el mensaje \textbf{ ``Error al capturar la fotografía.``}
+			
+			E4: Cuando no se pudo realizar el reconocimiento facial se muestra el mensaje\textbf{ ``Error al realizar el reconocimiento facial.``}
+			
+			E5: Cuando hay un error de conexión se muestra el mensaje \textbf{ ``Error de conexión.``}
+			
+			E6: Cuando ocurre un error general se muestra el mensaje \textbf{ ``Ocurrió un fallo en el proceso.``}
+			
+			E7: Cuando el docente no elije un tipo para crear el reporte se muestra el mensaje \textbf{ ``Debe seleccionar un tipo.``}
+			
+			E8: Cuando el docente intenta hacer un reporte con IA, pero no ha pasado por el reconocimiento facial se muestra el mensaje \textbf{ ``Para hacer un reporte de reconocimiento facial necesita haber hecho el proceso de verificar con IA.``}
+			
+			E9: Cuando falta un campo por llenar o mas en la creación del reporte se muestra el mensaje \textbf{ ``Debe completar todos los campos correctamente.``}
+			
+			E10: Cuando falla la creación del reporte de asistencia se muestra el mensaje \textbf{ ``Error al crear el reporte de asistencia.``}
+			
+			E11: Cuando falla la creación del reporte de incidencia se muestra el mensaje \textbf{ ``Error al crear el reporte de incidencia.``}
+			
+			E12: Cuando la razón tiene menos de 5 letras se muestra el mensaje\textbf{ ``La razón debe tener al menos 5 letras.``}
+		
 	}
 	\UCitem{Tipo}{Caso de uso primario}
 	\UCitem{Observaciones}{Si ya existe un reporte para el alumno, se pregunta al docente si desea eliminarlo. La precisión y la foto del reconocimiento facial se muestran al final de la pantalla si el proceso fue exitoso.}
@@ -51,13 +62,13 @@
 	\end{itemize}
 	\UCpaso[\UCactor] El docente selecciona un tipo de registro (Aceptado o Rechazado) y, si es rechazado, escribe una razón. \Trayref{F}
 	\UCpaso[\UCactor] El docente presiona el botón \IUbutton{Registrar asistencia} o \IUbutton{Registrar incidencia}. \Trayref{G}, \Trayref{H}, \Trayref{I}
-	\UCpaso El sistema guarda el reporte y muestra el mensaje de éxito correspondiente (\textbf{\hyperref[msg:CU09-S1]{MSG-CU09-S1}} o \textbf{\hyperref[msg:CU09-S2]{MSG-CU09-S2}}). \Trayref{J}, \Trayref{K}
+	\UCpaso El sistema guarda el reporte y muestra el mensaje de éxito correspondiente. \Trayref{J}, \Trayref{K}
 	\UCpaso El sistema redirige a la \IUref{IU08}{Pantalla Lista de asistencia de ETS}.
 \end{UCtrayectoria}
 
 %--------------------------------------
 \begin{UCtrayectoriaA}{A}{No se encuentran datos del alumno}
-	\UCpaso El sistema muestra el mensaje: \textbf{\hyperref[msg:CU09-E1]{MSG-CU09-E1}} ``No se encontraron datos.''
+	\UCpaso El sistema muestra el mensaje: \textbf{ ``No se encontraron datos.''}
 	\UCpaso[\UCactor] El docente revisa la información o regresa a la lista de alumnos.
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
@@ -66,7 +77,7 @@
 \begin{UCtrayectoriaA}{B}{Verificación con Código QR}
 	\UCpaso[\UCactor] El docente presiona \IUbutton{Verificar con QR}.
 	\UCpaso El sistema redirige a la \IUref{IU10}{Pantalla Código QR} para escanear la credencial.
-	\UCpaso Si el código QR no es válido, el sistema muestra: \textbf{\hyperref[msg:CU09-E2]{MSG-CU09-E2}} ``Código QR no válido.''
+	\UCpaso Si el código QR no es válido, el sistema muestra: \textbf{ ``Código QR no válido.''}
 	\UCpaso Si el código QR es válido, el sistema redirige a la \IUref{IU11}{Pantalla Credencial del alumno} mostrando la credencial simulada y la obtenida del QR.
 	\UCpaso[\UCactor] El docente verifica la información y regresa a la \IUref{IUE07}{Creación del reporte}.
 	\UCpaso Fin de la trayectoria alternativa.
@@ -76,7 +87,7 @@
 \begin{UCtrayectoriaA}{C}{Verificación con IA (Reconocimiento Facial)}
 	\UCpaso[\UCactor] El docente presiona \IUbutton{Verificar con IA}.
 	\UCpaso El sistema redirige a la \IUref{IU17}{Pantalla de Reconocimiento facial}.
-	\UCpaso Si la foto no se puede tomar, el sistema muestra: \textbf{\hyperref[msg:CU09-E3]{MSG-CU09-E3}} ``Error al capturar la fotografía: [detalle del error]''.
+	\UCpaso Si la foto no se puede tomar, el sistema muestra: \textbf{ ``Error al capturar la fotografía: [detalle del error]''.}
 	\UCpaso El sistema realiza el reconocimiento facial y obtiene la precisión. \Trayref{C1}, \Trayref{C2}, \Trayref{C3}, \Trayref{C4}
 	\UCpaso El sistema regresa a la \IUref{IUE07}{Creación del reporte} mostrando la precisión y la foto (si exitoso).
 	\UCpaso Fin de la trayectoria alternativa.
@@ -98,7 +109,7 @@
 \end{UCtrayectoriaA}
 %--------------------------------------
 \begin{UCtrayectoriaA}{C4}{Error en el Reconocimiento Facial}
-	\UCpaso El sistema muestra: \textbf{\hyperref[msg:CU09-E4]{MSG-CU09-E4}} ``Error al realizar el reconocimiento facial: [detalle del error]''.
+	\UCpaso El sistema muestra: \textbf{ ``Error al realizar el reconocimiento facial: [detalle del error]''.}
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 
@@ -116,36 +127,36 @@
 
 %--------------------------------------
 \begin{UCtrayectoriaA}{F1}{Falta selección de tipo (Asistencia)}
-	\UCpaso Si el docente no selecciona un tipo, el sistema muestra: \textbf{\hyperref[msg:CU09-E7]{MSG-CU09-E7}} ``Debe seleccionar un tipo.''
+	\UCpaso Si el docente no selecciona un tipo, el sistema muestra: \textbf{ ``Debe seleccionar un tipo.''}
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 
 %--------------------------------------
 \begin{UCtrayectoriaA}{F2}{Falta selección de tipo o razón (Incidencia)}
-	\UCpaso Si el docente no selecciona un tipo, el sistema muestra: \textbf{\hyperref[msg:CU09-E7]{MSG-CU09-E7}} ``Debe seleccionar un tipo.''
-	\UCpaso Si la razón tiene menos de 5 letras, el sistema muestra: \textbf{\hyperref[msg:CU09-E12]{MSG-CU09-E12}} ``La razón debe tener al menos 5 letras.''
-	\UCpaso Si faltan campos, el sistema muestra: \textbf{\hyperref[msg:CU09-E9]{MSG-CU09-E9}} ``Debe completar todos los campos correctamente.''
+	\UCpaso Si el docente no selecciona un tipo, el sistema muestra: \textbf{ ``Debe seleccionar un tipo.''}
+	\UCpaso Si la razón tiene menos de 5 letras, el sistema muestra: \textbf{ ``La razón debe tener al menos 5 letras.''}
+	\UCpaso Si faltan campos, el sistema muestra: \textbf{ ``Debe completar todos los campos correctamente.''}
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 
 %--------------------------------------
 \begin{UCtrayectoriaA}{G}{Registrar Asistencia: Éxito}
 	\UCpaso El sistema guarda el reporte de asistencia.
-	\UCpaso El sistema muestra: \textbf{\hyperref[msg:CU09-S1]{MSG-CU09-S1}} ``Asistencia registrada con éxito.''
+	\UCpaso El sistema muestra: \textbf{ ``Asistencia registrada con éxito.''}
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 
 %--------------------------------------
 \begin{UCtrayectoriaA}{H}{Registrar Incidencia: Éxito}
 	\UCpaso El sistema guarda el reporte de incidencia.
-	\UCpaso El sistema muestra: \textbf{\hyperref[msg:CU09-S2]{MSG-CU09-S2}} ``Incidencia registrada con éxito.''
+	\UCpaso El sistema muestra: \textbf{ ``Incidencia registrada con éxito.''}
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 
 %--------------------------------------
 \begin{UCtrayectoriaA}{I}{Fallo al Registrar Reporte}
-	\UCpaso Si falla el registro de asistencia, el sistema muestra: \textbf{\hyperref[msg:CU09-E10]{MSG-CU09-E10}} ``Error al crear el reporte de asistencia.''
-	\UCpaso Si falla el registro de incidencia, el sistema muestra: \textbf{\hyperref[msg:CU09-E11]{MSG-CU09-E11}} ``Error al crear el reporte de incidencia.''
+	\UCpaso Si falla el registro de asistencia, el sistema muestra: \textbf{ ``Error al crear el reporte de asistencia.''}
+	\UCpaso Si falla el registro de incidencia, el sistema muestra: \textbf{ ``Error al crear el reporte de incidencia.''}
 	\UCpaso Fin de la trayectoria alternativa.
 \end{UCtrayectoriaA}
 
