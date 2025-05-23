@@ -1,0 +1,59 @@
+\section{Caso de prueba CP009 - Tomar asistencias a los ETS}
+
+\begin{longtable}{|p{5cm}|p{10cm}|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP009 Tomar asistencias a los ETS}} \\
+	\hline
+	\textbf{ID del Caso de Prueba} & CP009 - Tomar asistencias a los ETS \\
+	\hline
+	\textbf{Descripción} & Validar que el docente pueda crear reportes de asistencias e incidencias. \\
+	\hline
+	\textbf{Supuestos y Condiciones Previas} & 
+	\begin{itemize}
+		\item El docente ha iniciado sesión en el sistema.
+		\item Existen ETS dados de alta.
+		\item El docente eligió un ETS.
+		\item Hay información del ETS seleccionado.
+		\item Hay alumnos inscritos al ETS.
+		
+	\end{itemize} \\
+	\hline
+	\textbf{Datos de Prueba} & 
+	\begin{itemize}
+		\item razón, motivo y si se realiza reconocimiento facial; foto y precisión. 
+	\end{itemize} \\
+	\hline
+	\textbf{Pasos a Ejecutar} & 
+	\begin{enumerate}
+		\item Iniciar sesión como docente.
+		\item Seleccionar la opción ´´ETS´´ desde el menú.
+		\item Elegir un ETS disponible en la lista.
+		\item Dar clic en el ETS.
+		\item Revisa los datos mostrados.
+		\item El docente elije la opcion ´´Ir a la lista de alumnos´´
+		\item El docente revisa la lista de alumnos inscritos al ETS
+		\item El docente elige un alumno para crear un reporte de asistencia/incidencia.
+	\end{enumerate} \\
+	\hline
+	\textbf{Resultado Esperado} & 
+	Se crea el reporte correctamente. \\	
+	\hline
+	\textbf{Errores Detectados} & 
+	\begin{itemize}
+		\item Al tomar la foto para el reconocimiento facial en algunos dispositivos salia volteada y no dejaba que se realizara la correctamente el reconocimiento facial.
+		\item Al mandar la imagen al servidor de la red neuronal, si la imagen es muy grande el servidor corta la conexión. 
+		\item La imagen se estira si no se re escala correctamente y altera la información para el reconocimiento facial.
+	\end{itemize} \\
+	\hline
+	\textbf{Resultado Real y Condiciones Posteriores} & 
+	\begin{itemize}
+		\item Para el error de la imagen volteada, e aplico un método que detecta la orientación de la foto y la rota al estado normal tomando en cuenta 0 grados como el estado de orientación correcto y dependiendo de la orientación se voltea hasta llegar a los 0 grados. 
+		\item Para el error del tamaño al enviar al servidor se aplico un método de re escalado a un tamaño de 640 x 480 pixeles, esto después de la corrección de la orientación.
+		\item Para el error de que la foto se estire, se realizo una escala entre las dimensiones de la foto para mantener esa escala al re dimensionar la foto.
+		\item Se verificó el correcto funcionamiento tanto en base de datos como en la interfaz.
+	\end{itemize} \\
+	\hline
+	\textbf{Estado} & 
+	\textbf{Aprobado} - la funcionalidad opera correctamente. \\
+	\hline
+\end{longtable}

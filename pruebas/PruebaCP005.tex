@@ -1,0 +1,48 @@
+\section{Caso de prueba CP005 - Consultar ETS asignados}
+
+\begin{longtable}{|p{5cm}|p{10cm}|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP005 Consultar ETS asignados}} \\
+	\hline
+	\textbf{ID del Caso de Prueba} & CP005 - Consultar ETS asignados \\
+	\hline
+	\textbf{Descripción} & Validar que el docente pueda consultar todos lo ETS y los ETS que tiene que aplicar . \\
+	\hline
+	\textbf{Supuestos y Condiciones Previas} & 
+	\begin{itemize}
+		\item El docente ha iniciado sesión en el sistema.
+		\item Existen ETS asignados al docente.
+		\item Existen ETS dados de alta.
+	\end{itemize} \\
+	\hline
+	\textbf{Datos de Prueba} & 
+	\begin{itemize}
+		\item nombre de usuario del docente.
+		\item Lista de ETS dados de alta.
+	\end{itemize} \\
+	\hline
+	\textbf{Pasos a Ejecutar} & 
+	\begin{enumerate}
+		\item Iniciar sesión como docente.
+		\item Seleccionar la opción ´´ETS´´ desde el menú.
+	\end{enumerate} \\
+	\hline
+	\textbf{Resultado Esperado} & 
+	Los ETS que están dados de alta se mostraran en pantalla. \\
+	\hline
+	\textbf{Errores Detectados} & 
+	\begin{itemize}
+		\item Para el filtro de ETS, mas específicamente el de "Mis ETS" no e mostraba ningún ETS.
+
+	\end{itemize} \\
+	\hline
+	\textbf{Resultado Real y Condiciones Posteriores} & 
+	\begin{itemize}
+		\item Se modifico la lógica del envió de la solicitud de obtención los ETS para que devolvieran 2 listas en vez de una, una con todos los ETS sin ningun filtro y otra filtrando con el nombre del usuario del docente para que solo se mostraran los ETS donde el docente es el aplicador.
+		\item Se verificó el correcto funcionamiento tanto en base de datos como en la interfaz.
+	\end{itemize} \\
+	\hline
+	\textbf{Estado} & 
+	\textbf{Aprobado} - El error fue corregido y la funcionalidad opera correctamente. \\
+	\hline
+\end{longtable}
