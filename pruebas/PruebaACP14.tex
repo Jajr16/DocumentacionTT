@@ -1,0 +1,50 @@
+
+\section{Caso de prueba CP14 - Consultar calendario escolar}
+
+\begin{longtable}{|p{5cm}|p{10cm}|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{Caso de prueba CP14 - Consultar calendario escolar}} \\
+	\hline
+	\textbf{Caso de uso relacionado} & \ref{CU-02}{CU-02} Consultar calendario escolar \\
+	\hline
+	\textbf{Descripción} & Validar la funcionalidad de la obtención del calendario escolar del IPN directamente de su página oficial, así como la visualización correcta del calendario en formato de imagen. Así también, validar la funcionalidad del cálculo de días faltantes para un periodo de ETS. \\
+	\hline
+	\textbf{Supuestos y Condiciones Previas} & 
+	\begin{itemize}
+		\item El usuario debió de haber iniciado sesión en el sistema.
+		\item El usuario debió de ingresar a la pantalla \IUref{IU02}{Pantalla Consultar calendario escolar}
+		\item El usuario debe de tener una buena conexión a internet.
+	\end{itemize} \\
+	\hline
+	\textbf{Datos de Prueba} & 
+	\begin{itemize}
+		\item Ninguno.
+	\end{itemize} \\
+	\hline
+	\textbf{Pasos a Ejecutar} & 
+	\begin{enumerate}
+		\item El usuario presiona el ícono del calendario que se encuentra en el menú inferior de la aplicación.
+		\item El usuario presiona el botón `Calcular cuántos días faltan para el periodo de ETS`.
+	\end{enumerate} \\
+	\hline
+	\textbf{Resultado Esperado} & 
+	\begin{itemize}
+		\item Visualización de la imagen del calendario escolar actual del IPN. 
+		\item Mensaje de los días faltantes para el periodo de ETS, si este ya pasó o si se encuentra en uno.
+	\end{itemize}
+	\\
+	\hline
+	\textbf{Errores Detectados} & 
+	El mensaje no informaba al usuario si, de acuerdo a la fecha actual, se encontraba en un periodo de ETS. \\
+	\hline
+	\textbf{Resultado Real y Condiciones Posteriores} & 
+	\begin{itemize}
+		\item El sistema le informaba al usuario que el periodo de ETS ya había pasado apesar de que se encontraba en un periodo actual.
+		\item El sistema no reconocía si había dos periodos de ETS dentro de un mismo periodo escolar.
+		\item Se realizó un ajuste en la lógica del negocio para que devolviera mensajes más específicos y un cambio en la consulta para que reconociera los dos periodos de ETS.
+	\end{itemize} \\
+	\hline
+	\textbf{Estado} & 
+	\textbf{Aprobado} - El error fue corregido y la funcionalidad opera correctamente.   \\
+	\hline
+\end{longtable}
