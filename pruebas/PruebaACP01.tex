@@ -1,0 +1,44 @@
+
+\section{Caso de prueba CP01 - Inicio de sesión de la app móvil}
+
+\begin{longtable}{|p{5cm}|p{10cm}|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP01 Inicio de sesión de la app móvil}} \\
+	\hline
+	\textbf{Caso de uso relacionado} & \hyperref[CU-01]{CU-01 Inicio de sesión de la app móvil} \\
+	\hline
+	\textbf{Descripción} & Validar la funcionalidad del inicio de sesión para todos los usuarios registrados dentro del sistema. \\
+	\hline
+	\textbf{Supuestos y Condiciones Previas} & 
+	\begin{itemize}
+		\item El usuario debe de haber instalado la aplicación en su celular.
+		\item El usuario debe de estar registrado en la base de datos.
+	\end{itemize} \\
+	\hline
+	\textbf{Datos de Prueba} & 
+	\begin{itemize}
+		\item Boleta en caso de ser alumno, RFC en caso de ser personal de seguridad o personal académico.
+	\end{itemize} \\
+	\hline
+	\textbf{Pasos a Ejecutar} & 
+	\begin{enumerate}
+		\item Ingresar la boleta o RFC dependiendo del tipo de usuario, en el campo de usuario.
+		\item Ingresar la boleta o RFC dependiendo del tipo de usuario, en el campo de contraseña.
+		\item Presionar el botón `Entrar`.
+	\end{enumerate} \\
+	\hline
+	\textbf{Resultado Esperado} & 
+	Redirige al usuario a su pantalla principal. Dependiendo del tipo de usuario que sea, lo redirigirá a una pantalla específica en el que podrá seleccionar entre diferentes opciones a realizar. \\
+	\hline
+	\textbf{Errores Detectados} & 
+	Ninguno. \\
+	\hline
+	\textbf{Resultado Real y Condiciones Posteriores} & 
+	\begin{itemize}
+		\item En caso de tener conexión a internet, el usuario es redirigido a su pantalla de inicio. En caso contrario, despliega un `Error de conexión`.
+	\end{itemize} \\
+	\hline
+	\textbf{Estado} & 
+	\textbf{Aprobado} - Si el logeo es exitoso, el usuario es redirigido a su pantalla de bienvenida específica.   \\
+	\hline
+\end{longtable}
