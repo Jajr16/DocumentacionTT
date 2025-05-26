@@ -1,0 +1,51 @@
+\section{Caso de prueba CP06 - Mostrar información de los ETS asignados}
+
+\begin{longtable}{|p{5cm}|p{10cm}|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP06 Mostrar información de los ETS asignados}} \\
+	\hline
+	\textbf{Caso de uso relacionado} & \hyperref[CU-06]{CU-06 Mostrar información de los ETS asignados} \\
+	\hline
+	\textbf{Descripción} & Validar que el docente pueda revisar los datos específicos del ETS seleccionado. \\
+	\hline
+	\textbf{Supuestos y Condiciones Previas} & 
+	\begin{itemize}
+		\item El docente ha iniciado sesión en el sistema.
+		\item Existen ETS dados de alta.
+		\item El docente eligió un ETS.
+		\item Hay información del ETS seleccionado.
+	\end{itemize} \\
+	\hline
+	\textbf{Datos de Prueba} & 
+	\begin{itemize}
+		\item El docente se le muestra los detalles de ETS asignado: tipo de ETS, unidad de aprendizaje, periodo, fecha, turno, cupo, duración, salones (con tipo de salón por cada salón), Hora.
+	\end{itemize} \\
+	\hline
+	\textbf{Pasos a Ejecutar} & 
+	\begin{enumerate}
+		\item Iniciar sesión como docente.
+		\item Seleccionar la opción ´´ETS´´ desde el menú.
+		\item Elegir un ETS disponible en la lista.
+		\item Dar clic en el ETS.
+		\item Revisa los datos mostrados.
+	\end{enumerate} \\
+	\hline
+	\textbf{Resultado Esperado} & 
+	Se le muestra al docente los datos del ETS seleccionado. \\
+	\hline
+	\textbf{Errores Detectados} & 
+	\begin{itemize}
+		\item En ocasiones al cambiar rápido entre ETS la aplicación se cerraba abruptamente.
+		
+	\end{itemize} \\
+	\hline
+	\textbf{Resultado Real y Condiciones Posteriores} & 
+	\begin{itemize}
+		\item Se modifico el orden de obtención y asignación de los datos, para que nos aseguráramos que los datos fueran  obtenidos antes ser asignados a las variables (evitar asignación de null y/o datos vacíos).
+		\item Se verificó el correcto funcionamiento tanto en base de datos como en la interfaz.
+	\end{itemize} \\
+	\hline
+	\textbf{Estado} & 
+	\textbf{Aprobado} - El error fue corregido y la funcionalidad opera correctamente. \\
+	\hline
+\end{longtable}

@@ -1,0 +1,52 @@
+\section{Caso de prueba CP07 - Solicitar reemplazo de ETS}
+
+\begin{longtable}{|p{5cm}|p{10cm}|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP07 Solicitar reemplazo de ETS}} \\
+	\hline
+	\textbf{Caso de uso relacionado} & \hyperref[CU-07]{CU-07 Solicitar reemplazo de ETS} \\
+	\hline
+	\textbf{Descripción} & Validar que el docente pueda solicitar un reemplazo para un ETS seleccionado, ingresando una razón. \\
+	\hline
+	\textbf{Supuestos y Condiciones Previas} & 
+	\begin{itemize}
+		\item El docente ha iniciado sesión en el sistema.
+		\item Existen ETS asignados al docente.
+		\item El botón "Solicitar reemplazo" se encuentra habilitado para los ETS disponibles.
+	\end{itemize} \\
+	\hline
+	\textbf{Datos de Prueba} & 
+	\begin{itemize}
+		\item ETS asignado al docente con fecha activa.
+		\item Texto de razón de la solicitud de reemplazo.
+	\end{itemize} \\
+	\hline
+	\textbf{Pasos a Ejecutar} & 
+	\begin{enumerate}
+		\item Iniciar sesión como docente.
+		\item Seleccionar la opción ´´ETS´´ desde el menú.
+		\item Elegir un ETS disponible en la lista.
+		\item Dar clic en el botón “Solicitar reemplazo”.
+		\item Ingresar la razón.
+		\item Enviar la solicitud.
+	\end{enumerate} \\
+	\hline
+	\textbf{Resultado Esperado} & 
+	La solicitud de reemplazo debe registrarse exitosamente y mostrarse con el estatus “Pendiente”. \\
+	\hline
+	\textbf{Errores Detectados} & 
+	\begin{itemize}
+		\item Inicialmente, al enviar la solicitud, no se reflejaba el estatus de “Pendiente”.
+		\item Se identificó un error en la lógica de actualización del estado posterior al envío.
+	\end{itemize} \\
+	\hline
+	\textbf{Resultado Real y Condiciones Posteriores} & 
+	\begin{itemize}
+		\item Tras modificar la lógica de persistencia y actualización de estado en el backend, el sistema ahora registra correctamente la solicitud con estatus “Pendiente”.
+		\item Se verificó el correcto funcionamiento tanto en base de datos como en la interfaz.
+	\end{itemize} \\
+	\hline
+	\textbf{Estado} & 
+	\textbf{Aprobado} - El error fue corregido y la funcionalidad opera correctamente. \\
+	\hline
+\end{longtable}

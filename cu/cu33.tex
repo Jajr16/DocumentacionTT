@@ -1,4 +1,4 @@
-% !TeX root = ../ejemplo.tex
+% !TeX root = ../ejemplo2.tex
 
 %--------------------------------------
 \begin{UseCase}{CU-33}{Dar de alta personal de seguridad}{
@@ -12,15 +12,15 @@
     \UCitem{Propósito}{ Permitir al personal de gestión escolar dar de alta a un personal de seguridad.}
     \UCitem{Entradas}{CURP, RFC, Nombre, Apellido paterno, Apellido materno, Sexo, Cargo y Turno}
     \UCitem{Origen}{Teclado}
-    \UCitem{Salidas}{Muestra mensaje {\bf MSG-37} ``Personal de seguridad dado de alta con éxito''.}
+    \UCitem{Salidas}{Muestra mensaje {\bf ``Personal de seguridad dado de alta con éxito''.}}
     \UCitem{Destino}{-}
     \UCitem{Precondiciones}{El Personal de gestión escolar debe de haber iniciado sesión.}
     \UCitem{Postcondiciones}{El personal de seguridad es dado de alta y sus datos se guardan en la base de datos.}
     \UCitem{Errores}{
 
-        E1: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+        E1: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf``Los campos no están correctamente llenados.''}
 
-        E2: Cuando el CURP del personal de seguridad ya está registrado en el sistema muestra el mensaje {\bf MSG-38}{``El CURP ya ha sido asociado a este personal de seguridad con anterioridad u otro personal de seguridad.''}
+        E2: Cuando el CURP del personal de seguridad ya está registrado en el sistema muestra el mensaje {\bf ``El CURP ya ha sido asociado a este personal de seguridad con anterioridad u otro personal de seguridad.''}
 
     }
     \UCitem{Tipo}{ Extiende de CU42 Iniciar sesión de personal escolar web}
@@ -35,6 +35,6 @@
     \UCpaso[\UCactor] El Personal de gestión escolar oprime el botón \IUbutton{Dar de alta personal de seguridad}.
     \UCpaso El sistema revisa que los datos del personal de seguridad sean válidos.
     \UCpaso El sistema verifica que el CURP no haya sido registrado con anterioridad.
-    \UCpaso El sistema muestra el mensaje {\bf MSG-37} ``Personal de seguridad dado de alta con éxito''.
+    \UCpaso El sistema muestra el mensaje {\bf ``Personal de seguridad dado de alta con éxito''.}
 
 \end{UCtrayectoria}

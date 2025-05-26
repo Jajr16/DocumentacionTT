@@ -12,15 +12,15 @@
     \UCitem{Propósito}{ Permitir al personal de gestión escolar dar de alta a un docente.}
     \UCitem{Entradas}{CURP, RFC, Nombre, Apellido paterno, Apellido materno, Sexo, Correo institucional, Cargo y Turno}
     \UCitem{Origen}{Teclado}
-    \UCitem{Salidas}{Muestra mensaje {\bf MSG-41} ``Docente dado de alta con éxito''.}
+    \UCitem{Salidas}{Muestra mensaje {\bf ``Docente dado de alta con éxito''.}}
     \UCitem{Destino}{-}
     \UCitem{Precondiciones}{El Personal de gestión escolar debe de haber iniciado sesión.}
     \UCitem{Postcondiciones}{El Docente es dado de alta y sus datos se guardan en la base de datos.}
     \UCitem{Errores}{
 
-        E1: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf MSG-29}{``Los campos no están correctamente llenados.''}
+        E1: Cuando falta algún dato requerido entonces el sistema muestra el mensaje {\bf ``Los campos no están correctamente llenados.''}
 
-        E2: Cuando el CURP o el RFC del docente ya está registrado en el sistema muestra el mensaje {\bf MSG-40}{``El CURP o el RFC ya ha sido asociado a este docente con anterioridad u otro docente.''}
+        E2: Cuando el CURP o el RFC del docente ya está registrado en el sistema muestra el mensaje {\bf ``El CURP o el RFC ya ha sido asociado a este docente con anterioridad u otro docente.''}
 
     }
     \UCitem{Tipo}{ Extiende de CU-36 Consultar lista de docentes}
@@ -35,6 +35,6 @@
     \UCpaso[\UCactor] El Personal de gestión escolar oprime el botón \IUbutton{Guardar}.
     \UCpaso El sistema revisa que los datos del personal de seguridad sean válidos.
     \UCpaso El sistema verifica que la CURP y el RFC no hayan sido registrados con anterioridad.
-    \UCpaso El sistema muestra el mensaje {\bf MSG-41} ``Docente dado de alta con éxito''.
+    \UCpaso El sistema muestra el mensaje {\bf ``Docente dado de alta con éxito''.}
 
 \end{UCtrayectoria}

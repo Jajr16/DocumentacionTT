@@ -1,0 +1,48 @@
+
+\section{Caso de prueba CP001-Consultar alumno mediante código QR de la credencial}
+
+\begin{longtable}{|p{5cm}|p{10cm}|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP001 Consultar alumno mediante código QR de la credencial}} \\
+	\hline
+	\textbf{ID del Caso de Prueba} & CP001- Consultar alumno mediante código QR de la credencial \\
+	\hline
+	\textbf{Descripción} & Validar la funcionalidad de obtención de la credencial del alumno mediante técnicas de scraping con Selenium, asegurando su compatibilidad tanto en entornos locales como en entornos de despliegue en la nube (Azure). \\
+	\hline
+	\textbf{Supuestos y Condiciones Previas} & 
+	\begin{itemize}
+		\item El personal de seguridad debe haber iniciado sesión en el sistema.
+		\item El dispositivo debe contar con cámara funcional.
+		\item La URL de la credencial debe ser accesible y válida.
+	\end{itemize} \\
+	\hline
+	\textbf{Datos de Prueba} & 
+	\begin{itemize}
+		\item URL de la credencial del alumno.
+	\end{itemize} \\
+	\hline
+	\textbf{Pasos a Ejecutar} & 
+	\begin{enumerate}
+		\item Iniciar sesión en la aplicación como personal de seguridad.
+		\item Activar los permisos de la cámara del dispositivo para escanear el código QR.
+		\item Escanear el código QR correspondiente a la credencial del alumno.
+		\item Esperar la respuesta del sistema con la credencial renderizada.
+		\item Verificar que se muestran correctamente los datos personales del alumno junto con la imagen de la credencial.
+	\end{enumerate} \\
+	\hline
+	\textbf{Resultado Esperado} & 
+	La credencial del alumno debe renderizarse correctamente y generar una imagen funcional, tanto en entorno local como en el entorno de producción. \\
+	\hline
+	\textbf{Resultado Real y Condiciones Posteriores} & 
+	\begin{itemize}
+		\item En entorno local: Selenium y Playwright funcionaron correctamente.
+		\item En Azure: Selenium y Playwright presentaron fallos debido a incompatibilidades con dependencias nativas.
+		\item Se implementó una solución alternativa utilizando la generación de PDF y su posterior conversión a imagen, la cual resultó funcional.
+	\end{itemize} \\
+	\hline
+	\textbf{Estado} & 
+	\textbf{Fallido} con Selenium/Playwright en Azure.  
+	
+	\textbf{Aprobado} con solución alternativa basada en PDF. \\
+	\hline
+\end{longtable}

@@ -8,3 +8,10 @@
 *.toc
 *.synctex.gz
 *.gz
+
+
+# Another files to untrack
+
+*.bbl
+*.blg
+*.pdf

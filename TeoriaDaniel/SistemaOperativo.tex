@@ -1,211 +1,93 @@
 % !TeX root = ../ejemplo.tex
 
-\section{Sistema operativo}
+\section{Elección de tecnología}
+La elección de Kotlin como lenguaje principal y Android como plataforma se basa en criterios técnicos, prácticos y económicos que se alinean directamente con los requisitos del proyecto.
 
-Ahora bien, para que una aplicación móvil funcione correctamente, es fundamental comprender el papel crucial que desempeña el sistema operativo en los dispositivos.
-Los sistemas operativos son el software principal de cualquier dispositivo móvil o computadora, estos comienzan a funcionar desde el primer momento que el dispositivo es encendido y son los encargados de preparar e iniciar todos los procesos principales, estructuras importantes y todas las herramientas que hacen que el dispositivo pueda comunicarse e interactuar con quien lo utiliza, y viceversa \cite{CitaD1},\cite{CitaD2}.
-En otras palabras, un sistema operativo es el software que se encarga de ofrecer una interfaz para interactuar al usuario, gestionar la seguridad del dispositivo, el acceso a los periféricos conectados y administrar la memoria asignada, los procesos, los recursos, las tareas y las actualizaciones y versiones de sí mismo o de otro software \cite{CitaD1},\cite{CitaD2}. 
-Los sistemas operativos se dividen según su entorno (móviles o de computadora):
+\subsection{Kotlin}
+Kotlin es un lenguaje de alto nivel debido a su abstracción respecto al hardware y la plataforma subyacente. Esto significa que permite a los desarrolladores escribir código sin preocuparse por la gestión de memoria o las interacciones directas con el sistema operativo o el hardware, lo que mejora la productividad y la legibilidad del código, además, este es estáticamente tipado, lo que implica que los tipos de las variables se definen en tiempo de compilación, lo que permite detectar errores antes de ejecutar el programa. Este se usa principalmente en el desarrollo de aplicaciones Android, donde es el lenguaje recomendado por Google \cite{CitaD14}.
 
-\subsection{Sistemas operativos móviles}
+Además, Kotlin permite el uso de Jetpack Compose, un framework declarativo que moderniza la creación de interfaces de usuario en Android. También es compatible con bibliotecas clave para este proyecto como OpenCV, empleada en el módulo de reconocimiento facial.
 
-“Son los que se han creado y desarrollado para dispositivos móviles, fundamentalmente móviles y tablets, pero también relojes inteligentes. Los más conocidos son Android y iOS” \cite{CitaD2}.
+\subsection{Android}
+La decisión de desarrollar exclusivamente para Android se basa en:
 
-\subsection{Sistema operativo android}
+\begin{itemize}
+	\item La mayoría de los usuarios objetivo (alumnos, docentes y personal de seguridad) utilizan dispositivos Android.
+	
+	\item Android permite mayor flexibilidad y personalización, crucial para funciones como escaneo de códigos QR, acceso a la cámara, integración con Python y OpenCV.
+	
+	\item El entorno Android es ideal para pruebas, ya que se puede emular fácilmente en computadoras con Windows.
+\end{itemize}
 
-\begin{list}{}%
-    {\setlength{\leftmargin}{1cm}\setlength{\rightmargin}{1cm}}
-    \item\relax
-    \small
-    Android es reconocido como el sistema operativo más utilizado en el mundo debido a su versatilidad. Su diseño de código abierto permite a los desarrolladores crear aplicaciones personalizadas y a los fabricantes de hardware adaptarlo para sus dispositivos específicos. Además, su constante evolución garantiza compatibilidad con las últimas tecnologías y características \cite{CitaD3}.
-    \end{list}
-
-\subsection{Principales características Android}
-
-    \begin{list}{}%
-    {\setlength{\leftmargin}{1cm}%
-     \setlength{\rightmargin}{1cm}%
-     \setlength{\itemsep}{0.5\baselineskip}%
-     \setlength{\parsep}{0pt}}
-     
-    \item\relax
-    \small
-    \textbf{Interfaz personalizable:} Android permite a los fabricantes y usuarios personalizar la apariencia y funcionalidad del sistema (pantalla de inicio, iconos y estructura gráfica) \cite{CitaD4}. 
-    
-    \item\relax
-    \small
-    \textbf{Google Play y su ecosistema:} Android ofrece acceso a la Google Play Store, la cual es una tienda virtual de Google que permite a los usuarios descargar y subir aplicaciones de todo tipo, siempre y cuando cumplan con las normas de seguridad y calidad. Además, esta tienda facilita la integración con los servicios de Google, los cuales son usados con extrema frecuencia \cite{CitaD4}.
-    
-    \item\relax
-    \small
-    \textbf{Seguridad:} Android incluye Google Play Protect, que es una aplicación encargada de analizar otras aplicaciones y proteger el dispositivo. Además, esta ofrece actualizaciones frecuentes y permite al usuario decidir qué datos compartir con el desarrollador mediante el uso de permisos \cite{CitaD4}.
-    
-    \end{list}
-
-\subsection{Sistemas operativo iOS}
-
-\begin{list}{}%
-    {\setlength{\leftmargin}{1cm}\setlength{\rightmargin}{1cm}}
-    \item\relax
-    \small
-    iOS es un sistema operativo lanzado y utilizado por Apple. Su nombre proviene de iPhone OS. Es decir, iPhone Operative System o Sistema Operativo de iPhone. Utilizando las siglas, iOS. Se lanzó originalmente para el teléfono de la marca, aunque también se ha utilizado durante años en otros dispositivos de la compañía como en algunos de los reproductores de música iPod o en las tabletas iPad (hasta la llegada de iPadOS) \cite{CitaD5}.
-
-    Se trata de un sistema cerrado que no puedes utilizar salvo en dispositivos de marca Apple. La gran diferencia con Android es esta: el sistema operativo de Google puede instalarse en infinidad de teléfonos de todas las marcas, pero iOS es un sistema cerrado y exclusivo para los aparatos de la marca de Cupertino. No para los demás. Al igual que otros sistemas operativos móviles, iOS nos permite instalar aplicaciones para añadir funciones a las que vienen por defecto en el smartphone \cite{CitaD5}.
-
-\end{list}
-    
-\subsection{Principales características iOS}
+La compatibilidad de Android con Python facilita la integración del frontend (Android) con el backend, donde Python se encarga del procesamiento de imágenes y entrenamiento de modelos de reconocimiento facial, mientras que Spring Boot gestiona la lógica del sistema. Esta arquitectura garantiza un funcionamiento sincronizado, eficiente y seguro.
 
 
-    \begin{list}{}%
-        {\setlength{\leftmargin}{1cm}%
-         \setlength{\rightmargin}{1cm}%
-         \setlength{\itemsep}{0.5\baselineskip}%
-         \setlength{\parsep}{0pt}}
-         
-        \item\relax
-        \small
-        \textbf{Interfaz Intuitiva y Optimización:} iOS ofrece una interfaz amigable y visualmente atractiva, con navegación mediante gestos simples y optimiza el rendimiento para el hardware específico de Apple \cite{CitaD6}.
- 
-        
-        \item\relax
-        \small
-        \textbf{Seguridad y Privacidad de Alto Nivel:} Apple prioriza la seguridad a través de características como encriptación de extremo a extremo, autenticación biométrica y su sistema de App Sandbox, que aísla cada aplicación para evitar el acceso no autorizado a información sensible \cite{CitaD6}.
+\section{Herramientas de Desarrollo}
+El desarrollo de la aplicación se realizó con herramientas modernas que forman parte del ecosistema oficial de Android, permitiendo una implementación robusta y escalable.
 
-        
-        \item\relax
-        \small
-        \textbf{App Store Segura:} Las aplicaciones en iOS deben cumplir con estrictos estándares de seguridad para ser aprobadas en la App Store. Apple realiza auditorías regulares para asegurar que las aplicaciones estén libres de malware y respeten la privacidad de los usuarios \cite{CitaD6}.
-        
-        \end{list}
+\subsection{Android Studio}
+Android Studio es el entorno de desarrollo integrado (IDE) oficial para el desarrollo de aplicaciones del mismo OS. Se basa en IntelliJ IDEA, un entorno de desarrollo integrado de Java para software, e incorpora sus herramientas de desarrollo y edición de código \cite{CitaD19}.
 
-\subsection{Comparando Android e iOS}
+Para respaldar el desarrollo de aplicaciones dentro del sistema operativo, Android Studio utiliza un sistema de compilación basado en Gradle, un emulador de Android, plantillas de código e integración de GitHub. Cada proyecto en Android Studio tiene una o más modalidades con código fuente y archivos de recursos \cite{CitaD19}.
 
-\begin{longtable}{|p{5cm}|p{5cm}|p{5cm}|}
-    \hline
-    \textbf{Criterio} & \textbf{Android} & \textbf{iOS} \\ 
-    \endfirsthead
-    \hline
-    \textbf{Criterio} & \textbf{Android} & \textbf{iOS} \\  
-    \hline
-    \endhead
-    \hline
-    \endfoot
-    \endlastfoot
-    \hline
-    Lenguajes de programación & Kotlin & Swift \\ \hline
-    IDE (Entorno de desarrollo) & Android Studio & Xcode \\ \hline
-    Plataforma de distribución & Google Play Store & App Store \\ \hline
-    Documentación y comunidad & Acceso más flexible, pero con más variabilidad entre dispositivos. & Mejor integración con el hardware de Apple (optimización). \\ \hline
-    Distribución de aplicaciones & Publicación rápida, sin aprobación previa. & Necesita aprobación antes de publicación (más controlado). \\ \hline
-    Costos de desarrollo & Sin costos de registro anual. & Licencia de desarrollador de 99 dólares al año. \\ \hline
-    Mercado objetivo & Mercado más amplio, con una variedad de dispositivos (bajos, medios y altos). & Usuarios de Apple, con dispositivos limitados. \\ \hline
-    Desarrollo multiplataforma & Ecosistema más diverso con diferentes marcas y modelos de dispositivos. & Integración total entre dispositivos Apple (iPhone, iPad, Mac, etc.). \\ \hline
-    Actualizaciones & Las actualizaciones son más lentas y dependen del fabricante. & Actualizaciones frecuentes y rápidas para todos los usuarios. \\ \hline
-    Comunidad y recursos & Comunidad más grande con más recursos, tutoriales y soporte. & Comunidad muy activa pero más pequeña comparada con Android, además de que los tutoriales son más avanzados y poco amigables a los principiantes. \\
-    \hline
-    
-    \caption{Comparación entre Android y iOS. Elaboración propia}
-    \label{tab:Tabla1}
-\end{longtable}
+\subsection{Jetpack Compose}
+Para la implementación de la aplicación móvil que forma parte de nuestro sistema de identificación y control de acceso, hemos decidido utilizar Jetpack Compose. La elección de la tecnología adecuada es importante para ofrecer una mejor experiencia de usuario y cumplir nuestros objetivos de diseño y funcional. 
+
+\subsection*{¿Por que Jetpack compose?}
+Jetpack compose es un framework (estructura o marco de trabajo que, bajo parámetros estandarizados, ejecutan tareas específicas en el desarrollo de un software) con la particularidad de ejecutar prácticas modernas en los desarrolladores de software a partir de la reutilización de componentes, así como también contando con la oportunidad de crear animaciones y temas oscuros. En este sentido, Jetpack Compose es el conjunto de herramientas ofrecidas por Android para el desarrollo de aplicaciones con un objetivo específico: simplificar y optimizar los códigos en la IU nativas \cite{CitaA01}. 
 
 
-    Analizando las características de estos 2 sistemas operativos, decidimos enfocar nuestros esfuerzos en el desarrollo de una aplicación para Android, ya que, nuestro presupuesto es limitado y el tiempo de desarrollo es ajustado, esta plataforma nos ofrece varias ventajas. En primer lugar, Android tiene una cuota de mercado mucho más amplia, lo que nos permitirá llegar a un público más amplio sin tener que depender de un grupo cerrado como es el de iOS, esto es de suma importancia porque necesitamos maximizar el impacto de nuestra aplicación alcanzando la mayor cantidad de usuarios posible para que la mayor parte de los alumnos y profesores puedan usar la aplicación.
-    Otro factor importante es el costo. Publicar una aplicación en la App Store de iOS requiere una tarifa anual de 99 dólares, algo que no podemos permitirnos con el presupuesto actual, por otro lado, Android solo requiere un pago único de 25 dolares para registrar nuestra cuenta de desarrollador, lo cual nos deja más recursos para otras áreas del proyecto, además, la distribución de la aplicación en Google Play es mucho más rápida y sencilla, ya que no tenemos que pasar por un proceso de revisión tan estricto como el de iOS, esto nos permitirá lanzar nuestra aplicación en menos tiempo, algo que es crucial dado el tiempo limitado con el que contamos.
-    Por ultimo Android es compatible con Python esto es un punto clave en nuestra decisión porque ya que planeamos usar Python para implementar el servidor de la aplicación y este nos facilita la implementación de funciones como; procesamiento de datos e imágenes, algoritmos de aprendizaje automático y técnicas de reconocimiento facial y redes neuronales (cabe recalcar que Android es compatible con OpenCV).
-    
+\subsection*{Ventajas}
 
-\subsection{Sistemas operativos para computadoras}
+\begin{itemize}
+	\item \textbf{Menos código:} Simplifica el proceso de desarrollo haciendo menos código, todo se basa en funciones de modo que el código será simple y fácil de mantener.
+	\item \textbf{Intuitiva:} Tan solo describe tu IU con un enfoque declarativo haciendo “qué hay que hacer” en vez de “cómo se debe hacer”.
+	\item \textbf{Potente:} Tiene integrado Material Design con el cual puede crear apps atractivas al usuario con animaciones y mucho más.
+	\item \textbf{Acelera el desarrollo:} Es compatible con proyectos existentes, puedes empezar a integrarlo por partes cuando quieras y donde quieras.
+	\item \textbf{Kotlin:} Está escrito 100\% en Kotlin, lo cual nos permitirá usar sus herramientas potentes y API’s intuitivas.
+\end{itemize}
 
-Son los que se han creado y desarrollado para que funcionen en computadoras de escritorio y portátiles. Los más conocidos son Windows, macOS y Unix.
+\subsection*{Arquitectura Jetpack}
+La arquitectura o estructura sobre la que se basa Jetpack Compose es una estructura Jetpack que se encarga principalmente de seguir ejecutando y beneficiándose de aquellos componentes de Android según la funcionalidad disponible. Por lo tanto, Jetpack Compose desarrolla herramientas denominadas «composables» a partir de elementos como botones o listados de objetos. A partir de fuentes de datos, pueden ser reutilizadas y ejecutadas en distintas fuentes sin la necesidad de programar varios códigos repetitivos.
 
-\subsection{Sistema operativo Windows}
+Desde un aspecto comparativo, la creación de UI con Compose se realiza de forma similar a los de React Native. Es decir, mediante componentes reutilizables evitan maximizar la cantidad de códigos necesarios y repetitivos, tal como ocurre con HTML en la forma en la que se conjugan uno con otro. Sin embargo, es importante destacar que dicha compilación de componentes que logran la disminución en cantidad de códigos se realiza gracias a los plugins de compiladores de Kotlin, ejecutando así los componentes mediante la estructura de archivos de Kotlin \cite{CitaA19}. 
+
+\subsection*{Estructura de Jetpack Compose}
+Para entender de forma más sencilla la estructura de esta herramienta, conviene tener en cuenta componentes como:
+\begin{itemize}
+	\item \textbf{Compiler:} Se encarga mediante una estructura de plugins en Gradle, donde logra la interpretación y simplificación de códigos.
+	\item \textbf{El entorno de ejecución:} Es el ámbito “depurador”, si se puede establecer de este modo, en el que se establecen y diferencian los componentes que necesitan actualización y cuáles no, así como también se crean listados de mantenimiento y composición.
+	\item \textbf{UI:} Es el componente que interpreta el lenguaje establecido en el entorno de ejecución y lo refleja en pantalla.
+\end{itemize}
+
+\subsection{Gradle}
 
 \begin{list}{}%
-    {\setlength{\leftmargin}{1cm}\setlength{\rightmargin}{1cm}}
-    \item\relax
-    \small
-
-El sistema operativo Windows, desarrollado por Microsoft, es uno de los sistemas operativos más populares y ampliamente utilizados en el mundo. Ofrece una interfaz gráfica intuitiva que permite a los usuarios interactuar con el hardware y software de sus computadoras de manera eficiente \cite{CitaD7}.
-La estructura de Windows se basa en capas, donde cada capa cumple una función específica. La capa más baja es el kernel, que se encarga de gestionar los recursos de hardware y proporcionar servicios básicos al sistema operativo. Por encima del kernel se encuentran los controladores de dispositivo, que permiten la comunicación entre el hardware y el sistema operativo \cite{CitaD7}.
-Además de estas capas fundamentales, Windows cuenta con una amplia gama de servicios y aplicaciones que ofrecen funcionalidades adicionales a los usuarios. Estas aplicaciones incluyen el Explorador de Windows, que permite a los usuarios navegar por los archivos y carpetas de su computadora, y el Panel de Control, que proporciona acceso a la configuración del sistema \cite{CitaD7}. 
-
+	{\setlength{\leftmargin}{1cm}\setlength{\rightmargin}{1cm}}
+	\item\relax
+	\small
+	
+	Gradle es el sistema de automatización de compilación utilizado por Android Studio, y fue esencial para el desarrollo del presente proyecto, permitiendo una integración fluida entre los módulos móviles y el backend. Esta herramienta de código abierto destaca por su rendimiento y flexibilidad, utilizando Kotlin DSL (Domain Specific Language) para definir scripts de compilación \cite{CitaD20}. 
+	
+	Gradle facilita la gestión eficiente de dependencias externas como Jetpack Compose, Retrofit y OpenCV, utilizadas en el desarrollo de la aplicación. Además, su capacidad para realizar compilaciones optimizadas en paralelo y reutilizar salidas anteriores permite reducir considerablemente los tiempos de construcción. También permite configurar distintos entornos de ejecución (debug y release), lo que fue útil para probar características específicas antes de su despliegue oficial. 
+	
+	En este proyecto, Gradle también permitió la integración con servicios backend mediante llamadas a APIs REST, conectando la aplicación con el servidor desarrollado en Spring Boot, fortaleciendo así la arquitectura cliente-servidor de la solución.
+	
 \end{list}
 
-
-\subsection{CSistemas operativo macOS}
-
-\begin{list}{}%
-    {\setlength{\leftmargin}{1cm}\setlength{\rightmargin}{1cm}}
-    \item\relax
-    \small
-
-Mac o MacOS, es el nombre del sistema operativo desarrollado por Apple para la línea de computadoras creados por la misma empresa. MacOS en sí mismo no es un sistema operativo, sino una familia de sistemas que han ido evolucionando a través de diferentes versiones con el paso del tiempo. La principal característica del sistema operativo Mac, es que éste está diseñado para funcionar de manera optimizada en equipos de Apple \cite{CitaD8}.
-El sistema operativo Mac sigue la línea de compatibilidad de Apple, por lo que permite la comunicación entre MacOS y otros dispositivos creados por Apple como el iPad, appleTV, iPhone, etc \cite{CitaD8}.
-Debido a su arquitectura, MacOS cuenta con un sistema de archivos propio, por lo que no puede procesar de forma nativa los archivos o programas con formatos usualmente empleados para Windows o Linux \cite{CitaD8}.
-
-\end{list}
-
-
-\subsection{Sistemas operativo Unix}
+\subsection{Git y GitHub}
 
 \begin{list}{}%
-    {\setlength{\leftmargin}{1cm}\setlength{\rightmargin}{1cm}}
-    \item\relax
-    \small
-
-Unix es un sistema operativo que nace a principios de los años 70, creado principalmente por Dennis Ritchie y Ken Thompson. Sus características técnicas principales son: su portabilidad, su capacidad multiusuario y multitarea, su eficiencia; su alta seguridad y su buen desempeño en tareas de red. Pero Unix, más que una marca, también es una filosofía que tiene por principios el minimalismo y el modularidad: hacer programas que hagan una sola cosa bien hecha y que, al comunicarse entre sí, ejecuten tareas más complejas.
-Un sistema Unix puede dividirse en tres áreas básicas: 
-
-        El núcleo del sistema operativo.
-
-        El intérprete de comandos y algunos programas utilitarios.
-
-        Lo demás que necesitas, como las aplicaciones de usuario o la interfaz gráfica, son paquetes adicionales.
-
-Por sus características técnicas y su filosofía abierta, existen diversos sistemas operativos que se conocen como derivados de Unix o sistemas de la familia Unix \cite{CitaD9}.
-
+	{\setlength{\leftmargin}{1cm}\setlength{\rightmargin}{1cm}}
+	\item\relax
+	\small
+	
+	Durante el desarrollo del proyecto, se utilizó Git como sistema de control de versiones y GitHub como plataforma de colaboración y almacenamiento en la nube. Git, diseñado por Linus Torvalds, permite llevar un control detallado del historial de cambios en el código, lo cual es esencial en proyectos donde trabajan varios desarrolladores de forma simultánea \cite{CitaD20}.
+	
+	Cada miembro del equipo pudo trabajar en ramas independientes, realizar modificaciones, proponer mejoras y fusionar los cambios mediante revisiones de código, garantizando la integridad del repositorio principal. Esta metodología permitió detectar errores, revertir versiones cuando fue necesario, y mantener una trazabilidad clara del desarrollo de cada módulo.
+	
+	GitHub, además de servir como repositorio central, funcionó como herramienta de comunicación y documentación del avance del proyecto. Las funcionalidades de issues, pull requests y proyectos ayudaron a distribuir tareas, dar seguimiento a problemas y mantener una organización clara durante todo el ciclo de desarrollo \cite{CitaD21}.
+	
 \end{list}
 
-
-
-\subsection{Comparando Windows, Linux y macOS}
-
-
-    
-    \begin{longtable}{|p{3cm}|p{4.5cm}|p{4.5cm}|p{5cm}|}
-        \hline
-		\textbf{Característica} & \textbf{Windows} & \textbf{Linux} & \textbf{macOS}\\ 
-		\endfirsthead
-		\hline
-        \textbf{Característica} & \textbf{Windows} & \textbf{Linux} & \textbf{macOS}\\ 
-		\hline
-		\endhead
-		\hline
-		\endfoot
-		\endlastfoot
-        \hline
-
-    Accesibilidad & Muy accesible, ampliamente disponible en PCs de todos los rangos de precios. & Requiere conocimientos técnicos, pero es gratis y disponible en una amplia gama de hardware. & Accesible solo en hardware Apple (más costoso). \\ \hline
-    Herramientas de Desarrollo & Soporta una amplia gama de IDEs y plataformas de desarrollo. & Soporta herramientas como Visual Studio Code, PyCharm, Eclipse; excelente para desarrollo web, sistemas y servidores. & Excelente soporte para Xcode y terminal poderoso. \\ \hline
-    Compatibilidad con Lenguajes & Amplia compatibilidad con lenguajes como Java, Python, JavaScript, C++, entre otros. & Compatible con casi todos los lenguajes, ideal para Python, C, C++, JavaScript, etc. & Compatible con todos los lenguajes principales, especialmente para desarrollo iOS (Swift, Objective-C). \\ \hline
-    Soporte de Software & Compatible con la mayoría de las aplicaciones comerciales. & Menos compatibilidad con software comercial, pero excelente soporte para software libre y de código abierto. & Mejor compatibilidad con software de diseño y desarrollo exclusivo de Apple. \\ \hline
-    Rendimiento & Rinde bien en la mayoría de las configuraciones, pero puede ser más pesado que Linux o macOS. & Suele ser más ligero y rápido en hardware modesto. & Gran rendimiento en hardware Apple, optimizado para su arquitectura. \\ \hline
-    Costo & Varía dependiendo de la edición (Windows Home o Pro). & Totalmente gratuito. & Alto costo de hardware y software. \\ \hline
-    Soporte de Python & Soporta bien Python, con muchas herramientas. & Ideal para Python, con herramientas avanzadas y administración de entornos virtuales. & Buen soporte para Python, con herramientas como Anaconda y entornos virtuales. \\ \hline
-    Facilidad de Uso & Interfaz fácil de usar para la mayoría de usuarios, especialmente principiantes. & Requiere algo de conocimiento técnico para instalar y configurar, pero es muy flexible. &Intuitivo y fácil de usar, especialmente para usuarios de Apple. \\ \hline
-    Desarrollo Móvil & Soporta desarrollo Android mediante Android Studio y otras herramientas. & Soporta Android Studio y desarrollo móvil para otras plataformas, pero no es ideal para iOS. & Ideal para desarrollo iOS (Xcode) y aplicaciones macOS. \\
-
-
-
-    \hline
-    
-    \caption{Comparación entre Android y iOS. Elaboración propia}
-    \label{tab:Tabla2}
-    \end{longtable}
-
-Conociendo las características de estos 3 sistemas operativos, decidimos optar por Windows como el sistema operativo principal para el desarrollo de nuestro proyecto, ya que, teniendo en cuenta nuestras limitaciones de presupuesto y tiempo, este sistema operativo nos ofrece ventajas importantes. En primer lugar, Windows es el sistema operativo más accesible para nosotros porque todo el equipo posee una computadora con este sistema operativo, por lo cual se nos facilita que nuestro equipo trabaje con estos equipos o si se requiere, se nos facilitaría adquirir nuevas computadoras sin que el costo sea una preocupación mayor.
-Otro punto a favor que consideramos de Windows es la compatibilidad con una gran cantidad de herramientas de desarrollo ya que este sistema operativo ofrece soporte para una variedad de lenguajes de programación y es compatible con muchos de los entornos de desarrollo integrados (IDE). Esto nos permite utilizar las herramientas que ya conocemos o las que se ajustan mejor a nuestras necesidades sin tener que invertir tiempo en aprender nuevas plataformas, además, Windows es compatible con una gran variedad de software comercial y aplicaciones específicas, como las herramientas de diseño gráfico y edición, que son necesarias para el diseño de la aplicación y sus componentes gráficos.
-Cabe mencionar que Linux es una excelente opción por su flexibilidad y la capacidad extra de los servidores, sin embargo, la escala del proyecto no es tan masiva, por lo que, decidimos que no era la mejor opción para nuestro proyecto debido a que requiere un conocimiento más avanzado y específico para configurar y administrar, también la curva de aprendizaje retrasaría el progreso porque poseemos una nula experiencia trabajando con este sistema operativo. Además, aunque Linux es gratuito y ligero, su compatibilidad con software comercial y aplicaciones de terceros no es tan robusta como la de Windows, lo que nos presenta problemas para aspectos del desarrollo.
-Por otro lado, macOS tiene ventajas notables, como su optimización y rendimiento en hardware Apple, pero el costo del hardware y la limitación de solo estar disponible para dispositivos Apple lo hacen menos accesible para nuestro presupuesto. Además, aunque macOS es excelente para el desarrollo de aplicaciones iOS/macOS, no es tan versátil como Windows en cuanto a compatibilidad con diversas herramientas de desarrollo y software de terceros.
 

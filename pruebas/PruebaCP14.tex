@@ -1,0 +1,50 @@
+\section{Caso de prueba CP14 - Consultar alumnos mediante búsqueda por nombre}
+
+\begin{longtable}{|p{5cm}|p{10cm}|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP14 Consultar alumnos mediante búsqueda por nombre}} \\
+	\hline
+	\textbf{Caso de uso relacionado} & \hyperref[CU-14]{CU-14 Consultar alumnos mediante búsqueda por nombre} \\
+	\hline
+	\textbf{Descripción} & Validar la funcionalidad de consultar alumnos inscritos a un ETS, mediante búsqueda por nombre. \\
+	\hline
+	\textbf{Supuestos y Condiciones Previas} & 
+	\begin{itemize}
+		\item El personal de seguridad ha iniciado sesión correctamente.
+		\item Existen alumnos inscritos a un ETS para la fecha consultada.
+	\end{itemize} \\
+	\hline
+	\textbf{Datos de Prueba} & 
+	\begin{itemize}
+		\item El nombre de los alumnos deberan ser válidas y deben estar inscritos en al menos un ETS.
+		\item La fecha de consulta del ETS debe estar activa.
+	\end{itemize} \\
+	\hline
+	\textbf{Pasos a Ejecutar} & 
+	\begin{enumerate}
+		\item Iniciar sesión como personal de seguridad.
+		\item Seleccionar la opción " Consultar Alumnos" desde eñ menú.
+		\item Ingresar el nombre del alumno en el buscador.
+		\item Ejecutar la búsqueda y observar la lista de alumnos inscritos a ETS.
+	\end{enumerate} \\
+	\hline
+	\textbf{Resultado Esperado} & 
+	Los alumnos inscritos a un ETS en la fecha consultada y con el nombre ingresado deben mostrarse correctamente en la pantalla. \\
+	\hline
+	\textbf{Errores Detectados} &
+	\begin{itemize}
+		\item Inicialmente, no se mostraban alumnos al seleccionar "Consultar Alumnos" desde el menú.
+		\item La lista de alumnos inscritos a ETS ese día aparecía vacía.
+		\item Se verificó que la lógica de implementación no estaba retornando datos correctamente.
+	\end{itemize} \\
+	\hline
+	\textbf{Resultado Real y Condiciones Posteriores} & 
+	\begin{itemize}
+		\item Tras corrección, el sistema mostró correctamente la lista de alumnos inscritos al ETS filtrada por nombre.
+		\item Se validó que la consulta a la base de datos y el filtrado funcionaron correctamente.
+	\end{itemize} \\
+	\hline
+	\textbf{Estado} & 
+	\textbf{Aprobado} - El error fue corregido y la funcionalidad se encuentra funcionando. \\
+	\hline
+\end{longtable}
