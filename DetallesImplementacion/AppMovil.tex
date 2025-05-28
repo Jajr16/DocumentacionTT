@@ -2,6 +2,30 @@
 
 La aplicación móvil está diseñada para ofrecer una interfaz de usuario intuitiva y reactiva. Su desarrollo se realizó íntegramente utilizando el framework moderno de Android, Jetpack Compose, el cual permite construir interfaces declarativas de manera eficiente. La gestión de dependencias y la configuración del proyecto se realizan a través de Gradle, donde se configuran los módulos necesarios para el desarrollo de la interfaz de usuario y la navegación.
 
+\subsection{Tecnologías y herramientas utilizadas}
+\begin{itemize}
+	\item \textbf {Lenguaje de programación:} Kotlin (versión 2.1.0)
+	\item \textbf {Entorno de desarrollo:} Android Studio (versión 2024.2.1 Patch 3)
+	\item \textbf {SDK de Android:} API nivel 35 (versión 15.0)
+\end{itemize}
+
+\subsection{Arquitectura MVVM (Model-View-ViewModel)}
+La aplicación sigue el patrón MVVM para separar claramente la lógica del negocio, la UI y los datos. A continuación, se detalla cada componente: 
+
+\subsection*{Model (Modelo)}
+Esta capa es la responsable de la gestión de los datos de la aplicación mediante el acceso y la comunicación con el backend (Java Spring Boot).
+\subsection*{ViewModel}
+Esta capa conecta la lógica de datos con la interfaz de usuario. Se encarga de preparar los datos, aplicar reglas de negocio y actualizar la vista cuando la información cambia.
+\subsection*{View (Vista)}
+Esta capa es la encargada de definir y manejar los elementos visuales de la aplicación. Su función principal es presentar la información al usuario y registrar sus interacciones.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.7\textwidth]{Images/MVVM}
+		\caption{Arquitectura MVVM.}
+		\label{fig:arquitectura}
+\end{figure}
+
 \subsection{Componentes de las pantallas (Jetpack Compose y LaunchEffect)}
 
 Las pantallas de la aplicación móvil están compuestas por Composables de Jetpack Compose, que son funciones programables que describen cómo debe ser una parte de la interfaz de usuario. Estos Composables son los bloques fundamentales que construyen la interfaz de usuario, permitiendo un desarrollo modular y reutilizable. Para su funcionamiento, el proyecto utiliza dependencias clave de Jetpack Compose gestionadas por Gradle, tales como:
