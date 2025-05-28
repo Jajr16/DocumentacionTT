@@ -1,6 +1,6 @@
 \section{Lógica de los ViewModels}
 
-La aplicación móvil se complementa y es orquestada por los ViewModels, que residen en el paquete `com.example.prueba3.Views`. Estos componentes son fundamentales en una arquitectura moderna de Android, ya que actúan como un puente robusto entre la interfaz de usuario (las pantallas de Jetpack Compose) y la lógica de negocio o las fuentes de datos. Su principal ventaja es que están diseñados para sobrevivir a los cambios de configuración del dispositivo (como rotaciones de pantalla), manteniendo el estado de la UI y los datos sin interrupciones.
+La aplicación móvil se complementa y es orquestada por los ViewModels, que residen en el paquete `com.example.prueba3.Views`. Estos componentes son fundamentales en una arquitectura moderna de Android, ya que actúan como un puente robusto entre la interfaz de usuario (las pantallas de Jetpack Compose) y la lógica de negocio o las fuentes de datos. Su principal ventaja es que están diseñados para sobrevivir a los cambios de configuración del dispositivo (como rotaciones de pantalla), manteniendo el estado de la interfaz de usuario y los datos sin interrupciones.
 
 Los ViewModels extienden la clase `androidx.lifecycle.ViewModel` y hacen un uso extensivo de las capacidades de concurrencia y gestión de estados de Kotlin Coroutines y Kotlin Flow para operaciones asíncronas y reactividad de datos.
 
@@ -36,15 +36,17 @@ Para la gestión eficiente del estado de la interfaz de usuario y la ejecución 
 	\end{itemize}
 \end{itemize}
 
-En resumen, los ViewModels son el corazón de la lógica de presentación, utilizando un conjunto robusto de herramientas de Jetpack y Kotlin Coroutines/Flow para gestionar el estado de la UI de forma eficiente, reactiva y segura, facilitando la comunicación con las capas de datos y la lógica de negocio del sistema.
+En resumen, los ViewModels son el corazón de la lógica de presentación, utilizando un conjunto robusto de herramientas de Jetpack y Kotlin Coroutines/Flow para gestionar el estado de la interfaz de usuario de forma eficiente, reactiva y segura, facilitando la comunicación con las capas de datos y la lógica de negocio del sistema.
 
 \begin{figure}[htbp!]
 	\begin{center}
-		\includegraphics[width=0.9\textwidth]{ImagenesDetalles/Viewmodel1}
+		\includegraphics[width=0.8\textwidth]{ImagenesDetalles/Viewmodel1}
 		\caption{Ejemplo de ViewModel AlumnosViewModel.kt donde se muestra la creación de un ViewModel y el uso de MutableStateFlow y StateFlow.}
 		\label{fig:DetallesMovilViewmodel1}
 	\end{center}
 \end{figure}
+
+\newpage
 
 \begin{figure}[htbp!]
 	\begin{center}
