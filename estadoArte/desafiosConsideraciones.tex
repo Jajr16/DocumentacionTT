@@ -1,0 +1,28 @@
+\section{Desafíos y limitaciones en el reconocimiento facial}
+
+A pesar de los avances recientes y de los resultados obtenidos por los sistemas de reconocimiento facial, aun presenta desafíos que en ocasiones pueden limitar su implementación en escenarios del mundo real y por ende, su adopción en espacios como las instituciones educativas.
+
+
+\subsection{Impacto de las variaciones de iluminación y pose \cite{EA10}}
+
+Desde los inicios de las técnicas de reconocimiento facial, las variaciones de iluminación y poses ha representado un desafío significativo que impacta en la precisión de estos sistemas.\\
+
+En primer lugar, los cambios de iluminación pueden alterar la apariencia facial de maneara drástica especialmente en aquellos modelos que trabajan sobre imágenes a color.\\
+
+Por otra parte, las variaciones en las poses modifican las características faciales visibles, por lo que si el sistema no aprendió a generalizar las características faciales de una persona desde distintos ángulos, entonces sera difícil lograr una correcta identificación.\\
+
+
+\subsection{Efectos de oclusión \cite{EA11}}
+
+La oclusión ocurre cuando elementos como máscaras, gafas o bufandas obstruyen el rostro de las personas. Recordando que, en su gran mayoría, los sistemas de reconocimiento facial tienden a extraer o transformar las características más relevantes del rostro de una persona, por lo que, en la mayoría de los casos, la calidad de las imágenes es un punto importante a considerar.\\
+
+Cuando un rostro se encuentra obstruido, el rendimiento de los sistemas baja, lo que lo hace un desafío relevante en escenarios del mundo real donde muchas personas usan este tipo de accesorios diariamente.\\
+
+Algunos de los esfuerzos para reducir el impacto de estos efectos en los sistemas de reconocimiento facial destacan la recuperación basada en la oclusión en donde los sistemas son entrenados con datos que presenta oclusión, mejorando su desempeño ante estas situaciones.\\
+
+
+\subsection{Suplantación de la identidad por medio de imágenes y vídeos \cite{EA4}}
+
+Finalmente, los sistemas de reconocimiento facial son susceptibles a ataques de suplantación por medio de imágenes y vídeos, el gran problema aquí es que este tipo de sistemas recibe como entrada una imagen de un rostro, sin embargo, después de esto no cuentan con una validación que permita identificar si la imagen proviene de una fotografía a otra fotografía, un vídeo o si realmente fue tomada a una persona.\\
+
+Para contrarrestar este problema, algunos sistemas integran técnicas para la detección de vida y el análisis de movimiento para garantizar que las imágenes que reciben como entrada los modelos de reconocimiento facial han sido evaluadas ante posibles casos de suplantación de identidad.\\
