@@ -2,28 +2,6 @@
 
 Este capítulo profundiza en la estructura y construcción del sistema, detallando los componentes clave y las tecnologías empleadas en su desarrollo. Se abordará la implementación de la aplicación móvil, el servidor de Spring Boot, y el servidor de la red neuronal.
 
-\section{Aplicación Móvil}
-
-La aplicación móvil está diseñada para ofrecer una interfaz de usuario intuitiva y reactiva. Su desarrollo se realizó íntegramente utilizando el framework moderno de Android, Jetpack Compose, el cual permite construir interfaces declarativas de manera eficiente. La gestión de dependencias y la configuración del proyecto se realizan a través de Gradle, donde se configuran los módulos necesarios para el desarrollo de la interfaz de usuario y la navegación.
-
-\subsection{Componentes de Pantalla (Jetpack Compose y LaunchEffect)}
-
-Las pantallas de la aplicación móvil están compuestas por Composables de Jetpack Compos*, que son funciones programables que describen cómo debe ser una parte de la interfaz de usuario. Estos Composables son los bloques fundamentales que construyen la interfaz de usuario, permitiendo un desarrollo modular y reutilizable. Para su funcionamiento, el proyecto utiliza dependencias clave de Jetpack Compose gestionadas por Gradle, tales como:
-\begin{itemize}
-	\item `androidx.compose.foundation`: Para componentes de UI de bajo nivel y funcionalidades de diseño como fondos, bordes y gestos.
-	\item `androidx.compose.material3`: Proporciona componentes de Material Design 3, facilitando la creación de interfaces modernas y consistentes.
-	\item `androidx.compose.runtime`: Contiene las APIs principales del tiempo de ejecución de Compose, fundamentales para la composición y recomposición de la UI.
-	\item `androidx.compose.ui`: Incluye las APIs básicas de UI de Compose, como elementos gráficos, eventos de entrada y diseños.
-	\item `androidx.navigation.NavController`: Es crucial para la gestión de la navegación entre las diferentes pantallas de la aplicación, permitiendo una experiencia de usuario fluida al moverse entre los distintos destinos Composables.
-\end{itemize}
-
-Para la gestión del ciclo de vida de la interfaz de usuario y la ejecución de operaciones con efectos secundarios (como la carga de datos o la inicialización de estados), se utiliza `LaunchEffect`. `LaunchEffect` es un Composable de Jetpack Compose que se ejecuta cuando su clave cambia y se cancela cuando el Composable abandona la composición o la clave cambia nuevamente. Esto es fundamental para:
-\begin{itemize}
-	\item \textbf{Carga inicial de datos:} Iniciar la obtención de información desde una fuente externa al entrar en una pantalla específica.
-	\item \textbf{Manejo de eventos de ciclo de vida:} Realizar acciones cuando la pantalla se vuelve visible o deja de serlo.
-	\textbf{Conexión con ViewModels:} `LaunchEffect` es el punto donde las pantallas suelen invocar funciones de sus ViewModels asociadas para iniciar procesos asíncronos, como la recuperación de datos de la API.
-\end{itemize}
-
-En resumen, la combinación de los Composables de Jetpack Compose para la construcción visual, el sistema de dependencias de Gradle para integrar las librerías esenciales (`androidx.compose.foundation`, `androidx.compose.material3`, `androidx.compose.runtime`, `androidx.compose.ui`, `androidx.navigation.NavController`), y `LaunchEffect` para la orquestación de efectos secundarios en el ciclo de vida de la UI, asegura que las pantallas de la aplicación móvil sean dinámicas, eficientes, navegables y respondan adecuadamente a las interacciones del usuario y a los cambios de estado del sistema.
+\input{DetallesImplementacion/AppMovil}
 
 % A continuación, pasaremos a detallar cómo estas pantallas interactúan con los ViewModels...
