@@ -13,10 +13,14 @@ Reallocating 'name_of_file' (item size: 1) to 13 items.
 A level-1 auxiliary file: Analisis.aux
 Reallocating 'name_of_file' (item size: 1) to 12 items.
 A level-1 auxiliary file: Diseño.aux
-Reallocating 'name_of_file' (item size: 1) to 13 items.
-A level-1 auxiliary file: TrabajoF.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: DetallesImplementacion.aux
 Reallocating 'name_of_file' (item size: 1) to 12 items.
 A level-1 auxiliary file: Pruebas.aux
+Reallocating 'name_of_file' (item size: 1) to 15 items.
+A level-1 auxiliary file: Resultados.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: TrabajoF.aux
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: ref.bib
 Warning--entry type for "D1" isn't style-file defined
@@ -34,7 +38,7 @@ Warning--empty journal in SpringController
 Warning--empty journal in yadav-2024
 You've used 52 entries,
             1876 wiz_defined-function locations,
-            773 strings with 11478 characters,
+            775 strings with 11518 characters,
 and the built_in function-call counts, 7701 in all, are:
 = -- 760
 > -- 251
