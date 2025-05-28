@@ -6,9 +6,9 @@ La aplicación móvil está diseñada para ofrecer una interfaz de usuario intui
 
 Las pantallas de la aplicación móvil están compuestas por Composables de Jetpack Compose, que son funciones programables que describen cómo debe ser una parte de la interfaz de usuario. Estos Composables son los bloques fundamentales que construyen la interfaz de usuario, permitiendo un desarrollo modular y reutilizable. Para su funcionamiento, el proyecto utiliza dependencias clave de Jetpack Compose gestionadas por Gradle, tales como:
 \begin{itemize}
-	\item `androidx.compose.foundation`: Para componentes de UI de bajo nivel y funcionalidades de diseño como fondos, bordes y gestos.
+	\item `androidx.compose.foundation`: Para componentes de interfaz de usuario de bajo nivel y funcionalidades de diseño como fondos, bordes y gestos.
 	\item `androidx.compose.material3`: Proporciona componentes de Material Design 3, facilitando la creación de interfaces modernas y consistentes.
-	\item `androidx.compose.runtime`: Contiene las APIs principales del tiempo de ejecución de Compose, fundamentales para la composición y recomposición de la UI.
+	\item `androidx.compose.runtime`: Contiene las APIs principales del tiempo de ejecución de Compose, fundamentales para la composición y recomposición de la interfaz de usuario.
 	\item `androidx.compose.ui`: Incluye las APIs básicas de UI de Compose, como elementos gráficos, eventos de entrada y diseños.
 	\item `androidx.navigation.NavController`: Es crucial para la gestión de la navegación entre las diferentes pantallas de la aplicación, permitiendo una experiencia de usuario fluida al moverse entre los distintos destinos Composables.
 \end{itemize}
@@ -28,7 +28,7 @@ Además de los componentes visuales principales y la gestión del ciclo de vida,
 \end{itemize}
 Estos diálogos mejoran la interacción del usuario al proporcionar retroalimentación contextual y opciones de control claras.
 
-En resumen, la combinación de los Composables de Jetpack Compose para la construcción visual, el sistema de dependencias de Gradle para integrar las librerías esenciales (`androidx.compose.foundation`, `androidx.compose.material3`, `androidx.compose.runtime`, `androidx.compose.ui`, `androidx.navigation.NavController`), `LaunchEffect` para la orquestación de efectos secundarios en el ciclo de vida de la UI, y la utilización estratégica de **`Dialog`** para los avisos al usuario, asegura que las pantallas de la aplicación móvil sean dinámicas, eficientes, navegables y respondan adecuadamente a las interacciones del usuario y a los cambios de estado del sistema.
+En resumen, la combinación de los Composables de Jetpack Compose para la construcción visual, el sistema de dependencias de Gradle para integrar las librerías esenciales (`androidx.compose.foundation`, `androidx.compose.material3`, `androidx.compose.runtime`, `androidx.compose.ui`, \\ `androidx.navigation.NavController`), `LaunchEffect` para la orquestación de efectos secundarios en el ciclo de vida de la interfaz de usuario, y la utilización estratégica de `Dialog` para los avisos al usuario, asegura que las pantallas de la aplicación móvil sean dinámicas, eficientes, navegables y respondan adecuadamente a las interacciones del usuario y a los cambios de estado del sistema.
 
 \begin{figure}[htbp!]
 	\begin{center}
