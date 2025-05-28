@@ -1,4 +1,8 @@
-El servidor principal está diseñado con Spring Boot. El sistema fue implementado con una arquitectura en capas, es decir, cada capa tiene una responsabilidad específica. Las capas en las que está dividido el servidor son:
+\section{Servidor Java Spring Boot}
+
+El servidor principal está diseñado con Spring Boot y deplegado en Azure como un App Service. Su despliegue en la nube permite la disponibilidad en línea para poder ser consumido por otras aplicaciones, como el sistema web desarrollado en Django y la aplicación móvil desarrollada en Kotlin.
+
+El sistema fue implementado con una arquitectura en capas, es decir, cada capa tiene una responsabilidad específica. Las capas en las que está dividido el servidor son:
 \begin{itemize}
 	\item Capa de presentación: Se encarga de manejar las solicitudes HTTP, la interacción con el usuario y la presentación de los datos. Aquí entran en juego los archivos controlador, es decir, los que tienen la anotación @Controller y @RestController.
 	\item Capa de negocio o servicio: Contiene la lógica de negocio central de la aplicación. Los archivos de servicio son los que se encargan de manejar todas las operaciones y las que interactúan con la capa de persistencia. Estos archivos presentan la anotación @Service.
