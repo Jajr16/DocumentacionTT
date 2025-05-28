@@ -1,24 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{CitaA01}
-J.~L. Bustos, ``Qué es jetpack compose.''
-  \url{https://keepcoding.io/blog/que-es-jetpack-compose/}, 25 de abril del
-  2024.
-\newblock Último acceso: 10 de noviembre de 2024.
-
-\bibitem{IM1}
-EMMA, ``Tipos de aplicaciones, características, ejemplos y comparativa |
-  emma”.|.''
-  \url{https://emma.io/blog/tipos-aplicaciones-caracteristicas-ejemplos/},
-  (s.f).
-\newblock Último acceso: 28 de noviembre de 2024.
-
-\bibitem{IM2}
-R.~d. R.~C. Sistema~de Información Científica~Redalyc, ``Modelos de
-  desarrollo de software.''
-  \url{https://www.redalyc.org/journal/3783/378366538003/html/}, (s.f).
-\newblock Último acceso: 28 de noviembre de 2024.
-
 \bibitem{L01}
 IPN, ``Título profesional ipn.''
   \url{https://www.ipn.mx/dae/tramites/título-profesional.html}, 2023.
@@ -105,6 +86,19 @@ B.~Boluma~Mangata, D.~Nkashama, P.~Christian, and D.~Muamba, ``Comparative
   studies between a facial recognition system and a fingerprint recognition
   system for access control,'' {\em IJISCS (International Journal of
   Information System and Computer Science)}, vol.~6, p.~69, 2022.
+
+\bibitem{CitaA01}
+J.~L. Bustos, ``Qué es jetpack compose.''
+  \url{https://keepcoding.io/blog/que-es-jetpack-compose/}, 25 de abril del
+  2024.
+\newblock Último acceso: 10 de noviembre de 2024.
+
+\bibitem{IM1}
+EMMA, ``Tipos de aplicaciones, características, ejemplos y comparativa |
+  emma”.|.''
+  \url{https://emma.io/blog/tipos-aplicaciones-caracteristicas-ejemplos/},
+  (s.f).
+\newblock Último acceso: 28 de noviembre de 2024.
 
 \bibitem{CitaA02}
 L.~Nunez, ``Tipos de aplicaciones,características, ejemplos y comparativas.''
@@ -262,6 +256,12 @@ B.~Kromydas, ``Convolutional neural network: A complete guide.''
   \url{https://learnopencv.com/understanding-convolutional-neural-networks-cnn/},
   2024.
 \newblock Último acceso: 25 de Octubre del 2024.
+
+\bibitem{IM2}
+R.~d. R.~C. Sistema~de Información Científica~Redalyc, ``Modelos de
+  desarrollo de software.''
+  \url{https://www.redalyc.org/journal/3783/378366538003/html/}, (s.f).
+\newblock Último acceso: 28 de noviembre de 2024.
 
 \bibitem{SpringController}
 S.~Mhatre, ``{Understanding Controllers in Spring Boot with Examples},'' 11
