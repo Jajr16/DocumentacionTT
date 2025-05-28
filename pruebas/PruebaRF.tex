@@ -1,0 +1,74 @@
+\section{Pruebas al modelo de reconocimiento facial}
+
+Debido a la naturaleza del proyecto, el uso de un modelo de detección de rostros y generación de embeddings pre-entrenado fue necesario, por lo tanto, se hizo uso de la biblioteca DeepFace la cual contiene una colección de modelos pre-entrenados tanto para la detección de rostros como para la generación de embeddings faciales.\\
+
+Por lo tanto, antes de integrar dicha funcionalidad a nuestro sistema fue necesario realizar pruebas sobre las alternativas de modelos de código abierto disponibles dentro de este paquete y, al mismo tiempo, experimentar el cómo diferentes configuraciones del proceso de reconocimiento facial, incluyendo el modelo de embeddings, el detector de rostros, la métrica de distancia usada para determinar la similitud y la alineación de las imágenes, influyen en la precisión del sistema.
+
+
+\subsection{Configuración experimental}
+
+Para llevar a cabo las pruebas, se definieron las siguientes reglas de configuración, abarcando un total de 8 combinaciones experimentales:
+
+
+\begin{itemize}
+	\item \textbf{Alineación de Rostros (\texttt{align}):} Se evaluaron dos escenarios:
+	\begin{itemize}
+		\item \texttt{True}: Las imágenes fueron alineadas antes de la extracción de características, lo que implica un preprocesamiento para normalizar la pose y el tamaño del rostro.
+		\item \texttt{False}: Las imágenes no fueron alineadas, procesando los rostros tal como se detectaron.
+	\end{itemize}
+	\item \textbf{Modelos de Incrustación (\texttt{models}):} Se utilizaron dos modelos de redes neuronales pre-entrenadas para generar las incrustaciones (embeddings) de los rostros:
+	\begin{itemize}
+		\item \texttt{ArcFace}: Un modelo conocido por su alta discriminación en tareas de reconocimiento facial.
+		\item \texttt{Facenet512}: Otra arquitectura popular para la generación de incrustaciones faciales.
+	\end{itemize}
+	\item \textbf{Detectores de Rostros (\texttt{detectors}):} Se emplearon dos algoritmos para la detección de rostros en las imágenes:
+	\begin{itemize}
+		\item \texttt{ssd} (Single Shot Detector): Un detector rápido y eficiente.
+		\item \texttt{fastmtcnn} (Fast Multi-task Cascaded Convolutional Networks): Una versión optimizada de MTCNN, conocido por su precisión en la detección de puntos de referencia faciales.
+	\end{itemize}
+	\item \textbf{Métricas de Distancia (\texttt{distance\_metrics}):} Para comparar las incrustaciones de los rostros y determinar si pertenecen a la misma persona, se utilizaron dos métricas de distancia:
+	\begin{itemize}
+		\item \texttt{euclidean\_l2}: La distancia euclidiana L2 normalizada.
+		\item \texttt{cosine}: La similitud del coseno.
+	\end{itemize}
+\end{itemize}
+
+Cada combinación de estas configuraciones fue sometida a prueba, generando un archivo de resultados individual para su posterior análisis.
+
+
+\subsection{Preparación del Conjunto de Datos LFW}
+
+El conjunto de datos LFW se cargó específicamente su subconjunto de prueba (\texttt{subset='test'}), con imágenes en color y un factor de redimensionamiento de 2. Para cada par de imágenes en el dataset LFW (un total de 1000 instancias para las pruebas realizadas), se guardaron las imágenes individualmente en el sistema de archivos (\texttt{lfwe/test/}) para su procesamiento. Esto aseguró que cada experimento se ejecutara sobre los mismos pares de imágenes, garantizando la reproducibilidad.
+
+\subsection{Metodología de Evaluación}
+
+Para cada combinación experimental, el proceso de reconocimiento facial fue ejecutado para calcular la distancia entre los pares de rostros en el conjunto de datos LFW. La función \texttt{DeepFace.verify} se utilizó para este propósito, registrando la distancia calculada para cada par. Es importante destacar que la detección de rostros se forzó a \texttt{False} (\texttt{enforce\_detection=False}) para evitar errores en casos donde el rostro no pudiera ser detectado con certeza.
+
+Una vez calculadas las distancias para todas las 1000 instancias de pares de imágenes por cada combinación, los resultados se almacenaron en archivos CSV (ej. \texttt{outputs/test/ArcFace\_fastmtcnn\_euclidean\_l2\_aligned.csv}). Cada archivo contenía las etiquetas reales (\texttt{actuals}) indicando si los pares correspondían a la misma persona (verdadero/1) o a personas diferentes (falso/0), junto con las distancias calculadas (\texttt{distances}).
+
+Para determinar la precisión de cada configuración, se implementó un procedimiento para encontrar el umbral de distancia óptimo que maximiza la precisión en la clasificación. Este procedimiento implicó:
+
+\begin{enumerate}
+	\item Calcular la media de las distancias para los pares positivos (misma persona) y negativos (diferentes personas).
+	\item Iterar a través de todas las distancias ordenadas.
+	\item Para cada distancia candidata a umbral, se clasificaron los pares como "misma persona" si su distancia era menor que el umbral y "diferente persona" en caso contrario.
+	\item Se calculó la precisión (\texttt{accuracy\_score}) comparando estas predicciones con las etiquetas reales.
+	\item El umbral que resultó en la mayor precisión se seleccionó como el umbral óptimo para esa configuración.
+	\item La precisión máxima obtenida con este umbral se registró como el rendimiento de la configuración.
+\end{enumerate}
+Los resultados de precisión para cada combinación de modelo, detector y métrica de distancia, tanto con alineación como sin ella, se tabularon en tablas pivotantes y se guardaron en archivos CSV (ej. \texttt{results/pivot\_euclidean\_l2\_with\_alignment\_True.csv}).
+
+\subsection{Curvas ROC y Análisis Visual}
+
+Adicionalmente, para proporcionar una comprensión más profunda del rendimiento de cada configuración, se generaron Curvas de Característica Operativa del Receptor (ROC). Estas curvas visualizan la relación entre la Tasa de Verdaderos Positivos (TPR) y la Tasa de Falsos Positivos (FPR) en diferentes umbrales de clasificación. Para generar estas curvas:
+
+\begin{enumerate}
+	\item Las distancias calculadas se normalizaron dividiéndolas por el valor máximo de distancia en el conjunto de datos.
+	\item Las etiquetas reales (\texttt{actuals}) se normalizaron invirtiendo los valores (0 para pares de la misma persona y 1 para pares diferentes). Esto se hizo para que las distancias más pequeñas (mayor similitud) correspondieran a una mayor probabilidad de ser del mismo sujeto, lo que es coherente con la interpretación de las curvas ROC donde un valor de predicción más alto indica una mayor confianza en la clase positiva (en este caso, personas diferentes, o una distancia mayor).
+	\item Se utilizó la función \texttt{metrics.roc\_curve} de \texttt{sklearn} para calcular la FPR y la TPR.
+	\item El Área bajo la Curva (AUC) también se calculó utilizando \texttt{metrics.roc\_auc\_score}, proporcionando una métrica agregada del rendimiento del clasificador.
+\end{enumerate}
+
+Las curvas ROC se graficaron para cada combinación, incluyendo la precisión (acc) y el AUC en la etiqueta de la curva, lo que facilita la comparación visual del rendimiento entre las diferentes configuraciones. Se generaron gráficos que muestran todas las configuraciones en un mismo plano para facilitar la comparación global, con un enfoque en un rango específico de FPR (0 a 0.3) para una mejor legibilidad en la región de baja tasa de falsos positivos.\\
+
+Los resultados de esta configuración de pruebas se mostraran en el capítulo de Resultados.
