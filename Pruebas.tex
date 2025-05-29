@@ -3,6 +3,61 @@
 
 El aseguramiento de la calidad es un pilar fundamental en el desarrollo de cualquier sistema de software. En el presente capítulo, se detalla el proceso de validación del sistema propuesto a través de la ejecución de pruebas enfocadas en sus principales casos de uso. El objetivo es verificar que cada funcionalidad crucial del sistema se comporta de acuerdo con las especificaciones y requisitos definidos. 
 
+\section{Pruebas de humo y detección temprana de errores}
+
+Durante la fase de codificación y desarrollo del sistema, se llevó a cabo varias pruebas de humo de manera continua. Estas pruebas informales, realizadas al finalizar cada sección o módulo de código, fueron cruciales para detectar defectos críticos en las etapas más tempranas del ciclo de desarrollo. Esta práctica permitió identificar y corregir errores conforme se presentaban, asegurando la funcionalidad básica de cada componente antes de la integración completa.
+
+Entre los errores más destacables que se identificaron y subsanaron durante estas pruebas iniciales, se encuentran:
+
+\begin{itemize}
+	\item \textbf{Errores de formato en la comunicación con el servidor:} Se observó que, en cualquier interacción con el servidor (tanto el de Spring Boot como el de la Red Neuronal), se producían errores de servidor (`Server Error`) si el formato de la información enviada al servidor no coincidía con el esperado o, a la inversa, si la respuesta del servidor no se ajustaba a la estructura de datos que la aplicación móvil estaba preparada para recibir. Esto obligó a una revisión exhaustiva de la serialización y deserialización de datos para garantizar la coherencia.
+	
+	\item \textbf{Limitación de tamaño de imagen en el módulo de Reconocimiento Facial:} Se identificó un error crítico en el módulo de reconocimiento facial cuando un dispositivo móvil intentaba enviar una fotografía de muy alta resolución o de gran tamaño. El servidor de Azure, donde reside el modelo de red neuronal, cancelaba la petición al exceder los límites de tamaño permitidos, lo que resultaba en fallos de comunicación. La solución implicó la implementación de un proceso de compresión de imágenes en el lado del cliente (la aplicación móvil) antes de su envío.
+	
+	\item \textbf{Manejo de errores en detección de rostros del módulo de reconocimiento facial:} Otro error significativo en el módulo de reconocimiento facial era que si la imagen enviada al servidor de la red neuronal no contenía un rostro detectable, el servidor fallaba inesperadamente en lugar de retornar un error manejable. Esto causaba un comportamiento no deseado en la aplicación y se requirió una modificación para que el servidor, al no detectar un rostro, respondiera con un error específico que pudiera ser capturado y gestionado adecuadamente por la aplicación móvil, informando al usuario de la situación de manera clara.
+\end{itemize}
+
+La detección temprana y corrección de estos y otros errores mediante las pruebas de humo fue vital para el correcto funcionamiento del sistema final, permitiendo avanzar a fases de prueba más formales con una base más sólida.
+
+\section{Pruebas de Integración}
+
+Además de las pruebas de humo realizadas durante el desarrollo, se llevaron a cabo pruebas de integración para asegurar que los distintos componentes del sistema interactuaran correctamente entre sí. Estas pruebas se centraron específicamente en la conexión y el flujo de datos entre la aplicación móvil, el servidor de Spring Boot, el servidor de la red neuronal y la simulación del SAES.
+
+El objetivo principal de estas pruebas fue verificar que:
+\begin{itemize}
+	\item La aplicación móvil pudiera establecer conexiones exitosas con ambos servidores.
+	\item Los datos se enviaran y recibieran correctamente entre la aplicación móvil y el servidor de Spring Boot (ej. inicio de sesión, gestión de datos de alumnos/ETS).
+	\item La comunicación para el reconocimiento facial funcionara fluidamente entre la aplicación móvil y el servidor de la red neuronal, incluyendo el envío de imágenes y la recepción de resultados de verificación.
+	\item La \textbf{simulación del SAES} se conectara adecuadamente con el servidor de la red neuronal para llevar a cabo los procesos de registro de usuarios y la generación de embeddings faciales.
+\end{itemize}
+Estas pruebas de integración fueron fundamentales para validar la arquitectura de comunicación de los servicios desplegados.
+
+\section{Pruebas de Subsistema}
+
+Adicionalmente a las pruebas de humo e integración, se realizaron pruebas de subsistema exhaustivas para verificar el correcto funcionamiento y la interacción de conjuntos específicos de componentes que conforman funcionalidades clave del sistema. Estas pruebas se diseñaron para asegurar que cada módulo principal operara de manera coherente y eficiente, tanto de forma independiente como en conjunto con sus dependencias directas. Los subsistemas clave evaluados incluyen:
+
+\begin{itemize}
+	\item \textbf{Gestión y visualización de reportes por docentes:} Se comprobó la funcionalidad completa de la creación y visualización de reportes por parte del personal docente. Esto incluyó la verificación de la generación de reportes de asistencia (con o sin el uso de reconocimiento facial), la correcta agregación de datos y la presentación adecuada de la información en la interfaz de usuario del docente.
+	
+	\item \textbf{Registro de asistencia escolar por personal de seguridad:} Se validó el flujo completo de registro de asistencia de alumnos a la escuela a través del personal de seguridad. Esta prueba abarcó desde la captura de la identificación del alumno hasta el registro exitoso de su entrada en la base de datos, asegurando la fiabilidad del proceso en los puntos de acceso.
+	
+	\item \textbf{Verificación de reconocimiento facial por alumnos:} Se realizaron pruebas detalladas sobre la funcionalidad de reconocimiento facial utilizada por los alumnos para verificar su identidad. Esto implicó la verificación de la captura de la imagen, el envío al servidor de la red neuronal y la correcta interpretación de la respuesta para determinar la identidad del alumno.
+	
+	\item \textbf{Funcionamiento del servidor Spring Boot:} Se sometió el servidor de Spring Boot a pruebas de subsistema intensivas para asegurar el correcto procesamiento de la lógica de negocio, la gestión de la base de datos (PostgreSQL) y la orquestación de las peticiones recibidas desde la aplicación móvil. Esto incluyó la verificación de la autenticación de usuarios, la gestión de datos de alumnos y ETS, y la integridad de las transacciones.
+	
+	\item \textbf{Funcionamiento de las funciones de creación de Embeddings y reconocimiento facial en el Servidor de la Red Neuronal:} El servidor de la red neuronal fue específicamente probado para validar la exactitud y eficiencia de sus funciones principales. Se verificó el correcto funcionamiento de:
+	\begin{itemize}
+		\item La \textbf{creación de embeddings}: La capacidad de transformar una imagen facial en un vector numérico único que representa las características faciales.
+		\item El \textbf{reconocimiento facial}: La comparación de embeddings para determinar la similitud entre rostros y, por ende, la identidad o no identidad de un individuo.
+	\end{itemize}
+	Estas pruebas fueron cruciales para asegurar la precisión y el rendimiento del componente de inteligencia artificial.
+\end{itemize}
+
+Las pruebas de subsistema permitieron identificar y resolver interacciones complejas entre módulos, garantizando que cada pieza fundamental del sistema funcionara de manera óptima y contribuyera a la robustez general de la solución.
+
+
+\section{Pruebas funcionales}
+
 Para cada caso de uso evaluado, se presentará un informe detallado que incluye la descripción del caso de prueba, los supuestos y condiciones previas necesarias para su ejecución, los datos de prueba utilizados, los pasos específicos a ejecutar, el resultado esperado y el resultado real obtenido. Asimismo, se documentarán los errores detectados, si los hubo, y el estado final de la prueba. Esta metodología permite una revisión exhaustiva del comportamiento del sistema frente a las interacciones clave de los usuarios. 
 
 
