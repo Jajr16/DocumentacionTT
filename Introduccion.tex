@@ -3,28 +3,22 @@
 
 \chapter*{Introducción}
 
+El presente documento es el reporte técnico final del Trabajo Terminal con número de registro 2025-A138, titulado:
 
-El presente documento es el reporte tecnico final del trabajo terminal xxx con numero de tegistro titulado... elaporado por... para ibtener el grado de ....
+"Prototipo de sistema de identificación de estudiantes basado en reconocimiento facial dentro de la Escuela Superior de Cómputo para evitar la suplantación de identidad durante la aplicación de exámenes a título de suficiencia mediante el uso de credenciales", elaborado por Alejandra De la Cruz De la Cruz, Luis Antonio Flores Esquivel, José Alfredo Jiménez Rodríguez y Daniel Martín Huertas Ramírez para obtener el grado de Ingeniero en Inteligencia Artificial.
 
-El presente documento va dirigido a los inodale con la finalidad de ...
+Este trabajo fue dirigido por los profesores José Félix Serrano Talamantes y Ulises Vélez Saldaña, quienes fungieron como directores del proyecto.
 
-En ete documento e decribe 
+El presente documento va dirigido a los sinodales, Andrés García Floriano,  Chadwick Carreto Arellano y Saúl de la O Torres, con la finalidad de exponer de manera detallada los objetivos, el desarrollo, los resultados y conclusiones del trabajo realizado, así como sustentar su validez técnica y académica para la evaluación correspondiente.
 
-Que es esto?
-quien lo hizo?
-para que?
-por que?
-cùando
-que contiene?
-a quien va dirigido?
-como esta organizado
+En este documento se describe el diseño, implementación,  pruebas y resultados de un sistema de identificación mediante reconocimiento facial, enfocado en asegurar la identidad de los estudiantes que presentan Exámenes a Titulo de Suficiencia en la Escuela Superior de Cómputo perteneciente al Instituto Politécnico Nacional.
+
 
 \input{introduccion/organización.tex}
 
 \chapter{Planteamiento del problema}
 
 En este capítulo se describen los antecedentes y se delimita la problemática principal que guía el proyecto a realizar, así como los objetivos propuestos y la justificación de su desarrollo.
-
 
 %---------------------------------------------------------
 \input{introduccion/antecedentes}
@@ -43,6 +37,15 @@ En este capítulo se describen los antecedentes y se delimita la problemática p
 \input{introduccion/alcance}
 
 \section{Requerimientos}
+El análisis de requerimientos arrojó un total de 26 requisitos de usuario (RU), distribuidos entre ambas plataformas: 17 para la aplicación móvil y 9 para el sistema web. Estos requerimientos fundamentales sirvieron como base para el diseño del sistema, generando 17 casos de uso para la plataforma móvil y 23 para la versión web.
+
+Para consultar la documentación completa relacionada con este proceso, se recomienda revisar los siguientes apartados del Apéndice A:
+
+\begin{itemize}
+	\item \hyperref[cap:reqUsr]{\textbf{A.1 Modelo del Alcance}}: Contiene el detalle completo de los requerimientos de usuario identificados.
+	\item \hyperref[cap:modDinamico]{\textbf{A.4 Modelo Dinámico}}: Incluye la especificación completa de casos de uso para ambas plataformas.
+\end{itemize}
+
 
 \section{Arquitectura}
 
@@ -51,6 +54,7 @@ En este capítulo se describen los antecedentes y se delimita la problemática p
 \input{introduccion/modeloInformacion}
 
 \section{Metodologia de desarollo}
+Se adoptó el modelo en espiral como metodología principal, dado su enfoque iterativo y adaptable que permite incorporar mejoras progresivas, gestionar riesgos y ajustar los requerimientos durante cada fase. Este modelo combina la estructuración del enfoque en cascada con la flexibilidad para evolucionar conforme a las necesidades del proyecto.
 
-
+El proceso se organizó en seis iteraciones clave, desde la investigación inicial hasta la implementación de prototipos funcionales. En cada ciclo se definieron objetivos específicos, se evaluaron riesgos y se generaron productos intermedios para garantizar el avance controlado del sistema. Para una descripción detallada de la metodología aplicada, consúltese el \hyperref[cap:Meto]{\textbf{Apéndice A.3 Metodología}}.
 %---------------------------------------------------------
