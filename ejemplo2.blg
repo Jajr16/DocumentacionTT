@@ -9,10 +9,6 @@ Reallocating 'name_of_file' (item size: 1) to 11 items.
 A level-1 auxiliary file: Estado.aux
 Reallocating 'name_of_file' (item size: 1) to 17 items.
 A level-1 auxiliary file: MarcoTeorico.aux
-Reallocating 'name_of_file' (item size: 1) to 13 items.
-A level-1 auxiliary file: Analisis.aux
-Reallocating 'name_of_file' (item size: 1) to 12 items.
-A level-1 auxiliary file: Diseño.aux
 Reallocating 'name_of_file' (item size: 1) to 27 items.
 A level-1 auxiliary file: DetallesImplementacion.aux
 Reallocating 'name_of_file' (item size: 1) to 12 items.
@@ -21,60 +17,85 @@ Reallocating 'name_of_file' (item size: 1) to 15 items.
 A level-1 auxiliary file: Resultados.aux
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 A level-1 auxiliary file: TrabajoF.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: Analisis.aux
+Reallocating 'name_of_file' (item size: 1) to 12 items.
+A level-1 auxiliary file: Diseño.aux
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: ref.bib
-Warning--entry type for "D1" isn't style-file defined
---line 907 of file ref.bib
-Warning--entry type for "CALF" isn't style-file defined
---line 1191 of file ref.bib
-Warning--entry type for "UNAMSE" isn't style-file defined
---line 1207 of file ref.bib
-Warning--I'm ignoring FacialF's extra "pages" field
---line 1261 of file ref.bib
+You're missing a field name---line 141 of file ref.bib
+ :  title = {Reconocimiento facial para la identificación de los alumnos en exámenes finales en la modalidad presencial de la Universidad Continental - Huancayo},
+ :                                                                                                                                                                  ,
+I'm skipping whatever remains of this entry
+Warning--string name "rodriguez" is undefined
+--line 195 of file ref.bib
+I was expecting a `,' or a `}'---line 195 of file ref.bib
+ :  author=rodriguez 
+ :                   Ponce_Gutierrez Sanchez_Mendoza De los Santos_2024, title={Biometric access control system through facial recognition with liveness techniques}, volume={5}, url={https://n2t.net/ark:/42411/s16/a179}, DOI={10.48168/innosoft.s16.a179}, number={2}, journal={Innovation and Software}, author={Rodriguez Ponce, Kevin Jose and Gutierrez Sanchez, Frank Jhosep and Mendoza De los Santos, Alberto Carlos}, year={2024}, month={Sep.}, pages={114-128}
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "CitaA19"
 Warning--I didn't find a database entry for ""
 Warning--I didn't find a database entry for "."
+Warning--empty journal in EA1
+Too many commas in name 1 of "Dr. S. Balaji, Mrs. S. Sugashini, J. Ruchitha, A. Tejaswini3 and A. Vaishnavi3" for entry EA2
+while executing---line 969 of file ieeetr.bst
+Warning--empty journal in EA2
+Warning--empty journal in EA3
+Too many commas in name 1 of "Akshat Shrivastava , Ashray Parmar , Anurag Sen , Ayush Soun , Suresh Kapare" for entry EA5
+while executing---line 969 of file ieeetr.bst
+Too many commas in name 1 of "Akshat Shrivastava , Ashray Parmar , Anurag Sen , Ayush Soun , Suresh Kapare" for entry EA5
+while executing---line 969 of file ieeetr.bst
+Too many commas in name 1 of "Galindo, D., Huaringa, S. y Samaniego, G." for entry EA6
+while executing---line 969 of file ieeetr.bst
+Too many commas in name 1 of "Galindo, D., Huaringa, S. y Samaniego, G." for entry EA6
+while executing---line 969 of file ieeetr.bst
+Warning--empty journal in EA6
+Warning--empty journal in EA8
+Warning--empty author in EA9
+Warning--empty title in EA9
+Warning--empty journal in EA9
+Warning--empty year in EA9
 Warning--empty journal in SpringController
 Warning--empty journal in yadav-2024
-You've used 52 entries,
+You've used 58 entries,
             1876 wiz_defined-function locations,
-            775 strings with 11518 characters,
-and the built_in function-call counts, 7701 in all, are:
-= -- 760
-> -- 251
+            815 strings with 12696 characters,
+and the built_in function-call counts, 8737 in all, are:
+= -- 809
+> -- 337
 < -- 0
-+ -- 117
-- -- 65
-* -- 348
-:= -- 1142
++ -- 147
+- -- 89
+* -- 467
+:= -- 1310
 add.period$ -- 91
-call.type$ -- 52
-change.case$ -- 49
+call.type$ -- 58
+change.case$ -- 57
 chr.to.int$ -- 0
-cite$ -- 54
-duplicate$ -- 276
-empty$ -- 955
-format.name$ -- 65
-if$ -- 1941
+cite$ -- 69
+duplicate$ -- 326
+empty$ -- 1053
+format.name$ -- 89
+if$ -- 2156
 int.to.chr$ -- 0
-int.to.str$ -- 52
-missing$ -- 6
-newline$ -- 199
-num.names$ -- 52
-pop$ -- 294
+int.to.str$ -- 58
+missing$ -- 15
+newline$ -- 212
+num.names$ -- 57
+pop$ -- 325
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 199
+skip$ -- 219
 stack$ -- 0
-substring$ -- 88
-swap$ -- 35
+substring$ -- 96
+swap$ -- 37
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 2
-while$ -- 59
-width$ -- 54
-write$ -- 494
-(There were 9 warnings)
+warning$ -- 11
+while$ -- 64
+width$ -- 60
+write$ -- 524
+(There were 7 error messages)
