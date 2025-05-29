@@ -44,7 +44,7 @@ El conjunto de datos LFW se cargó específicamente su subconjunto de prueba (\t
 
 Para cada combinación experimental, el proceso de reconocimiento facial fue ejecutado para calcular la distancia entre los pares de rostros en el conjunto de datos LFW. La función \texttt{DeepFace.verify} se utilizó para este propósito, registrando la distancia calculada para cada par. Es importante destacar que la detección de rostros se forzó a \texttt{False} (\texttt{enforce\_detection=False}) para evitar errores en casos donde el rostro no pudiera ser detectado con certeza.
 
-Una vez calculadas las distancias para todas las 1000 instancias de pares de imágenes por cada combinación, los resultados se almacenaron en archivos CSV (ej. \texttt{outputs/test/ArcFace\_fastmtcnn\_euclidean\_l2\_aligned.csv}). Cada archivo contenía las etiquetas reales (\texttt{actuals}) indicando si los pares correspondían a la misma persona (verdadero/1) o a personas diferentes (falso/0), junto con las distancias calculadas (\texttt{distances}).
+Una vez calculadas las distancias para todas las 1000 instancias de pares de imágenes por cada combinación, los resultados se almacenaron en archivos CSV \\ (ej. \texttt{outputs/test/ArcFace\_fastmtcnn\_euclidean\_l2\_aligned.csv}). Cada archivo contenía las etiquetas reales (\texttt{actuals}) indicando si los pares correspondían a la misma persona (verdadero/1) o a personas diferentes (falso/0), junto con las distancias calculadas (\texttt{distances}).
 
 Para determinar la precisión de cada configuración, se implementó un procedimiento para encontrar el umbral de distancia óptimo que maximiza la precisión en la clasificación. Este procedimiento implicó:
 
@@ -56,7 +56,7 @@ Para determinar la precisión de cada configuración, se implementó un procedim
 	\item El umbral que resultó en la mayor precisión se seleccionó como el umbral óptimo para esa configuración.
 	\item La precisión máxima obtenida con este umbral se registró como el rendimiento de la configuración.
 \end{enumerate}
-Los resultados de precisión para cada combinación de modelo, detector y métrica de distancia, tanto con alineación como sin ella, se tabularon en tablas pivotantes y se guardaron en archivos CSV (ej. \texttt{results/pivot\_euclidean\_l2\_with\_alignment\_True.csv}).
+Los resultados de precisión para cada combinación de modelo, detector y métrica de distancia, tanto con alineación como sin ella, se tabularon en tablas pivotantes y se guardaron en archivos CSV \\ (ej. \texttt{results/pivot\_euclidean\_l2\_with\_alignment\_True.csv}).
 
 \subsection{Curvas ROC y Análisis Visual}
 
