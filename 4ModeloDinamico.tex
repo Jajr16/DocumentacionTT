@@ -201,21 +201,21 @@ A continuación se muestran los diagramas de casos de uso:
 	\end{center}
 \end{figure}
 
-En la Figura \ref{fig:casosDeUso1} se presenta el diagrama de casos de uso del sistema móvil, el cual constituye el núcleo central del presente trabajo terminal. Este diagrama detalla la estructura funcional del sistema, así como las interacciones específicas de los siguientes actores: Alumno, Docente, Personal de seguridad, Presidente de academia y Jefe de departamento. La notación de colores empleada en este diagrama (detallada en la Figura \ref{fig:Notacion}) permite identificar la prioridad y el estado de cada caso de uso.
-Como se observa, la mayoría de los casos de uso se presentan en color verde, indicando su prioridad y realización dentro del proyecto. Sin embargo, existen algunas excepciones que merecen una explicación detallada:
+\subsection{Diagrama de Casos de Uso del Sistema Móvil}
 
+En la Figura \ref{fig:casosDeUso1} se presenta el diagrama de casos de uso correspondiente al **sistema móvil**, el cual representa el núcleo central de la interacción del usuario en el presente trabajo terminal. Este diagrama ilustra las funcionalidades específicas que se plantearon para la aplicación móvil, así como las interacciones clave con los siguientes actores: Alumno, Docente, Personal de seguridad, Presidente de academia y Jefe de departamento. La notación de colores empleada en este diagrama (cuya leyenda completa se detalla en la Figura \ref{fig:Notacion}) permite identificar la prioridad y el estado de cada caso de uso.
 
-El caso de uso CU-03 (Consultar notificaciones) se presenta en color amarillo. Esta decisión se tomó durante la fase de desarrollo, al identificar que su implementación completa a lo largo del ciclo de vida del proyecto presentaba una complejidad significativa. Adicionalmente, se consideró que el valor añadido de esta funcionalidad a la experiencia general del usuario no justificaba el esfuerzo requerido para su desarrollo en el alcance actual del proyecto.
+Como se observa en la Figura \ref{fig:casosDeUso1}, la mayoría de los casos de uso se presentan en color verde, lo cual resalta su prioridad y su completa realización dentro del alcance del proyecto. Sin embargo, existen algunas excepciones que merecen una explicación detallada:
 
-
-Los casos de uso CU-04 (Consultar periodos de ETS asignados al docente) y CU-16 (Consultar periodos de ETS inscritos del alumno) también se identifican con el color amarillo. La determinación de no priorizar la separación de la consulta de ETS por periodos se basó en la evaluación de su impacto en la funcionalidad principal del sistema. Se concluyó que esta distinción no aportaba un valor significativo a la experiencia del usuario y que la revisión especifica de ETS por periodo carecía de relevancia práctica dentro del contexto del sistema propuesto.
-
-
-El caso de uso CU-40 (Solicitar desbloqueo de cuenta) se presenta en color amarillo debido a una limitación técnica inherente a la arquitectura supuesta del sistema. Al considerar que el sistema móvil opera en conexión directa con los registros de la plataforma original del SAES (Sistema de Administración Escolar), la funcionalidad de bloquear o cambiar contraseñas desde la aplicación móvil se consideró inviable y fuera del alcance, ya que estas operaciones se gestionarían directamente a través de la plataforma original SAES.
-
-
-Finalmente, el caso de uso CU-10 (Consultar lista de asistencia de alumnos inscritos al ETS) se presenta en color gris y se encuentra enlazado mediante una relación de inclusión al caso de uso CU-08 (Consultar lista de alumnos inscritos a un ETS). Esta decisión de diseño se tomó con el objetivo de optimizar la experiencia del usuario, integrando la visualización de ambas listas, es decir se muestra la lista de los alumnos inscritos al ETS y el estado de asistencia (si se presentó o no al ETS).
-
+\begin{itemize}
+	\item El caso de uso \textbf{CU-03 (Consultar notificaciones)} se presenta en color amarillo, lo que indica que se decidió como no prioritario y no se implementó durante el desarrollo. Esta decisión se tomó al identificar una complejidad significativa en su implementación completa a lo largo del ciclo de vida del proyecto. Adicionalmente, se consideró que el valor añadido de esta funcionalidad a la experiencia general del usuario no justificaba el esfuerzo requerido para su desarrollo en el alcance actual del proyecto.
+	
+	\item Los casos de uso \textbf{CU-04 (Consultar periodos de ETS asignados al docente)} y \textbf{CU-16 (Consultar periodos de ETS inscritos del alumno)} también se identifican con el color amarillo, significando que fueron considerados como no prioritarios y no se implementaron. La determinación de no priorizar la separación de la consulta de ETS por periodos se basó en la evaluación de su impacto en la funcionalidad principal del sistema. Se concluyó que esta distinción no aportaba un valor significativo a la experiencia del usuario y que la revisión específica de ETS por periodo carecía de relevancia práctica dentro del contexto del sistema propuesto.
+	
+	\item El caso de uso \textbf{CU-40 (Solicitar desbloqueo de cuenta)} se presenta en color amarillo, indicando que se decidió como **no prioritario y no se implementó** debido a una limitación técnica inherente a la arquitectura supuesta del sistema. Al considerar que el sistema móvil opera en conexión directa con los registros de la plataforma original del SAES (Sistema de Administración Escolar), la funcionalidad de bloquear o cambiar contraseñas desde la aplicación móvil se consideró inviable y fuera del alcance, ya que estas operaciones se gestionarían directamente a través de la plataforma original SAES.
+	
+	\item Finalmente, el caso de uso \textbf{CU-10 (Consultar lista de asistencia de alumnos inscritos al ETS)} se presenta en color gris, lo que quiere decir que es un componente integral de otro caso de uso adyacente y se encuentra enlazado mediante una relación de inclusión al caso de uso CU-08 (Consultar lista de alumnos inscritos a un ETS). Esta decisión de diseño se tomó con el objetivo de optimizar la experiencia del usuario, integrando la visualización de ambas listas; es decir, se muestra la lista de los alumnos inscritos al ETS y su estado de asistencia (si se presentó o no al ETS).
+\end{itemize}
 
 Los demás casos de uso presentados en color verde representan las funcionalidades prioritarias y ya implementadas del sistema móvil, las cuales serán explicadas en la sección de detalles de los casos de uso.
 
@@ -232,15 +232,28 @@ Los demás casos de uso presentados en color verde representan las funcionalidad
 \end{figure}
 
 
-En la Figura \ref{fig:casosDeUso2} se presenta el diagrama de casos de uso correspondiente al sistema web. Este diagrama ilustra las funcionalidades a las que tienen acceso principalmente el Personal de la DAE y el Personal de gestión escolar, complementando las funcionalidades ofrecidas por el sistema móvil. Al igual que en el diagrama del sistema móvil, se utiliza la notación de colores previamente definida para indicar la prioridad y el estado de implementación de cada caso de uso.
+\subsection{Diagrama de casos de uso del sistema web}
 
-La mayoría de los casos de uso en este diagrama se presentan en color verde, lo que indica que fueron considerados prioritarios y han sido realizados. Estos casos de uso abarcan la gestión de información y procesos administrativos relevantes para los roles del Personal de la DAE y el Personal de gestión escolar.
+En la Figura \ref{fig:casosDeUso2} se presenta el diagrama de casos de uso correspondiente al sistema web. Este diagrama ilustra las funcionalidades a las que tienen acceso principalmente el Personal de la DAE y el Personal de gestión escolar, complementando las funcionalidades ofrecidas por el sistema móvil. Al igual que en el diagrama del sistema móvil, se utiliza la notación de colores (verde para implementado, amarillo para no prioritario/no implementado, rojo para no prioritario y gris para incluido en otro caso de uso) previamente definida para indicar la prioridad y el estado de implementación de cada caso de uso.
 
-Sin embargo, es importante destacar la relación existente entre los casos de uso CU-21 (Dar de alta a alumno), CU-22 (Crear credencial) y CU-23 (Capturar fotografía estudiantil). Inicialmente concebidos como funcionalidades separadas, durante la fase de desarrollo se tomó la decisión de unificarlos dentro del caso de uso CU-21. Esta integración se realizó con el objetivo de optimizar la experiencia del usuario, permitiendo que el Personal de la DAE realice el alta del alumno, la captura de su fotografía y la creación de la credencial en una única pantalla o flujo de proceso. 
+La mayoría de los casos de uso en este diagrama se presentan en color verde, lo que indica que fueron considerados prioritarios y han sido completamente implementados. Estos casos de uso abarcan la gestión de información y procesos administrativos relevantes para los roles del Personal de la DAE y el Personal de gestión escolar, constituyendo el núcleo funcional del backend del sistema.
 
-Además, se agregaron los casos de uso CU-43 (Consultar lista de alumnos), el CU-44 (Consultar inscripciones) y el CU-45 (Inscribir alumno a ETS), con el propósito de simular el flijo de trabajo de un escenario real, y a su vez de mejorar la experiencia de los usuarios al incorporar sus respectivas vistas dentro del sistema de la simulación del SAES.
+Sin embargo, es importante destacar algunas particularidades en este diagrama:
 
-\subsection{Detalle de los casos de uso}
+\begin{itemize}
+	\item Se observa una relación de unificación entre los casos de uso \textbf{CU-21 (Dar de alta a alumno)}, \textbf{CU-22 (Crear credencial)} y \textbf{CU-23 (Capturar fotografía estudiantil)}. Inicialmente concebidos como funcionalidades separadas, durante la fase de desarrollo se tomó la decisión de integrarlos dentro del caso de uso CU-21. Esta unificación se realizó con el objetivo de optimizar la experiencia del usuario, permitiendo que el Personal de la DAE realice el alta del alumno, la captura de su fotografía y la creación de la credencial en una única pantalla o flujo de proceso, mejorando la eficiencia operativa.
+	
+	\item Adicionalmente, se agregaron los casos de uso \textbf{CU-43 (Consultar lista de alumnos)}, el \textbf{CU-44 (Consultar inscripciones)} y el \textbf{CU-45 (Inscribir alumno a ETS)}. Estos casos de uso se incorporaron con el propósito de simular el flujo de trabajo de un escenario real dentro del sistema, mejorando a su vez la experiencia de los usuarios al integrar sus respectivas vistas y funcionalidades dentro de la simulación del SAES.
+\end{itemize}
+
+Los demás casos de uso presentados en color verde representan las funcionalidades prioritarias y ya implementadas del sistema web, las cuales serán explicadas en detalle en la sección de casos de uso específicos.
+
+\section{Detalle de los casos de uso}
+
+En esta sección, se proporciona una descripción pormenorizada de cada uno de los casos de uso principales del sistema, tanto para la aplicación móvil como para el sistema web, que han sido identificados en los diagramas previos. Para cada caso de uso, se detallará su propósito, los actores involucrados, las entradas y salidas, las precondiciones y postcondiciones, así como el flujo de eventos que describe su operación y sus trayectorias. El objetivo es ofrecer una comprensión clara y exhaustiva de la funcionalidad y contribución de cada componente al cumplimiento de los requisitos del sistema.
+
+
+
 
 %---------------------------------------------------------
 % CASOS DE USO
