@@ -23,13 +23,13 @@ Reallocating 'name_of_file' (item size: 1) to 12 items.
 A level-1 auxiliary file: Diseño.aux
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: ref.bib
-You're missing a field name---line 71 of file ref.bib
+You're missing a field name---line 141 of file ref.bib
  :  title = {Reconocimiento facial para la identificación de los alumnos en exámenes finales en la modalidad presencial de la Universidad Continental - Huancayo},
  :                                                                                                                                                                  ,
 I'm skipping whatever remains of this entry
 Warning--string name "rodriguez" is undefined
---line 98 of file ref.bib
-I was expecting a `,' or a `}'---line 98 of file ref.bib
+--line 195 of file ref.bib
+I was expecting a `,' or a `}'---line 195 of file ref.bib
  :  author=rodriguez 
  :                   Ponce_Gutierrez Sanchez_Mendoza De los Santos_2024, title={Biometric access control system through facial recognition with liveness techniques}, volume={5}, url={https://n2t.net/ark:/42411/s16/a179}, DOI={10.48168/innosoft.s16.a179}, number={2}, journal={Innovation and Software}, author={Rodriguez Ponce, Kevin Jose and Gutierrez Sanchez, Frank Jhosep and Mendoza De los Santos, Alberto Carlos}, year={2024}, month={Sep.}, pages={114-128}
 I'm skipping whatever remains of this entry
