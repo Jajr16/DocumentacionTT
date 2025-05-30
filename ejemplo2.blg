@@ -17,15 +17,19 @@ Reallocating 'name_of_file' (item size: 1) to 15 items.
 A level-1 auxiliary file: Resultados.aux
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 A level-1 auxiliary file: TrabajoF.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: Analisis.aux
+Reallocating 'name_of_file' (item size: 1) to 12 items.
+A level-1 auxiliary file: Diseño.aux
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: ref.bib
-You're missing a field name---line 71 of file ref.bib
+You're missing a field name---line 141 of file ref.bib
  :  title = {Reconocimiento facial para la identificación de los alumnos en exámenes finales en la modalidad presencial de la Universidad Continental - Huancayo},
  :                                                                                                                                                                  ,
 I'm skipping whatever remains of this entry
 Warning--string name "rodriguez" is undefined
---line 98 of file ref.bib
-I was expecting a `,' or a `}'---line 98 of file ref.bib
+--line 195 of file ref.bib
+I was expecting a `,' or a `}'---line 195 of file ref.bib
  :  author=rodriguez 
  :                   Ponce_Gutierrez Sanchez_Mendoza De los Santos_2024, title={Biometric access control system through facial recognition with liveness techniques}, volume={5}, url={https://n2t.net/ark:/42411/s16/a179}, DOI={10.48168/innosoft.s16.a179}, number={2}, journal={Innovation and Software}, author={Rodriguez Ponce, Kevin Jose and Gutierrez Sanchez, Frank Jhosep and Mendoza De los Santos, Alberto Carlos}, year={2024}, month={Sep.}, pages={114-128}
 I'm skipping whatever remains of this entry
@@ -51,36 +55,38 @@ Warning--empty author in EA9
 Warning--empty title in EA9
 Warning--empty journal in EA9
 Warning--empty year in EA9
-You've used 53 entries,
+Warning--empty journal in SpringController
+Warning--empty journal in yadav-2024
+You've used 58 entries,
             1876 wiz_defined-function locations,
-            794 strings with 12272 characters,
-and the built_in function-call counts, 8123 in all, are:
-= -- 761
-> -- 317
+            815 strings with 12696 characters,
+and the built_in function-call counts, 8737 in all, are:
+= -- 809
+> -- 337
 < -- 0
-+ -- 137
-- -- 84
-* -- 434
-:= -- 1219
-add.period$ -- 87
-call.type$ -- 53
-change.case$ -- 52
++ -- 147
+- -- 89
+* -- 467
+:= -- 1310
+add.period$ -- 91
+call.type$ -- 58
+change.case$ -- 57
 chr.to.int$ -- 0
-cite$ -- 62
-duplicate$ -- 298
-empty$ -- 969
-format.name$ -- 84
-if$ -- 2009
+cite$ -- 69
+duplicate$ -- 326
+empty$ -- 1053
+format.name$ -- 89
+if$ -- 2156
 int.to.chr$ -- 0
-int.to.str$ -- 53
-missing$ -- 13
-newline$ -- 197
-num.names$ -- 52
-pop$ -- 296
+int.to.str$ -- 58
+missing$ -- 15
+newline$ -- 212
+num.names$ -- 57
+pop$ -- 325
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 199
+skip$ -- 219
 stack$ -- 0
 substring$ -- 96
 swap$ -- 37
@@ -88,8 +94,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 9
-while$ -- 59
-width$ -- 55
-write$ -- 490
+warning$ -- 11
+while$ -- 64
+width$ -- 60
+write$ -- 524
 (There were 7 error messages)

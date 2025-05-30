@@ -5,7 +5,7 @@
 
 El presente documento es el reporte técnico final del Trabajo Terminal con número de registro 2025-A138, titulado:
 
-"Prototipo de sistema de identificación de estudiantes basado en reconocimiento facial dentro de la Escuela Superior de Cómputo para evitar la suplantación de identidad durante la aplicación de exámenes a título de suficiencia mediante el uso de credenciales", elaborado por Alejandra De la Cruz De la Cruz, Luis Antonio Flores Esquivel, José Alfredo Jiménez Rodríguez y Daniel Martín Huertas Ramírez para obtener el grado de Ingeniero en Inteligencia Artificial.
+"Prototipo de sistema de identificación de estudiantes basado en reconocimiento facial dentro de la Escuela Superior de Cómputo para evitar la suplantación de identidad durante la aplicación de exámenes a título de suficiencia mediante el uso de credenciales y dispositivos móviles", elaborado por Alejandra De la Cruz De la Cruz, Luis Antonio Flores Esquivel, José Alfredo Jiménez Rodríguez y Daniel Martín Huertas Ramírez para obtener el grado de Ingeniero en Inteligencia Artificial.
 
 Este trabajo fue dirigido por los profesores José Félix Serrano Talamantes y Ulises Vélez Saldaña, quienes fungieron como directores del proyecto.
 
@@ -47,9 +47,11 @@ Para consultar la documentación completa relacionada con este proceso, se recom
 \end{itemize}
 
 
-% \section{Arquitectura}
+\section{Arquitectura}
+El desarrollo de la arquitectura general de todo el proyecto presenta una arquitectura de servicios con una comunicación REST. Apesar de dividir ciertas tareas en diferentes servicios, se presenta una arquitectura de servicios, puesto que mayor parte de la lógica de negocio se encuentra dentro del servidor Java Spring Boot, mientras que la tarea del reconocimiento facial fue la única que se separó de esta estructura debido al consumo de recursos.
 
-% section{Propiedades de software}
+Para una descripción más detallada sobre las estructuras internas de cada parte del sistema, así como la organización de cada sección, se puede consultar la sección \ref{ApendiceB}
+
 
 \input{introduccion/modeloInformacion}
 

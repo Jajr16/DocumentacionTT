@@ -14,7 +14,9 @@
 \usepackage{xcolor}
 \usepackage{hyperref}  
 \usepackage{caption}     % Controla el espaciado (opcional)
+\usepackage{pdfpages}
 \bibliographystyle{ieeetr} % Estilo ieeetr
+
 
 
 \captionsetup{font=small}
@@ -26,20 +28,22 @@
     urlcolor=blue       % URLs en azul
 }
 
-\title{Entregable C2-EP2\bigskip\\Nombre del Proyecto}
-\subtitle{Componente 2 Iteración 2 Especificación del proyecto}
-\author{Nombre del equipo o consultoría}
-\organization{Escuela Superior de Cómputo, IPN}
-\showInstrucciones
-\date{\color{red}Borrador del 21 de febrero del 2017\\(para revisión)}
-%\date{\color{green}Version 1.0}
+%\title{Entregable C2-EP2\bigskip\\Nombre del Proyecto}
+%\subtitle{Componente 2 Iteración 2 Especificación del proyecto}
+%\author{Nombre del equipo o consultoría}
+%\organization{Escuela Superior de Cómputo, IPN}
+%\showInstrucciones
+%\date{\color{red}Borrador del 21 de febrero del 2017\\(para revisión)}
+%%\date{\color{green}Version 1.0}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 %\ThisLRCornerWallPaper{1}{theme/bannerAzul} 
-\maketitle
-\thispagestyle{empty}
+%\maketitle
+%\thispagestyle{empty}
+
+\includepdf[pages=-]{Caratula.pdf}
 
 
 \frontmatter
@@ -77,11 +81,12 @@
 \include{TrabajoF}
 
 \appendix
-% \include{Analisis}
+
+\include{Analisis}
 
 %=========================================================
 
-% \include{Diseño}
+\include{Diseño}
 
 \bibliography{ref}
 
