@@ -17,6 +17,8 @@ Reallocating 'name_of_file' (item size: 1) to 15 items.
 A level-1 auxiliary file: Resultados.aux
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 A level-1 auxiliary file: TrabajoF.aux
+Reallocating 'name_of_file' (item size: 1) to 15 items.
+A level-1 auxiliary file: Conclusion.aux
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 A level-1 auxiliary file: Analisis.aux
 Reallocating 'name_of_file' (item size: 1) to 12 items.
@@ -59,7 +61,7 @@ Warning--empty journal in SpringController
 Warning--empty journal in yadav-2024
 You've used 58 entries,
             1876 wiz_defined-function locations,
-            815 strings with 12696 characters,
+            816 strings with 12710 characters,
 and the built_in function-call counts, 8737 in all, are:
 = -- 809
 > -- 337

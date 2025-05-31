@@ -1,4 +1,4 @@
-% !TeX root = ../ejemplo.tex
+
 
 \section{Redes neuronales artificiales}
 
@@ -20,7 +20,7 @@ Las capas ocultas son el núcleo de las RNA y donde ocurre el procesamiento de l
 La capa de salida genera los resultados finales del modelo. Para tareas de clasificación, por ejemplo, esta capa utiliza funciones como \textit{softmax} para proporcionar probabilidades asociadas a cada clase \cite{L12}.
 
 \section{Proceso de aprendizaje}
-Como ya se mencionó con anterioridad, una red neuronal es un sistema complejo que busca imitar la forma en la que el cerebro humano aprende \cite.
+Como ya se mencionó con anterioridad, una red neuronal es un sistema complejo que busca imitar la forma en la que el cerebro humano aprende.
 Este proceso de aprendizaje se realiza en dos fases conocidas como \textit{backpropagation} y \textit{forward propagation} \cite{L12}:
 
 
@@ -38,8 +38,13 @@ Este proceso de aprendizaje se realiza en dos fases conocidas como \textit{backp
 \subsection{Backpropagation}
 
 \begin{itemize}
-	\item \textbf{Cálculo del error:} La salida generada por la red se compara con los valores esperados utilizando una función de pérdida. Para problemas de regresión, se emplea comúnmente el \textit{Error Cuadrático Medio} (\textit{Mean Squared Error, MSE}), que calcula la diferencia entre las predicciones y los valores reales:  
-	$ {MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 $
+	\item \textbf{Cálculo del error:} La salida generada por la red se compara con los valores esperados utilizando una función de pérdida. Para problemas de regresión, se emplea comúnmente el \textit{Error Cuadrático Medio} (\textit{Mean Squared Error, MSE}), que calcula la diferencia entre las predicciones y los valores reales:
+	\begin{equation}
+		\label{eq:mse} % Etiqueta para referenciar la ecuación
+		MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+	\end{equation}
+	Donde $n$ es el número de muestras, $y_i$ son los valores reales y $\hat{y}_i$ son las predicciones.
+	\nomenclature[eq]{$MSE$}{Error Cuadrático Medio} % Entra en la nomenclatura como una ecuación
 	
 	\item \textbf{Optimización por descenso de gradiente:} Para reducir el error, la red emplea el algoritmo de descenso de gradiente. Este ajusta los pesos calculando la derivada de la función de pérdida con respecto a cada peso, guiando los ajustes necesarios para minimizar el error.  
 	
