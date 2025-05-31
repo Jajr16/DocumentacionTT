@@ -14,9 +14,9 @@ Esta instancia de Retrofit está dedicada a la comunicación con el servidor pri
 	\item \textbf{`RetrofitInstance` (Objeto Singleton):} Implementado como un objeto singleton para asegurar que solo exista una única instancia de Retrofit para este servidor en toda la aplicación, optimizando recursos.
 	\item \textbf{`OkHttpClient`:} Se utiliza un cliente HTTP personalizado con los siguientes timeouts:
 	\begin{itemize}
-		\item `connectTimeout(10, TimeUnit.SECONDS)`: Establece un tiempo máximo de 10 segundos para establecer una conexión con el servidor.
-		\item `writeTimeout(120, TimeUnit.SECONDS)`: Permite hasta 120 segundos para enviar un cuerpo de solicitud al servidor.
-		\item `readTimeout(120, TimeUnit.SECONDS)`: Define un límite de 120 segundos para recibir una respuesta completa del servidor.
+		\item \textbf{`connectTimeout(10, TimeUnit.SECONDS)`:} Establece un tiempo máximo de 10 segundos para establecer una conexión con el servidor.
+		\item \textbf{`writeTimeout(120, TimeUnit.SECONDS)`:} Permite hasta 120 segundos para enviar un cuerpo de solicitud al servidor.
+		\item \textbf{`readTimeout(120, TimeUnit.SECONDS)`:} Define un límite de 120 segundos para recibir una respuesta completa del servidor.
 	\end{itemize}
 	Estos tiempos están ajustados para manejar operaciones que podrían requerir un procesamiento moderado en el servidor, sin ser excesivamente laxos.
 	\item \textbf{`GsonConverterFactory.create()`:} Utilizado para convertir automáticamente objetos Kotlin en JSON para las solicitudes y viceversa para las respuestas.
@@ -33,16 +33,16 @@ Esta configuración asegura una comunicación eficiente y tolerante a cierto niv
 
 \subsubsection{Instancia para el Servidor de la Red Neuronal}
 
-Esta instancia de Retrofit está optimizada para interactuar con el **Servidor Red Neuronal**, también alojado en Azure, que es responsable específicamente de las funcionalidades de reconocimiento facial. Dada la naturaleza de estas operaciones (envío de imágenes y procesamiento intensivo), se requieren timeouts más generosos.
+Esta instancia de Retrofit está optimizada para interactuar con el Servidor Red Neuronal, también alojado en Azure, que es responsable específicamente de las funcionalidades de reconocimiento facial. Dada la naturaleza de estas operaciones (envío de imágenes y procesamiento intensivo), se requieren timeouts más generosos.
 
 \begin{itemize}
 	\item \textbf{`RetrofitCamaraInstance` (Objeto Singleton):} Similar al anterior, es un singleton para una gestión eficiente de la conexión con el servidor de la red neuronal.
 	\item \textbf{`OkHttpClient` con `HttpLoggingInterceptor`:}
 	\begin{itemize}
-		\item `HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }`: Se incluye un interceptor de logging para fines de depuración y monitoreo. Este interceptor permite registrar en detalle (cuerpo incluido) las solicitudes y respuestas HTTP, lo cual es invaluable durante el desarrollo y la fase de pruebas para entender el flujo de datos.
-		\item `connectTimeout(300, TimeUnit.SECONDS)`: Configurado a 300 segundos (5 minutos) para permitir conexiones en entornos con latencia o carga.
-		\item `writeTimeout(300, TimeUnit.SECONDS)`: Permite hasta 300 segundos para la escritura de datos, esencial para el envío de imágenes que pueden ser de tamaño considerable.
-		\item `readTimeout(300, TimeUnit.SECONDS)`: Un timeout de lectura de 300 segundos para esperar la respuesta del servidor, anticipando que el procesamiento de la red neuronal puede ser intensivo y tomar tiempo.
+		\item \textbf{`HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }`:} Se incluye un interceptor de logging para fines de depuración y monitoreo. Este interceptor permite registrar en detalle (cuerpo incluido) las solicitudes y respuestas HTTP, lo cual es invaluable durante el desarrollo y la fase de pruebas para entender el flujo de datos.
+		\item \textbf{`connectTimeout(300, TimeUnit.SECONDS)`:} Configurado a 300 segundos (5 minutos) para permitir conexiones en entornos con latencia o carga.
+		\item \textbf{`writeTimeout(300, TimeUnit.SECONDS)`:} Permite hasta 300 segundos para la escritura de datos, esencial para el envío de imágenes que pueden ser de tamaño considerable.
+		\item \textbf{`readTimeout(300, TimeUnit.SECONDS)`:} Un timeout de lectura de 300 segundos para esperar la respuesta del servidor, anticipando que el procesamiento de la red neuronal puede ser intensivo y tomar tiempo.
 	\end{itemize}
 	\item \textbf{`GsonConverterFactory.create()`:} También utilizado para la serialización/deserialización JSON.
 \end{itemize}

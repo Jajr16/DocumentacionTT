@@ -30,11 +30,11 @@ Esta capa es la encargada de definir y manejar los elementos visuales de la apli
 
 Las pantallas de la aplicación móvil están compuestas por Composables de Jetpack Compose, que son funciones programables que describen cómo debe ser una parte de la interfaz de usuario. Estos Composables son los bloques fundamentales que construyen la interfaz de usuario, permitiendo un desarrollo modular y reutilizable. Para su funcionamiento, el proyecto utiliza dependencias clave de Jetpack Compose gestionadas por Gradle, tales como:
 \begin{itemize}
-	\item `androidx.compose.foundation`: Para componentes de interfaz de usuario de bajo nivel y funcionalidades de diseño como fondos, bordes y gestos.
-	\item `androidx.compose.material3`: Proporciona componentes de Material Design 3, facilitando la creación de interfaces modernas y consistentes.
-	\item `androidx.compose.runtime`: Contiene las APIs principales del tiempo de ejecución de Compose, fundamentales para la composición y recomposición de la interfaz de usuario.
-	\item `androidx.compose.ui`: Incluye las APIs básicas de UI de Compose, como elementos gráficos, eventos de entrada y diseños.
-	\item `androidx.navigation.NavController`: Es crucial para la gestión de la navegación entre las diferentes pantallas de la aplicación, permitiendo una experiencia de usuario fluida al moverse entre los distintos destinos Composables.
+	\item \textbf{`androidx.compose.foundation`:} Para componentes de interfaz de usuario de bajo nivel y funcionalidades de diseño como fondos, bordes y gestos.
+	\item \textbf{`androidx.compose.material3`:} Proporciona componentes de Material Design 3, facilitando la creación de interfaces modernas y consistentes.
+	\item \textbf{`androidx.compose.runtime`:} Contiene las APIs principales del tiempo de ejecución de Compose, fundamentales para la composición y recomposición de la interfaz de usuario.
+	\item \textbf{`androidx.compose.ui`:} Incluye las APIs básicas de UI de Compose, como elementos gráficos, eventos de entrada y diseños.
+	\item \textbf{`androidx.navigation.NavController`:} Es crucial para la gestión de la navegación entre las diferentes pantallas de la aplicación, permitiendo una experiencia de usuario fluida al moverse entre los distintos destinos Composables.
 \end{itemize}
 
 Para la gestión del ciclo de vida de la interfaz de usuario y la ejecución de operaciones con efectos secundarios (como la carga de datos o la inicialización de estados), se utiliza `LaunchEffect`. `LaunchEffect` es un Composable de Jetpack Compose que se ejecuta cuando su clave cambia y se cancela cuando el Composable abandona la composición o la clave cambia nuevamente. Esto es fundamental para:

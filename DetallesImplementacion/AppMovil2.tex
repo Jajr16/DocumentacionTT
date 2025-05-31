@@ -16,23 +16,23 @@ Para la gestión eficiente del estado de la interfaz de usuario y la ejecución 
 	\item \textbf{`kotlinx.coroutines` (Coroutines):}
 	Los ViewModels emplean Coroutines para manejar la asincronía de manera estructurada y concisa. Permiten escribir código asíncrono que parece síncrono, mejorando la legibilidad y la depuración. Las coroutines son esenciales para:
 	\begin{itemize}
-		\item `kotlinx.coroutines.launch`: Para iniciar una nueva coroutine en un `CoroutineScope` específico, como `viewModelScope`.
-		\item `kotlinx.coroutines.Dispatchers`: Para especificar el hilo en el que se ejecutará una coroutine (e.g., `Dispatchers.IO` para operaciones de red o base de datos, `Dispatchers.Main` para actualizaciones de interfaz de usuario).
-		\item `kotlinx.coroutines.withContext`: Para cambiar el contexto de ejecución de una coroutine a un `Dispatcher` diferente de manera segura, útil para alternar entre hilos de secundarios y el hilo principal.
+		\item \textbf{`kotlinx.coroutines.launch`:} Para iniciar una nueva coroutine en un `CoroutineScope` específico, como `viewModelScope`.
+		\item \textbf{`kotlinx.coroutines.Dispatchers`:} Para especificar el hilo en el que se ejecutará una coroutine (e.g., `Dispatchers.IO` para operaciones de red o base de datos, `Dispatchers.Main` para actualizaciones de interfaz de usuario).
+		\item \textbf{`kotlinx.coroutines.withContext`:} Para cambiar el contexto de ejecución de una coroutine a un `Dispatcher` diferente de manera segura, útil para alternar entre hilos de secundarios y el hilo principal.
 	\end{itemize}
 	
 	\item \textbf{`kotlinx.coroutines.flow` (StateFlow y MutableStateFlow):}
 	Los ViewModels gestionan el estado de la interfaz de usuario y exponen los datos de manera reactiva utilizando Kotlin Flow, específicamente:
 	\begin{itemize}
-		\item `kotlinx.coroutines.flow.MutableStateFlow<T>`: Es un tipo de `Flow` que puede emitir actualizaciones de estado mutables. Los ViewModels lo utilizan internamente para mantener el estado actual de la UI (ej., datos a mostrar, estado de carga, mensajes de error).
-		\item `kotlinx.coroutines.flow.StateFlow<T>`: Es una versión de solo lectura de `MutableStateFlow`. Los ViewModels exponen sus `MutableStateFlow` internos como `StateFlow` a las Composables de la UI (`.asStateFlow()`). Esto garantiza que la interfaz de usuario solo pueda observar los cambios de estado, sin poder modificarlos directamente, promoviendo la inmutabilidad y una gestión de estado más segura.
+		\item \textbf{`kotlinx.coroutines.flow.MutableStateFlow<T>`: Es un tipo de `Flow` que puede emitir actualizaciones de estado mutables. Los ViewModels lo utilizan internamente para mantener el estado actual de la UI (ej., datos a mostrar, estado de carga, mensajes de error).}
+		\item \textbf{`kotlinx.coroutines.flow.StateFlow<T>`}: Es una versión de solo lectura de `MutableStateFlow`. Los ViewModels exponen sus `MutableStateFlow` internos como `StateFlow` a las Composables de la UI (`.asStateFlow()`). Esto garantiza que la interfaz de usuario solo pueda observar los cambios de estado, sin poder modificarlos directamente, promoviendo la inmutabilidad y una gestión de estado más segura.
 	\end{itemize}
 	
 	\item \textbf{Manejo de Respuestas de API y Errores:}
 	Para la interacción con las APIs y el procesamiento de respuestas, los ViewModels utilizan:
 	\begin{itemize}
-		\item `retrofit2.HttpException`: Esta excepción se utiliza para capturar y manejar errores específicos que ocurren durante las llamadas HTTP realizadas por Retrofit (por ejemplo, errores de servidor como 404, 500, etc.). Permite a los ViewModels reaccionar a problemas de red o de API de forma controlada.
-		\item `org.json.JSONObject`: Se emplea para el análisis y la manipulación de datos en formato JSON, especialmente útil para extraer información de cuerpos de respuesta complejos o para construir cuerpos de solicitud.
+		\item \textbf{`retrofit2.HttpException`:} Esta excepción se utiliza para capturar y manejar errores específicos que ocurren durante las llamadas HTTP realizadas por Retrofit (por ejemplo, errores de servidor como 404, 500, etc.). Permite a los ViewModels reaccionar a problemas de red o de API de forma controlada.
+		\item \textbf{`org.json.JSONObject`:} Se emplea para el análisis y la manipulación de datos en formato JSON, especialmente útil para extraer información de cuerpos de respuesta complejos o para construir cuerpos de solicitud.
 	\end{itemize}
 \end{itemize}
 
