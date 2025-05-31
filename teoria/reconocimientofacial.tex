@@ -10,11 +10,11 @@ Tiene múltiples aplicaciones en la industria como el desarrollo de sistemas de 
 
 A menudo, los términos verificación de rostros e identificación de rostros se usan de forma indistinta, sin embargo, aunque ambos comparten el mismo dominio del problema, lo abordan de forma distinta \cite{L16}.
 
-Para entender mejor la diferencia entre ambas tareas y su papel en el desarrollo de un sistema de reconocimiento facial, explicaremos como los sistemas modernos de reconocimiento facial operan a través de una secuencia de etapas bien definidas, donde cada una es indispensable para obtener resultados precisos y fiables \cite{L15}.\\
+Para entender mejor la diferencia entre ambas tareas y su papel en el desarrollo de un sistema de reconocimiento facial, explicaremos como los sistemas modernos de reconocimiento facial operan a través de una secuencia de etapas bien definidas, donde cada una es indispensable para obtener resultados precisos y fiables \cite{L15}.
 
-En cualquier pipeline, la interdependencia entre sus etapas es crucial, ya que la calidad y el éxito de cada fase dependen directamente del desempeño de la anterior. Un ejemplo claro es la etapa de detección de rostros: los modelos de extracción de características esperan recibir una imagen de un rostro correctamente identificada. Si se emplean técnicas de detección poco robustas, el módulo siguiente puede fallar en la extracción de características, lo que resulta en una menor precisión en los resultados finales \cite{Face_OpenCV}.\\
+En cualquier pipeline, la interdependencia entre sus etapas es crucial, ya que la calidad y el éxito de cada fase dependen directamente del desempeño de la anterior. Un ejemplo claro es la etapa de detección de rostros: los modelos de extracción de características esperan recibir una imagen de un rostro correctamente identificada. Si se emplean técnicas de detección poco robustas, el módulo siguiente puede fallar en la extracción de características, lo que resulta en una menor precisión en los resultados finales \cite{Face_OpenCV}.
 
-Por lo tanto, a continuación se presentan las etapas fundamentales de un sistema de reconocimiento facial actual: \\
+Por lo tanto, a continuación se presentan las etapas fundamentales de un sistema de reconocimiento facial actual: 
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -28,24 +28,24 @@ La figura (figura \ref{fig:Pipeline de un sistema de reconocimiento facial} fue 
 
 \subsubsection{Detección de rostros}
 
-Esta es la etapa inicial, donde el sistema identifica la presencia de rostros en una imagen o video y determina su ubicación, generalmente mediante el cálculo de cuadros delimitadores. Se emplean modelos especializados que no solo identifican los cuadros delimitadores, sino que también detectan puntos clave faciales (como ojos, nariz y boca), los cuales son esenciales para la alineación posterior \cite{L16}.\\
+Esta es la etapa inicial, donde el sistema identifica la presencia de rostros en una imagen o video y determina su ubicación, generalmente mediante el cálculo de cuadros delimitadores. Se emplean modelos especializados que no solo identifican los cuadros delimitadores, sino que también detectan puntos clave faciales (como ojos, nariz y boca), los cuales son esenciales para la alineación posterior \cite{L16}.
 
-Algunos algoritmos y técnicas empleadas en este punto incluyen métodos tradicionales como el algoritmo Viola Jones o implementaciones más recientes basadas en aprendizaje profundo como MTCNN o RetinaFace \cite{L14}.\\
+Algunos algoritmos y técnicas empleadas en este punto incluyen métodos tradicionales como el algoritmo Viola Jones o implementaciones más recientes basadas en aprendizaje profundo como MTCNN o RetinaFace \cite{L14}.
 
-Como se mencionó, este paso es la base del sistema de reconocimiento facial, por lo que su correcta implementación puede repercutir drásticamente en los resultados obtenidos.\\
+Como se mencionó, este paso es la base del sistema de reconocimiento facial, por lo que su correcta implementación puede repercutir drásticamente en los resultados obtenidos.
 
 
 \subsubsection{Alineación de rostros}
 
-Una vez detectados, los rostros se estandarizan en orientación y tamaño utilizando los puntos clave extraídos. Este proceso implica rotar, escalar y recortar los rostros para asegurar que características como los ojos y la boca estén posicionadas de manera consistente \cite{Face_OpenCV}.\\
+Una vez detectados, los rostros se estandarizan en orientación y tamaño utilizando los puntos clave extraídos. Este proceso implica rotar, escalar y recortar los rostros para asegurar que características como los ojos y la boca estén posicionadas de manera consistente \cite{Face_OpenCV}.
 
-El propósito de la alineación es reducir las variaciones causadas por la pose o la inclinación, haciendo que las entradas sean más uniformes para las etapas posteriores y asegurando que el modelo de embedding se enfoque en las características relevantes, lo que mejora la calidad y fiabilidad de los embeddings \cite{L16}.\\
+El propósito de la alineación es reducir las variaciones causadas por la pose o la inclinación, haciendo que las entradas sean más uniformes para las etapas posteriores y asegurando que el modelo de embedding se enfoque en las características relevantes, lo que mejora la calidad y fiabilidad de los embeddings \cite{L16}.
 
 Se ha demostrado que, la alineación de rostros mejora la precisión obtenida por este tipo de sistemas \cite{Face_OpenCV}.
 
 \subsubsection{Extracción de características o representación en forma de embeddings}
 
-Una vez que las imágenes de los rostros se encuentran correctamente procesadas, es decir, se identificaron y recortaron los rostros, seguidos de una alineación, se procede a usar algún modelo para la generación de embeddings como \textit{FaceNet o ArcFace} los cuales generan vectores de alta dimensionalidad \cite{Face_OpenCV}.\\
+Una vez que las imágenes de los rostros se encuentran correctamente procesadas, es decir, se identificaron y recortaron los rostros, seguidos de una alineación, se procede a usar algún modelo para la generación de embeddings como \textit{FaceNet o ArcFace} los cuales generan vectores de alta dimensionalidad \cite{Face_OpenCV}.
 
 El propósito de esta etapa es transformar los datos complejos de una imagen en un formato numérico, compacto y sobre todo, comparable para lograr una eficiente comparación en el siguiente punto \cite{L16}.
 
@@ -72,8 +72,6 @@ Este enfoque requiere de un proceso de extracción de características de los ro
 
 \subsection{Reconocimiento facial  mediante verificación}
 En los sistemas tradicionales de reconocimiento facial, se entrena un clasificador con $K$ clases para asignar a cada rostro de entrada una identidad específica de entre $K$ personas en la base de datos. Sin embargo, este enfoque presenta limitaciones de escalabilidad, ya que al agregar una nueva persona, es necesario reentrenar completamente el sistema con $K+1$ clases. Esto ocurre porque el clasificador inicial tiene $K$ neuronas, pero para incluir una nueva identidad, se requiere un clasificador con $K+1$ neuronas \cite{L15}.
-
-\vspace{\baselineskip}
 
 Para abordar este problema, un enfoque más eficiente y escalable es utilizar la comparación basada en similitud, propia de los algoritmos de verificación. En este caso, dado un rostro de entrada $x$, se ejecuta el algoritmo de verificación $K$ veces, una para cada rostro almacenado en la base de datos. La identidad del rostro de entrada se asigna a la correspondiente al ID para el cual el algoritmo de verificación indica una coincidencia \cite{L15}.
 

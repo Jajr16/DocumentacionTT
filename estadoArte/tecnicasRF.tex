@@ -1,6 +1,6 @@
 \section{Estado del arte en técnicas de reconocimiento facial}
 
-Como ya se comentó, el reconocimiento facial es una rama de la visión por computadora que a su vez representa un campo de estudio dentro de la Inteligencia Artificial y, a pesar de que recientemente este último concepto ha ganado cierta popularidad la realidad es que no es algo completamente nuevo, por lo que muchas de las técnicas que hoy en día se utilizan difieren mucho de los métodos tradicionales que permitieron en un inicio dar inicio a la investigación en materia de identificación y verificación de la identidad de las personas a través de sus características faciales.\\
+Como ya se comentó, el reconocimiento facial es una rama de la visión por computadora que a su vez representa un campo de estudio dentro de la Inteligencia Artificial y, a pesar de que recientemente este último concepto ha ganado cierta popularidad la realidad es que no es algo completamente nuevo, por lo que muchas de las técnicas que hoy en día se utilizan difieren mucho de los métodos tradicionales que permitieron en un inicio dar inicio a la investigación en materia de identificación y verificación de la identidad de las personas a través de sus características faciales.
 
 \subsection{Métodos tradicionales en reconocimiento facial}
 
@@ -9,21 +9,21 @@ Algunas de estas técnicas incluyen:
 
 \begin{itemize}
 	
-	\item \textbf{Análisis de componentes principales (PCA) / Eigenfaces}\\
+	\item \textbf{Análisis de componentes principales (PCA) / Eigenfaces}
 	 
-	 Es una técnica estadística de reducción de dimensionalidad que transforma un conjunto de variables posiblemente correlacionadas en un conjunto de variables linealmente no correlacionadas, llamadas componentes principales. En el contexto del reconocimiento facial, estos componentes principales se denominan "eigenfaces".\\
+	 Es una técnica estadística de reducción de dimensionalidad que transforma un conjunto de variables posiblemente correlacionadas en un conjunto de variables linealmente no correlacionadas, llamadas componentes principales. En el contexto del reconocimiento facial, estos componentes principales se denominan "eigenfaces".
 	 
-	 A grandes rasgos, consiste en aplicar PCA a un conjunto de imágenes de rostros de entrenamiento para encontrar los vectores propios que capturen la mayor varianza en la distribución de los datos.\\
+	 A grandes rasgos, consiste en aplicar PCA a un conjunto de imágenes de rostros de entrenamiento para encontrar los vectores propios que capturen la mayor varianza en la distribución de los datos.
 	 
-	 Cuando se busca que un nuevo rostro sea identificado, este se proyecta en este subespacio definido por las eigenfaces para obtener un conjunto de pesos que luego se comparan con los pesos de los rostros conocidos.\\
+	 Cuando se busca que un nuevo rostro sea identificado, este se proyecta en este subespacio definido por las eigenfaces para obtener un conjunto de pesos que luego se comparan con los pesos de los rostros conocidos.
 	 
-	 \item \textbf{Análisis Discriminante Lineal (LDA) / FisherFaces}\\
+	 \item \textbf{Análisis Discriminante Lineal (LDA) / FisherFaces}
 	 
-	  Es una técnica ´´clásica´´ en el reconocimiento de patrones que busca una combinación lineal de características que mejor caracterice o separe dos o más clases de objetos. En el reconocimiento facial, se utiliza para crear "fisherfaces".\\
+	  Es una técnica ´´clásica´´ en el reconocimiento de patrones que busca una combinación lineal de características que mejor caracterice o separe dos o más clases de objetos. En el reconocimiento facial, se utiliza para crear "fisherfaces".
 	  
-	  A diferencia de PCA, que busca un espacio lineal ortogonal para codificar la información, LDA busca un espacio lineal separable que maximice el poder discriminatorio. Su objetivo es maximizar la relación entre la dispersión entre clases (separando a diferentes individuos) y la dispersión dentro de la clase (agrupando imágenes del mismo individuo).\\
+	  A diferencia de PCA, que busca un espacio lineal ortogonal para codificar la información, LDA busca un espacio lineal separable que maximice el poder discriminatorio. Su objetivo es maximizar la relación entre la dispersión entre clases (separando a diferentes individuos) y la dispersión dentro de la clase (agrupando imágenes del mismo individuo).
 	  
-	  \item \textbf{Patrones binarios locales (LBP)}\\
+	  \item \textbf{Patrones binarios locales (LBP)}
 	  
 	  Esta técnica consiste en un descriptor de textura que se encarga de etiquetar los pixeles de una imagen al umbralizar el vecindario de 3x3 de cada pixel con el valor del pixel central, generando un número binario LBP.
 	
@@ -32,28 +32,27 @@ Algunas de estas técnicas incluyen:
 
 \subsection{Redes Neuronales Convolucionales}
 
-Durante la última década el desarrollo del reconocimiento facial se ha visto impulsado en gran medida por el las CNNs, un tipo de arquitectura de aprendizaje profundo que buscan aprender características jerárquicas directamente de los valores de píxeles brutos de una imagen.\\
+Durante la última década el desarrollo del reconocimiento facial se ha visto impulsado en gran medida por el las CNNs, un tipo de arquitectura de aprendizaje profundo que buscan aprender características jerárquicas directamente de los valores de píxeles brutos de una imagen.
 
-Aunque los elementos que comprenden este tipo de arquitectura se explicaran con mayor detalle en el capítulo 4 para este punto es importante tener en cuenta que estas redes se encuentran formadas por un conjunto de capas convolucionales cuyo propósito es extraer las características de las imágenes que reciben como entrada, capas de pooling que permiten reducir las dimensionares de los mapas de características que se van obteniendo en cada convolución y capas completamente conectadas las cuales reciben como entrada las características extraídas para llevar a cabo tareas de clasificación.\\
+Aunque los elementos que comprenden este tipo de arquitectura se explicaran con mayor detalle en el capítulo 4 para este punto es importante tener en cuenta que estas redes se encuentran formadas por un conjunto de capas convolucionales cuyo propósito es extraer las características de las imágenes que reciben como entrada, capas de pooling que permiten reducir las dimensionares de los mapas de características que se van obteniendo en cada convolución y capas completamente conectadas las cuales reciben como entrada las características extraídas para llevar a cabo tareas de clasificación.
 
-
-Un punto importante de las redes neuronales convolucionales es su naturaleza experimental ya que dependiendo de la arquitectura a implementar se pueden obtener resultados completamente distintos, además, existen algunas variaciones que permiten que estas redes se ajusten para resolver tareas en específico, como lo es el caso del reconocimiento facial.\\
+Un punto importante de las redes neuronales convolucionales es su naturaleza experimental ya que dependiendo de la arquitectura a implementar se pueden obtener resultados completamente distintos, además, existen algunas variaciones que permiten que estas redes se ajusten para resolver tareas en específico, como lo es el caso del reconocimiento facial.
 
 A continuación se presentan algunas arquitecturas importantes en esta tarea:
 
 \begin{itemize}
 	
-	\item \textbf{FaceNet}\\
+	\item \textbf{FaceNet}
 	
-	Desarrollado por Google, FaceNet aprende un mapeo de imágenes faciales a un espacio euclidiano compacto de 128 dimensiones, donde las distancias corresponden directamente a una medida de similitud facial. Utiliza una CNN profunda entrenada con una función de pérdida de tripletas para asegurar que las imágenes de la misma persona estén cerca entre sí, mientras que las imágenes de personas diferentes estén separadas por un margen específico.\\
+	Desarrollado por Google, FaceNet aprende un mapeo de imágenes faciales a un espacio euclidiano compacto de 128 dimensiones, donde las distancias corresponden directamente a una medida de similitud facial. Utiliza una CNN profunda entrenada con una función de pérdida de tripletas para asegurar que las imágenes de la misma persona estén cerca entre sí, mientras que las imágenes de personas diferentes estén separadas por un margen específico.
 	
-	\item \textbf{VGG-Face}\\
+	\item \textbf{VGG-Face}
 	
-	Es un modelo de red neuronal convolucional (CNN) desarrollado por la Universidad de Oxford para reconocimiento facial. Basado en la arquitectura VGG, utiliza 16 o 19 capas profundas para extraer características faciales de imágenes. Entrenado en un gran conjunto de datos de rostros, es efectivo para tareas de verificación e identificación facial, destacando por su capacidad para generar representaciones robustas de rostros.\\
+	Es un modelo de red neuronal convolucional (CNN) desarrollado por la Universidad de Oxford para reconocimiento facial. Basado en la arquitectura VGG, utiliza 16 o 19 capas profundas para extraer características faciales de imágenes. Entrenado en un gran conjunto de datos de rostros, es efectivo para tareas de verificación e identificación facial, destacando por su capacidad para generar representaciones robustas de rostros.
 	
-	\item \textbf{ArcFace}\\
+	\item \textbf{ArcFace}
 	
-	Es un método avanzado de reconocimiento facial que utiliza una pérdida de margen angular (Additive Angular Margin Loss) para mejorar la discriminación entre clases. Desarrollado por InsightFace, ArcFace optimiza la separación de características faciales en un espacio de alta dimensión, logrando mayor precisión en tareas de identificación y verificación facia.\\
+	Es un método avanzado de reconocimiento facial que utiliza una pérdida de margen angular (Additive Angular Margin Loss) para mejorar la discriminación entre clases. Desarrollado por InsightFace, ArcFace optimiza la separación de características faciales en un espacio de alta dimensión, logrando mayor precisión en tareas de identificación y verificación facia.
 	
 	Otro punto a destacar de este modelo de reconocimiento facial es su capacidad para limpiar grandes conjuntos de datos, al implementar una estrategia basada en sub-centros. 
 

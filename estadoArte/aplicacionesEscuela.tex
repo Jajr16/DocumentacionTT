@@ -1,10 +1,10 @@
 \section{Reconocimiento facial en el contexto escolar}
 
 La escuela es un espacio en el que diariamente interactúan un gran número de personas, desde estudiantes hasta profesores y personal académico y externo.
-Es por esta razón que el garantizar la seguridad de sus individuos se convierte en una prioridad de cara a fomentar su correcto desarrollo.\\
+Es por esta razón que el garantizar la seguridad de sus individuos se convierte en una prioridad de cara a fomentar su correcto desarrollo.
 
 En este contexto escolar, existen dos conceptos relacionados con seguridad, por un lado tenemos a la seguridad perimetral y la seguridad interna.
-La seguridad perimetral hace referencia al conjunto de mecanismos y sistemas relativos al control de acceso físico de las personas a las instalaciones así como a la detección y prevención de intrusiones, por otra parte, la seguridad interna hace referencia a protocolos de seguridad establecidos por cada institución en materia de prevención y gestión de situaciones de riesgo que podrían llegar a presentarse dentro de los planteles. Una falla en la seguridad perimetral puede suponer una brecha en la seguridad interna.\\
+La seguridad perimetral hace referencia al conjunto de mecanismos y sistemas relativos al control de acceso físico de las personas a las instalaciones así como a la detección y prevención de intrusiones, por otra parte, la seguridad interna hace referencia a protocolos de seguridad establecidos por cada institución en materia de prevención y gestión de situaciones de riesgo que podrían llegar a presentarse dentro de los planteles. Una falla en la seguridad perimetral puede suponer una brecha en la seguridad interna.
 
 Una de las brechas de seguridad que guían este trabajo consiste en la suplantación de la identidad, un delito que se da cuando alguien se hace pasar por otra para obtener algún tipo de beneficio, puede darse en distintos contextos y, en el caso de una escuela puede dar lugar a fraude durante evaluaciones o el acceso no autorizado a ciertos lugares dentro de las instituciones poniendo en riesgo la seguridad de sus individuos.
 
@@ -12,42 +12,42 @@ Con esta información en mente es que se exploró la forma en la que el reconoci
 
 \subsection{Sistemas de gestión de asistencia}
 
-Este tipo de sistemas buscan automatizar y mejorar la eficiencia de los procesos existentes para el registro de la asistencia de los alumnos.\\
+Este tipo de sistemas buscan automatizar y mejorar la eficiencia de los procesos existentes para el registro de la asistencia de los alumnos.
 
-Algunas de las problemáticas identificadas en los trabajos revisados mencionan que el proceso tradicional para la toma de asistencia de los alumnos consume mucho tiempo, es propenso a errores y, en algunos casos, es vulnerable a casos de suplantación de la identidad.\\
+Algunas de las problemáticas identificadas en los trabajos revisados mencionan que el proceso tradicional para la toma de asistencia de los alumnos consume mucho tiempo, es propenso a errores y, en algunos casos, es vulnerable a casos de suplantación de la identidad.
 
 La forma en la que se aplica el reconocimiento facial en esta tarea incluye la automatización de la asistencia de los alumnos usando dicha tecnología.
-Estos sistemas de reconocimiento facial toman una foto de un estudiante y, de ser identificado, se registra su asistencia automáticamente.\\
+Estos sistemas de reconocimiento facial toman una foto de un estudiante y, de ser identificado, se registra su asistencia automáticamente.
 
 Algunos de los trabajos que siguen este enfoque incluyen:
 
 \begin{itemize}
 	
-	\item \textbf{ATTENDANCE MANAGEMENT SYSTEM USING FACE RECOGNITION \cite{EA1}}\\
+	\item \textbf{ATTENDANCE MANAGEMENT SYSTEM USING FACE RECOGNITION \cite{EA1}}
 	
-	Un sistema para automatizar el registro de asistencia de los alumnos usando técnicas de reconocimiento facial.\\
+	Un sistema para automatizar el registro de asistencia de los alumnos usando técnicas de reconocimiento facial.
 	
-	La principal diferencia de este proyecto con respecto a los demás recae en que no hace uso de técnicas de aprendizaje profundo como las bien conocidas arquitecturas de redes neuronales que en la actualidad lideran el campo; por lo tanto, usa técnicas más simples como el algoritmo Haar Cascade para la detección de rostros y Local Binary Pattern Histogram para llevar a cabo el reconocimiento facial.\\
+	La principal diferencia de este proyecto con respecto a los demás recae en que no hace uso de técnicas de aprendizaje profundo como las bien conocidas arquitecturas de redes neuronales que en la actualidad lideran el campo; por lo tanto, usa técnicas más simples como el algoritmo Haar Cascade para la detección de rostros y Local Binary Pattern Histogram para llevar a cabo el reconocimiento facial.
 	
-	A pesar de no implementar tecnologías más robustas, los resultados presentados indican que el sistema se desempeña bien ante cambios en la iluminación y en la pose de los alumnos.\\
+	A pesar de no implementar tecnologías más robustas, los resultados presentados indican que el sistema se desempeña bien ante cambios en la iluminación y en la pose de los alumnos.
 	
-	Finalmente, la principal desventaja de esta propuesta es que unicamente cuenta con el desarrollo de una interfaz gráfica en tkinter, lo que puede dificultar su futura implementación en un contexto académico.\\
-	
-	
-	\item \textbf{Sistema de monitoreo y control de asistencia de estudiantes usando Faster R-CNN \cite{EA2}}\\
-	
-	El sistema propuesto en este proyecto utiliza arquitecturas basadas en redes neuronales convolucionales CNN para la detección de rostros (Faster R-CNN) y FaceNet para la parte del reconocimiento facial.\\
-	
-	Algunos detalles de su implementación son la integración de análisis de videos en tiempo real para el registro de asistencia, detección de anomalías así como la integración de notificaciones y datos centralizados para la creación de reportes.\\
+	Finalmente, la principal desventaja de esta propuesta es que unicamente cuenta con el desarrollo de una interfaz gráfica en tkinter, lo que puede dificultar su futura implementación en un contexto académico.
 	
 	
-	\item \textbf{SISTEMA WEB CON RECONOCIMIENTO FACIAL PARA LA ESCUELA “UNIDAD EDUCATIVA ULPIANO NAVARRO \cite{EA3}}\\
+	\item \textbf{Sistema de monitoreo y control de asistencia de estudiantes usando Faster R-CNN \cite{EA2}}
 	
-	La implementación de este sistema en un contexto escolar permitió registrar los accesos y salidas de los estudiantes a la institución y en consecuencia, eliminar los pases de asistencia en las aulas.\\
+	El sistema propuesto en este proyecto utiliza arquitecturas basadas en redes neuronales convolucionales CNN para la detección de rostros (Faster R-CNN) y FaceNet para la parte del reconocimiento facial.
 	
-	Nuevamente, vemos la aplicación de las redes neuronales convolucionales usando la biblioteca de face-api y para la parte de la detección de rostros se uso OpenCv cuyos algoritmos son más ligeros en comparación de otras propuestas como Faster R-CNN o MTCNN.\\
+	Algunos detalles de su implementación son la integración de análisis de videos en tiempo real para el registro de asistencia, detección de anomalías así como la integración de notificaciones y datos centralizados para la creación de reportes.
 	
-	Finalmente, la principal desventaja del sistema es obvia, al ser un sistema web requiere de una conexión continua a internet, además, el uso de una computadora lo que puede aumentar los tiempos destinados para la toma de asistencia de alumnos en condiciones donde los equipos de cómputo no cuenten con los requisitos necesarios.\\
+	
+	\item \textbf{SISTEMA WEB CON RECONOCIMIENTO FACIAL PARA LA ESCUELA “UNIDAD EDUCATIVA ULPIANO NAVARRO \cite{EA3}}
+	
+	La implementación de este sistema en un contexto escolar permitió registrar los accesos y salidas de los estudiantes a la institución y en consecuencia, eliminar los pases de asistencia en las aulas.
+	
+	Nuevamente, vemos la aplicación de las redes neuronales convolucionales usando la biblioteca de face-api y para la parte de la detección de rostros se uso OpenCv cuyos algoritmos son más ligeros en comparación de otras propuestas como Faster R-CNN o MTCNN.
+	
+	Finalmente, la principal desventaja del sistema es obvia, al ser un sistema web requiere de una conexión continua a internet, además, el uso de una computadora lo que puede aumentar los tiempos destinados para la toma de asistencia de alumnos en condiciones donde los equipos de cómputo no cuenten con los requisitos necesarios.
 	
 	
 	
@@ -57,35 +57,35 @@ Algunos de los trabajos que siguen este enfoque incluyen:
 
 \subsection{Sistemas de supervisión en exámenes}
 
-Derivado de la pandemia del covid-19 y de la necesidad de continuar con la educación, muchas de las escuelas retomaron sus actividades mediante clases en línea. Sin embargo, un punto importante en el proceso educativo como lo son las evaluaciones tuvieron que adaptarse para funcionar bajo este nuevo esquema a distancia \cite{EA0}.\\
+Derivado de la pandemia del covid-19 y de la necesidad de continuar con la educación, muchas de las escuelas retomaron sus actividades mediante clases en línea. Sin embargo, un punto importante en el proceso educativo como lo son las evaluaciones tuvieron que adaptarse para funcionar bajo este nuevo esquema a distancia \cite{EA0}.
 
-Es por esta razón que algunos de los trabajos que se presentan a continuación fueron propuestos para contar con una herramienta que permitiera autenticar de forma continua a los estudiantes durante las evaluaciones en línea previniendo así, los casos de fraude.\\
+Es por esta razón que algunos de los trabajos que se presentan a continuación fueron propuestos para contar con una herramienta que permitiera autenticar de forma continua a los estudiantes durante las evaluaciones en línea previniendo así, los casos de fraude.
 
-Además, se encontraron trabajos que por el contrario, buscan prevenir el fraude durante evaluaciones presenciales, un enfoque que aunque comparte la implementación de reconocimiento facial, difiere en la práctica de los sistemas empleados para la autenticación en línea.\\
+Además, se encontraron trabajos que por el contrario, buscan prevenir el fraude durante evaluaciones presenciales, un enfoque que aunque comparte la implementación de reconocimiento facial, difiere en la práctica de los sistemas empleados para la autenticación en línea.
  
 
 \begin{itemize}
 	
-	\item \textbf{A Novel Deep Learning-based Online Proctoring System using Face Recognition, Eye Blinking, and Object Detection Techniques \cite{EA4}}\\
+	\item \textbf{A Novel Deep Learning-based Online Proctoring System using Face Recognition, Eye Blinking, and Object Detection Techniques \cite{EA4}}
 	
-	Como el nombre del proyecto sugiere, este sistema hace uso de técnicas de reconocimiento facial para supervisar los exámenes en línea usando el detector de rostros HOG (Histogram of Oriented Gradients) y una implementación del algoritmo dlib para la parte del reconocimiento facial.\\
+	Como el nombre del proyecto sugiere, este sistema hace uso de técnicas de reconocimiento facial para supervisar los exámenes en línea usando el detector de rostros HOG (Histogram of Oriented Gradients) y una implementación del algoritmo dlib para la parte del reconocimiento facial.
 	
-	Para evitar que el sistema sea vulnerable al uso de imágenes estáticas, se incorporó la detección de parpadeo ocular y la detección de objetos usando el algoritmo YOLOv3 permitiendo identificar celulares, tabletas e incluso libros.\\
+	Para evitar que el sistema sea vulnerable al uso de imágenes estáticas, se incorporó la detección de parpadeo ocular y la detección de objetos usando el algoritmo YOLOv3 permitiendo identificar celulares, tabletas e incluso libros.
 	
-	\item \textbf{Face Recognition Classification in Proctored Exam \cite{EA5}}\\
+	\item \textbf{Face Recognition Classification in Proctored Exam \cite{EA5}}
 	
-	Este sistema sigue un enfoque similar al proyecto anterior al combinar técnicas de reconocimiento facial junto con detección de objetos para identificar el uso de dispositivos móviles y, en este caso el conteo de personas.\\
+	Este sistema sigue un enfoque similar al proyecto anterior al combinar técnicas de reconocimiento facial junto con detección de objetos para identificar el uso de dispositivos móviles y, en este caso el conteo de personas.
 	
-	Dentro de los algoritmos utilizados se destaca YOLOv3 para la detección de objetos, la detección de puntos faciales clave mediante Dlib junto con OpenCV para realizar un seguimiento ocular que permitiera obtener una estimación de la mirada de los alumnos y la detección del movimiento de la boca.\\
+	Dentro de los algoritmos utilizados se destaca YOLOv3 para la detección de objetos, la detección de puntos faciales clave mediante Dlib junto con OpenCV para realizar un seguimiento ocular que permitiera obtener una estimación de la mirada de los alumnos y la detección del movimiento de la boca.
 	
-	Dado que esta propuesta esta pensada para funcionar durante evaluaciones en línea, se integra un sistema de alertas que notifica a los evaluadores de posibles casos que requieran de su atención.\\
+	Dado que esta propuesta esta pensada para funcionar durante evaluaciones en línea, se integra un sistema de alertas que notifica a los evaluadores de posibles casos que requieran de su atención.
 	
 	
-	\item \textbf{Reconocimiento facial para la identificación de los alumnos en exámenes finales en la modalidad presencial de la Universidad Continental \cite{EA6}}\\
+	\item \textbf{Reconocimiento facial para la identificación de los alumnos en exámenes finales en la modalidad presencial de la Universidad Continental \cite{EA6}}
 	
-	Finalmente, este proyecto trabaja bajo otro contexto para integrar las ventaja del reconocimiento facial durante evaluaciones presenciales para evitar posibles casos de suplantación de la identidad y en consecuencia fraude.\\
+	Finalmente, este proyecto trabaja bajo otro contexto para integrar las ventaja del reconocimiento facial durante evaluaciones presenciales para evitar posibles casos de suplantación de la identidad y en consecuencia fraude.
 	
-	Los algoritmos utilizados incluyen Haar Cascade para la detección de rostros y la biblioteca de face-recognition que contiene implementaciones de arquitecturas basadas en CNN para el reconocimiento de rostros, aunque en el trabajo no se especifica la arquitectura final empleada.\\
+	Los algoritmos utilizados incluyen Haar Cascade para la detección de rostros y la biblioteca de face-recognition que contiene implementaciones de arquitecturas basadas en CNN para el reconocimiento de rostros, aunque en el trabajo no se especifica la arquitectura final empleada.
 	
 	A diferencia de otros trabajos revisados, esta es una implementación más completa que combina precisamente el desarrollo del sistema de reconocimiento facial con un sistema web integral que permite el registro, visualización y administración de estudiantes, lo que puede facilitar su uso en un entorno real.
 	
@@ -94,38 +94,38 @@ Además, se encontraron trabajos que por el contrario, buscan prevenir el fraude
 
 \subsection{Control de acceso a universidades}
 
-Llevar un control de quien accede a las universidades permite reforzar los protocolos de seguridad perimetral y evitar posibles accesos no autorizados que pueden desembocar en problemas más grandes, además, en algunos casos, la implementación de estos sistemas puede reducir los tiempos asociados a la gestión de acceso.\\
+Llevar un control de quien accede a las universidades permite reforzar los protocolos de seguridad perimetral y evitar posibles accesos no autorizados que pueden desembocar en problemas más grandes, además, en algunos casos, la implementación de estos sistemas puede reducir los tiempos asociados a la gestión de acceso.
 
-La principal problemática identificada por los trabajos revisados resaltan las limitaciones de los sistemas de control de acceso convencionales basados en el uso de contraseñas e identificaciones escolares las cuales son fácilmente vulnerable.\\
+La principal problemática identificada por los trabajos revisados resaltan las limitaciones de los sistemas de control de acceso convencionales basados en el uso de contraseñas e identificaciones escolares las cuales son fácilmente vulnerable.
 
-La integración del reconocimiento facial en los sistemas de control de acceso permiten identificar a los individuos analizando sus características biométricas faciales, proporcionando un método de entrada sin contacto y más robusto.\\
+La integración del reconocimiento facial en los sistemas de control de acceso permiten identificar a los individuos analizando sus características biométricas faciales, proporcionando un método de entrada sin contacto y más robusto.
 
-Algunos trabajos que han explorado la implementación de esta tecnología para el desarrollo de sistemas de control de acceso en universidades son::
+Algunos trabajos que han explorado la implementación de esta tecnología para el desarrollo de sistemas de control de acceso en universidades son:
 
 \begin{itemize}
 	
-	\item \textbf{Facial Recognition-Based Entry System for Student Residence Halls: Enhancing Security and Accessibility \cite{EA7}}\\
+	\item \textbf{Facial Recognition-Based Entry System for Student Residence Halls: Enhancing Security and Accessibility \cite{EA7}}
 	
-	Un sistema de control de acceso implementado a través de webcams y con una posterior integración en sistemas de circuito cerrado (CCTV) para identificar estudiantes haciendo uso de sus características faciales en tiempo real.\\ 
-	Una vez que se identifico al estudiante, se guarda en un archivo .csv junto con la fecha y hora de registro, en caso de que el estudiante no se encontrará dado de alta en el sistema se identifica como desconocido\\.
+	Un sistema de control de acceso implementado a través de webcams y con una posterior integración en sistemas de circuito cerrado (CCTV) para identificar estudiantes haciendo uso de sus características faciales en tiempo real. 
+	Una vez que se identifico al estudiante, se guarda en un archivo .csv junto con la fecha y hora de registro, en caso de que el estudiante no se encontrará dado de alta en el sistema se identifica como desconocido.
 	
-	Dentro de los algoritmos empleados para la detección y generación de embeddings se emplearon los algoritmos MTCNN y FaceNet-128.\\
+	Dentro de los algoritmos empleados para la detección y generación de embeddings se emplearon los algoritmos MTCNN y FaceNet-128.
 	
-	Algunas limitantes de este proyecto involucra la necesidad de contar con cámaras de alta calidad y la dependencia de un equipo de cómputo que pueda soportar un uso intensivo del CPU.\\
+	Algunas limitantes de este proyecto involucra la necesidad de contar con cámaras de alta calidad y la dependencia de un equipo de cómputo que pueda soportar un uso intensivo del CPU.
 	
 	\item \textbf{Facial Recognition System for Access Control through the 
-		Application of Convolutional Neural Networks \cite{EA8}}\\
+		Application of Convolutional Neural Networks \cite{EA8}}
 	
-	Aunque el título del proyecto hace referencia a un sistema de control de acceso, no se especifica como es que fue implementado, sino que se presentan los resultados obtenidos tras aplicar una estrategia de Transfer Learning tomando como base el modelo pre-entrenado VGG16.\\
+	Aunque el título del proyecto hace referencia a un sistema de control de acceso, no se especifica como es que fue implementado, sino que se presentan los resultados obtenidos tras aplicar una estrategia de Transfer Learning tomando como base el modelo pre-entrenado VGG16.
 	
-	La aportación más importante de este proyecto recae en los resultados obtenidos de la experimentación sobre la arquitectura base del modelo VGG16 lo que plantea la idea de que cada institución puede tener su propio sistema de control de acceso con reconocimiento facial.\\
+	La aportación más importante de este proyecto recae en los resultados obtenidos de la experimentación sobre la arquitectura base del modelo VGG16 lo que plantea la idea de que cada institución puede tener su propio sistema de control de acceso con reconocimiento facial.
 	
 	
-	\item \textbf{Sistema de control de acceso biométrico mediante reconocimiento facial con técnicas de vivacidad \cite{EA9}}\\
+	\item \textbf{Sistema de control de acceso biométrico mediante reconocimiento facial con técnicas de vivacidad \cite{EA9}}
 	
-	El proyecto es un sistema de control de acceso biométrico basado en reconocimiento facial, diseñado para autenticar usuarios en tiempo real utilizando técnicas de detección de vivacidad, evitando fraudes como el uso de fotografías o videos.\\
+	El proyecto es un sistema de control de acceso biométrico basado en reconocimiento facial, diseñado para autenticar usuarios en tiempo real utilizando técnicas de detección de vivacidad, evitando fraudes como el uso de fotografías o videos.
 	
-	Este sistema, implementado en entornos como instituciones educativas y empresas, se enfoca en garantizar un acceso seguro y eficiente. Sus principales características incluyen una arquitectura modular, integración sencilla y énfasis en la privacidad de los datos, haciéndolo ideal para escenarios que requieren altos estándares de seguridad.\\
+	Este sistema, implementado en entornos como instituciones educativas y empresas, se enfoca en garantizar un acceso seguro y eficiente. Sus principales características incluyen una arquitectura modular, integración sencilla y énfasis en la privacidad de los datos, haciéndolo ideal para escenarios que requieren altos estándares de seguridad.
 	
 	Debido a su enfoque novedoso que incluye identificar que el individuo tenga la mirada fija en la cámara junto con la detección y conteo de parpadeo, su principal deficiencia es la necesidad de obtener imágenes de alta calidad lo que requiere el uso de hardware especializado, dificultando su implementación en entornos poco controlados.
 
