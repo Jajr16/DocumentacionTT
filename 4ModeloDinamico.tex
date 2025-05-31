@@ -188,22 +188,13 @@ Se refiere a las personas registradas como empleados y personal administrativo q
 
 \newpage
 
-	\subsection{Diagramas de casos de uso}
+	\section{Diagramas de casos de uso}
 
-A continuación se muestran los diagramas de casos de uso:
-
-
-\begin{figure}[htbp!]
-	\begin{center}
-		\fbox{\includegraphics[width=.9\textwidth]{images/casosDeUso1}}
-		\caption{Diagrama de casos de uso del sistema movil.}
-		\label{fig:casosDeUso1}
-	\end{center}
-\end{figure}
+A continuación se describen y muestran los diagramas de casos de uso:
 
 \subsection{Diagrama de Casos de Uso del Sistema Móvil}
 
-En la Figura \ref{fig:casosDeUso1} se presenta el diagrama de casos de uso correspondiente al **sistema móvil**, el cual representa el núcleo central de la interacción del usuario en el presente trabajo terminal. Este diagrama ilustra las funcionalidades específicas que se plantearon para la aplicación móvil, así como las interacciones clave con los siguientes actores: Alumno, Docente, Personal de seguridad, Presidente de academia y Jefe de departamento. La notación de colores empleada en este diagrama (cuya leyenda completa se detalla en la Figura \ref{fig:Notacion}) permite identificar la prioridad y el estado de cada caso de uso.
+En el diagrama de la (figura \ref{fig:casosDeUso1}) se presenta el diagrama de casos de uso correspondiente al sistema móvil, el cual representa el núcleo central de la interacción del usuario en el presente trabajo terminal. Este diagrama ilustra las funcionalidades específicas que se plantearon para la aplicación móvil, así como las interacciones clave con los siguientes actores: Alumno, Docente, Personal de seguridad, Presidente de academia y Jefe de departamento. La notación de colores empleada en este diagrama (cuya leyenda completa se detalla en la figura \ref{fig:Notacion}) permite identificar la prioridad y el estado de cada caso de uso.
 
 Como se observa en la Figura \ref{fig:casosDeUso1}, la mayoría de los casos de uso se presentan en color verde, lo cual resalta su prioridad y su completa realización dentro del alcance del proyecto. Sin embargo, existen algunas excepciones que merecen una explicación detallada:
 
@@ -219,10 +210,33 @@ Como se observa en la Figura \ref{fig:casosDeUso1}, la mayoría de los casos de 
 
 Los demás casos de uso presentados en color verde representan las funcionalidades prioritarias y ya implementadas del sistema móvil, las cuales serán explicadas en la sección de detalles de los casos de uso.
 
+\begin{figure}[htbp!]
+	\begin{center}
+		\fbox{\includegraphics[width=.9\textwidth]{images/casosDeUso1}}
+		\caption{Diagrama de casos de uso del sistema movil.}
+		\label{fig:casosDeUso1}
+	\end{center}
+\end{figure}
+
+%\newpage
+
+\subsection{Diagrama de casos de uso del sistema web}
+
+En el diagrama de la (figura \ref{fig:casosDeUso2}) se presenta el diagrama de casos de uso correspondiente al sistema web. Este diagrama ilustra las funcionalidades a las que tienen acceso principalmente el Personal de la DAE y el Personal de gestión escolar, complementando las funcionalidades ofrecidas por el sistema móvil. Al igual que en el diagrama del sistema móvil, se utiliza la notación de colores (verde para implementado, amarillo para no prioritario/no implementado, rojo para no prioritario y gris para incluido en otro caso de uso) previamente definida para indicar la prioridad y el estado de implementación de cada caso de uso.
+
+La mayoría de los casos de uso en este diagrama se presentan en color verde, lo que indica que fueron considerados prioritarios y han sido completamente implementados. Estos casos de uso abarcan la gestión de información y procesos administrativos relevantes para los roles del Personal de la DAE y el Personal de gestión escolar, constituyendo el núcleo funcional del backend del sistema.
+
+Sin embargo, es importante destacar algunas particularidades en este diagrama:
+
+\begin{itemize}
+	\item Se observa una relación de unificación entre los casos de uso \textbf{CU-21 (Dar de alta a alumno)}, \textbf{CU-22 (Crear credencial)} y \textbf{CU-23 (Capturar fotografía estudiantil)}. Inicialmente concebidos como funcionalidades separadas, durante la fase de desarrollo se tomó la decisión de integrarlos dentro del caso de uso CU-21. Esta unificación se realizó con el objetivo de optimizar la experiencia del usuario, permitiendo que el Personal de la DAE realice el alta del alumno, la captura de su fotografía y la creación de la credencial en una única pantalla o flujo de proceso, mejorando la eficiencia operativa.
+	\item Adicionalmente, se agregaron los casos de uso \textbf{CU-43 (Consultar lista de alumnos)}, el \textbf{CU-44 (Consultar inscripciones)} y el \textbf{CU-45 (Inscribir alumno a ETS)}. Estos casos de uso se incorporaron con el propósito de simular el flujo de trabajo de un escenario real dentro del sistema, mejorando a su vez la experiencia de los usuarios al integrar sus respectivas vistas y funcionalidades dentro de la simulación del SAES.
+\end{itemize}
+
+Los demás casos de uso presentados en color verde representan las funcionalidades prioritarias y ya implementadas del sistema web, las cuales serán explicadas en detalle en la sección de casos de uso específicos.
 
 \newpage
 
-%\newpage
 \begin{figure}[htbp!]
 	\begin{center}
 		\fbox{\includegraphics[width=.9\textwidth]{images/casosDeUso2}}
@@ -231,22 +245,6 @@ Los demás casos de uso presentados en color verde representan las funcionalidad
 	\end{center}
 \end{figure}
 
-
-\subsection{Diagrama de casos de uso del sistema web}
-
-En la Figura \ref{fig:casosDeUso2} se presenta el diagrama de casos de uso correspondiente al sistema web. Este diagrama ilustra las funcionalidades a las que tienen acceso principalmente el Personal de la DAE y el Personal de gestión escolar, complementando las funcionalidades ofrecidas por el sistema móvil. Al igual que en el diagrama del sistema móvil, se utiliza la notación de colores (verde para implementado, amarillo para no prioritario/no implementado, rojo para no prioritario y gris para incluido en otro caso de uso) previamente definida para indicar la prioridad y el estado de implementación de cada caso de uso.
-
-La mayoría de los casos de uso en este diagrama se presentan en color verde, lo que indica que fueron considerados prioritarios y han sido completamente implementados. Estos casos de uso abarcan la gestión de información y procesos administrativos relevantes para los roles del Personal de la DAE y el Personal de gestión escolar, constituyendo el núcleo funcional del backend del sistema.
-
-Sin embargo, es importante destacar algunas particularidades en este diagrama:
-
-\begin{itemize}
-	\item Se observa una relación de unificación entre los casos de uso \textbf{CU-21 (Dar de alta a alumno)}, \textbf{CU-22 (Crear credencial)} y \textbf{CU-23 (Capturar fotografía estudiantil)}. Inicialmente concebidos como funcionalidades separadas, durante la fase de desarrollo se tomó la decisión de integrarlos dentro del caso de uso CU-21. Esta unificación se realizó con el objetivo de optimizar la experiencia del usuario, permitiendo que el Personal de la DAE realice el alta del alumno, la captura de su fotografía y la creación de la credencial en una única pantalla o flujo de proceso, mejorando la eficiencia operativa.
-	
-	\item Adicionalmente, se agregaron los casos de uso \textbf{CU-43 (Consultar lista de alumnos)}, el \textbf{CU-44 (Consultar inscripciones)} y el \textbf{CU-45 (Inscribir alumno a ETS)}. Estos casos de uso se incorporaron con el propósito de simular el flujo de trabajo de un escenario real dentro del sistema, mejorando a su vez la experiencia de los usuarios al integrar sus respectivas vistas y funcionalidades dentro de la simulación del SAES.
-\end{itemize}
-
-Los demás casos de uso presentados en color verde representan las funcionalidades prioritarias y ya implementadas del sistema web, las cuales serán explicadas en detalle en la sección de casos de uso específicos.
 
 \section{Detalle de los casos de uso}
 

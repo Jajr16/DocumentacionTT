@@ -35,9 +35,6 @@ I was expecting a `,' or a `}'---line 195 of file ref.bib
  :  author=rodriguez 
  :                   Ponce_Gutierrez Sanchez_Mendoza De los Santos_2024, title={Biometric access control system through facial recognition with liveness techniques}, volume={5}, url={https://n2t.net/ark:/42411/s16/a179}, DOI={10.48168/innosoft.s16.a179}, number={2}, journal={Innovation and Software}, author={Rodriguez Ponce, Kevin Jose and Gutierrez Sanchez, Frank Jhosep and Mendoza De los Santos, Alberto Carlos}, year={2024}, month={Sep.}, pages={114-128}
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "CitaA19"
-Warning--I didn't find a database entry for ""
-Warning--I didn't find a database entry for "."
 Warning--empty journal in EA1
 Too many commas in name 1 of "Dr. S. Balaji, Mrs. S. Sugashini, J. Ruchitha, A. Tejaswini3 and A. Vaishnavi3" for entry EA2
 while executing---line 969 of file ieeetr.bst
@@ -61,7 +58,7 @@ Warning--empty journal in SpringController
 Warning--empty journal in yadav-2024
 You've used 58 entries,
             1876 wiz_defined-function locations,
-            816 strings with 12710 characters,
+            813 strings with 12695 characters,
 and the built_in function-call counts, 8737 in all, are:
 = -- 809
 > -- 337
