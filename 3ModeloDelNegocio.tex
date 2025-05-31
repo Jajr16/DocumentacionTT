@@ -62,13 +62,13 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 \begin{figure}[htbp!]
 	\begin{center}
 		\includegraphics[angle=90,width=.80\textwidth]{images/DER}
-		\caption{Modelo del dominio del problema}
+		\caption{Modelo del dominio del problema.}
 		\label{fig:modeloDeDominio}
 	\end{center}
 \end{figure}
 
 %---------------------------------------------------------
-\begin{cdtEntidad}{Unidad academica}{Unidad academica}
+\begin{cdtEntidad}{Unidad academica}{unidadacademica}
 	\brAttr{Id\_escuela}{Id\_escuela}{integer}{Número de registro usado para identificar a la escuela.}{Sí}
 	\brAttr{nombre}{Nombre}{varchar}
 	{Nombre de la escuela}{Sí}
@@ -83,13 +83,13 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 %	\brRel{}{Persona}{Una \hyperlink{Persona}{Persona} pertenece a \hyperlink{Unidad academica}{Unidad academica}}	
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{EscuelaPrograma}{Escuela\_Programa}
+\begin{cdtEntidad}{EscuelaPrograma}{escuelaprograma}
 	\brAttr{Id\_Escuela}{Id\_Escuela}{integer}{Número de registro usado para identificar a la escuela.}{Sí}
 	\brAttr{Id\_PA}{Id\_PA}{varchar}
 	{Identificación del programa académico que imparte la Unidad académica.}{Sí}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{PA}{Programa\_academico}
+\begin{cdtEntidad}{PA}{programaacademico}
 	\brAttr{Id\_PA}{Id\_PA}{varchar}{Número de registro usado para identificar al programa académico.}{Sí}
 	\brAttr{nombre}{Nombre}{varchar}
 	{Nombre del programa académico}{Sí}
@@ -101,7 +101,7 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 %	\brRel{}{Unidad academica}{Una \hyperlink{Unidad academica}{Unidad academica} está compuesta por un \hyperlink{PA}{Programa académico}}	
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{Persona}{Persona}
+\begin{cdtEntidad}{Persona}{persona}
 	\brAttr{CURP}{CURP}{Id}{Código usado para identificar a las personas.}{Sí}
 	\brAttr{nombre}{Nombre}{varchar}
 	{Nombre(s) de la persona.}{Sí}
@@ -122,7 +122,7 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 %	\brRel{}{Usuario}{Una \hyperlink{Persona}{Persona} cuenta con un \hyperlink{Usuario}{Usuario}}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{PersonalAcademico}{Personal académico}
+\begin{cdtEntidad}{PersonalAcademico}{personalacademico}
 	\brAttr{CURP}{CURP}{varchar}{Código usado para identificar a las personas.}{Sí}
 	\brAttr{RFC}{RFC}{varchar}
 	{RFC que identifica al personal académico.}{Sí}
@@ -137,19 +137,19 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 %	\brRel{}{tipoPersonal}{Un \hyperlink{PersonalAcademico}{personal académico} tiene asignado un \hyperlink{Cargo}{Cargo}}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{tipoPA}{tipoPersonal}
+\begin{cdtEntidad}{tipoPA}{tipopersonal}
 	\brAttr{TipoPA}{TipoPA}{integer}
 	{Número que identifica que tipo de personal académico es la persona.}{Sí}
 	\brAttr{Cargo}{Cargo}{varchar}{Nombre del tipo de personal académico que tendrá la persona.}{Sí}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{CargoDocente}{CargoDocente}
+\begin{cdtEntidad}{CargoDocente}{cargodocente}
 	\brAttr{RFC}{RFC}{varchar}
 	{RFC que identifica al Docente.}{Sí}
 	\brAttr{IdCargo}{IdCargo}{integer}{Código usado para identificar un cargo dentro de la escuela.}{Sí}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{Cargo}{Cargo}
+\begin{cdtEntidad}{Cargo}{cargo}
 	\brAttr{IdCargo}{IdCargo}{integer}{Código usado para identificar un cargo dentro de la escuela.}{Sí}
 	\brAttr{Cargo}{Cargo}{varchar}
 	{Nombre del cargo existente dentro de la institución escolar.}{Sí}
@@ -158,7 +158,7 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 %	\brRel{}{CargoDocente}{Un \hyperlink{Cargo}{Cargo} es asignado a un \hyperlink{PersonalAcademico}{Docente}}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{PS}{Personal\_Seguridad}
+\begin{cdtEntidad}{PS}{personalseguridad}
 	\brAttr{rfc}{RFC}{varchar}{Código usado para identificar a un personal de seguridad}{Sí.}
 	\brAttr{CURP}{CURP}{varchar}{CURP de la persona.}{Sí}
 	\brAttr{Turno}{Turno}{integer}
@@ -170,13 +170,13 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 %	\brRel{}{Persona}{Un \hyperlink{PS}{Personal de seguridad} es una \hyperlink{Persona}{Persona}}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{CargoPS}{CargoPS}
+\begin{cdtEntidad}{CargoPS}{cargops}
 	\brAttr{Id\_Cargo}{Id\_Cargo}{integer}{Código usado para identificar el cargo que tiene el personal de seguridad.}{Sí}
 	\brAttr{Cargo}{Cargo}{varchar}
 	{Nombre del cargo del personal de seguridad.}{Sí}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{Alumno}{Alumno}
+\begin{cdtEntidad}{Alumno}{alumno}
 	\brAttr{Boleta}{Boleta}{varchar}
 	{Código usado para identificar al alumnado de la institución}{Sí}
 	\brAttr{CURP}{CURP}{varchar}{Código usado para identificar a las personas.}{Sí}
@@ -192,7 +192,7 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 %	\brRel{}{ETS}{Un \hyperlink{Alumno}{Alumno} tiene una \hyperlink{InscripcionETS}{inscripción} a un \hyperlink{ETS}{ETS}}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{Usuario}{Usuario}
+\begin{cdtEntidad}{Usuario}{usuario}
 	\brAttr{Usuario}{Usuario}{varchar}{Nombre de usuario asignado a una persona dentro del sistema.}{Sí}
 	\brAttr{Password}{Password}{varchar}
 	{Contraseña ligada al usuario de una persona registrada dentro del sistema.}{Sí}
@@ -206,13 +206,13 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 %	\brRel{}{Tipo\_Usuario}{Un \hyperlink{Usuario}{Usuario} tiene un \hyperlink{TU}{Tipo de usuario}}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{TU}{Tipo\_Usuario}
+\begin{cdtEntidad}{TU}{tipousuario}
 	\brAttr{Id\_TU}{Id\_TU}{integer}
 	{RFC que identifica al personal académico.}{Sí}
 	\brAttr{Tipo}{Tipo}{varchar}{Frase que definirá el tipo de usuario que tienen las personas.}{Sí}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{ETS}{ETS}
+\begin{cdtEntidad}{ETS}{ets}
 	\brAttr{Id\_ETS}{Id\_ETS}{integer}{Número usado para identificar los diferentes ETS registrados.}{Sí}
 	\brAttr{Id\_periodo}{Id\_periodo}{integer}
 	{Número usado para identificar el periodo en el que se realiza el ETS.}{Sí}
@@ -237,7 +237,7 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 %	\brRel{}{Unidad\_Aprendizaje}{Un \hyperlink{ETS}{ETS} \hyperlink{ETSUA}{es de} una \hyperlink{UA}{Unidad de Aprendizaje}.}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{PETS}{periodo\_ETS}
+\begin{cdtEntidad}{PETS}{periodoets}
 	\brAttr{Id\_periodo}{Id\_periodo}{integer}{Número usado para identificar el periodo en el que se realizarán los ETS registrados.}{Sí}
 	\brAttr{Periodo}{Periodo}{varchar}
 	{Periodo registrado en el que se realizarán los ETS.}{Sí}
@@ -252,7 +252,7 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 %	\brRel{}{ETS}{En un \hyperlink{PETS}{periodo de ETS} se realizan los \hyperlink{ETS}{ETS}.}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{Aplica}{Aplica}
+\begin{cdtEntidad}{Aplica}{aplica}
 	\brAttr{Id\_ETS}{Id\_ETS}{integer}{Número usado para identificar los diferentes ETS registrados.}{Sí}
 	\brAttr{DocenteRFC}{DocenteRFC}{varchar}
 	{RFC que identifica al Docente.}{Sí}
@@ -260,19 +260,19 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 	{Booleano que identificará si el profesor que aplicará el ETS es el titular o es un ayudante.}{Sí}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{InscripcionETS}{InscripcionETS}
+\begin{cdtEntidad}{InscripcionETS}{inscripcionets}
 	\brAttr{Boleta}{Boleta}{varchar}
 	{Código usado para identificar al alumnado de la institución}{Sí}
 	\brAttr{Id\_ETS}{Id\_ETS}{integer}{Número usado para identificar los diferentes ETS registrados.}{Sí}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{SalonETS}{SalonETS}
+\begin{cdtEntidad}{SalonETS}{salonets}
 	\brAttr{Num\_Salon}{Num\_Salon}{integer}
 	{Número usado para identificar al salón en el que se aplicará un ETS.}{Sí}
 	\brAttr{Id\_ETS}{Id\_ETS}{integer}{Número usado para identificar los diferentes ETS registrados.}{Sí}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{Salon}{Salon}
+\begin{cdtEntidad}{Salon}{salon}
 	\brAttr{Num\_Salon}{Num\_Salon}{integer}
 	{Número usado para identificar el salón en el que se aplicará un ETS.}{Sí}
 	\brAttr{Edificio}{Edificio}{integer}
@@ -286,7 +286,7 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 %	\brRel{}{ETS}{Un \hyperlink{Salon}{Salon} es \hyperlink{SalonETS}{ocupado} para llevar a cabo un \hyperlink{ETS}{ETS}.}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{TipoSalon}{TipoSalon}
+\begin{cdtEntidad}{TipoSalon}{tiposalon}
 	\brAttr{Num\_Salon}{Num\_Salon}{integer}
 	{Número usado para identificar el salón en el que se aplicará un ETS.}{Sí}
 	\brAttr{Tipo}{Tipo}{varchar}
@@ -296,7 +296,7 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 	%	\brRel{}{ETS}{Un \hyperlink{Salon}{Salon} es \hyperlink{SalonETS}{ocupado} para llevar a cabo un \hyperlink{ETS}{ETS}.}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{UA}{Unidad\_aprendizaje}
+\begin{cdtEntidad}{UA}{unidadaprendizaje}
 	\brAttr{Id\_UA}{Id\_UA}{varchar}
 	{Identificación de la Unidad de Aprendizaje.}{Sí}
 	\brAttr{Nombre}{Nombre}{varchar}
@@ -310,14 +310,14 @@ El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDomi
 %	\brRel{}{ETS}{A una \hyperlink{UA}{Unidad de aprendizaje} le \hyperlink{ETSUA}{corresponde} una serie de \hyperlink{ETS}{ETS}.}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{Turno}{Turno}
+\begin{cdtEntidad}{Turno}{turno}
 	\brAttr{IdTurno}{IdTurno}{integer}
 	{Identificación del turno.}{Sí}
 	\brAttr{Nombre}{Nombre}{varchar}
 	{Nombre del turno. Este puede variar entre 'Matutino' y 'Vespertino'.}{Sí}
 \end{cdtEntidad}
 %---------------------------------------------------------
-\begin{cdtEntidad}{Sexo}{Sexo}
+\begin{cdtEntidad}{Sexo}{sexo}
 	\brAttr{IdSexo}{IdSexo}{integer}
 	{Identificación del sexo.}{Sí}
 	\brAttr{Nombre}{Nombre}{varchar}
