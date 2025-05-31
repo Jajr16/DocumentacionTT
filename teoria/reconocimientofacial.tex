@@ -1,4 +1,4 @@
-% !TeX root = ../ejemplo.tex
+
 
 \section{Reconocimiento facial}
 
@@ -14,16 +14,17 @@ Para entender mejor la diferencia entre ambas tareas y su papel en el desarrollo
 
 En cualquier pipeline, la interdependencia entre sus etapas es crucial, ya que la calidad y el éxito de cada fase dependen directamente del desempeño de la anterior. Un ejemplo claro es la etapa de detección de rostros: los modelos de extracción de características esperan recibir una imagen de un rostro correctamente identificada. Si se emplean técnicas de detección poco robustas, el módulo siguiente puede fallar en la extracción de características, lo que resulta en una menor precisión en los resultados finales \cite{Face_OpenCV}.\\
 
-Por lo tanto, a continuación se presentan las etapas fundamentales de un sistema de reconocimiento facial actual:
+Por lo tanto, a continuación se presentan las etapas fundamentales de un sistema de reconocimiento facial actual: \\
 
 \begin{figure}[htbp]
 	\begin{center}
-		\fbox{\includegraphics[width=.68\textwidth]{images/face_pipeline}}
+		\fbox{\includegraphics[width=.9\textwidth]{images/face_pipeline}}
 		\caption{Pipeline moderno de un sistema de reconocimiento facial.}
 		\label{fig:Pipeline de un sistema de reconocimiento facial}
 	\end{center}
 \end{figure}
 
+La figura (figura \ref{fig:Pipeline de un sistema de reconocimiento facial} fue obtenida de \cite{Face_OpenCV}).
 
 \subsubsection{Detección de rostros}
 
@@ -87,6 +88,6 @@ Por lo tanto, la ventaja de este tipo de enfoque híbrido radica en el hecho de 
 	\end{center}
 \end{figure}
 
-
+La figura (figura \ref{fig:Diferencia entre verificación e identificación de rostros} fue obtenida de \cite{L14})
 
 
