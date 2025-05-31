@@ -1,0 +1,69 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.5 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.5">
+  <diagram name="Página-1" id="syt5bYhGNTiuu3kvs5cV">
+    <mxGraphModel dx="1019" dy="601" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="A33uilSDvLFUOtIgIShK-1" value="&lt;font face=&quot;Verdana&quot;&gt;ViewModel&lt;/font&gt;" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="340" y="210" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="A33uilSDvLFUOtIgIShK-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="A33uilSDvLFUOtIgIShK-2" target="A33uilSDvLFUOtIgIShK-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="A33uilSDvLFUOtIgIShK-13" value="Cambio en&amp;nbsp;&lt;div&gt;el modelo&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="A33uilSDvLFUOtIgIShK-11">
+          <mxGeometry x="-0.5026" relative="1" as="geometry">
+            <mxPoint x="-30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A33uilSDvLFUOtIgIShK-2" value="Model" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fillColor=#dae8fc;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="200" y="344" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="A33uilSDvLFUOtIgIShK-3" value="View(s)" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;strokeColor=#000000;verticalAlign=middle;spacing=4;perimeterSpacing=0;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="460" y="344" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="A33uilSDvLFUOtIgIShK-4" value="" style="endArrow=blockThin;html=1;rounded=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;endFill=0;endSize=8;startArrow=oval;startFill=0;verticalAlign=middle;sourcePerimeterSpacing=22;targetPerimeterSpacing=13;" edge="1" parent="1" target="A33uilSDvLFUOtIgIShK-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="490" y="340" as="sourcePoint" />
+            <mxPoint x="450" y="410" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="490" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A33uilSDvLFUOtIgIShK-8" value="Observa los&amp;nbsp;&lt;div&gt;estados&amp;nbsp;&lt;/div&gt;&lt;div&gt;de la IU&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="A33uilSDvLFUOtIgIShK-4">
+          <mxGeometry x="-0.4371" y="-3" relative="1" as="geometry">
+            <mxPoint x="-38" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A33uilSDvLFUOtIgIShK-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="A33uilSDvLFUOtIgIShK-3" target="A33uilSDvLFUOtIgIShK-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="340" as="sourcePoint" />
+            <mxPoint x="470" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="520" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A33uilSDvLFUOtIgIShK-7" value="Acción de&amp;nbsp;&lt;div&gt;Usuario&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="A33uilSDvLFUOtIgIShK-6">
+          <mxGeometry x="-0.09" y="1" relative="1" as="geometry">
+            <mxPoint x="31" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A33uilSDvLFUOtIgIShK-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A33uilSDvLFUOtIgIShK-1" target="A33uilSDvLFUOtIgIShK-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="390" as="sourcePoint" />
+            <mxPoint x="340" y="340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="290" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A33uilSDvLFUOtIgIShK-12" value="Actualizar&lt;div&gt;modelo&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="A33uilSDvLFUOtIgIShK-9">
+          <mxGeometry x="0.3088" y="1" relative="1" as="geometry">
+            <mxPoint x="29" y="9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
