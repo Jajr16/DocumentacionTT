@@ -1,15 +1,28 @@
-\section{Diagrama de la Estructura General del Sistema} 
+\section{Diagrama de la Estructura General del Sistema}
+
+% Explicación general  
 La (figura \ref{fig:Diagrama de sistemas}) ilustra la arquitectura general del proyecto propuesto, mostrando por separado cada uno de los diferentes sistemas que conforman este proyecto y el servicio en el que están alojados algunos de los sistemas. 
 El presente diagrama muestra un sistema basado en servicios, en el que se separa la lógica de la red neuronal de la parte del servidor, un servidor Java Spring Boot en el que se gestionan todas las operaciones del sistema Web Django y la aplicación móvil.
 
+% Base de datos relacional
+
 Como punto de partida está la base de datos, la cual está alojada en Railway. Esta base de datos es la encargada de guardar todos los datos tanto de alumnos, docentes y el personal de seguridad, así como de otros datos académicos. Cabe recalcar que esta base de datos es una simulación de la base de datos de la página original del SAES, la cual se plantea compartir con el presente sistema móvil.
+
+% Servidor Java
 
 Posterior a esto, se tiene al servidor Java, el cual se encarga de procesar todas las solicitudes que haga el usuario dentro de la app móvil o del simulador del SAES. Esta parte del sistema se encuentra alojada en Azure. Este servidor se comunica tanto con el sistema web de la simulación del SAES, como con la app móvil, a través de solicitudes HTTPS.
 
-A su vez, se encuentra el servidor de la red neuronal, alojado igualmente en Azure. Este servidor, se encarga de recibir una imagen ya sea de la aplicacion movil o de la simulacion del saes/dae y luego ejecuta todos los pasos del flujo de trabajo de un sistema de reconocimiento facial como se explico en el marco teorico, es decir, detecta el rostro, lo alinea, extrae sus caracteristicas y luego hace una consulta a la base de datos vectorial para registrar el embedding o consultar el embedding con el que va a realizar la comparacion. Para decidir si es el alumno o no se usa una medida de similitud "distancia coseno" que se calcula como ´1 - similitud coseno´ entre ambos embeddings
+% Servidor Reconocimiento facial
 
-Por último, tenemos una base de datos vectorial la cual guardará los vectores de características obtenidos de las fotos tomadas a los alumnos durante su registro dentro de una unidad académica.
-Estos vectores se guardarán por primera vez en dicho momento, para que cuando a algún alumno  que haya repruebado una unidad de aprendizaje y se vaya a ETS, se le haga el reconocimiento facial, pueda comparar el vector de características extraído de la foto que le tomen al momento, con el que se tomó el día de su registro.
+Otro elemento importante del sistema general es el servidor que contiene la lógica para proporcionar los servicios de reconocimiento facial a los demás componentes del sistema a través de solicitudes HTTP,  al igual que el servidor de Java, este se encuentra alojado en Azure.
+Este servidor se encarga de recibir una imagen desde la aplicación móvil o del simulador del SAES/DAE en formato de archivo o como url respectivamente y luego, ejecuta todos los pasos del flujo de trabajao de un sistema de reconocimiento facial como se explicó a detalle en el capítulo 4 \ref{cap:MarcoTeorico}, es decir, detecta el rostro, lo alinea, realiza una extracción de características al generar un embedding y, finalmente, se comunica con la base de datos vectorial para registrar esta representación o consultar el embedding de referencia para realizar la comparación 1:1 como se específica de igual forma en el \ref{cap:MarcoTeorico}, durante este paso se usó la medida de similitud \textbf{distancia coseno} que se calcula como ´1 - similitud coseno´ entre ambos embeddings para validar la identidad de la persona, en este caso estudiante.
+
+
+% Base de datos vectorial
+
+Finalmente, al trabajar con representaciones numéricas de alta dimensionalidad como lo son los embeddings, fue necesario contar con una herramienta que nos permitiera almacenar este tipo de representaciones y realizar búsquedas eficientes, una base de datos vectorial esta diseñada específicamente para trabajar con este tipo de datos.
+En esta ocasión se optó por usar Pinecone, donde se almacenan las representaciones vectoriales obtenidas de las fotos tomadas a los alumnos durante su registro dentro de una unidad académica por medio del simulador de la DAE. Esto permite contar con una representación base que permitirá verificar la identidad de un estudiante al momento de presentar un ETS por medio del servicio de reconocimiento facial siguiendo la lógica de un sistema de reconocimiento facial por verificación 1:1.
+
 
 \begin{figure}[htbp!]
 	\begin{center}
