@@ -48,7 +48,9 @@ Para consultar la documentación completa relacionada con este proceso, se recom
 
 
 \section{Arquitectura}
-El desarrollo de la arquitectura general de todo el proyecto presenta una arquitectura de servicios con una comunicación REST. Apesar de dividir ciertas tareas en diferentes servicios, se presenta una arquitectura de servicios, puesto que mayor parte de la lógica de negocio se encuentra dentro del servidor Java Spring Boot, mientras que la tarea del reconocimiento facial fue la única que se separó de esta estructura debido al consumo de recursos.
+El desarrollo de la arquitectura general de todo el proyecto presenta una arquitectura de servicios con una comunicación REST. Apesar de dividir ciertas tareas en diferentes servicios, se presenta una arquitectura monolítica de servicio, puesto que mayor parte de la lógica de negocio se encuentra dentro del servidor Java Spring Boot.
+
+Por otra parte, el servidor que proporciona los servicios de reconocimiento facial se encuentra funcionando como API de forma aislada usando una arquitectura en capas compuesta por una capa de presentación que contiene los puntos de entrada de la API, una capa de aplicación o dominio que contiene las reglas de negocio de la aplicación y la funcionalidad del flujo de trabajo del sistema de reconocimiento facial y finalmente, una capa de persistencia que contiene la lógica para consultar y modificar las fuentes de datos necesarias.
 
 Para una descripción más detallada sobre las estructuras internas de cada parte del sistema, así como la organización de cada sección, se puede consultar la anexo \ref{ApendiceB}
 
