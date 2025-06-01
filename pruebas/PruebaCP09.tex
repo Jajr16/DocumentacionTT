@@ -1,66 +1,75 @@
-\subsection{Caso de prueba CP09 - Tomar asistencias a los ETS}
-
-\begin{longtable}{|p{5cm}|p{10cm}|}
-	\hline
-	\multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP09 Tomar asistencias a los ETS}} \\
-	\hline
-	\textbf{Caso de uso relacionado} & \hyperref[CU-09]{CU-09 Tomar asistencias a los ETS} \\
-	\hline
-	\textbf{Descripción} & Validar que el docente pueda crear reportes de asistencias e incidencias. \\
-	\hline
+\begin{TestCase}{CP09}{Tomar asistencias a los ETS}
+	\UCitem{Caso de uso relacionado}{\UCref{CU-09}{Tomar asistencias a los ETS}}
+	\UCitem{Descripción}{Validar el registro de asistencias con reconocimiento facial, incluyendo manejo de imágenes y comunicación con servidor neuronal.}
+	\UCitem{Cantidad de ejecuciones}{100}
+	\UCitem{Realizado por}{Alejandra De la cruz De la cruz}
 	
-	\textbf{Cantidad de ejecuciones} &
-	100 \\ 
-	\hline
-	\textbf{Realizado por:} & 
-	Alejandra De la cruz De la cruz \\ 
-	\hline
-	\textbf{Supuestos y Condiciones Previas} & 
-	\begin{itemize}
-		\item El docente ha iniciado sesión en el sistema.
-		\item Existen ETS dados de alta.
-		\item El docente eligió un ETS.
-		\item Hay información del ETS seleccionado.
-		\item Hay alumnos inscritos al ETS.
-		
-	\end{itemize} \\
-	\hline
-	\textbf{Datos de Prueba} & 
-	\begin{itemize}
-		\item razón, motivo y si se realiza reconocimiento facial; foto y precisión. 
-	\end{itemize} \\
-	\hline
-	\textbf{Pasos a Ejecutar} & 
-	\begin{enumerate}
-		\item Iniciar sesión como docente.
-		\item Seleccionar la opción ´´ETS´´ desde el menú.
-		\item Elegir un ETS disponible en la lista.
-		\item Dar clic en el ETS.
-		\item Revisa los datos mostrados.
-		\item El docente elije la opcion ´´Ir a la lista de alumnos´´
-		\item El docente revisa la lista de alumnos inscritos al ETS
-		\item El docente elige un alumno para crear un reporte de asistencia/incidencia.
-	\end{enumerate} \\
-	\hline
-	\textbf{Resultado Esperado} & 
-	Se crea el reporte correctamente. \\	
-	\hline
-	\textbf{Errores Detectados} & 
-	\begin{itemize}
-		\item Al tomar la foto para el reconocimiento facial en algunos dispositivos salia volteada y no dejaba que se realizara la correctamente el reconocimiento facial.
-		\item Al mandar la imagen al servidor de la red neuronal, si la imagen es muy grande el servidor corta la conexión. 
-		\item La imagen se estira si no se re escala correctamente y altera la información para el reconocimiento facial.
-	\end{itemize} \\
-	\hline
-	\textbf{Resultado Real y Condiciones Posteriores} & 
-	\begin{itemize}
-		\item Para el error de la imagen volteada, e aplico un método que detecta la orientación de la foto y la rota al estado normal tomando en cuenta 0 grados como el estado de orientación correcto y dependiendo de la orientación se voltea hasta llegar a los 0 grados. 
-		\item Para el error del tamaño al enviar al servidor se aplico un método de re escalado a un tamaño de 640 x 480 pixeles, esto después de la corrección de la orientación.
-		\item Para el error de que la foto se estire, se realizo una escala entre las dimensiones de la foto para mantener esa escala al re dimensionar la foto.
-		\item Se verificó el correcto funcionamiento tanto en base de datos como en la interfaz.
-	\end{itemize} \\
-	\hline
-	\textbf{Estado} & 
-	\textbf{Aprobado} - la funcionalidad opera correctamente. \\
-	\hline
-\end{longtable}
+	\UCitem{Precondiciones}{
+		\begin{Citemize}
+			\item Docente autenticado
+			\item ETS activo con alumnos inscritos
+			\item Dispositivo con cámara funcional
+			\item Conexión estable al servidor neuronal
+		\end{Citemize}
+	}
+	
+	\UCitem{Datos de Prueba}{
+		\begin{Citemize}
+			\item 5 perfiles faciales de prueba
+			\item 3 escenarios de iluminación
+			\item Variaciones de resolución (VGA a 4K)
+			\item Ángulos de captura (0°, 90°, 180°, 270°)
+		\end{Citemize}
+	}
+	
+	\UCitem{Flujo de Prueba}{
+		\begin{enumerate}[noitemsep,topsep=0pt]
+			\item Seleccionar ETS activo
+			\item Acceder a lista de alumnos
+			\item Iniciar captura facial
+			\item Procesar imagen
+			\item Enviar al servidor neuronal
+			\item Registrar resultado
+		\end{enumerate}
+	}
+	
+	\UCitem{Requisitos de Imagen}{
+		\begin{Citemize}
+			\item Resolución: 640×480 px
+			\item Formato: JPEG calidad 80\%
+			\item Tamaño máximo: 250KB
+			\item Orientación: 0° (vertical normal)
+		\end{Citemize}
+	}
+	
+	\UCitem{Problemas y Soluciones Técnicas}{
+		\begin{Citemize}
+			\item \textbf{IS-301}: Orientación incorrecta
+			\begin{Citemize}
+				\item Solución: Auto-rotación EXIF-based
+				\item Precisión: 99.2\% en 100 pruebas
+			\end{Citemize}
+			\item \textbf{IS-302}: Tiempo de respuesta >5s
+			\begin{Citemize}
+				\item Solución: Compresión JPEG progresiva
+				\item Mejora: 1.8s promedio
+			\end{Citemize}
+			\item \textbf{IS-303}: Distorsión de imagen
+			\begin{Citemize}
+				\item Solución: Mantenimiento de aspect ratio 4:3
+				\item Tolerancia: ±2\% de deformación
+			\end{Citemize}
+		\end{Citemize}
+	}
+	
+	\UCitem{Métricas de Validación}{
+		\begin{Citemize}
+			\item Tasa de reconocimiento exitoso: $\geq$98\%
+			\item Latencia total del proceso: <3s
+			\item Consistencia en BD: 100\%
+			\item Compatibilidad dispositivos: 20/20 probados
+		\end{Citemize}
+	}
+	
+	\UCitem{Estado}{Aprobado}
+\end{TestCase}

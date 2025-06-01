@@ -1,61 +1,57 @@
-\subsection{Caso de prueba CP042 - Asignar docente de reemplazo}
-
-\begin{longtable}{|p{5cm}|p{10cm}|}
-	\hline
-	\multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP42 Asignar docente de reemplazo}} \\
-	\hline
-	\textbf{Caso de uso relacionado} & \hyperref[CU-42]{CU-42 Asignar docente de reemplazo} \\
-	\hline
-	\textbf{Descripción} & Validar que el jefe de departamento o el presidente de academia pueda visualizar las solicitudes de reemplazo y asignar a un docente, cambiando el estatus de la solicitud de "Pendiente" a "Aceptada" o "Rechazada". \\
-	\hline
+\begin{TestCase}{CP042}{Asignar docente de reemplazo}
+	\UCitem{Caso de uso relacionado}{\UCref{CU-42}{Asignar docente de reemplazo}}
+	\UCitem{Descripción}{Validar la asignación de docentes de reemplazo por jefes de departamento/presidentes de academia, incluyendo cambio de estatus de solicitudes.}
+	\UCitem{Cantidad de ejecuciones}{100}
+	\UCitem{Realizado por}{Daniel Martín Huertas Ramírez}
 	
-	\textbf{Cantidad de ejecuciones} &
-	100 \\ 
-	\hline
-	\textbf{Realizado por:} & 
-	Daniel Martín Huertas Ramírez \\ 
-	\hline
+	\UCitem{Supuestos y Condiciones Previas}{
+		\begin{Citemize}
+			\item Usuario con rol autorizado (jefe/presidente) ha iniciado sesión
+			\item Existencia de solicitudes de reemplazo pendientes
+			\item Lista de docentes disponibles actualizada
+		\end{Citemize}
+	}
 	
-	\textbf{Supuestos y Condiciones Previas} & 
-	\begin{itemize}
-		\item El jefe de departamento o presidente de academia ha iniciado sesión correctamente.
-		\item Existen solicitudes de reemplazo previamente enviadas por docentes.
-		\item Se dispone de una lista de docentes disponibles para asignación.
-	\end{itemize} \\
-	\hline
-	\textbf{Datos de Prueba} & 
-	\begin{itemize}
-		\item Solicitud de reemplazo con estatus “Pendiente”.
-		\item Docente disponible para asignación.
-	\end{itemize} \\
-	\hline
-	\textbf{Pasos a Ejecutar} & 
-	\begin{enumerate}
-		\item Iniciar sesión como jefe de departamento o presidente de academia.
-		\item Seleccionar la opción “Solicitudes de reemplazo” desde el menú.
-		\item Visualizar las solicitudes pendientes.
-		\item Seleccionar una solicitud.
-		\item Asignar a un docente como reemplazo.
-		\item Enviar la solicitud con la decisión correspondiente (Aceptar o Rechazar).
-	\end{enumerate} \\
-	\hline
-	\textbf{Resultado Esperado} & 
-	La solicitud debe actualizarse correctamente con el docente asignado y su estatus debe cambiar a “Aceptada” o “Rechazada”, según la decisión. \\
-	\hline
-	\textbf{Errores Detectados} & 
-	\begin{itemize}
-		\item Las solicitudes de reemplazo no se cargaban en la vista de jefe de departamento/presidente de academia.
-		\item El estatus “Pendiente” no se actualizaba tras aceptar o rechazar una solicitud.
-	\end{itemize} \\
-	\hline
-	\textbf{Resultado Real y Condiciones Posteriores} & 
-	\begin{itemize}
-		\item Se ajustó la lógica de obtención de solicitudes desde el backend, lo que permitió cargarlas correctamente en la interfaz.
-		\item Se corrigió la lógica de cambio de estado, permitiendo que el estatus pase de “Pendiente” a “Aceptada” o “Rechazada” correctamente.
-		\item Se verificó la actualización de los datos tanto en la base como en la interfaz.
-	\end{itemize} \\
-	\hline
-	\textbf{Estado} & 
-	\textbf{Aprobado} - Tras correcciones, la funcionalidad fue validada exitosamente. \\
-	\hline
-\end{longtable}
+	\UCitem{Datos de Prueba}{
+		\begin{Citemize}
+			\item Solicitud con estatus "Pendiente"
+			\item Docente disponible para asignación
+		\end{Citemize}
+	}
+	
+	\UCitem{Pasos a Ejecutar}{
+		\begin{enumerate}[noitemsep,topsep=0pt]
+			\item Iniciar sesión con rol autorizado
+			\item Seleccionar "Solicitudes de reemplazo"
+			\item Visualizar listado de solicitudes
+			\item Seleccionar solicitud específica
+			\item Asignar docente reemplazante
+			\item Enviar decisión (Aceptar/Rechazar)
+		\end{enumerate}
+	}
+	
+	\UCitem{Resultado Esperado}{
+		\begin{Citemize}
+			\item Actualización correcta del estatus (Aceptada/Rechazada)
+			\item Asignación visible en el sistema
+			\item Consistencia en BD e interfaz
+		\end{Citemize}
+	}
+	
+	\UCitem{Errores Detectados}{
+		\begin{Citemize}
+			\item Fallo al cargar solicitudes en la interfaz
+			\item Estatus no se actualizaba tras decisión
+		\end{Citemize}
+	}
+	
+	\UCitem{Correcciones Implementadas}{
+		\begin{Citemize}
+			\item Ajuste en lógica de obtención de solicitudes
+			\item Reparación del flujo de cambio de estatus
+			\item Verificación integral de actualizaciones
+		\end{Citemize}
+	}
+	
+	\UCitem{Estado}{Aprobado}
+\end{TestCase}

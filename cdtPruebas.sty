@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  cdtPruebas.sty - Versión compatible con cdtUsecases.sty                      %
+% 2024/06/20 v4.0 - Coincidencia exacta de etiquetas y referencias              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cdtPruebas}[2024/06/20 v4.0 CDT-PRUEBAS Compatible con cdtUsecases]
+
+\RequirePackage{longtable}
+\RequirePackage{array}
+\RequirePackage{enumitem}
+\RequirePackage[table]{color}
+\RequirePackage{hyperref}
+\RequirePackage{graphicx}
+
+%=====================================================
+% DEFINICIÓN DE COLORES (Idénticos a cdtUsecases.sty)
+\definecolor{UCInterfaceColor}{rgb}{0.5, 0.5, 0.5}    % Gris para interfaces
+\definecolor{UCCommandColor}{rgb}{0.5, 0.5, 0.5}      % Gris para comandos
+\definecolor{UCExtensionPointColor}{rgb}{0, 0, 0.7}   % Azul para puntos de extensión
+\definecolor{UCRealizationColor}{rgb}{0, 0, 0.7}      % Azul para realizaciones
+\definecolor{UCBussinesRuleColor}{rgb}{0, 0.5, 0}     % Verde para reglas de negocio
+\definecolor{RFReferenceColor}{rgb}{0, 0, 0.7}        % Azul para RFs
+\definecolor{FRMColor}{rgb}{0.3, 0.3, 1}             % Azul claro
+\definecolor{ComentarioColor}{rgb}{0.7, 0.7, 0.7}     % Gris claro
+
+%=====================================================
+% COMANDOS DE REFERENCIA (Consistentes con cdtUsecases.sty)
+
+% Referencia a Casos de Uso (idéntico)
+\newcommand{\UCref}[2]{%
+	\hypersetup{linkcolor=UCExtensionPointColor}%
+	\hyperlink{#1}{#1~{}#2}%
+	\hypersetup{linkcolor=black}%
+}
+
+% Referencia a Reglas de Negocio (idéntico)
+\newcommand{\BRref}[2]{%
+	\hypersetup{linkcolor=UCBussinesRuleColor}%
+	\hyperlink{#1}{#1~{}#2}%
+	\hypersetup{linkcolor=black}%
+}
+
+% Referencia a Interfaces (idéntico)
+\newcommand{\IUref}[2]{%
+	\includegraphics[height=10pt]{theme/uc/iu}~%
+	\hypersetup{linkcolor=UCInterfaceColor}%
+	\hyperlink{#1}{#1~{}#2}%
+	\hypersetup{linkcolor=black}%
+}
+
+% Referencia a Mensajes (nuevo, compatible)
+\newcommand{\MSGref}[2]{%
+	\hypersetup{linkcolor=UCBussinesRuleColor}%
+	\hyperlink{#1}{#1~{}#2}%
+	\hypersetup{linkcolor=black}%
+}
+
+%=====================================================
+% ENTORNO PRINCIPAL (Estilo unificado con UseCase)
+\newenvironment{TestCase}[2]{%
+	\newpage%
+	%\noindent\hypertarget{#1}{\includegraphics[width=1.1\textwidth]{theme/uc/default}}%
+	\subsection{#2}%
+	%\subsubsection{Descripción}%
+	\begin{longtable}{|p{.25\textwidth}|p{.75\textwidth}|}%
+		\arrayrulecolor{white}%
+		\rowcolor{black}%
+		\UCitem{\color{white}Caso de Prueba}{\color{white}#1 #2}%
+		\arrayrulecolor{black}%
+	}{%
+	\end{longtable}%
+}
+
+%=====================================================
+% ELEMENTOS DE DESCRIPCIÓN (Mismo formato que UCitem)
+\newcommand{\UCitem}[2]{%
+	\textbf{#1} & #2 \\ \hline%
+}
+
+% Versión compacta para listas
+\newcommand{\CPlist}[2]{%
+	#1 & \begin{itemize}[noitemsep,topsep=0pt]#2\end{itemize} \\ \hline%
+}
+
+%=====================================================
+% ICONOS (Compatibles con cdtUsecases.sty)
+%\newcommand\UCactor{\includegraphics[height=11pt]{theme/uc/actor}}
+%\newcommand\UCsist{\includegraphics[height=11pt]{theme/uc/usecase}}
+
+%=====================================================
+% BOTONES Y ELEMENTOS UI (Idénticos)
+\newcommand{\IUbutton}[1]{\keystroke{#1}}
+
+%=====================================================
+% ENTORNOS COMPACTOS
+\newenvironment{Citemize}{%
+	\begin{itemize}[noitemsep,topsep=0pt]%
+	}{%
+	\end{itemize}%
+}

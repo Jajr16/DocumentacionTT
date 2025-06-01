@@ -1,52 +1,38 @@
-
-\subsection{Caso de prueba CP01 - Inicio de sesión de la app móvil}
-
-\begin{longtable}{|p{5cm}|p{10cm}|}
-	\hline
-	\multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP01 Inicio de sesión de la app móvil}} \\
-	\hline
-	\textbf{Caso de uso relacionado} & \hyperref[CU-01]{CU-01 Inicio de sesión de la app móvil} \\
-	\hline
-	\textbf{Descripción} & Validar la funcionalidad del inicio de sesión para todos los usuarios registrados dentro del sistema. \\
-	\hline
+%\subsection{Caso de prueba CP01-Inicio de Sesión de la app móvil}
+\begin{TestCase}{CP01}{Inicio de sesión de la app móvil}
+	\UCitem{Caso de uso relacionado}{\UCref{CU-01}{Inicio de sesión de la app móvil}}
+	\UCitem{Cantidad de ejecuciones}{100}
+	\UCitem{Realizado por}{Daniel Martín Huertas Ramírez}
 	
-	\textbf{Cantidad de ejecuciones} &
-	100 \\ 
-	\hline
-	\textbf{Realizado por:} & 
-	Daniel Martín Huertas Ramírez  \\ 
-	\hline
+	\UCitem{Supuestos y Condiciones Previas}{
+		\begin{Citemize}
+			\item El usuario debe de haber instalado la aplicación en su celular.
+			\item El usuario debe de estar registrado en la base de datos.
+		\end{Citemize}
+	}
 	
-	\textbf{Supuestos y Condiciones Previas} & 
-	\begin{itemize}
-		\item El usuario debe de haber instalado la aplicación en su celular.
-		\item El usuario debe de estar registrado en la base de datos.
-	\end{itemize} \\
-	\hline
-	\textbf{Datos de Prueba} & 
-	\begin{itemize}
-		\item Boleta en caso de ser alumno, RFC en caso de ser personal de seguridad o personal académico.
-	\end{itemize} \\
-	\hline
-	\textbf{Pasos a Ejecutar} & 
-	\begin{enumerate}
-		\item Ingresar la boleta o RFC dependiendo del tipo de usuario, en el campo de usuario.
-		\item Ingresar la boleta o RFC dependiendo del tipo de usuario, en el campo de contraseña.
-		\item Presionar el botón `Entrar`.
-	\end{enumerate} \\
-	\hline
-	\textbf{Resultado Esperado} & 
-	Redirige al usuario a su pantalla principal. Dependiendo del tipo de usuario que sea, lo redirigirá a una pantalla específica en el que podrá seleccionar entre diferentes opciones a realizar. \\
-	\hline
-	\textbf{Errores Detectados} & 
-	Ninguno. \\
-	\hline
-	\textbf{Resultado Real y Condiciones Posteriores} & 
-	\begin{itemize}
-		\item En caso de tener conexión a internet, el usuario es redirigido a su pantalla de inicio. En caso contrario, despliega un `Error de conexión`.
-	\end{itemize} \\
-	\hline
-	\textbf{Estado} & 
-	\textbf{Aprobado} - Si el logeo es exitoso, el usuario es redirigido a su pantalla de bienvenida específica.   \\
-	\hline
-\end{longtable}
+	\UCitem{Datos de Prueba}{
+		\begin{Citemize}
+			\item Boleta en caso de ser alumno
+			\item RFC en caso de ser personal
+		\end{Citemize}
+	}
+	
+	\UCitem{Pasos a Ejecutar}{
+		\begin{enumerate}[noitemsep,topsep=0pt]
+			\item Ingresar credenciales en campo usuario
+			\item Ingresar credenciales en campo contraseña
+			\item Presionar el botón \IUbutton{Entrar}
+		\end{enumerate}
+	}
+	
+	\UCitem{Resultado Esperado}{
+		\begin{Citemize}
+			\item Redirige al usuario a su pantalla principal
+			\item Muestra menú según tipo de usuario
+		\end{Citemize}
+	}
+	
+	\UCitem{Errores Detectados}{Ninguno}
+	\UCitem{Estado}{Aprobado}
+\end{TestCase}

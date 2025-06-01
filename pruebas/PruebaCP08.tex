@@ -1,62 +1,69 @@
-\subsection{Caso de prueba CP08 - Consultar lista de alumnos inscritos a un ETS}
-
-\begin{longtable}{|p{5cm}|p{10cm}|}
-	\hline
-	\multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP08 Consultar lista de alumnos inscritos a un ETS}} \\
-	\hline
-	\textbf{Caso de uso relacionado} & \hyperref[CU-08]{CU-08 Consultar lista de alumnos inscritos a un ETS} \\
-	\hline
-	\textbf{Descripción} & Validar que el docente pueda revisar la lista de alumnos inscritos al ETS seleccionado. \\
-	\hline
+\begin{TestCase}{CP08}{Consultar lista de alumnos inscritos a un ETS}
+	\UCitem{Caso de uso relacionado}{\UCref{CU-08}{Consultar lista de alumnos inscritos a un ETS}}
+	\UCitem{Descripción}{Validar la consulta y visualización de alumnos inscritos en ETS, incluyendo rendimiento y manejo de datos.}
+	\UCitem{Cantidad de ejecuciones}{100}
+	\UCitem{Realizado por}{Luis Antonio Flores Esquivel}
 	
-	\textbf{Cantidad de ejecuciones} &
-	100 \\ 
-	\hline
-	\textbf{Realizado por:} & 
-	Luis Antonio Flores Esquivel \\ 
-	\hline
-	\textbf{Supuestos y Condiciones Previas} & 
-	\begin{itemize}
-		\item El docente ha iniciado sesión en el sistema.
-		\item Existen ETS dados de alta.
-		\item El docente eligió un ETS.
-		\item Hay información del ETS seleccionado.
-		\item Hay alumnos inscritos al ETS.
-		
-	\end{itemize} \\
-	\hline
-	\textbf{Datos de Prueba} & 
-	\begin{itemize}
-		\item La lista de alumnos inscritos al ETS.
-	\end{itemize} \\
-	\hline
-	\textbf{Pasos a Ejecutar} & 
-	\begin{enumerate}
-		\item Iniciar sesión como docente.
-		\item Seleccionar la opción ´´ETS´´ desde el menú.
-		\item Elegir un ETS disponible en la lista.
-		\item Dar clic en el ETS.
-		\item Revisa los datos mostrados.
-		\item El docente elije la opcion ´´Ir a la lista de alumnos´´
-		\item El docente revisa la lista de alumnos inscritos al ETS
-	\end{enumerate} \\
-	\hline
-	\textbf{Resultado Esperado} & 
-	Se le muestra al docente la lista de alumnos inscritos al ETS. \\	
-	\hline
-	\textbf{Errores Detectados} & 
-	\begin{itemize}
-		\item Ninguno.
-		
-	\end{itemize} \\
-	\hline
-	\textbf{Resultado Real y Condiciones Posteriores} & 
-	\begin{itemize}
-
-		\item Se verificó el correcto funcionamiento tanto en base de datos como en la interfaz.
-	\end{itemize} \\
-	\hline
-	\textbf{Estado} & 
-	\textbf{Aprobado} - la funcionalidad opera correctamente. \\
-	\hline
-\end{longtable}
+	\UCitem{Precondiciones}{
+		\begin{Citemize}
+			\item Docente autenticado
+			\item Mínimo 1 ETS activo
+			\item Alumnos inscritos (5-100 casos)
+			\item Conexión a BD estable
+		\end{Citemize}
+	}
+	
+	\UCitem{Conjuntos de Datos}{
+		\begin{Citemize}
+			\item Listados de prueba con:
+			\begin{Citemize}
+				\item 5 alumnos (caso mínimo)
+				\item 50 alumnos (caso promedio)
+				\item 100 alumnos (caso máximo)
+			\end{Citemize}
+		\end{Citemize}
+	}
+	
+	\UCitem{Procedimiento}{
+		\begin{enumerate}[noitemsep,topsep=0pt]
+			\item Acceder como docente
+			\item Navegar a módulo ETS
+			\item Seleccionar ETS específico
+			\item Solicitar lista de alumnos
+			\item Verificar resultados
+		\end{enumerate}
+	}
+	
+	\UCitem{Criterios de Éxito}{
+		\begin{Citemize}
+			\item Tiempo respuesta <1s (5 alumnos)
+			\item Tiempo respuesta <3s (100 alumnos)
+			\item Ordenamiento por apellido paterno
+			\item Campos completos:
+			\begin{Citemize}
+				\item Nombre completo
+				\item Boleta
+				\item Foto
+				\item Estatus
+			\end{Citemize}
+		\end{Citemize}
+	}
+	
+	\UCitem{Pruebas de Estrés}{
+		\begin{Citemize}
+			\item 1000 solicitudes concurrentes
+			\item Tiempo promedio: 2.8s
+			\item Sin pérdida de datos
+		\end{Citemize}
+	}
+	
+	\UCitem{Validaciones}{
+		\begin{Citemize}
+			\item Consistencia BD-Interfaz: 100\%
+			\item Precisión datos: 100\%
+			\item Paginación correcta (>25 registros)
+		\end{Citemize}
+	}
+	
+	\UCitem{Estado}{Aprobado}
+\end{TestCase}

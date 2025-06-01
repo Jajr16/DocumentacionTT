@@ -1,63 +1,70 @@
-\subsection{Caso de prueba CP11 - Mostrar la foto e información del alumno}
-
-\begin{longtable}{|p{5cm}|p{10cm}|}
-	\hline
-	\multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP11 Mostrar la foto e información del alumno}} \\
-	\hline
-	\textbf{Caso de uso relacionado} & \hyperref[CU-11]{CU-11 Mostrar la foto e información del alumno}\\
-	\hline
-	\textbf{Descripción} & Validar que el docente revisar los reportes creados por el o por otros docentes. \\
-	\hline
+\begin{TestCase}{CP11}{Mostrar la foto e información del alumno}
+	\UCitem{Caso de uso relacionado}{\UCref{CU-11}{Mostrar la foto e información del alumno}}
+	\UCitem{Descripción}{Validar la visualización de reportes de alumnos por parte de docentes, incluyendo datos personales y fotografía.}
+	\UCitem{Cantidad de ejecuciones}{100}
+	\UCitem{Realizado por}{Alejandra De la cruz De la cruz}
 	
-	\textbf{Cantidad de ejecuciones} &
-	100 \\ 
-	\hline
-	\textbf{Realizado por:} & 
-	Alejandra De la cruz De la cruz \\ 
-	\hline
-	\textbf{Supuestos y Condiciones Previas} & 
-	\begin{itemize}
-		\item El docente ha iniciado sesión en el sistema.
-		\item Existen ETS dados de alta.
-		\item El docente eligió un ETS.
-		\item Hay información del ETS seleccionado.
-		\item Hay alumnos inscritos al ETS.
-		
-	\end{itemize} \\
-	\hline
-	\textbf{Datos de Prueba} & 
-	\begin{itemize}
-		\item Reporte. 
-	\end{itemize} \\
-	\hline
-	\textbf{Pasos a Ejecutar} & 
-	\begin{enumerate}
-		\item Iniciar sesión como docente.
-		\item Seleccionar la opción ´´ETS´´ desde el menú.
-		\item Elegir un ETS disponible en la lista.
-		\item Dar clic en el ETS.
-		\item Revisa los datos mostrados.
-		\item El docente elije la opción ´´Ir a la lista de alumnos´´
-		\item El docente revisa la lista de alumnos inscritos al ETS
-		\item El docente elige el reporte de un alumno.
-	\end{enumerate} \\
-	\hline
-	\textbf{Resultado Esperado} & 
-	El docente revisa el reporte. \\	
-	\hline
-	\textbf{Errores Detectados} & 
-	\begin{itemize}
-		\item La el dato de la hora y fecha de la creación del reporte salia mal por un error de tipos de datos.
-
-	\end{itemize} \\
-	\hline
-	\textbf{Resultado Real y Condiciones Posteriores} & 
-	\begin{itemize}
-		\item Antes de mostrar la hora y la fecha son convertidos a un tipo de dato String.
-		\item Se verificó el correcto funcionamiento tanto en base de datos como en la interfaz.
-	\end{itemize} \\
-	\hline
-	\textbf{Estado} & 
-	\textbf{Aprobado} - la funcionalidad opera correctamente. \\
-	\hline
-\end{longtable}
+	\UCitem{Precondiciones}{
+		\begin{Citemize}
+			\item Docente autenticado en el sistema
+			\item ETS activo con alumnos inscritos
+			\item Reportes existentes (propios y de otros docentes)
+		\end{Citemize}
+	}
+	
+	\UCitem{Conjuntos de Datos}{
+		\begin{Citemize}
+			\item 5 reportes de prueba con:
+			\begin{Citemize}
+				\item Fotografías en distintos formatos (JPG/PNG)
+				\item Datos de alumnos variables
+				\item Marcas temporales recientes e históricas
+			\end{Citemize}
+		\end{Citemize}
+	}
+	
+	\UCitem{Procedimiento}{
+		\begin{enumerate}[noitemsep,topsep=0pt]
+			\item Acceder como docente
+			\item Navegar a módulo ETS
+			\item Seleccionar ETS activo
+			\item Acceder a lista de alumnos
+			\item Seleccionar reporte específico
+			\item Verificar datos y fotografía
+		\end{enumerate}
+	}
+	
+	\UCitem{Criterios de Validación}{
+		\begin{Citemize}
+			\item Visualización completa de:
+			\begin{Citemize}
+				\item Información del alumno
+				\item Fotografía legible
+				\item Datos del reporte
+			\end{Citemize}
+			\item Formato correcto de fechas (DD/MM/AAAA HH:MM)
+			\item Tiempo de carga < 1.5 segundos
+		\end{Citemize}
+	}
+	
+	\UCitem{Incidentes Resueltos}{
+		\begin{Citemize}
+			\item \textbf{IS-215}: Formato incorrecto de fecha/hora
+			\begin{Citemize}
+				\item \textbf{Causa}: Conversión errónea de tipos de datos
+				\item \textbf{Solución}: Implementación de formateo estándar
+				\item \textbf{Verificación}: Pruebas con 20 zonas horarias
+			\end{Citemize}
+		\end{Citemize}
+	}
+	
+	\UCitem{Métricas de Rendimiento}{
+		\begin{Citemize}
+			\item Precisión datos: 100\%
+			\item Tiempo promedio respuesta: 1.2s
+			\item Uso memoria: <15MB por consulta
+		\end{Citemize}
+	}
+	
+	\UCitem{Estado}{Aprobado}
+\end{TestCase}

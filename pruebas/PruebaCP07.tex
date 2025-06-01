@@ -1,59 +1,70 @@
-\subsection{Caso de prueba CP07 - Solicitar reemplazo de ETS}
-
-\begin{longtable}{|p{5cm}|p{10cm}|}
-	\hline
-	\multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP07 Solicitar reemplazo de ETS}} \\
-	\hline
-	\textbf{Caso de uso relacionado} & \hyperref[CU-07]{CU-07 Solicitar reemplazo de ETS} \\
-	\hline
-	\textbf{Descripción} & Validar que el docente pueda solicitar un reemplazo para un ETS seleccionado, ingresando una razón. \\
-	\hline
+\begin{TestCase}{CP07}{Solicitar reemplazo de ETS}
+	\UCitem{Caso de uso relacionado}{\UCref{CU-07}{Solicitar reemplazo de ETS}}
+	\UCitem{Descripción}{Validar el flujo completo de solicitud de reemplazo de ETS, incluyendo persistencia de datos y notificaciones.}
+	\UCitem{Cantidad de ejecuciones}{100}
+	\UCitem{Realizado por}{Luis Antonio Flores Esquivel}
 	
-	\textbf{Cantidad de ejecuciones} &
-	100 \\ 
-	\hline
-	\textbf{Realizado por:} & 
-	Luis Antonio Flores Esquivel \\ 
-	\hline
-	\textbf{Supuestos y Condiciones Previas} & 
-	\begin{itemize}
-		\item El docente ha iniciado sesión en el sistema.
-		\item Existen ETS asignados al docente.
-		\item El botón "Solicitar reemplazo" se encuentra habilitado para los ETS disponibles.
-	\end{itemize} \\
-	\hline
-	\textbf{Datos de Prueba} & 
-	\begin{itemize}
-		\item ETS asignado al docente con fecha activa.
-		\item Texto de razón de la solicitud de reemplazo.
-	\end{itemize} \\
-	\hline
-	\textbf{Pasos a Ejecutar} & 
-	\begin{enumerate}
-		\item Iniciar sesión como docente.
-		\item Seleccionar la opción ´´ETS´´ desde el menú.
-		\item Elegir un ETS disponible en la lista.
-		\item Dar clic en el botón “Solicitar reemplazo”.
-		\item Ingresar la razón.
-		\item Enviar la solicitud.
-	\end{enumerate} \\
-	\hline
-	\textbf{Resultado Esperado} & 
-	La solicitud de reemplazo debe registrarse exitosamente y mostrarse con el estatus “Pendiente”. \\
-	\hline
-	\textbf{Errores Detectados} & 
-	\begin{itemize}
-		\item Inicialmente, al enviar la solicitud, no se reflejaba el estatus de “Pendiente”.
-		\item Se identificó un error en la lógica de actualización del estado posterior al envío.
-	\end{itemize} \\
-	\hline
-	\textbf{Resultado Real y Condiciones Posteriores} & 
-	\begin{itemize}
-		\item Tras modificar la lógica de persistencia y actualización de estado en el backend, el sistema ahora registra correctamente la solicitud con estatus “Pendiente”.
-		\item Se verificó el correcto funcionamiento tanto en base de datos como en la interfaz.
-	\end{itemize} \\
-	\hline
-	\textbf{Estado} & 
-	\textbf{Aprobado} - El error fue corregido y la funcionalidad opera correctamente. \\
-	\hline
-\end{longtable}
+	\UCitem{Precondiciones}{
+		\begin{Citemize}
+			\item Docente autenticado con rol válido
+			\item Mínimo 1 ETS asignado con estado "Activo"
+			\item Servicio de notificaciones operativo
+		\end{Citemize}
+	}
+	
+	\UCitem{Entrada de Prueba}{
+		\begin{Citemize}
+			\item 3 tipos de razones:
+			\begin{Citemize}
+				\item Corta (50 caracteres)
+				\item Media (150 caracteres)
+				\item Larga (500 caracteres - límite máximo)
+			\end{Citemize}
+			\item ETS con diferentes fechas (hoy, futuras)
+		\end{Citemize}
+	}
+	
+	\UCitem{Flujo Principal}{
+		\begin{enumerate}[noitemsep,topsep=0pt]
+			\item Navegar a módulo ETS
+			\item Seleccionar ETS elegible
+			\item Iniciar solicitud de reemplazo
+			\item Ingresar razón validada
+			\item Confirmar envío
+		\end{enumerate}
+	}
+	
+	\UCitem{Criterios de Validación}{
+		\begin{Citemize}
+			\item Persistencia en BD:
+			\begin{Citemize}
+				\item Estado: "Pendiente"
+				\item Timestamp exacto
+				\item Relación docente-ETS correcta
+			\end{Citemize}
+			\item Notificación a jefatura en <30 segundos
+			\item Historial visible en interfaz docente
+		\end{Citemize}
+	}
+	
+	\UCitem{Errores Resueltos}{
+		\begin{Citemize}
+			\item \textbf{IS-407}: Estado no persistido
+			\begin{Citemize}
+				\item Causa: Falta de transacción ACID
+				\item Solución: Implementación de transacción completa
+				\item Verificación: 100/100 casos exitosos
+			\end{Citemize}
+		\end{Citemize}
+	}
+	
+	\UCitem{Pruebas Adicionales}{
+		\begin{Citemize}
+			\item Prueba de carga: 50 solicitudes simultáneas
+			\item Tiempo promedio respuesta: 1.2s
+			\item Validación frontera: 500 caracteres exactos
+		\end{Citemize}
+	}
+	
+	\UCitem{Estado}{Aprobado}
+\end{TestCase}

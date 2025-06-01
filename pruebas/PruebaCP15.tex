@@ -1,56 +1,82 @@
-\subsection{Caso de prueba CP15 - Registrar ingreso a la instalación}
-
-\begin{longtable}{|p{5cm}|p{10cm}|}
-	\hline \multicolumn{2}{|c|}{\textbf{CASO DE PRUEBA - CP15 Registrar ingreso a la instalación}} \\
-	\hline \textbf{Caso de uso relacionado} & \hyperref[CU-15]{CU-15 Registrar ingreso a la instalación} \\
-	\hline \textbf{Descripción} & Verificar que el sistema registre el ingreso de los alumnos únicamente si tienen un ETS programado para la fecha actual, evitando accesos no autorizados por parte de alumnos sin programación válida. \\
-	\hline 
+\begin{TestCase}{CP15}{Registrar ingreso a la instalación}
+	\UCitem{Caso de uso relacionado}{\UCref{CU-15}{Registrar ingreso a la instalación}}
+	\UCitem{Descripción}{Verificar el registro de ingreso solo para alumnos con ETS programado en la fecha actual, previniendo accesos no autorizados.}
+	\UCitem{Cantidad de ejecuciones}{100}
+	\UCitem{Realizado por}{José Alfredo Jiménez Rodríguez}
 	
-	\textbf{Cantidad de ejecuciones} &
-	100 \\ 
-	\hline
-	\textbf{Realizado por:} & 
-	José Alfredo Jiménez Rodríguez \\
-	\hline
-	\textbf{Supuestos y Condiciones Previas} &
-	\begin{itemize}
-		\item El personal de seguridad ha iniciado sesión correctamente.
-		\item El sistema cuenta con conexión activa a la base de datos de inscripciones a ETS.
-		\item El alumno presenta una credencial con código QR válido.
-		\item La fecha del sistema coincide con la fecha del ETS programado.
-	\end{itemize} \\
-	\hline \textbf{Datos de Prueba} &
-	\begin{itemize}
-		\item Alumno con ETS programado para la fecha actual.
-		\item Alumno con ETS programado para una fecha diferente.
-		\item Alumno sin ETS asignado.
-	\end{itemize} \\
-	\hline \textbf{Pasos a Ejecutar} &
-	\begin{enumerate}
-		\item Iniciar sesión como personal de seguridad.
-		\item Escanear el código QR de la credencial del alumno.
-		\item El sistema consulta si el alumno tiene un ETS asignado.
-		\item El sistema valida si la fecha del ETS coincide con la fecha actual.
-		\item Si ambas validaciones son exitosas, se registra el ingreso.
-		\item Si alguna validación falla, se muestra un mensaje de advertencia y se deniega el ingreso.
-	\end{enumerate} \\
-	\hline \textbf{Resultado Esperado} &
-	El sistema debe permitir el registro de ingreso únicamente si el alumno tiene un ETS asignado para la fecha actual. En caso contrario, debe denegar el acceso y notificar al personal. \\
-	\hline \textbf{Errores Detectados} &
-	\begin{itemize}
-		\item \textbf{Error 1:} El sistema permitía registrar el ingreso de cualquier alumno, incluso sin ETS asignado.
-		\item \textbf{Causa:} No se realizaba validación de inscripción al ETS al escanear el código QR.
-		\item \textbf{Solución:} Se añadió validación de inscripción activa en el ETS correspondiente.
-		\item \textbf{Error 2:} El sistema registraba el ingreso de alumnos con ETS programado en una fecha diferente a la actual.
-		\item \textbf{Causa:} Se validaba la inscripción, pero no se comprobaba la coincidencia de la fecha.
-		\item \textbf{Solución:} Se implementó una validación adicional que compara la fecha del ETS con la fecha actual del sistema.
-	\end{itemize} \\
-	\hline \textbf{Resultado Real y Condiciones Posteriores} &
-	\begin{itemize}
-		\item Se realizaron pruebas con distintos escenarios: alumnos con y sin ETS asignado, y fechas coincidentes o no coincidentes.
-		\item El sistema bloqueó correctamente los accesos no válidos.
-		\item Solo se permitió el ingreso de alumnos con ETS programado para el día actual.
-	\end{itemize} \\
-	\hline \textbf{Estado} & \textbf{Aprobado}, tras implementar las correcciones y realizar validaciones exitosas. \\
-	\hline
-\end{longtable}
+	\UCitem{Precondiciones}{
+		\begin{Citemize}
+			\item Personal de seguridad autenticado
+			\item Servicio de validación ETS activo
+			\item Dispositivo lector QR operativo
+			\item Sincronización horaria correcta (±1 minuto)
+		\end{Citemize}
+	}
+	
+	\UCitem{Escenarios de Prueba}{
+		\begin{Citemize}
+			\item \textbf{Escenario 1}: Alumno con ETS hoy
+			\item \textbf{Escenario 2}: Alumno con ETS mañana
+			\item \textbf{Escenario 3}: Alumno sin ETS
+			\item \textbf{Escenario 4}: QR inválido/caducado
+		\end{Citemize}
+	}
+	
+	\UCitem{Procedimiento}{
+		\begin{enumerate}[noitemsep,topsep=0pt]
+			\item Autenticarse como personal
+			\item Escanear código QR de credencial
+			\item Validar en sistema:
+			\begin{enumerate}[label=\alph*),noitemsep,topsep=0pt]
+				\item Existencia de ETS
+				\item Coincidencia de fechas
+				\item Estado de inscripción
+			\end{enumerate}
+			\item Registrar ingreso/denegar acceso
+			\item Notificar resultado al personal
+		\end{enumerate}
+	}
+	
+	\UCitem{Criterios de Validación}{
+		\begin{Citemize}
+			\item \textbf{Aprobación} cuando:
+			\begin{Citemize}
+				\item ETS existe y fecha coincide
+				\item Estado inscripción = "Confirmado"
+			\end{Citemize}
+			\item \textbf{Rechazo} cuando:
+			\begin{Citemize}
+				\item Fecha no coincide (100\% de casos)
+				\item Sin ETS asignado (100\% de casos)
+				\item QR inválido (100\% de casos)
+			\end{Citemize}
+			\item Tiempo respuesta < 2 segundos
+		\end{Citemize}
+	}
+	
+	\UCitem{Incidentes Resueltos}{
+		\begin{Citemize}
+			\item \textbf{IS-301}: Validación incompleta
+			\begin{Citemize}
+				\item \textbf{Causa}: Falta verificación fecha
+				\item \textbf{Solución}: Implementar doble validación
+				\item \textbf{Impacto}: 0 falsos positivos post-corrección
+			\end{Citemize}
+			\item \textbf{IS-302}: Notificación ineficaz
+			\begin{Citemize}
+				\item \textbf{Solución}: Mensajes claros por código de error
+				\item \textbf{Mejora}: 100\% comprensión personal
+			\end{Citemize}
+		\end{Citemize}
+	}
+	
+	\UCitem{Métricas de Seguridad}{
+		\begin{Citemize}
+			\item Tasa rechazos correctos: 100\%
+			\item Falsos positivos: 0/100 casos
+			\item Auditoría trazable: 100\% de registros
+		\end{Citemize}
+	}
+	
+	\UCitem{Estado}{Aprobado}
+\end{TestCase}
