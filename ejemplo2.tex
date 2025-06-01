@@ -4,8 +4,7 @@
 \usepackage{subcaption}
 \usepackage{cdtPruebas}
 \usepackage{amsmath}
-\usepackage{cdtUsecases}
-
+\usepackage{cdtUsecases} % Mantener si lo usas para tus casos de uso
 \usepackage{txfonts}
 \usepackage{graphicx} % Para insertar imágenes
 \usepackage{float}
@@ -14,19 +13,35 @@
 \usepackage[T1]{fontenc}      % Mejora el manejo de caracteres (como acentos)
 \usepackage{setspace}  
 \usepackage{hyperref}  
-\usepackage{caption}     % Controla el espaciado (opcional)
 \usepackage{pdfpages}
+\usepackage{pdflscape}
+\usepackage{nomencl} % Para la lista de ecuaciones/símbolos
+\usepackage[spanish]{babel} % <<<< FUNDAMENTAL para los nombres en español
 \bibliographystyle{ieeetr} % Estilo ieeetr
 
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+\addto\captionsspanish{\renewcommand{\listtablename}{Lista de tablas}}
 
+% --- Ahora carga caption y sus configuraciones ---
+\usepackage{caption}
+
+\DeclareCaptionFont{boldlabels}{\bfseries} 
+\captionsetup[figure]{labelfont=boldlabels}
+
+\captionsetup[table]{labelfont=boldlabels}
 
 \captionsetup{font=small}
 
+
+		
+\makenomenclature
+
+% --- Configuración de Hipervínculos ---
 \hypersetup{
-    colorlinks=true,    % Activa los enlaces coloreados
-    citecolor=blue,     % Citas en azul
-    linkcolor=blue,     % Enlaces internos (índices, TOC) en azul
-    urlcolor=blue       % URLs en azul
+	colorlinks=true,
+	citecolor=blue,
+	linkcolor=blue,
+	urlcolor=blue
 }
 
 %\title{Entregable C2-EP2\bigskip\\Nombre del Proyecto}
@@ -51,6 +66,7 @@
 \tableofcontents
 \listoffigures 
 \listoftables
+\printnomenclature
 
 % \include{projectCharter}
 

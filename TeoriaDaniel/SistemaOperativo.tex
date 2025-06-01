@@ -1,8 +1,7 @@
-% !TeX root = ../ejemplo.tex
+
 
 \section{Elección de tecnología}
 La elección de Kotlin como lenguaje principal y Android como plataforma se basa en criterios técnicos, prácticos y económicos que se alinean directamente con los requisitos del proyecto.
-
 \subsection{Kotlin}
 Kotlin es un lenguaje de alto nivel debido a su abstracción respecto al hardware y la plataforma subyacente. Esto significa que permite a los desarrolladores escribir código sin preocuparse por la gestión de memoria o las interacciones directas con el sistema operativo o el hardware, lo que mejora la productividad y la legibilidad del código, además, este es estáticamente tipado, lo que implica que los tipos de las variables se definen en tiempo de compilación, lo que permite detectar errores antes de ejecutar el programa. Este se usa principalmente en el desarrollo de aplicaciones Android, donde es el lenguaje recomendado por Google \cite{CitaD14}.
 
@@ -50,7 +49,7 @@ Jetpack compose es un framework (estructura o marco de trabajo que, bajo paráme
 \subsection*{Arquitectura Jetpack}
 La arquitectura o estructura sobre la que se basa Jetpack Compose es una estructura Jetpack que se encarga principalmente de seguir ejecutando y beneficiándose de aquellos componentes de Android según la funcionalidad disponible. Por lo tanto, Jetpack Compose desarrolla herramientas denominadas «composables» a partir de elementos como botones o listados de objetos. A partir de fuentes de datos, pueden ser reutilizadas y ejecutadas en distintas fuentes sin la necesidad de programar varios códigos repetitivos.
 
-Desde un aspecto comparativo, la creación de UI con Compose se realiza de forma similar a los de React Native. Es decir, mediante componentes reutilizables evitan maximizar la cantidad de códigos necesarios y repetitivos, tal como ocurre con HTML en la forma en la que se conjugan uno con otro. Sin embargo, es importante destacar que dicha compilación de componentes que logran la disminución en cantidad de códigos se realiza gracias a los plugins de compiladores de Kotlin, ejecutando así los componentes mediante la estructura de archivos de Kotlin \cite{CitaA19}. 
+Desde un aspecto comparativo, la creación de UI con Compose se realiza de forma similar a los de React Native. Es decir, mediante componentes reutilizables evitan maximizar la cantidad de códigos necesarios y repetitivos, tal como ocurre con HTML en la forma en la que se conjugan uno con otro. Sin embargo, es importante destacar que dicha compilación de componentes que logran la disminución en cantidad de códigos se realiza gracias a los plugins de compiladores de Kotlin, ejecutando así los componentes mediante la estructura de archivos de Kotlin \cite{CitaD19}. 
 
 \subsection*{Estructura de Jetpack Compose}
 Para entender de forma más sencilla la estructura de esta herramienta, conviene tener en cuenta componentes como:
@@ -67,7 +66,7 @@ Para entender de forma más sencilla la estructura de esta herramienta, conviene
 	\item\relax
 	\small
 	
-	Gradle es el sistema de automatización de compilación utilizado por Android Studio, y fue esencial para el desarrollo del presente proyecto, permitiendo una integración fluida entre los módulos móviles y el backend. Esta herramienta de código abierto destaca por su rendimiento y flexibilidad, utilizando Kotlin DSL (Domain Specific Language) para definir scripts de compilación \cite{CitaD20}. 
+	Citando a \cite{CitaD20}, Gradle es el sistema de automatización de compilación utilizado por Android Studio, y fue esencial para el desarrollo del presente proyecto, permitiendo una integración fluida entre los módulos móviles y el backend. Esta herramienta de código abierto destaca por su rendimiento y flexibilidad, utilizando Kotlin DSL (Domain Specific Language) para definir scripts de compilación. 
 	
 	Gradle facilita la gestión eficiente de dependencias externas como Jetpack Compose, Retrofit y OpenCV, utilizadas en el desarrollo de la aplicación. Además, su capacidad para realizar compilaciones optimizadas en paralelo y reutilizar salidas anteriores permite reducir considerablemente los tiempos de construcción. También permite configurar distintos entornos de ejecución (debug y release), lo que fue útil para probar características específicas antes de su despliegue oficial. 
 	
@@ -82,11 +81,11 @@ Para entender de forma más sencilla la estructura de esta herramienta, conviene
 	\item\relax
 	\small
 	
-	Durante el desarrollo del proyecto, se utilizó Git como sistema de control de versiones y GitHub como plataforma de colaboración y almacenamiento en la nube. Git, diseñado por Linus Torvalds, permite llevar un control detallado del historial de cambios en el código, lo cual es esencial en proyectos donde trabajan varios desarrolladores de forma simultánea \cite{CitaD20}.
+	Citando a \cite{CitaD20}, durante el desarrollo del proyecto, se utilizó Git como sistema de control de versiones y GitHub como plataforma de colaboración y almacenamiento en la nube. Git, diseñado por Linus Torvalds, permite llevar un control detallado del historial de cambios en el código, lo cual es esencial en proyectos donde trabajan varios desarrolladores de forma simultánea .
 	
 	Cada miembro del equipo pudo trabajar en ramas independientes, realizar modificaciones, proponer mejoras y fusionar los cambios mediante revisiones de código, garantizando la integridad del repositorio principal. Esta metodología permitió detectar errores, revertir versiones cuando fue necesario, y mantener una trazabilidad clara del desarrollo de cada módulo.
 	
-	GitHub, además de servir como repositorio central, funcionó como herramienta de comunicación y documentación del avance del proyecto. Las funcionalidades de issues, pull requests y proyectos ayudaron a distribuir tareas, dar seguimiento a problemas y mantener una organización clara durante todo el ciclo de desarrollo \cite{CitaD21}.
+	Citando a \cite{CitaD21}, GitHub, además de servir como repositorio central, funcionó como herramienta de comunicación y documentación del avance del proyecto. Las funcionalidades de issues, pull requests y proyectos ayudaron a distribuir tareas, dar seguimiento a problemas y mantener una organización clara durante todo el ciclo de desarrollo.
 	
 \end{list}
 

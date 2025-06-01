@@ -1,6 +1,6 @@
 \section{Pruebas al modelo de reconocimiento facial}
 
-Debido a la naturaleza del proyecto, el uso de un modelo de detección de rostros y generación de embeddings pre-entrenado fue necesario, por lo tanto, se hizo uso de la biblioteca DeepFace la cual contiene una colección de modelos pre-entrenados tanto para la detección de rostros como para la generación de embeddings faciales.\\
+Debido a la naturaleza del proyecto, el uso de un modelo de detección de rostros y generación de embeddings pre-entrenado fue necesario, por lo tanto, se hizo uso de la biblioteca DeepFace la cual contiene una colección de modelos pre-entrenados tanto para la detección de rostros como para la generación de embeddings faciales.
 
 Es por esta razón que, antes de integrar dicha funcionalidad a nuestro sistema fue necesario realizar pruebas sobre las alternativas de modelos de código abierto disponibles dentro de este paquete y, al mismo tiempo, experimentar el cómo diferentes configuraciones del proceso de reconocimiento facial, incluyendo el modelo de embeddings, el detector de rostros, la métrica de distancia usada para determinar la similitud y la alineación de las imágenes, influyen en la precisión del sistema.
 
@@ -11,22 +11,22 @@ Para llevar a cabo las pruebas, se definieron las siguientes reglas de configura
 
 
 \begin{itemize}
-	\item \textbf{Alineación de Rostros (\texttt{align}):} Se evaluaron dos escenarios:
+	\item \textbf{Alineación de Rostros (\texttt{align}),} se evaluaron dos escenarios:
 	\begin{itemize}
 		\item \texttt{True}: Las imágenes fueron alineadas antes de la extracción de características, lo que implica un preprocesamiento para normalizar la pose y el tamaño del rostro.
 		\item \texttt{False}: Las imágenes no fueron alineadas, procesando los rostros tal como se detectaron.
 	\end{itemize}
-	\item \textbf{Modelos de Incrustación (\texttt{models}):} Se utilizaron dos modelos de redes neuronales pre-entrenadas para generar las incrustaciones (embeddings) de los rostros:
+	\item \textbf{Modelos de Incrustación (\texttt{models}),} se utilizaron dos modelos de redes neuronales pre-entrenadas para generar las incrustaciones (embeddings) de los rostros:
 	\begin{itemize}
 		\item \texttt{ArcFace}: Un modelo conocido por su alta discriminación en tareas de reconocimiento facial.
 		\item \texttt{Facenet512}: Otra arquitectura popular para la generación de incrustaciones faciales.
 	\end{itemize}
-	\item \textbf{Detectores de Rostros (\texttt{detectors}):} Se emplearon dos algoritmos para la detección de rostros en las imágenes:
+	\item \textbf{Detectores de Rostros (\texttt{detectors}),} se emplearon dos algoritmos para la detección de rostros en las imágenes:
 	\begin{itemize}
 		\item \texttt{ssd} (Single Shot Detector): Un detector rápido y eficiente.
 		\item \texttt{fastmtcnn} (Fast Multi-task Cascaded Convolutional Networks): Una versión optimizada de MTCNN, conocido por su precisión en la detección de puntos de referencia faciales.
 	\end{itemize}
-	\item \textbf{Métricas de Distancia (\texttt{distance\_metrics}):} Para comparar las incrustaciones de los rostros y determinar si pertenecen a la misma persona, se utilizaron dos métricas de distancia:
+	\item \textbf{Métricas de Distancia (\texttt{distance\_metrics}),} para comparar las incrustaciones de los rostros y determinar si pertenecen a la misma persona, se utilizaron dos métricas de distancia:
 	\begin{itemize}
 		\item \texttt{euclidean\_l2}: La distancia euclidiana L2 normalizada.
 		\item \texttt{cosine}: La similitud del coseno.
@@ -58,7 +58,7 @@ Para determinar la precisión de cada configuración, se implementó un procedim
 \end{enumerate}
 Los resultados de precisión para cada combinación de modelo, detector y métrica de distancia, tanto con alineación como sin ella, se tabularon en tablas pivotantes y se guardaron en archivos CSV \\ (ej. \texttt{results/pivot\_euclidean\_l2\_with\_alignment\_True.csv}).
 
-\subsection{Curvas ROC y Análisis Visual}
+\subsection{Curvas ROC (Curvas de Característica Operativa del Receptor) y análisis visual}
 
 Adicionalmente, para proporcionar una comprensión más profunda del rendimiento de cada configuración, se generaron Curvas de Característica Operativa del Receptor (ROC). Estas curvas visualizan la relación entre la Tasa de Verdaderos Positivos (TPR) y la Tasa de Falsos Positivos (FPR) en diferentes umbrales de clasificación. Para generar estas curvas:
 

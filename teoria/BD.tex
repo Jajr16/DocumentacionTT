@@ -1,4 +1,4 @@
-% !TeX root = ../ejemplo.tex
+
 
 \section{Bases de datos (BD)}
 Para que todo sistema pueda funcionar, debe de tener una forma de almacenar toda su información, ya sea información de los usuarios o para almacenar imágenes, cualquier tipo de información que se requiera almacenar, es necesario usar una base de datos. Pero en sí, ¿qué es una base de datos?.
@@ -29,22 +29,22 @@ Este tipo de bases de datos no siguen el esquema de filas y columnas como las ba
 
 \subsection{Bases de datos vectoriales}
 
-Dado la reciente popularidad de los sistemas potenciados por inteligencia artificial cuyas aplicaciones van desde el procesamiento inteligente de los textos, la detección de anomalías o, para fines de este trabajo, la identificación y verificación de las características faciales de las personas es que ha surgido la necesidad de contar con soluciones para almacenar y procesar de forma rápida grandes volúmenes de información y, aunque existen herramientas especializadas para estas tareas es importante saber distinguir la solución que mejor se adapte a las necesidades del proyecto.\\
+Dado la reciente popularidad de los sistemas potenciados por inteligencia artificial cuyas aplicaciones van desde el procesamiento inteligente de los textos, la detección de anomalías o, para fines de este trabajo, la identificación y verificación de las características faciales de las personas es que ha surgido la necesidad de contar con soluciones para almacenar y procesar de forma rápida grandes volúmenes de información y, aunque existen herramientas especializadas para estas tareas es importante saber distinguir la solución que mejor se adapte a las necesidades del proyecto.
 
-Por lo tanto, algunos proyectos trabajan con un tipo de dato conocido como \textit{embedding} que no es más que una representación numérica (vector) de objetos del mundo real como texto, audio o imágenes. Se encuentran optimizados para funcionar como entradas a modelos de aprendizaje automático, aprendizaje profundo y, especialmente, para llevar a cabo búsquedas semánticas.\\
+Por lo tanto, algunos proyectos trabajan con un tipo de dato conocido como \textit{embedding} que no es más que una representación numérica (vector) de objetos del mundo real como texto, audio o imágenes. Se encuentran optimizados para funcionar como entradas a modelos de aprendizaje automático, aprendizaje profundo y, especialmente, para llevar a cabo búsquedas semánticas.
 
-Los embeddings son representados en un espacio vectorial multidimensional en donde los objetos con características similares se encuentran más cerca entre sí. Además, otra característica distintiva de este tipo de representación es que, a diferencia de otras técnicas de aprendizaje automático, se aprende directamente de los datos mediante el uso de algoritmos de aprendizaje profundo teniendo la ventaja de prescindir de una definición explícita por parte de expertos humanos.\\
+Los embeddings son representados en un espacio vectorial multidimensional en donde los objetos con características similares se encuentran más cerca entre sí. Además, otra característica distintiva de este tipo de representación es que, a diferencia de otras técnicas de aprendizaje automático, se aprende directamente de los datos mediante el uso de algoritmos de aprendizaje profundo teniendo la ventaja de prescindir de una definición explícita por parte de expertos humanos.
 
-Con esto en mente, una base de datos vectorial es un tipo de base de datos especializada y optimizada para almacenar, indexar y recuperar datos vectoriales de alta dimensionalidad (\textit{embeddings}).  A diferencia de las bases de datos relacionales tradicionales, que se basan en tablas estructuradas y coincidencias exactas, las bases de datos vectoriales se centran en las búsquedas de similitud. Esto les permite recuperar puntos de datos que están semánticamente o contextualmente relacionados, en lugar de solo coincidencias exactas \cite{BD_Vectorial}.\\
+Con esto en mente, una base de datos vectorial es un tipo de base de datos especializada y optimizada para almacenar, indexar y recuperar datos vectoriales de alta dimensionalidad (\textit{embeddings}).  A diferencia de las bases de datos relacionales tradicionales, que se basan en tablas estructuradas y coincidencias exactas, las bases de datos vectoriales se centran en las búsquedas de similitud. Esto les permite recuperar puntos de datos que están semánticamente o contextualmente relacionados, en lugar de solo coincidencias exactas \cite{BD_Vectorial}.
 
-Debido a que este tipo de bases de datos se encuentran diseñadas para trabajar con conjuntos de datos complejos y multidimensionales, el uso de bases de datos tradicionales como las relacionales para la integración de sistemas de inteligencia artificial es difícil, por no decir imposible.\\
+Debido a que este tipo de bases de datos se encuentran diseñadas para trabajar con conjuntos de datos complejos y multidimensionales, el uso de bases de datos tradicionales como las relacionales para la integración de sistemas de inteligencia artificial es difícil, por no decir imposible.
 
 A modo de resumen, se presenta la siguiente tabla comparativa para identificar las principales diferencias entre este mecanismo de almacenamiento con respecto a las bases de datos tradicionales.
 
 
 \begin{table}[h]
 	\centering
-	\caption{Comparación entre bases de datos vectoriales y tradicionales}
+	\caption{Comparación entre bases de datos vectoriales y tradicionales.}
 	\begin{tabular}{p{4cm}p{5cm}p{5cm}}
 		\toprule
 		\textbf{Característica} & \textbf{Bases de datos vectoriales} & \textbf{Bases de datos tradicionales (Ej. Relacionales)} \\

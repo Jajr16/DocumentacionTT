@@ -1,5 +1,5 @@
 \subsection{Estructura Interna del Servidor Spring Boot}
-En la figura \ref{fig:DCG} se puede visualizar de manera general los componentes que conforman al servidor Java Spring Boot y el cómo se comunican.
+En la (figura \ref{fig:DCG}) se puede visualizar de manera general los componentes que conforman al servidor Java Spring Boot y el cómo se comunican.
 
 Como punto de partida se tiene el paquete de los controladores (`com.example.PruebaCRUD.Controllers`). Estas clases son las encargadas de manejar las solicitudes HTTP que le llegan al servidor, así como de devolver una respuesta a dicha solicitud \cite{SpringController}. En otras palabras, estas clases son las encargadas de pasar la información entre la vista y el modelo. Para este caso en particular, estas clases se comunican con las clases de servicio, las cuales se encuentran en el paquete `com.example.PruebaCRUD.Services` y hacen uso de las clases que se encuentran en el paquete `com.example.PruebaCRUD.DTO`. 
 
