@@ -8,7 +8,8 @@ Esta API fue desarrollada siguiendo una arquitectura en capas, incluyendo elemen
 
 El flujo dentro de esta API inicia con el archivo de configuración que establece algunas constantes que se utilizaran a lo largo de los distintos métodos, aquí encontramos variables de configuración general como el Host y el puerto del servidor, otros para inicializar los clientes de dependencias externas como Pinecone y finalmente variables para configurar el sistema de reconocimiento facial.
 
-Una vez que se inicializaron estas constantes se procede a la capa de los controladores o rutas en este caso, la cual permite manejar las solicitudes HTTP de clientes como la aplicación móvil o el backend de la simulación del SAES-DAE. Una vez que se procesa la solicitud se manda a llamar al servicio correspondiente.
+Una vez que se inicializaron estas constantes se procede a la capa de los controladores o rutas en este caso, la cual permite manejar las solicitudes HTTP de clientes como la aplicación móvil o el backend de la simulación del SAES-DAE.
+Cuando la solicitud se procesa y verifica que tenga el formato apropiado, se manda a llamar al servicio correspondiente.
 
 La siguiente capa de la aplicación es la capa de servicios que contiene la parte fuerte de la lógica de negocio, por ejemplo, el servicio para registrar un alumno usa funciones de utilidad para la generación de embeddings faciales a través de la biblioteca Deepface, comunicarse con el repositorio para registrar dicha representación en la base de datos vectorial o, de ya encontrarse registrada, simplemente actualizarla. Aquí también entran en juego los llamados Schemas, que permiten construir respuestas estructuradas a los controladores, los cuales posteriormente validaran para determinar si la respuesta que tienen que mandar hacia el cliente tiene el formato correcto/esperado por este.
 

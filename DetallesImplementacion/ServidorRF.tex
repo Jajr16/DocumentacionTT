@@ -1,0 +1,36 @@
+\section{Servidor Python Fast API}
+
+La API de reconocimiento facial es una aplicación REST diseñada para registrar y verificar estudiantes mediante imágenes faciales. Desarrollada con FastAPI, ofrece endpoints para procesar imágenes, extraer embeddings faciales y gestionar datos en Pinecone. Su estructura modular permite una fácil integración con clientes móviles (Kotlin) y web (Spring Boot, Django), proporcionando respuestas rápidas y consistentes.
+
+
+\subsection{Tecnologías y herramientas utilizadas}
+\begin{itemize}
+	\item \textbf{Lenguaje de programación:} Python
+	\item \textbf{Framework:} FastAPI
+	\item \textbf{Reconocimiento facial:} DeepFace (Modelo FastMtcnn para detección de rostros, FaceNet para extracción de embeddings)
+	\item \textbf{Base de datos vectorial:} Pinecone
+	\item \textbf{Entorno de desarrollo:} Visual Studio Code
+	\item \textbf{Pruebas:} Pytest
+	\item \textbt{Despliegue:} Docker, Azure
+\end{itemize}
+
+\subsection{Arquitectura en capas}
+La API sigue una arquitectura en capas para separar responsabilidades:
+
+\subsubsection*{Configuración}
+Definida en archivos de configuración, establece constantes como el host, puerto, claves de Pinecone y parámetros de DeepFace (e.g., \texttt{MODEL_NAME}).
+
+\subsubsection*{Rutas (Controladores)}
+Implementadas en \texttt{app/routes/}, manejan solicitudes HTTP (\texttt{POST /api/register_student}, \texttt{POST /api/search_verify_student}) desde clientes (Kotlin, Django) y delegan la lógica del negocio a la siguiente capa (servicios).
+
+\subsubsection*{Servicios}
+Ubicados en \texttt{app/services/}, contienen la lógica de negocio, generando embeddings con DeepFace, interactuando con el repositorio y retornando respuestas estructuradas.
+
+\subsubsection*{Repositorio}
+Definido en \texttt{app/repositories}, abstrae el acceso a Pinecone para operaciones de inserción y consulta de embeddings faciales. Contiene varios métodos según las necesidades del servicio con el que interactúa, para más detalles véase el apéndice \ref{ApendiceB}.
+
+\subsubsection*{Esquemas}
+En \texttt{app/schemas}, validan solicitudes y respuestas (e.g., \texttt{RegisterResponse}) usando Pydantic. Esta es una parte importante de la API ya que garantiza que las respuestas que reciban los clientes se encuentren en el formato correcto y por ende, puedan funcionar correctamente.
+
+\subsubsection*{Utilidades}
+Implementadas en \texttt{app/utils}, encapsulan la lógica de DeepFace para detección, alineación y generación de embeddings. También contiene otros archivos de utilidad que permiten leer y procesar imágenes y calcular la similitud entre embeddings faciales para determinar la identidad de los estudiantes siguiendo un valor de umbral establecido en 0.4 que surge de la experimentación realizada sobre el conjunto de datos LFW y los resultados presentados en \ref{Resultados}.
