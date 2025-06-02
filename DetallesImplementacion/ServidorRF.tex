@@ -2,7 +2,6 @@
 
 La API de reconocimiento facial es una aplicación REST diseñada para registrar y verificar estudiantes mediante imágenes faciales. Desarrollada con FastAPI, ofrece endpoints para procesar imágenes, extraer embeddings faciales y gestionar datos en Pinecone. Su estructura modular permite una fácil integración con clientes móviles (Kotlin) y web (Spring Boot, Django), proporcionando respuestas rápidas y consistentes.
 
-
 \subsection{Tecnologías y herramientas utilizadas}
 \begin{itemize}
 	\item \textbf{Lenguaje de programación:} Python
@@ -11,26 +10,52 @@ La API de reconocimiento facial es una aplicación REST diseñada para registrar
 	\item \textbf{Base de datos vectorial:} Pinecone
 	\item \textbf{Entorno de desarrollo:} Visual Studio Code
 	\item \textbf{Pruebas:} Pytest
-	\item \textbt{Despliegue:} Docker, Azure
+	\item \textbf{Despliegue:} Docker, Azure
 \end{itemize}
 
 \subsection{Arquitectura en capas}
 La API sigue una arquitectura en capas para separar responsabilidades:
 
 \subsubsection*{Configuración}
-Definida en archivos de configuración, establece constantes como el host, puerto, claves de Pinecone y parámetros de DeepFace (e.g., \texttt{MODEL_NAME}).
+Definida en archivos de configuración, establece constantes como el host, puerto, claves de Pinecone y parámetros de DeepFace (e.g., \texttt{MODEL\_NAME}).
+Estas constantes son luego utilizadas a lo largo de la aplicación y permiten una rápida configuración y la posibilidad de experimentar con otros modelos de reconocimiento facial, por ejemplo.
 
 \subsubsection*{Rutas (Controladores)}
-Implementadas en \texttt{app/routes/}, manejan solicitudes HTTP (\texttt{POST /api/register_student}, \texttt{POST /api/search_verify_student}) desde clientes (Kotlin, Django) y delegan la lógica del negocio a la siguiente capa (servicios).
+Implementadas en \texttt{app/routes/}, manejan solicitudes HTTP (\texttt{POST /api/register\_student}, \texttt{POST /api/search\_verify\_student}) desde clientes (Kotlin, Django) y delegan la lógica del negocio a la siguiente capa (servicios).
 
 \subsubsection*{Servicios}
 Ubicados en \texttt{app/services/}, contienen la lógica de negocio, generando embeddings con DeepFace, interactuando con el repositorio y retornando respuestas estructuradas.
+Para el caso del servicio asociado al endpoint de registrar un estudiante se genera el embedding del estudiante y luego se hace una consulta a la base de datos vectorial para determinar si se hará una inserción o una actualización. Por otra parte, para la verificación de alumnos primero se realizará la búsqueda del alumno por boleta y se extraerá el embedding con el que se compara el embedding de entrada, en caso de no encontrarse notificará al controlador y este a su vez al cliente.
 
 \subsubsection*{Repositorio}
 Definido en \texttt{app/repositories}, abstrae el acceso a Pinecone para operaciones de inserción y consulta de embeddings faciales. Contiene varios métodos según las necesidades del servicio con el que interactúa, para más detalles véase el apéndice \ref{ApendiceB}.
+
+\subsubsection*{Base de datos vectorial}
+La ultima capa corresponde a la capa de la base de datos, para esta aplicación se usó una base de datos vectorial debido a la naturaleza de los datos con los que se trabajaron (embeddings faciales).
+Esta decisión se debe a las facilidades de esta herramienta para realizar operaciones de búsqueda y registro sobre datos de alta dimensionalidad y la posibilidad de integrarse de forma nativa en la nube.
 
 \subsubsection*{Esquemas}
 En \texttt{app/schemas}, validan solicitudes y respuestas (e.g., \texttt{RegisterResponse}) usando Pydantic. Esta es una parte importante de la API ya que garantiza que las respuestas que reciban los clientes se encuentren en el formato correcto y por ende, puedan funcionar correctamente.
 
 \subsubsection*{Utilidades}
 Implementadas en \texttt{app/utils}, encapsulan la lógica de DeepFace para detección, alineación y generación de embeddings. También contiene otros archivos de utilidad que permiten leer y procesar imágenes y calcular la similitud entre embeddings faciales para determinar la identidad de los estudiantes siguiendo un valor de umbral establecido en 0.4 que surge de la experimentación realizada sobre el conjunto de datos LFW y los resultados presentados en \ref{Resultados}.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{images/layered_architecture.jpg}
+	\caption{Arquitectura en capas.}
+	\label{fig:arquitectura_capas}
+\end{figure}
+
+
+
+\subsection{Despliegue - Azure App Service}
+
+Al igual que el servidor principal de Java - Spring boot, la API de reconocimiento facial se encuentra desplegada en Azure a través de Azure App Services, sin embargo, a diferencia de dicho servidor, se considero un App Service Plan más robusto de cara a las operaciones intensivas involucradas en el proceso de reconocimiento facial que demandan una cantidad de recursos mayor, en este caso se optó por el plan Basic B2 que cuenta con 3.5 GB de memoria RAM y 2 vCPU, el doble con respecto al plan Basic B1 que se contrato para el servidor Java \cite{azure_calculator}.
+
+Al desplegar la API en este servicio, fue posible que clientes como la aplicación móvil o cualquiera de los dos backends, Django o Spring Boot hicieran uso de esta.
+
+
+
+
