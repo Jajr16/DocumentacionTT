@@ -1,2 +1,36 @@
 \section{Estructura Interna del Servidor Fast API}
 
+En la (figura \ref{fig:DRFG}) se puede visualizar de manera general la forma en la que se encuentra estructurada la API de Fast API que proporciona los servicios de reconocimiento facial.
+
+
+Esta API fue desarrollada siguiendo una arquitectura en capas, incluyendo elementos esenciales como los controladores, en este caso especificados como rutas de acceso, servicios que contienen la lógica del negocio, repositorios que sirven como abstracción para acceder a los datos de la base de datos vectorial, schemas que permiten validar el formato de las respuestas recibidas por el servicio y otros elementos esenciales como paquetes con funciones de utilidad y archivos de configuración.
+
+
+El flujo dentro de esta API inicia con el archivo de configuración que establece algunas constantes que se utilizaran a lo largo de los distintos métodos, aquí encontramos variables de configuración general como el Host y el puerto del servidor, otros para inicializar los clientes de dependencias externas como Pinecone y finalmente variables para configurar el sistema de reconocimiento facial.
+
+Una vez que se inicializaron estas constantes se procede a la capa de los controladores o rutas en este caso, la cual permite manejar las solicitudes HTTP de clientes como la aplicación móvil o el backend de la simulación del SAES-DAE. Una vez que se procesa la solicitud se manda a llamar al servicio correspondiente.
+
+La siguiente capa de la aplicación es la capa de servicios que contiene la parte fuerte de la lógica de negocio, por ejemplo, el servicio para registrar un alumno usa funciones de utilidad para la generación de embeddings faciales a través de la biblioteca Deepface, comunicarse con el repositorio para registrar dicha representación en la base de datos vectorial o, de ya encontrarse registrada, simplemente actualizarla. Aquí también entran en juego los llamados Schemas, que permiten construir respuestas estructuradas a los controladores, los cuales posteriormente validaran para determinar si la respuesta que tienen que mandar hacia el cliente tiene el formato correcto/esperado por este.
+
+Después, se encuentra la capa de los repositorios, en esta ocasión, dado el dominio del problema solo se cuenta con una clase llamada StudentRepository la cual contiene interfaces que permiten el acceso a la base de datos vectorial y realizar operaciones de inserción y actualización en este caso.
+
+La base de datos que se utiliza para esta aplicación es una base de datos vectorial que como ya se comentó anteriormente, permite realizar operaciones eficientes sobre el tipo de datos que se trabaja en un sistema de reconocimiento facial, es decir, esta optimizada para el uso de vectores multidimensionales.
+
+Finalmente, el proceso del sistema de reconocimiento facial se encuentra abstraído en los archivos de utilidad, específicamente en Verification, que hace uso de la biblioteca DeepFace para los primeros pasos y más determinantes de detección, alineación y representación de los rostros.
+La lógica para la verificación de rostros se encuentra implementada en este mismo archivo y sigue la lógica del cálculo de la distancia coseno y verificación con un valor de umbral preestablecido.
+
+\begin{landscape}
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=1.2\textwidth]{images/DiagramaRFG}
+		\caption{Diagrama de la Estructura General del Servidor Fast API.}
+		\label{fig:DRFG}
+	\end{center}
+\end{figure}
+
+
+\end{landscape}
+
+\newpage
+
