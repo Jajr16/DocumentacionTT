@@ -1,0 +1,86 @@
+\section{Herramientas para el desarrollo de modelos de Inteligencia Artificial (Reconocimiento facial)}
+
+El desarrollo de sistemas de reconocimiento facial se fundamenta en la
+integración de tecnologías modernas de aprendizaje profundo y servicios
+web. A continuación, se explica de forma breve algunas de las herramientas que mayor impacto tienen en el desarrollo de soluciones que integran este tipo de tecnologías de reconocimiento facial.
+
+
+\subsection{Tensorflow}
+
+TensorFlow, desarrollado por Google, es una biblioteca de código abierto que se ha consolidado como una de las herramientas más poderosas para el aprendizaje automático y profundo. Su diseño flexible permite construir y entrenar redes neuronales de diversa complejidad, desde modelos básicos hasta redes neuronales convolucionales (CNNs), ampliamente utilizadas en el procesamiento de imágenes y el reconocimiento facial \cite{TensorFlow}.
+
+\begin{figure}[htbp]
+	\begin{center}
+		\fbox{\includegraphics[width=.5\textwidth]{images/tensorflow.jpg}}
+		\caption{Logo de Tensorflow.}
+		\label{fig:Logo de Tensorflow}
+	\end{center}
+\end{figure}
+
+TensorFlow ofrece un conjunto robusto de herramientas que son esenciales para el desarrollo de sistemas de reconocimiento facial \cite{TensorFlow}:
+\begin{itemize}
+	\item \textbf{Definición de arquitecturas}: Permite construir modelos personalizados mediante la definición de capas neuronales, lo que facilita la creación de redes capaces de identificar patrones complejos en imágenes de rostros.
+	\item \textbf{Entrenamiento escalable}: Soporta el entrenamiento de modelos en grandes conjuntos de datos, aprovechando la aceleración por GPU para reducir significativamente los tiempos de procesamiento.
+	\item \textbf{Optimización de modelos}: Incluye algoritmos avanzados de optimización, como el descenso de gradiente estocástico, que ajustan los parámetros del modelo para maximizar la precisión en tareas como la clasificación y verificación facial.
+	\item \textbf{Despliegue}: Facilita la exportación de modelos entrenados en formatos compatibles con entornos de producción, como aplicaciones móviles o servidores web.
+\end{itemize}
+
+
+La capacidad de TensorFlow para manejar tareas de aprendizaje profundo a gran escala lo convierte en una herramienta fundamental para el desarrollo de modelos de reconocimiento facial. Permite experimentar con diferentes arquitecturas, optimizar hiperparámetros y garantizar que los modelos sean lo suficientemente robustos para aplicaciones en el mundo real.
+
+Algunos modelos de reconocimiento facial como FaceNet fueron desarrollados usando este framework \cite{FaceNet_Paper}.
+
+
+\subsection{DeepFace}
+DeepFace es una biblioteca de código abierto diseñada específicamente para tareas de reconocimiento facial, lo que reduce la necesidad de implementar algoritmos complejos desde cero. Al aprovechar modelos pre-entrenados y algoritmos optimizados, DeepFace permite a los desarrolladores centrarse en la integración y personalización de soluciones, en lugar de la construcción de modelos desde sus fundamentos \cite{DeepFace}.
+
+\begin{figure}[htbp]
+	\begin{center}
+		\fbox{\includegraphics[width=.3\textwidth]{images/deepface_logo.png}}
+		\caption{Logo de Deepface.}
+		\label{fig:Logo de Deepface}
+	\end{center}
+\end{figure}
+
+
+Entre las funcionalidades clave de DeepFace se encuentran \cite{DeepFace}:
+\begin{itemize}
+	\item \textbf{Detección de rostros}: Identifica y localiza rostros en imágenes, aislando las regiones relevantes para su posterior análisis.
+	\item \textbf{Alineación facial}: Normaliza la orientación y posición de los rostros detectados, minimizando la variabilidad causada por diferentes ángulos o expresiones faciales.
+	\item \textbf{Extracción de embeddings}: Genera representaciones numéricas (vectores o embeddings) que capturan las características únicas de un rostro. Estos embeddings permiten comparar rostros de manera eficiente, ya que rostros similares generan vectores cercanos en un espacio de alta dimensionalidad, mientras que rostros diferentes producen vectores distantes.
+	\item \textbf{Verificación facial}: Compara dos embeddings para determinar si corresponden a la misma persona, una tarea esencial en aplicaciones de autenticación.
+	\item \textbf{Identificación facial}: Busca coincidencias de un rostro en una base de datos de rostros conocidos, permitiendo identificar a una persona en contextos como seguridad o control de acceso.
+\end{itemize}
+
+
+La integración de DeepFace en proyectos de reconocimiento facial agiliza el desarrollo al proporcionar herramientas preconfiguradas que encapsulan algoritmos complejos. Esto permite a los desarrolladores implementar soluciones robustas sin necesidad de un conocimiento exhaustivo de las arquitecturas subyacentes, haciendo que el reconocimiento facial sea más accesible y eficiente \cite{DeepFace}.
+
+En pocas palabras, la importancia de DeepFace es que cuenta con herramientas fuertemente documentadas y probadas para llevar a cabo cada una de las etapas de un sistema de reconocimiento facial pero además, tiene una comunidad bastante activa y se encuentra en constante evolución \cite{DeepFace}
+
+
+\subsection{FastAPI}
+
+Para que los modelos de reconocimiento facial sean accesibles en aplicaciones prácticas, es necesario exponer sus funcionalidades a través de interfaces de programación de aplicaciones (APIs). FastAPI, un framework web moderno basado en Python, se destaca por su alto rendimiento y facilidad de uso, siendo ideal para conectar modelos de aprendizaje profundo con aplicaciones externas \cite{FastAPI}.
+
+\begin{figure}[htbp]
+	\begin{center}
+		\fbox{\includegraphics[width=.5\textwidth]{images/fastAPI.png}}
+		\caption{Logo de FastAPI.}
+		\label{fig:Logo de FastAPI}
+	\end{center}
+\end{figure}
+
+
+FastAPI ofrece varias ventajas que lo hacen adecuado para este propósito \cite{FastAPI}:
+\begin{itemize}
+	\item \textbf{Alto rendimiento}: Construido sobre Starlette y Pydantic, FastAPI es uno de los frameworks más rápidos de Python, lo que permite manejar solicitudes intensivas de aplicaciones de inteligencia artificial.
+	\item \textbf{Documentación automática}: Genera documentación interactiva (Swagger UI y ReDoc) que facilita la prueba y adopción de la API por parte de otros desarrolladores.
+	\item \textbf{Validación de datos}: Utiliza Pydantic para garantizar que las entradas y salidas de la API cumplan con los formatos esperados, reduciendo errores y mejorando la robustez.
+	\item \textbf{Soporte asíncrono}: Permite manejar múltiples solicitudes simultáneamente sin bloquear el servidor, lo que es crucial para servicios de IA con tiempos de respuesta variables.
+\end{itemize}
+
+
+En el contexto del reconocimiento facial, FastAPI permite exponer funcionalidades como la detección de rostros, la extracción de embeddings y la verificación facial como servicios web. Esto significa que aplicaciones móviles, de escritorio o web pueden enviar imágenes al servidor y recibir respuestas estructuradas, como la identidad de una persona o la confirmación de una verificación facial. FastAPI actúa como el puente que conecta los modelos de aprendizaje profundo con los usuarios finales, permitiendo la creación de sistemas integrales y escalables \cite{FastAPI}.
+
+
+Finalmente, al ser un framework de python, facilita la integración con otras herramientas fundamentales en el campo del reconocimiento facial como las discutidas con anterioridad \cite{FastAPI}.
