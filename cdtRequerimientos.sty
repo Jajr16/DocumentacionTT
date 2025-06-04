@@ -24,9 +24,9 @@
 % Documentación de problemas
 % Usar:
 % \begin{problemas}[color]
-%    \problema{id}{Nombre}{Descripción}{Prioridad}
-%    ...
-% \end{problemas}
+	%    \problema{id}{Nombre}{Descripción}{Prioridad}
+	%    ...
+	% \end{problemas}
 \newenvironment{problemas}[1][tblProbColor]
 {%
 	\arrayrulecolor{#1}%
@@ -35,7 +35,7 @@
 		\rowcolor{#1}%
 		\problema{\color{white}\bf Id}{\color{white}\bf Nombre}{\color{white}\bf Descripción}{\color{white}\bf Pri.}\endhead%
 		\arrayrulecolor{#1}%
-}{%
+	}{%
 	\end{longtable} %
 	\arrayrulecolor{black} %
 }
@@ -48,17 +48,17 @@
 %
 % \problema{1}
 %          {Error Humano}{
-%           La captura en hojas de Excel provoca que errores de dedo afecten los resultados.
-%          }{M}
+	%           La captura en hojas de Excel provoca que errores de dedo afecten los resultados.
+	%          }{M}
 \newcommand{\problema}[4]{ {#1} & {#2} & {#3} & {#4} \\ \hline}
 
 %-----------------------------------------------------
 % Documentación de mensajes
 % Usar:
 % \begin{mensajes}[color]
-%    \mensaje{id}{Nombre}{Descripción}
-%    ...
-% \end{mensajes}
+	%    \mensaje{id}{Nombre}{Descripción}
+	%    ...
+	% \end{mensajes}
 \newcommand{\mensaje}[3]{ {#1} & {#2} & {#3} \\ \hline}
 
 \newenvironment{mensajes}[1][tblProbColor]
@@ -69,7 +69,7 @@
 		\rowcolor{#1}%
 		\mensaje{\color{white}\bf Id}{\color{white}\bf Nombre}{\color{white}\bf Descripción}\endhead%
 		\arrayrulecolor{#1}%
-}{%
+	}{%
 	\end{longtable} %
 	\arrayrulecolor{black} %
 }
@@ -78,9 +78,9 @@
 % Documentación de requerimientos
 % Usar:
 % \begin{requerimientos}[color]
-%    \FRitem{id}{Nombre}{Descripción}{prioridad}{referencia}
-%    ...
-% \end{requerimientos}
+	%    \FRitem{id}{Nombre}{Descripción}{prioridad}{referencia}
+	%    ...
+	% \end{requerimientos}
 \newcommand{\FRitem}[4]{\par{#1} & {#2} & {#3} & {#4} \\ \hline}%& {#4} \\ \hline}
 
 \newenvironment{requerimientos}[1][tblReqColor]
@@ -95,7 +95,7 @@
 		\rowcolor{#1}%
 		\FRitem{\color{white}Id}{\color{white} Nombre}{\color{white} Descripción}{\color{white} Prio.}{\color{white} Ref.}\endhead%
 		\arrayrulecolor{tblReqColor}%
-}{%
+	}{%
 	\end{longtable} %
 	\arrayrulecolor{black} %
 }
@@ -105,9 +105,9 @@
 % Documentación de requerimientos del Usuario
 % Usar:
 % \begin{requerimientosU}[color]
-%    \FRitem{id}{Nombre}{Descripción}{Iteración}{Status}
-%    ...
-% \end{requerimientosU}
+	%    \FRitem{id}{Nombre}{Descripción}{Iteración}{Status}
+	%    ...
+	% \end{requerimientosU}
 \newenvironment{requerimientosU}[1][tblReqColor]
 {%
 	\arrayrulecolor{tblReqColor}%
@@ -120,7 +120,7 @@
 		\rowcolor{#1}%
 		\FRitem{\color{white}Id}{\color{white}Nombre}{\color{white}Descripción}{\color{white}Prioridad.}\endhead%
 		\arrayrulecolor{tblReqColor}%
-}{%
+	}{%
 	\end{longtable} %
 	\arrayrulecolor{black} %
 }
@@ -135,9 +135,9 @@
 % Documentación de requerimientos no funcionales
 % Usar:
 % \begin{NFrequerimientos}[color]
-%    \NFRitem{id}{Atributo}{Necesidad}{Estrategia}{Compromiso}
-%    ...
-% \end{NFrequerimientos}
+	%    \NFRitem{id}{Atributo}{Necesidad}{Estrategia}{Compromiso}
+	%    ...
+	% \end{NFrequerimientos}
 \newcommand{\NFRitem}[5]{\multirow{2}{}{#1} & \multirow{2}{}{#2} & {$\mathfrak{Necesidad}$}{}-{#3} &\multirow{2}{}{#5} \\ & & {$\mathfrak{Estrategia}$}{}-{#4} & \\ \hline}
 
 \newenvironment{NFRequerimientos}[1][tblReqColor]
@@ -152,7 +152,7 @@
 		\rowcolor{#1}%
 		{\color{white} Id} & {\color{white} Atributo}&{\color{white} Necesidad/Estrategia}&{\color{white} Req.}\endhead%
 		\arrayrulecolor{#1}%
-}{%
+	}{%
 	\end{longtable} %
 	\arrayrulecolor{black} %
 }
@@ -161,10 +161,10 @@
 % Documentación de usuarios
 % Usar:
 % \begin{Usuario}[icono]{Nombre}
-% 	\Uitem[Descripción:]
-%	\Uitem[Funciones:]
-% 	\Uitem[Responsabilidades:]
-% \end{Usuario}
+	% 	\Uitem[Descripción:]
+	%	\Uitem[Funciones:]
+	% 	\Uitem[Responsabilidades:]
+	% \end{Usuario}
 \newcommand{\Uitem}[1][]{\item[#1]}
 
 \newenvironment{Usuario}[3][actorRule]
@@ -173,6 +173,6 @@
 	\vspace{-20pt}\noindent{\includegraphics[width=\textwidth]{theme/uc/#1}}%
 	{#3}%
 	\begin{description}%
-}{%
+	}{%
 	\end{description}%
 }

@@ -57,7 +57,7 @@
 % use \title{titulo del documento}
 \renewcommand{\title}[1]{%	
 	\varTitle{{\Huge\color{titleColor}#1}%
-	\\{\LARGE \color{subTitleColor}\varSubTitle}~{}\bigskip\\\color{authorColor}\rule{\textwidth}{1mm}}%
+		\\{\LARGE \color{subTitleColor}\varSubTitle}~{}\bigskip\\\color{authorColor}\rule{\textwidth}{1mm}}%
 }
 
 \newcommand{\varOrganization}{Escuela Superior de Cómputo, IPN}
@@ -86,7 +86,7 @@
 
 \let\LaTeX@startsection\@startsection
 \renewcommand{\@startsection}[6]{\LaTeX@startsection%
-{#1}{#2}{#3}{#4}{#5}{\color{sectionColor}\raggedright #6}} 
+	{#1}{#2}{#3}{#4}{#5}{\color{sectionColor}\raggedright #6}} 
 
 %%=====================================================
 %% Estilo para Parte
@@ -111,8 +111,8 @@
 %-----------------------------------------------------
 % use dentro de una celda de una tabla:
 % \begin{Titemize}
-%	\Titem Bla bla bla
-% \end{Titemize}
+	%	\Titem Bla bla bla
+	% \end{Titemize}
 \newenvironment{Titemize}{\vspace{-.8em}}{\vspace{0em}}
 
 \newcommand{\Titem}[1][\textbullet]{%

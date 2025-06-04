@@ -2,10 +2,10 @@
 
 \usepackage{booktabs}
 \usepackage{subcaption}
-\usepackage{cdtPruebas}
 \usepackage{underscore}
 \usepackage{amsmath}
 \usepackage{cdtUsecases} % Mantener si lo usas para tus casos de uso
+\usepackage{cdtPruebas}
 \usepackage{txfonts}
 \usepackage{graphicx} % Para insertar imágenes
 \usepackage{float}
@@ -15,6 +15,7 @@
 \usepackage{setspace}  
 \usepackage{hyperref}  
 \usepackage{pdfpages}
+\usepackage{xcolor}
 \usepackage{pdflscape}
 \usepackage{nomencl} % Para la lista de ecuaciones/símbolos
 \usepackage[spanish]{babel} % <<<< FUNDAMENTAL para los nombres en español
@@ -60,7 +61,7 @@
 %\maketitle
 %\thispagestyle{empty}
 
-%\includepdf[pages=-]{Caratula.pdf}
+\includepdf[pages=-]{Caratula.pdf}
 
 
 \frontmatter
@@ -81,7 +82,7 @@
 
 \include{Introduccion}
 
-% \include{Estado}
+\include{Estado}
 
 \include{MarcoTeorico}
 
